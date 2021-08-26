@@ -52,6 +52,48 @@
         }
       }
     },
+    "frontend-components": {
+      "root": "libs/frontend-components",
+      "sourceRoot": "libs/frontend-components/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/frontend-components",
+            "tsConfig": "libs/frontend-components/tsconfig.lib.json",
+            "project": "libs/frontend-components/package.json",
+            "entryFile": "libs/frontend-components/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/frontend-components/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend-components/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend-components"],
+          "options": {
+            "jestConfig": "libs/frontend-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend-e2e": {
       "root": "apps/frontend-e2e",
       "sourceRoot": "apps/frontend-e2e/src",

@@ -30,6 +30,9 @@
     "frontend": {
       "tags": []
     },
+    "frontend-components": {
+      "tags": []
+    },
     "frontend-e2e": {
       "tags": [],
       "implicitDependencies": ["frontend"]
