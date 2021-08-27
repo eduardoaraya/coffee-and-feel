@@ -1,6 +1,6 @@
 import React from 'react';
 import { StoryContext } from '@storybook/react';
-import { ThemeProvider } from '../libs/frontend-components/src/lib/ThemeProvider/ThemeProvider';
+import ThemeProvider from '../src/lib/ThemeProvider/ThemeProvider';
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   viewport: {
