@@ -56,11 +56,16 @@
     "url-loader": "^3.0.0"
   },
   "dependencies": {
+    "@material-ui/core": "^5.0.0-beta.5",
+    "@material-ui/icons": "^5.0.0-beta.5",
+    "@material-ui/lab": "^5.0.0-alpha.44",
+    "@material-ui/system": "^5.0.0-beta.5",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@nrwl/next": "12.8.0",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.21",
     "next": "11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",

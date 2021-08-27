@@ -1,1 +1,1 @@
-export * from './lib/FrontendComponents';
+export * from './lib/ThemeProvider/ThemeProvider';
