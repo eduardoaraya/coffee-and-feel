@@ -21,4 +21,23 @@ export default {
       color: '#FFF',
     },
   },
+  headerNavigator: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    '.navigator-links, .navigator-customer': {
+      flex: 1,
+    },
+    '.navigator-links ul, .navigator-customer ul': {
+      listStyle: 'none',
+      display: 'flex',
+      flexDirection: 'row',
+    },
+    '.navigator-links ul li, .navigator-customer ul li': {
+      margin: '0 5px',
+    },
+    '.navigator-customer': {
+      maxWidth: '300px',
+    },
+  },
 } as HeaderStyle;
