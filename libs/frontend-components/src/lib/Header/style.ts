@@ -7,14 +7,18 @@ type HeaderStyle = {
 
 export default {
   header: {
-    w: '100%',
-    h: '77px',
+    width: '100%',
+    height: '50px',
     background: '#FFF',
     position: 'fixed',
     '.header-banner-top': {
-      w: '100%',
-      h: '40px',
+      width: '100%',
+      height: '40px',
       background: (theme) => theme.palette.primary.main,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      color: '#FFF',
     },
   },
 } as HeaderStyle;
