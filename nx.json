@@ -33,6 +33,12 @@
     ]
   },
   "projects": {
+    "admin": {
+      "tags": []
+    },
+    "admin-components": {
+      "tags": []
+    },
     "backend": {
       "tags": []
     },
