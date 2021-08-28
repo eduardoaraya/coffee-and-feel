@@ -1,8 +1,17 @@
-import { ReactComponent as Logo } from './logo.svg';
-import star from './star.svg';
+import React from "react";
+import { Box, ThemeProvider, CssBaseline } from "@material-ui/core";
+import Router from "./routes";
+import theme from "./theme";
 
-export function App() {
-  return <h1>Welcome to admin!</h1>;
+function App() {
+  return (
+    <Box>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router />
+      </ThemeProvider>
+    </Box>
+  );
 }
 
 export default App;
