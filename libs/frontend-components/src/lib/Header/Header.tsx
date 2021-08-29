@@ -40,7 +40,7 @@ const menuItems: MenuItemType[] = [
 ];
 
 export const Header: React.FC = (props: HeaderProps): JSX.Element => {
-  const [modalOpen, setModalOpen] = useState<bool>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const handleModalTarget = () => {
     setModalOpen(!modalOpen);

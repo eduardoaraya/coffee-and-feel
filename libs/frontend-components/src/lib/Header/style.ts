@@ -240,7 +240,7 @@ export default {
   },
 
   drawer: {
-    display: { xs: 'block', sm: 'none' },
+    display: { xs: 'block', lg: 'none' },
     '& .MuiDrawer-paper': {
       boxSizing: 'border-box',
       width: '300px',
