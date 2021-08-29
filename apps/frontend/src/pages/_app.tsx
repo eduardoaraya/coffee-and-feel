@@ -1,6 +1,5 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './default.css';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import createEmotionCache from '@emotion/cache';
 import { ThemeProvider } from '@atlascode/coffee-front-components';
