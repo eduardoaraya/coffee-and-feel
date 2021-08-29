@@ -1,73 +1,151 @@
-import { Box, Container, Badge } from '@material-ui/core';
+import {
+  Box,
+  Container,
+  Badge,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from '@material-ui/core';
 import Link from 'next/link';
 import style from './style';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { useState } from 'react';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
 
-export const Header: React.FC = (props: HeaderProps): JSX.Element => (
-  <Box component="header" sx={style.header}>
-    <Box component="div" className="header-banner-top">
-      <span>Frete grátis a cima de R$ 200,00</span>
-    </Box>
-    <Container>
-      <Box component="div" sx={style.headerNavigator}>
-        <div className="logo">
-          <Link href="/">
-            <a>
-              <img src="./logo.svg" alt="logo" />
-            </a>
-          </Link>
-        </div>
-        <Box
-          component="nav"
-          className="navigator-links"
-          sx={style.navigatorLinks}
-        >
-          <ul>
-            <li>
-              <Link href="/about-us">
-                <a>Sobre nós</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/plans">
-                <a>Clube de assinatura</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/catalog">
-                <a>Produtos</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog">
-                <a>Blog</a>
-              </Link>
-            </li>
-          </ul>
-        </Box>
-        <Box
-          component="nav"
-          className="navigator-customer"
-          sx={style.navigatorCustomer}
-        >
-          <ul>
-            <li className="points">0</li>
-            <li className="bag">
-              <Badge badgeContent={4} color="primary">
-                <img src="./icons/bag.svg" alt="bag" />
-              </Badge>
-            </li>
-            <li className="myaccount">
-              <AccountCircleIcon />
-            </li>
-          </ul>
-        </Box>
+type MenuItemType = {
+  name: string;
+  path: string;
+};
+
+const menuItems: MenuItemType[] = [
+  {
+    name: 'Sobre nós',
+    path: '/about-us',
+  },
+  {
+    name: 'Clube de assinatura',
+    path: '/plans',
+  },
+  {
+    name: 'Produtos',
+    path: '/catalog',
+  },
+  {
+    name: 'Blog',
+    path: '/blog',
+  },
+];
+
+export const Header: React.FC = (props: HeaderProps): JSX.Element => {
+  const [modalOpen, setModalOpen] = useState<bool>(false);
+
+  const handleModalTarget = () => {
+    setModalOpen(!modalOpen);
+  };
+
+  return (
+    <Box component="header" sx={style.header}>
+      <Box component="div" className="header-banner-top">
+        <span>Frete grátis acima de R$ 200,00</span>
       </Box>
-    </Container>
-  </Box>
-);
+      <Container>
+        <Box component="div" sx={style.headerNavigator}>
+          <div className="logo">
+            <Link href="/">
+              <a>
+                <img src="./logo.svg" alt="logo" />
+              </a>
+            </Link>
+          </div>
+          <Box
+            component="nav"
+            className="navigator-links"
+            sx={style.navigatorLinks}
+          >
+            <ul>
+              {menuItems.map((item: MenuItemType, i: number) => (
+                <li key={i}>
+                  <Link href={item.path}>
+                    <a>{item.name}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Box>
+          <Box
+            component="nav"
+            className="navigator-customer"
+            sx={style.navigatorCustomer}
+          >
+            <ul>
+              <li className="points">0</li>
+              <li className="bag">
+                <Badge badgeContent={4} color="primary">
+                  <img src="./icons/bag.svg" alt="bag" />
+                </Badge>
+              </li>
+              <li className="myaccount">
+                <AccountCircleIcon />
+              </li>
+              <li className="menu-mobile" onClick={handleModalTarget}>
+                <img src="./icons/menu.svg" alt="bag" />
+              </li>
+            </ul>
+          </Box>
+        </Box>
+      </Container>
+      <Drawer
+        variant="temporary"
+        open={modalOpen}
+        onClose={handleModalTarget}
+        sx={style.drawer}
+      >
+        <List>
+          {menuItems.map((item: MenuItemType, i: number) => (
+            <ListItem key={i}>
+              <Link href={item.path}>
+                <ListItemText>
+                  <a>{item.name}</a>
+                </ListItemText>
+              </Link>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+
+      {/* <Box
+      component="nav"
+      className="navigator-links-mobile"
+      sx={style.navigatorLinks}
+    >
+      <ul>
+        <li>
+          <Link href="/about-us">
+            <a>Sobre nós</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/plans">
+            <a>Clube de assinatura</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/catalog">
+            <a>Produtos</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/blog">
+            <a>Blog</a>
+          </Link>
+        </li>
+      </ul>
+    </Box> */}
+    </Box>
+  );
+};
 
 export default Header;

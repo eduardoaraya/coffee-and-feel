@@ -14,15 +14,22 @@ export default {
     height: 'auto',
     background: '#FFF',
     position: 'fixed',
-    boxShadow,
+
     '.header-banner-top': {
       width: '100%',
-      height: '40px',
       background: (theme) => theme.palette.primary.main,
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       color: '#FFF',
+      height: {
+        xs: '30px',
+        md: '40px',
+      },
+      fontSize: {
+        xs: '12px',
+        md: '16px',
+      },
     },
   },
 
@@ -30,17 +37,29 @@ export default {
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
-    padding: '16px 0px',
+    padding: {
+      md: '16px 0px',
+      xs: '3.5px 15.5px',
+    },
     boxSizing: 'border-box',
+
     '.logo': {
       paddingRight: '26.5px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+
       a: {
         lineHeight: '0',
         padding: 0,
         margin: 0,
+
+        img: {
+          width: {
+            md: '100%',
+            xs: '107px',
+          },
+        },
       },
     },
 
@@ -57,8 +76,75 @@ export default {
   navigatorLinks: {
     flex: 1,
     width: '100%',
-    display: 'flex',
     alignItems: 'center',
+    position: {
+      xs: 'relative',
+      md: 'relative',
+    },
+    display: {
+      xs: 'none',
+      md: 'flex',
+    },
+
+    '&.navigator-links-mobile': {
+      height: '100%',
+      width: '100%',
+      maxWidth: '300px',
+      zIndex: 9,
+      left: 0,
+      display: {
+        md: 'none',
+        xs: 'flex',
+      },
+      position: 'fixed',
+      background: '#FFF',
+      alignItems: 'flex-start',
+
+      ul: {
+        position: 'relative',
+        width: '100%',
+        listStyle: 'none',
+        padding: 0,
+        margin: 0,
+
+        li: {
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          height: '60px',
+          paddingLeft: '30px',
+          userSelect: 'none',
+
+          a: {
+            minWidth: '100%',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            border: 'none',
+            '&:hover': {
+              border: 'none',
+            },
+          },
+          '&:hover': {
+            border: 'none',
+            '&:before': {
+              background: (theme) => theme.palette.primary.light,
+            },
+          },
+          '&:before': {
+            content: '""',
+            position: 'absolute',
+            display: 'block',
+            width: '30px',
+            height: '60px',
+            marginRight: '0',
+            left: 0,
+            background: '#FFF',
+          },
+        },
+      },
+    },
+
     'ul li': {
       minWidth: '100px',
       a: {
@@ -69,6 +155,7 @@ export default {
         fontSize: '16px',
         padding: '5px 7.5px',
         borderBottom: (theme) => `solid 2px transparent`,
+
         '&.active, &:hover': {
           borderBottom: (theme) => `solid 2px ${theme.palette.primary.main}`,
         },
@@ -77,14 +164,20 @@ export default {
   },
 
   navigatorCustomer: {
-    maxWidth: '230px',
+    maxWidth: {
+      md: '230px',
+      xs: '100%',
+    },
     flex: 1,
 
     ul: {
       width: '100%',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-around',
+      justifyContent: {
+        md: 'space-around',
+        xs: 'flex-end',
+      },
       li: {
         display: 'flex',
         justifyContent: 'center',
@@ -94,6 +187,7 @@ export default {
         transition: '.3s',
         borderRadius: '50%',
         padding: '3px',
+
         '&:hover, &:active': {
           boxShadow,
         },
@@ -108,9 +202,33 @@ export default {
           width: '36px',
           height: '36px',
           border: (theme) => `solid 2px ${theme.palette.primary.main}`,
+          display: {
+            md: 'flex',
+            xs: 'none',
+          },
         },
+
         '&.bag': {
           boxSizing: 'border-box',
+          padding: '5px',
+        },
+
+        '&.myaccount': {
+          display: {
+            md: 'flex',
+            xs: 'none',
+          },
+        },
+
+        '&.menu-mobile': {
+          margin: '0 0  0 25px',
+          '&:hover, &:active': {
+            boxShadow: 'none',
+          },
+          display: {
+            md: 'none',
+            xs: 'flex',
+          },
         },
 
         '.MuiBadge-badge': {
@@ -118,6 +236,14 @@ export default {
           boxShadow,
         },
       },
+    },
+  },
+
+  drawer: {
+    display: { xs: 'block', sm: 'none' },
+    '& .MuiDrawer-paper': {
+      boxSizing: 'border-box',
+      width: '300px',
     },
   },
 } as HeaderStyle;
