@@ -1,5 +1,7 @@
 import { Box, Container } from '@material-ui/core';
+import Link from 'next/link';
 import style from './style';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
@@ -12,31 +14,55 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => (
     <Container>
       <Box component="div" sx={style.headerNavigator}>
         <div className="logo">
-          <img src="" alt="logo" />
+          <Link href="/">
+            <a>
+              <img src="./logo.svg" alt="logo" />
+            </a>
+          </Link>
         </div>
-        <nav className="navigator-links">
+        <Box
+          component="nav"
+          className="navigator-links"
+          sx={style.navigatorLinks}
+        >
           <ul>
             <li>
-              <a href="#sobrenos">Sobre nós</a>
+              <Link href="/about-us">
+                <a>Sobre nós</a>
+              </Link>
             </li>
             <li>
-              <a href="#assinatura">Clube de assinatura</a>
+              <Link href="/plans">
+                <a>Clube de assinatura</a>
+              </Link>
             </li>
             <li>
-              <a href="#assinatura">Produtos</a>
+              <Link href="/catalog">
+                <a>Produtos</a>
+              </Link>
             </li>
             <li>
-              <a href="#assinatura">Blog</a>
+              <Link href="/blog">
+                <a>Blog</a>
+              </Link>
             </li>
           </ul>
-        </nav>
-        <nav className="navigator-customer">
+        </Box>
+        <Box
+          component="nav"
+          className="navigator-customer"
+          sx={style.navigatorCustomer}
+        >
           <ul>
-            <li>0</li>
-            <li>Cart</li>
-            <li>Profile</li>
+            <li className="points">0</li>
+            <li className="bag">
+              <img src="./icons/bag.svg" alt="bag" />
+            </li>
+            <li className="myaccount">
+              <AccountCircleIcon />
+            </li>
           </ul>
-        </nav>
+        </Box>
       </Box>
     </Container>
   </Box>
