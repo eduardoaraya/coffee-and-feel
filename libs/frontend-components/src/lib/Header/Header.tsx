@@ -115,35 +115,6 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
           ))}
         </List>
       </Drawer>
-
-      {/* <Box
-      component="nav"
-      className="navigator-links-mobile"
-      sx={style.navigatorLinks}
-    >
-      <ul>
-        <li>
-          <Link href="/about-us">
-            <a>Sobre nós</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/plans">
-            <a>Clube de assinatura</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/catalog">
-            <a>Produtos</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/blog">
-            <a>Blog</a>
-          </Link>
-        </li>
-      </ul>
-    </Box> */}
     </Box>
   );
 };
