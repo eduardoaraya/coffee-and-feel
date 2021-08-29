@@ -1,4 +1,4 @@
-import { Box, Container } from '@material-ui/core';
+import { Box, Container, Badge } from '@material-ui/core';
 import Link from 'next/link';
 import style from './style';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -56,7 +56,9 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => (
           <ul>
             <li className="points">0</li>
             <li className="bag">
-              <img src="./icons/bag.svg" alt="bag" />
+              <Badge badgeContent={4} color="primary">
+                <img src="./icons/bag.svg" alt="bag" />
+              </Badge>
             </li>
             <li className="myaccount">
               <AccountCircleIcon />

@@ -5,13 +5,16 @@ type HeaderStyle = {
   [key: string]: SxProps<Theme>;
 };
 
+const boxShadow = (theme: Theme) =>
+  `2px 2px 10px -5px ${theme.palette.secondary.main}`;
+
 export default {
   header: {
     width: '100%',
     height: 'auto',
     background: '#FFF',
     position: 'fixed',
-    boxShadow: '0px 0px 10px -3px rgba(0, 0, 0, 0.5)',
+    boxShadow,
     '.header-banner-top': {
       width: '100%',
       height: '40px',
@@ -88,7 +91,12 @@ export default {
         alignItems: 'center',
         margin: '0 15px',
         cursor: 'pointer',
-
+        transition: '.3s',
+        borderRadius: '50%',
+        padding: '3px',
+        '&:hover, &:active': {
+          boxShadow,
+        },
         '&.myaccount svg, &.bag img': {
           width: '30px',
           height: '30px',
@@ -97,13 +105,17 @@ export default {
         '&.points': {
           fontSize: '12px',
           color: '#343434',
-          borderRadius: '50%',
           width: '36px',
           height: '36px',
           border: (theme) => `solid 2px ${theme.palette.primary.main}`,
         },
         '&.bag': {
           boxSizing: 'border-box',
+        },
+
+        '.MuiBadge-badge': {
+          top: '25px',
+          boxShadow,
         },
       },
     },
