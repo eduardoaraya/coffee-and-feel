@@ -1,14 +1,12 @@
 import { Story, Meta } from '@storybook/react';
-import { ThemeProvider, ThemeProviderProps } from './ThemeProvider';
+import { ThemeProvider } from './ThemeProvider';
 
 export default {
   component: ThemeProvider,
   title: 'ThemeProvider',
 } as Meta;
 
-const Template: Story<ThemeProviderProps> = (args) => (
-  <ThemeProvider {...args} />
-);
+const Template: Story<> = (args) => <ThemeProvider {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
