@@ -28,7 +28,7 @@ export default {
     width: '100%',
     height: '100%',
     opacity: 0,
-    backgroundColor: (theme) => theme.palette.secondary.dark,
+    backgroundColor: '#FFF',
     backgroundImage: {
       md: `url('${banner?.link.desktop}')`,
       xs: `url('${banner?.link.mobile}')`,
