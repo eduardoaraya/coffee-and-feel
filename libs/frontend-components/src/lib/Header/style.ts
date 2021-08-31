@@ -10,6 +10,7 @@ const boxShadow = (theme: Theme) =>
 
 export default {
   header: {
+    zIndex: 99,
     width: '100%',
     height: 'auto',
     background: '#FFF',
@@ -38,7 +39,7 @@ export default {
     display: 'flex',
     flexDirection: 'row',
     padding: {
-      md: '16px 0px',
+      md: '0px',
       xs: '3.5px 15.5px',
     },
     boxSizing: 'border-box',
