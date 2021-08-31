@@ -28,7 +28,8 @@ export default {
     background: (theme) =>
       banner ? `url('${banner.link}')` : theme.palette.primary.dark,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
+    backgroundPosition: 'center',
     '&.active': {
       opacity: 1,
     },
