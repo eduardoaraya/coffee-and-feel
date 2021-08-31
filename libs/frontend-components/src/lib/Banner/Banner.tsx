@@ -8,12 +8,21 @@ import { TransitionProvider } from './TransitionProvider';
 const BannersList: BannerEntityType[] = [
   {
     id: 0,
-    link: 'http://cafemarquesdacosta.com.br/wp-content/uploads/2019/01/banner-ecommerce-1024x343.jpg',
+    link: {
+      desktop:
+        'http://cafemarquesdacosta.com.br/wp-content/uploads/2019/01/banner-ecommerce-1024x343.jpg',
+      mobile: 'https://miro.medium.com/max/1280/0*lKSW0AQyeqr6MeGt.jpg',
+    },
     targetClass: 'active',
   },
   {
     id: 1,
-    link: 'https://www.inovarti.com.br/media/wysiwyg/BANNER-PRINCIPAL_DIADOCLIENTE-min_3_.png',
+    link: {
+      desktop:
+        'https://www.inovarti.com.br/media/wysiwyg/BANNER-PRINCIPAL_DIADOCLIENTE-min_3_.png',
+      mobile:
+        'https://4.bp.blogspot.com/-j08zU37hpt4/W5aaDndpsWI/AAAAAAAAFoc/tq-c11-V1sgMDyFd5cB3Z6jsO2UICZiQgCK4BGAYYCw/s1600/CL-Banner.jpg',
+    },
     targetClass: '',
   },
 ];

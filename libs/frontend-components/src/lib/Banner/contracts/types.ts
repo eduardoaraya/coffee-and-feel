@@ -1,7 +1,10 @@
 export type BannerEntityType = {
   id: number;
-  link: string;
   targetClass: 'active' | '';
+  link: {
+    desktop: string;
+    mobile: string;
+  };
 };
 
 export type BannerListType = BannerEntityType[];

@@ -12,7 +12,10 @@ export default {
   wrapper: {
     background: (theme) => theme.palette.secondary.main,
     width: '100%',
-    height: '476px',
+    height: {
+      md: '476px',
+      xs: '250px',
+    },
     position: 'relative',
     top: '112px',
   },
@@ -25,8 +28,11 @@ export default {
     width: '100%',
     height: '100%',
     opacity: 0,
-    background: (theme) =>
-      banner ? `url('${banner.link}')` : theme.palette.primary.dark,
+    backgroundColor: (theme) => theme.palette.secondary.dark,
+    backgroundImage: {
+      md: `url('${banner?.link.desktop}')`,
+      xs: `url('${banner?.link.mobile}')`,
+    },
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
     backgroundPosition: 'center',
