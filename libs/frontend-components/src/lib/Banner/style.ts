@@ -1,11 +1,11 @@
 import { SxProps } from '@material-ui/system';
 import { Theme } from '@material-ui/core';
-import { BannerType } from '@atlascode/coffee-front-components';
+import { BannerEntityType } from './contracts/types';
 
 type BannerStyle = {
   [key: string]: SxProps<Theme>;
 } & {
-  banner: (b: BannerType | null) => SxProps<Theme>;
+  banner: (b: BannerEntityType | null) => SxProps<Theme>;
 };
 
 export default {
@@ -17,7 +17,7 @@ export default {
     top: '112px',
   },
 
-  banner: (banner: BannerType | null): SxProps<Theme> => ({
+  banner: (banner) => ({
     position: 'absolute',
     transition: '1s',
     top: 0,
