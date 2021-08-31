@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { Banner } from './Banner';
-import { BannerProps } from './contracts/banner.interface';
+import { BannerProps } from './contracts/Banner.interface';
 
 export default {
   component: Banner,

@@ -17,7 +17,6 @@ export default {
       xs: '250px',
     },
     position: 'relative',
-    top: '112px',
   },
 
   banner: (banner) => ({
