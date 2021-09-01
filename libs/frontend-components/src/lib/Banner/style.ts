@@ -33,7 +33,7 @@ export default {
       xs: `url('${banner?.link.mobile}')`,
     },
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     backgroundPosition: 'center',
     '&.active': {
       opacity: 1,
