@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "coffee-and-feel"
+  }
+  "targets": {
+    "gnosis-webapp": {
+      "hosting": {
+        "micro": [
+          "gnosis-webapp"
+        ]
+      }
+    }
+  }
+}
