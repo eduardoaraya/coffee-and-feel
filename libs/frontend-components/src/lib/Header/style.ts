@@ -15,7 +15,8 @@ export default {
     height: 'auto',
     background: '#FFF',
     position: 'fixed',
-
+    top: 0,
+    left: 0,
     '.header-banner-top': {
       width: '100%',
       background: (theme) => theme.palette.primary.main,
