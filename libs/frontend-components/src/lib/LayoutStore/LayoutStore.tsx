@@ -10,6 +10,9 @@ export const LayoutStore: React.FC = ({ children }): JSX.Element => {
       sx={{
         height: '200vh',
         paddingTop: '112px',
+        main: {
+          height: '100%',
+        },
       }}
     >
       <Header />
