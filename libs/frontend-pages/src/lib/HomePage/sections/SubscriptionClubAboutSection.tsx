@@ -2,7 +2,7 @@ import { Container } from '@material-ui/core';
 import Box from '@material-ui/system/Box';
 import style from '../style';
 
-export default function SubscriptionClubAbout(): JSX.Element {
+export default function SubscriptionClubAboutSection(): JSX.Element {
   return (
     <Box component="section" sx={style.subscriptionBox}>
       <figure className="plant left">

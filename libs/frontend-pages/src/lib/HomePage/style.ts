@@ -17,7 +17,10 @@ export default {
   subscriptionBox: {
     width: '100%',
     height: 'auto',
-    padding: '153px 0px',
+    padding: {
+      md: '153px 0px',
+      xs: '55px 0px',
+    },
     minHeight: '1200px',
     position: 'relative',
     overflow: 'hidden',
@@ -52,7 +55,10 @@ export default {
     },
 
     '.section-title': {
-      fontSize: '30px',
+      fontSize: {
+        md: '30px',
+        xs: '22px',
+      },
       fontWeight: '500',
       height: '125px',
       display: 'flex',
@@ -60,7 +66,14 @@ export default {
       alignItems: 'center',
       maxWidth: '375px',
       margin: '0 auto',
-      textAlign: 'center',
+      textAlign: {
+        md: 'center',
+        xs: 'right',
+      },
+      padding: {
+        md: '10px',
+        xs: '0 55px',
+      },
       color: '#323232',
       fontFamily: 'Rufina, serif',
     },

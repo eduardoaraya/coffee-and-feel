@@ -4,7 +4,7 @@ import { Header } from '@atlascode/coffee-front-components';
 /* eslint-disable-next-line */
 export interface LayoutStoreProps {}
 
-export const LayoutStore: React.FC = ({ children }): JSX.Element => {
+export const LayoutEcommerce: React.FC = ({ children }): JSX.Element => {
   return (
     <Box
       sx={{
@@ -22,4 +22,4 @@ export const LayoutStore: React.FC = ({ children }): JSX.Element => {
   );
 };
 
-export default LayoutStore;
+export default LayoutEcommerce;
