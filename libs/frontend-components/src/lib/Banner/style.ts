@@ -10,14 +10,13 @@ type BannerStyle = {
 
 export default {
   wrapper: {
-    background: (theme) => theme.palette.secondary.main,
+    backgroundColor: 'transparent',
     width: '100%',
     height: {
       md: '476px',
       xs: '250px',
     },
     position: 'relative',
-    top: '112px',
   },
 
   banner: (banner) => ({
@@ -28,7 +27,7 @@ export default {
     width: '100%',
     height: '100%',
     opacity: 0,
-    backgroundColor: (theme) => theme.palette.secondary.dark,
+    backgroundColor: 'transparent',
     backgroundImage: {
       md: `url('${banner?.link.desktop}')`,
       xs: `url('${banner?.link.mobile}')`,

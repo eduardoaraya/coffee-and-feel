@@ -1,7 +1,7 @@
 import style from './style';
 import Box from '@material-ui/core/Box';
 import { useEffect, useState } from 'react';
-import { BannerProps } from './contracts/banner.interface';
+import { BannerProps } from './contracts/Banner.interface';
 import { BannerEntityType } from './contracts/types';
 import { TransitionProvider } from './TransitionProvider';
 
