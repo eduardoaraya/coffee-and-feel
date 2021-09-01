@@ -7,12 +7,12 @@ type HomePageStyle = {
 export default {
   homePage: {
     position: 'relative',
-    backgroundImage: 'url(./imgs/bg_default.png)',
-    backgroundRepeat: 'repeat',
     height: '100%',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
+    backgroundColor: '#f4f2e9',
+    backgroundImage: `url(/imgs/bg_default.svg)`,
   },
   subscriptionBox: {
     width: '100%',
@@ -21,7 +21,6 @@ export default {
       md: '153px 0px',
       xs: '55px 0px',
     },
-    minHeight: '1200px',
     position: 'relative',
     overflow: 'hidden',
     '.plant': {
@@ -29,20 +28,22 @@ export default {
       padding: '0',
       margin: '0',
       img: {
-        width: {
-          md: 'auto',
-          xs: '100px',
+        display: {
+          md: 'block',
+          xs: 'none',
         },
       },
       '&.left': {
-        top: '45px',
+        top: '105px',
         left: 0,
+        transform: 'rotate(-25.2deg)',
         img: {
           position: 'absolute',
-          left: '-10px',
+          left: '-32px',
         },
       },
       '&.right': {
+        top: 'calc(594px + 6px)',
         right: '0',
         img: {
           position: 'absolute',
@@ -55,27 +56,18 @@ export default {
     },
 
     '.section-title': {
-      fontSize: {
-        md: '30px',
-        xs: '22px',
-      },
-      fontWeight: '500',
       height: '125px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      maxWidth: '375px',
+      maxWidth: '475px',
       margin: '0 auto',
-      textAlign: {
-        md: 'center',
-        xs: 'right',
-      },
+      textAlign: 'center',
       padding: {
         md: '10px',
         xs: '0 55px',
       },
       color: '#323232',
-      fontFamily: 'Rufina, serif',
     },
 
     '.section-info': {
@@ -85,7 +77,7 @@ export default {
         xs: 'columnn',
       },
       flexWrap: 'wrap',
-      padding: '20px 45px',
+      padding: '45px 65px',
       justifyContent: 'center',
       '.card': {
         minWidth: '200px',
@@ -105,6 +97,7 @@ export default {
         },
         '.card-description': {
           flex: 1,
+          marginTop: '20px',
           p: {
             fontSize: {
               md: '1.5em',

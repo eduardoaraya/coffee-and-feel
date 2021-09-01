@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import Box from '@material-ui/system/Box';
 import style from '../style';
 
@@ -10,16 +10,18 @@ export default function SubscriptionClubAboutSection(): JSX.Element {
       </figure>
       <Container>
         <Box className="wrapper">
-          <h1 className="section-title">
+          <Typography className="section-title" variant="h1">
             Como funciona o nosso Clube de Assinatura?
-          </h1>
+          </Typography>
           <div className="section-info">
             <div className="card">
               <figure className="card-icon">
                 <img src="/icons/rafiki1.svg" alt="Select the best Plan" />
               </figure>
               <div className="card-description">
-                <p>Escolha o plano que mais combina com você</p>
+                <Typography>
+                  Escolha o plano que mais <br /> combina com você
+                </Typography>
               </div>
             </div>
             <div className="card">
@@ -30,7 +32,9 @@ export default function SubscriptionClubAboutSection(): JSX.Element {
                 />
               </figure>
               <div className="card-description">
-                <p>Receba todo mês cafés especiais e diversos descontos</p>
+                <Typography>
+                  Receba todo mês cafés <br /> especiais e diversos descontos
+                </Typography>
               </div>
             </div>
             <div className="card">
@@ -38,7 +42,9 @@ export default function SubscriptionClubAboutSection(): JSX.Element {
                 <img src="/icons/rafiki2.svg" alt="Earn Points" />
               </figure>
               <div className="card-description">
-                <p>Acumule pontos e troque por produtos exclusivos</p>
+                <Typography>
+                  Acumule pontos e troque <br /> por produtos exclusivos
+                </Typography>
               </div>
             </div>
           </div>
