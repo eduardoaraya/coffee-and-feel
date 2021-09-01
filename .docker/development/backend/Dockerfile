@@ -16,12 +16,12 @@ RUN mkdir app && cp -a /tmp/node_modules /app
 # Build node
 
 COPY . /app
-RUN cd /app && pnpx nx run frontend:build
+RUN cd /app && pnpx nx run backend:build
 
 
 ENV PORT=8080
 EXPOSE 8080
 
-WORKDIR /app/dist/apps/frontend
+WORKDIR /app/dist/apps/backend
 
-CMD ["npm", "start", "--", "--port", "8080"]
+CMD ["node", "main.js"]
