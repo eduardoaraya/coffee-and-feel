@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import createEmotionCache from '@emotion/cache';
 import { ThemeProvider } from '@atlascode/coffee-front-components';
+import '../../public/css/global.css';
 
 function CustomApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: 'css' });
