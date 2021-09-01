@@ -15,9 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@atlascode/coffee-admin-components": [
+        "libs/admin-components/src/index.ts"
+      ],
       "@atlascode/coffee-front-components": [
         "libs/frontend-components/src/index.ts"
-      ]
+      ],
+      "@atlascode/coffee-front-pages": ["libs/frontend-pages/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
