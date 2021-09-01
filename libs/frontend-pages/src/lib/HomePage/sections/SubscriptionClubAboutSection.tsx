@@ -19,7 +19,7 @@ export default function SubscriptionClubAboutSection(): JSX.Element {
                 <img src="/icons/rafiki1.svg" alt="Select the best Plan" />
               </figure>
               <div className="card-description">
-                <Typography>
+                <Typography variant="body1">
                   Escolha o plano que mais <br /> combina com você
                 </Typography>
               </div>
@@ -32,7 +32,7 @@ export default function SubscriptionClubAboutSection(): JSX.Element {
                 />
               </figure>
               <div className="card-description">
-                <Typography>
+                <Typography variant="body1">
                   Receba todo mês cafés <br /> especiais e diversos descontos
                 </Typography>
               </div>
@@ -42,7 +42,7 @@ export default function SubscriptionClubAboutSection(): JSX.Element {
                 <img src="/icons/rafiki2.svg" alt="Earn Points" />
               </figure>
               <div className="card-description">
-                <Typography>
+                <Typography variant="body1">
                   Acumule pontos e troque <br /> por produtos exclusivos
                 </Typography>
               </div>

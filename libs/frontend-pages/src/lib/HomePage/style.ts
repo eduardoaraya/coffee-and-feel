@@ -6,6 +6,7 @@ type HomePageStyle = {
 
 export default {
   homePage: {
+    top: '105px',
     position: 'relative',
     height: '100%',
     width: '100%',
@@ -18,8 +19,8 @@ export default {
     width: '100%',
     height: 'auto',
     padding: {
-      md: '153px 0px',
-      xs: '55px 0px',
+      md: '103px 0px',
+      xs: '25px 0px',
     },
     position: 'relative',
     overflow: 'hidden',
@@ -77,7 +78,7 @@ export default {
         xs: 'columnn',
       },
       flexWrap: 'wrap',
-      padding: '45px 65px',
+      padding: '45px 25px',
       justifyContent: 'center',
       '.card': {
         minWidth: '200px',
@@ -85,6 +86,10 @@ export default {
         margin: {
           md: '30px',
           xs: '10px',
+        },
+
+        '.card-icon': {
+          marginBottom: '20px',
         },
         display: 'flex',
         flexDirection: 'column',
@@ -99,10 +104,6 @@ export default {
           flex: 1,
           marginTop: '20px',
           p: {
-            fontSize: {
-              md: '1.5em',
-              xs: '1em',
-            },
             textAlign: 'center',
             color: '#737373',
           },

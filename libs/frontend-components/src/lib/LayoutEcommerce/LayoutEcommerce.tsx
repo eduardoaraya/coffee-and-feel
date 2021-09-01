@@ -9,7 +9,6 @@ export const LayoutEcommerce: React.FC = ({ children }): JSX.Element => {
   return (
     <Box
       sx={{
-        paddingTop: '112px',
         main: {
           height: '100%',
         },
