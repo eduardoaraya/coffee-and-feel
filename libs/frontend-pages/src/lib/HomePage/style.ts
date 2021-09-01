@@ -143,8 +143,8 @@ export default {
       height: {
         md: '970px',
       },
-      top: '-205px',
       left: 'calc(-970px/2)',
+      top: 'calc(-970px/4)',
     },
   },
 } as HomePageStyle;
