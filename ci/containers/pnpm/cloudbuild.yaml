@@ -12,4 +12,6 @@ steps:
 tags: ['runner']
 
 
+# Image already pushed - Reference this runner image with the following URL = gcr.io/$PROJECT_ID/pnpm  $PROJECT_ID=coffee-and-feel
+
 # RUN gcloud builds submit DOCKERFILE_SOURCE_PATH --config CLOUDBUILD_YAML_SOURCE_PATH --project GCLOUD_PROJECT_ID
