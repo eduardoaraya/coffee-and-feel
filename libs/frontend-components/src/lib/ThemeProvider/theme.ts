@@ -5,9 +5,31 @@ const titleStyle = (size: string): TypographyStyleOptions => ({
   fontSize: size,
   fontFamily: 'Rufina Bold, serif',
   fontStyle: 'normal',
+  color: '#323232',
 });
 
 const defaultTheme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '50px',
+          '&.MuiButton-sizeLarge': {
+            padding: '15px 35px',
+            fontSize: '15px',
+          },
+          '&.MuiButton-sizeMedium': {
+            padding: '10px 30px',
+            fontSize: '14px',
+          },
+          '&.MuiButton-sizeSmall': {
+            padding: '5px 25px',
+            fontSize: '13px',
+          },
+        },
+      },
+    },
+  },
   breakpoints: {
     values: {
       xs: 0,
@@ -27,6 +49,7 @@ const defaultTheme = createTheme({
     h6: titleStyle('12px'),
     body1: {
       fontSize: '16px',
+      color: '#757575',
     },
   },
   palette: {

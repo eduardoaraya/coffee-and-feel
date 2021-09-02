@@ -6,6 +6,7 @@ type HomePageStyle = {
 
 export default {
   homePage: {
+    overflow: 'hidden',
     top: '105px',
     position: 'relative',
     height: '100%',
@@ -15,7 +16,7 @@ export default {
     backgroundColor: '#f4f2e9',
     backgroundImage: `url(/imgs/bg_default.svg)`,
   },
-  subscriptionBox: {
+  subscriptionSection: {
     width: '100%',
     height: 'auto',
     padding: {
@@ -43,21 +44,10 @@ export default {
           left: '-32px',
         },
       },
-      '&.right': {
-        top: 'calc(594px + 6px)',
-        right: '0',
-        img: {
-          position: 'absolute',
-          right: {
-            md: '-60px',
-            xs: '-10px',
-          },
-        },
-      },
     },
 
     '.section-title': {
-      height: '125px',
+      lineHeight: '46px',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -65,7 +55,7 @@ export default {
       margin: '0 auto',
       textAlign: 'center',
       padding: {
-        md: '10px',
+        md: '45px 0px',
         xs: '0 55px',
       },
       color: '#323232',
@@ -103,12 +93,58 @@ export default {
         '.card-description': {
           flex: 1,
           marginTop: '20px',
-          p: {
+          'p.MuiTypography-root': {
             textAlign: 'center',
             color: '#737373',
+            fontSize: '20px',
           },
         },
       },
+    },
+  },
+  knowMoreSection: {
+    position: 'relative',
+    minHeight: '650px',
+    '.section-content': {
+      position: 'relative',
+      zIndex: 1,
+      padding: '75px 0px',
+      maxWidth: '550px',
+      margin: '0 auto',
+      textAlign: 'center',
+      'h1.MuiTypography-root': {
+        lineHeight: '46px',
+      },
+      'p.MuiTypography-root': {
+        marginTop: '20px',
+        lineHeight: '32px',
+        fontSize: '20px',
+      },
+      'button.MuiButton-root': {
+        marginTop: '25px',
+      },
+    },
+    '.plant.right': {
+      display: {
+        md: 'block',
+        xs: 'none',
+      },
+      position: 'absolute',
+      width: '400px',
+      height: '400px',
+      top: '-210px',
+      right: '-100px',
+    },
+    '.circlecoffee': {
+      position: 'absolute',
+      width: {
+        md: '970px',
+      },
+      height: {
+        md: '970px',
+      },
+      left: 'calc(-970px/2)',
+      top: 'calc(-970px/3.5)',
     },
   },
 } as HomePageStyle;
