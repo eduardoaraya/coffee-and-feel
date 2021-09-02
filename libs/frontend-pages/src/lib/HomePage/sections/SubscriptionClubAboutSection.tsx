@@ -11,7 +11,7 @@ export default function SubscriptionClubAboutSection(): JSX.Element {
       <Container>
         <Box className="wrapper">
           <Typography className="section-title" variant="h1">
-            Como funciona o nosso Clube de Assinatura?
+            Como funciona o nosso <br /> Clube de Assinatura?
           </Typography>
           <div className="section-info">
             <div className="card">
