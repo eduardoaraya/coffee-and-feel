@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "target": "store-prod",
+    "rewrites": [
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "front-prod"
+        }
+      }
+    ],
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
