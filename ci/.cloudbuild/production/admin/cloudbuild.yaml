@@ -10,17 +10,16 @@
     id: build
     waitFor: ['install']
     env: [CYPRESS_INSTALL_BINARY=0]
-    
 
   - name: "gcr.io/$PROJECT_ID/pnpm:latest"
     entrypoint: bash
-    args: [ "-c", "cp ci/.firebase/development/admin/firebase.json ."]
+    args: [ "-c", "cp ci/.firebase/production/admin/firebase.json ."]
     waitFor:
       - build
 
   - name: "gcr.io/$PROJECT_ID/pnpm:latest"
     entrypoint: bash
-    args: ["-c", "cp ci/.firebase/development/admin/.firebaserc ."]
+    args: ["-c", "cp ci/.firebase/production/admin/.firebaserc ."]
     waitFor:
       - build
 

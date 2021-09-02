@@ -4,6 +4,6 @@ export const firebaseConfig = {
   projectId: 'coffee-and-feel',
   storageBucket: 'coffee-and-feel.appspot.com',
   messagingSenderId: '201065708434',
-  appId: '1:201065708434:web:96877c7ebd18b0931edf4b',
-  measurementId: 'G-Y5TX7M4DPN',
+  appId: '1:201065708434:web:fd85206b4b931d121edf4b',
+  measurementId: 'G-E31YPDJL58',
 };

@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "target": "store-dev",
+    "target": "store-prod",
     "rewrites": [
       {
         "source": "**",

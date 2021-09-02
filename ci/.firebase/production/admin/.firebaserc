@@ -5,8 +5,8 @@
   "targets": {
     "coffee-and-feel": {
       "hosting": {
-        "store-dev": [
-          "coffee-and-feel-dev"
+        "admin-prod": [
+          "coffee-and-feel-admin"
         ]
       }
     }
