@@ -1,0 +1,18 @@
+steps:
+  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
+    entrypoint: bash
+    args: ["-c", "echo", "y", "|", "pnpx", "nx", "run", "admin:build"]
+
+  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
+    entrypoint: bash
+    args: [ "-c", "cp", "./ci/.firebase/development/admin/firebase.json", "."]
+
+  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
+    entrypoint: bash
+    args: ["-c", 'ls -la']
+
+  # - name: "gcr.io/$PROJECT_ID/pnpm:latest"
+  #   args: ["cp", "./ci/.firebase/development/admin/.firebaserc", "."]
+
+  # - name: "gcr.io/$PROJECT_ID/firebase"
+  #   args: ['deploy', '--project=coffee-and-feel', "--only-hosting"]
