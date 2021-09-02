@@ -9,7 +9,7 @@ RUN curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6 && pnpm con
 
 # Deps node
 
-ADD ./package.json /tmp/package.json
+ADD package.json /tmp/package.json
 RUN cd /tmp && pnpm install 
 RUN mkdir app && cp -a /tmp/node_modules /app
 

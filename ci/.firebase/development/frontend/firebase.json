@@ -5,7 +5,7 @@
       {
         "source": "**",
         "run": {
-          "serviceId": "front-prod"
+          "serviceId": "front-dev"
         }
       }
     ],
