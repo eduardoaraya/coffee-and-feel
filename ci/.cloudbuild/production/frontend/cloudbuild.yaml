@@ -2,7 +2,7 @@ steps:
   # Pull cached image from last run
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: 'bash'
-    args: ['-c', 'docker pull gcr.io/$PROJECT_ID/front-dev:latest || exit 0']
+    args: ['-c', 'docker pull gcr.io/$PROJECT_ID/front-prod:latest || exit 0']
 
   # Build image from cache
   - name: 'gcr.io/cloud-builders/docker'
@@ -10,15 +10,15 @@ steps:
       [
         'build',
         '-t',
-        'gcr.io/$PROJECT_ID/front-dev:latest',
+        'gcr.io/$PROJECT_ID/front-prod:latest',
         '--cache-from',
-        'gcr.io/$PROJECT_ID/front-dev:latest',
+        'gcr.io/$PROJECT_ID/front-prod:latest',
         '.',
       ]
 
   # Push image to Google Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/front-dev:latest']
+    args: ['push', 'gcr.io/$PROJECT_ID/front-prod:latest']
 
   # Deploy pushed image to Cloud Run using gcloud cli
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -28,7 +28,7 @@ steps:
         'deploy',
         'coffee-and-feel',
         '--image',
-        'gcr.io/$PROJECT_ID/front-dev',
+        'gcr.io/$PROJECT_ID/front-prod',
         '--region',
         'us-central1',
         '--platform',
