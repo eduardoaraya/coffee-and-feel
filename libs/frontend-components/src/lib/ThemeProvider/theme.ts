@@ -15,7 +15,7 @@ const defaultTheme = createTheme({
         root: {
           borderRadius: '50px',
           '&.MuiButton-sizeLarge': {
-            padding: '15px 35px',
+            padding: '15px 45px',
             fontSize: '15px',
           },
           '&.MuiButton-sizeMedium': {
@@ -48,7 +48,6 @@ const defaultTheme = createTheme({
     h5: titleStyle('16px'),
     h6: titleStyle('12px'),
     body1: {
-      fontSize: '16px',
       color: '#757575',
     },
   },

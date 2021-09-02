@@ -4,15 +4,14 @@ import Image from 'next/image';
 
 export default function KnowMoreSection() {
   return (
-    <Box component="h1" sx={style.knowMoreSection}>
-      <figure className="circlecoffee right">
-        <Image src="/imgs/circlecoffee.png" layout="fill" alt="Cicle coffe" />
+    <Box component="section" sx={style.knowMoreSection}>
+      <figure className="plant left">
+        <img src="/imgs/plant0.svg" alt="" />
       </figure>
       <Container>
         <div className="section-content">
           <Typography variant="h1">
-            Queremos ressignificar a prática <br />
-            diária e monótona de beber café.
+            Queremos ressignificar a prática diária e monótona de beber café.
           </Typography>
           <Typography variant="body1">
             Conectamos o produtor ao consumidor final,
@@ -24,8 +23,8 @@ export default function KnowMoreSection() {
           </Button>
         </div>
       </Container>
-      <figure className="plant right">
-        <Image src="/imgs/plant1.svg" layout="fill" alt="Plant one" />
+      <figure className="circlecoffee right">
+        <Image src="/imgs/circlecoffee.png" layout="fill" alt="Cicle coffe" />
       </figure>
     </Box>
   );
