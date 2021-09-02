@@ -84,6 +84,7 @@
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
     "rxjs": "~6.6.3",
+    "swiper": "^7.0.2",
     "swr": "^1.0.0",
     "tslib": "^2.0.0",
     "yup": "^0.32.9",
