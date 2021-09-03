@@ -1,6 +1,6 @@
 import Box from '@material-ui/core/Box';
 import { Header } from '@atlascode/coffee-front-components';
-import { rectanglePattern } from './style';
+// import { rectanglePattern } from './style';
 
 /* eslint-disable-next-line */
 export interface LayoutStoreProps {}
