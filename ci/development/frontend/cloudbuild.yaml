@@ -4,17 +4,26 @@ steps:
     entrypoint: 'bash'
     args: ['-c', 'docker pull gcr.io/$PROJECT_ID/front-dev:latest || exit 0']
 
-  # Build image from cache
+
+  # Decrypt key
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: bash
+    args: ['-c', 'gcloud kms decrypt --ciphertext-file=.env.enc --plaintext-file=.env --location=global --keyring=cloudbuild-env --key=cloudbuild-env']
+  
+ 
+  #Build image from cache
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'build',
+         '--build-arg',
+        '$$FIREBASE_TOKEN',
         '-t',
         'gcr.io/$PROJECT_ID/front-dev:latest',
         '--cache-from',
         'gcr.io/$PROJECT_ID/front-dev:latest',
         "-f",
-        "./ci/.cloudbuild/development/frontend/Dockerfile",
+        "./ci/development/frontend/Dockerfile",
         '.',
       ]
 
@@ -22,13 +31,14 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/front-dev:latest']
 
+
   # Deploy pushed image to Cloud Run using gcloud cli
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       [
         'run',
         'deploy',
-        'coffee-and-feel',
+        'store-dev',
         '--image',
         'gcr.io/$PROJECT_ID/front-dev',
         '--region',
@@ -37,22 +47,5 @@ steps:
         'managed',
         '--allow-unauthenticated',
       ]
-
-
-  # Copy firebase hosting metadata files to allow for a deploy
-  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
-    entrypoint: bash
-    args: ['-c', "cp ci/.firebase/development/frontend/firebase.json ."]
-
-  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
-    entrypoint: bash
-    args: ['-c', "cp ci/.firbase/development/frontend/.firebaserc ."]     
-
-
-
-  # Deploy to firebase using custom runner image we've previously deployed
-  - name: "gcr.io/$PROJECT_ID/firebase"
-    args: ["deploy", "--project=coffee-and-feel", "--only=hosting"]
-
-
+      
 timeout: 1800s

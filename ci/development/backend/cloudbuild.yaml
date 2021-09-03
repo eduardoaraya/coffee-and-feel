@@ -12,7 +12,9 @@ steps:
         'gcr.io/$PROJECT_ID/backend-dev:latest',
         '--cache-from',
         'gcr.io/$PROJECT_ID/backend-dev:latest',
-        '.',
+        '-f',
+        './ci/.cloudbuild/development/backend/Dockerfile',
+        '.'
       ]
   # Push image to Google Container Registry
   - name: 'gcr.io/cloud-builders/docker'
