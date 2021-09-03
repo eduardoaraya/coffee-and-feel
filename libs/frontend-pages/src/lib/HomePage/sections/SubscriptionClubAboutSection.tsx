@@ -4,14 +4,14 @@ import style from '../style';
 
 export default function SubscriptionClubAboutSection(): JSX.Element {
   return (
-    <Box component="section" sx={style.subscriptionBox}>
+    <Box component="section" sx={style.subscriptionSection}>
       <figure className="plant left">
         <img src="/imgs/plant0.svg" alt="" />
       </figure>
       <Container>
         <Box className="wrapper">
           <Typography className="section-title" variant="h1">
-            Como funciona o nosso Clube de Assinatura?
+            Como funciona o nosso <br /> Clube de Assinatura?
           </Typography>
           <div className="section-info">
             <div className="card">
@@ -43,16 +43,14 @@ export default function SubscriptionClubAboutSection(): JSX.Element {
               </figure>
               <div className="card-description">
                 <Typography variant="body1">
-                  Acumule pontos e troque <br /> por produtos exclusivos
+                  Acumule Feel points
+                  <br />e troque por produtos
                 </Typography>
               </div>
             </div>
           </div>
         </Box>
       </Container>
-      <figure className="plant right">
-        <img src="/imgs/plant1.svg" alt="" />
-      </figure>
     </Box>
   );
 }
