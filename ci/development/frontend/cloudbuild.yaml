@@ -4,11 +4,20 @@ steps:
     entrypoint: 'bash'
     args: ['-c', 'docker pull gcr.io/$PROJECT_ID/front-dev:latest || exit 0']
 
-  # Build image from cache
+
+  # Decrypt key
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: bash
+    args: ['-c', 'gcloud kms decrypt --ciphertext-file=.env.enc --plaintext-file=.env --location=global --keyring=cloudbuild-env --key=cloudbuild-env']
+  
+ 
+  #Build image from cache
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'build',
+         '--build-arg',
+        '$$FIREBASE_TOKEN',
         '-t',
         'gcr.io/$PROJECT_ID/front-dev:latest',
         '--cache-from',

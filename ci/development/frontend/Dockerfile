@@ -15,10 +15,6 @@ RUN curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6 && pnpm con
 
 RUN pnpm add --global firebase-tools
 
-ADD ./ci/scripts/firebase.bash /usr/bin
-
-RUN chmod +x /usr/bin/firebase.bash
-
 
 # Deps node
 
@@ -37,6 +33,10 @@ WORKDIR /app
 ADD ./ci/development/frontend/firebase.json .
 ADD ./ci/development/frontend/.firebaserc .
 
+
+RUN chmod +x scripts/parse_env_var.bash
+
+RUN firebase deploy --token=$(. scripts/parse_env_var.bash FIREBASE_TOKEN) --project=coffee-and-feel --only=hosting 
 
 
 ENV PORT=8080
