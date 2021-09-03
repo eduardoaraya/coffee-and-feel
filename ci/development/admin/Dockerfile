@@ -1,9 +1,5 @@
 FROM node:16-alpine
 
-
-ENV CYPRESS_INSTALL_BINARY=0
-
-
 RUN apk --no-cache add curl
 
 RUN apk add --no-cache bash
@@ -25,27 +21,21 @@ RUN mkdir app && cp -a /tmp/node_modules /app
 # Build node
 
 COPY . /app
-RUN cd /app && pnpx nx run frontend:build
+RUN cd /app && pnpx nx run admin:build
 
 
 WORKDIR /app
 
-ADD ./ci/production/frontend/firebase.json .
-ADD ./ci/production/frontend/.firebaserc .
+ADD ./ci/development/admin/firebase.json .
+ADD ./ci/development/admin/.firebaserc .
 
 
 RUN chmod +x scripts/parse_env_var.bash
 
-RUN firebase deploy --token=$(. scripts/parse_env_var.bash FIREBASE_TOKEN) --project=coffee-and-feel --only=hosting 
+RUN firebase deploy --token=$(. scripts/parse_env_var.bash FIREBASE_TOKEN) --project=coffee-and-feel --only=hosting
 
 
-ENV PORT=8080
-EXPOSE 8080
 
-WORKDIR /app/dist/apps/frontend
-
-
-CMD ["npm", "start", "--", "--port", "8080"]
 
 
 
