@@ -1,36 +1,34 @@
-  steps:
-  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
-    entrypoint: pnpm
-    args: ['install']
-    id: install
-    
-  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
-    entrypoint: nx
-    args: ['run', 'admin:build']
-    id: build
-    waitFor: ['install']
-    env: [CYPRESS_INSTALL_BINARY=0]
-    
+steps:
+  # Pull cached image from last run
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args: ['-c', 'docker pull gcr.io/$PROJECT_ID/admin-dev:latest || exit 0']
 
-  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
+  # Decrypt key
+  - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: bash
-    args: [ "-c", "cp ci/.firebase/development/admin/firebase.json ."]
-    waitFor:
-      - build
+    args:
+      [
+        '-c',
+        'gcloud kms decrypt --ciphertext-file=.env.enc --plaintext-file=.env --location=global --keyring=cloudbuild-env --key=cloudbuild-env',
+      ]
 
-  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
-    entrypoint: bash
-    args: ["-c", "cp ci/.firebase/development/admin/.firebaserc ."]
-    waitFor:
-      - build
+  #Build image from cache
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '-t',
+        'gcr.io/$PROJECT_ID/admin-dev:latest',
+        '--cache-from',
+        'gcr.io/$PROJECT_ID/admin-dev:latest',
+        '-f',
+        './ci/development/admin/Dockerfile',
+        '.',
+      ]
 
-  - name: "gcr.io/$PROJECT_ID/pnpm:latest"
-    entrypoint: bash
-    args: ["-c", 'cd dist/apps/admin', "ls -la"]
-    waitFor:
-      - build
+  # Push image to Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/admin-dev:latest']
 
-  - name: "gcr.io/$PROJECT_ID/firebase"
-    args: ["deploy", "--project=coffee-and-feel", "--only=hosting"]
-    waitFor:
-      - build
+timeout: 1800s

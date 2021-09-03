@@ -24,7 +24,7 @@ steps:
       [
         'run',
         'deploy',
-        'coffee-and-feel',
+        'backend-prod',
         '--image',
         'gcr.io/$PROJECT_ID/backend-prod',
         '--region',
