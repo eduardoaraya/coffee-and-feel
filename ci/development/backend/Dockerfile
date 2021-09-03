@@ -7,6 +7,11 @@ RUN apk --no-cache add curl
 # Install PNPM
 RUN curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6 && pnpm config set store-dir ~/.pnpm-store
 
+
+# Install firebase
+RUN pnpm add --global firebase
+
+
 # Deps node
 ADD ./package.json /tmp/package.json
 RUN cd /tmp && pnpm install 
