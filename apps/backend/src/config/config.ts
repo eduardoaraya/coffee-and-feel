@@ -7,8 +7,9 @@ export default () => ({
     host: process.env.POSTGRES_HOST,
     port: parseInt(process.env.POSTGRES_PORT, 10) || 5432,
     password: process.env.POSTGRES_PASSWORD,
-    username: process.env.POSTGRES_USER,
+    username: process.env.POSTGRES_USERNAME,
     database: process.env.POSTGRES_DATABASE,
     synchronize: process.env.NODE_ENV === 'production' ? false : true,
+    entities: [process.cwd() + '/../**/*.entity.{js,ts}'],
   } as TypeOrmModuleOptions,
 });
