@@ -18,6 +18,9 @@
       "@atlascode/coffee-admin-components": [
         "libs/admin-components/src/index.ts"
       ],
+      "@atlascode/coffee-backend-service-products": [
+        "libs/backend-service-products/src/index.ts"
+      ],
       "@atlascode/coffee-front-components": [
         "libs/frontend-components/src/index.ts"
       ],

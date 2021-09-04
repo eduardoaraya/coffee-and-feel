@@ -195,6 +195,27 @@
         }
       }
     },
+    "backend-service-products": {
+      "root": "libs/backend-service-products",
+      "sourceRoot": "libs/backend-service-products/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-service-products/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-service-products"],
+          "options": {
+            "jestConfig": "libs/backend-service-products/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend": {
       "root": "apps/frontend",
       "sourceRoot": "apps/frontend",

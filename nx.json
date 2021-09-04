@@ -42,6 +42,9 @@
     "backend": {
       "tags": []
     },
+    "backend-service-products": {
+      "tags": []
+    },
     "frontend": {
       "tags": []
     },
