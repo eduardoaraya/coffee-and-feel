@@ -3,19 +3,21 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import configuration from '../config/config';
+import {
+  Product,
+  ProductsModule,
+} from '@atlascode/coffee-backend-module-products';
 
-const envFilePath = process.env.NODE_ENV === 'production' ? '.env' : '.env.dev';
+// Remember to initialize the node shell process from the root folder as DotEnv uses process.cwd as root path.
+export const envFilePath =
+  process.env.NODE_ENV === 'production' ? '.env' : '.env.dev';
 
 @Module({
   imports: [
+    ProductsModule,
+    ConfigModule.forRoot({ envFilePath: envFilePath }),
     TypeOrmModule.forRootAsync({
-      imports: [
-        ConfigModule.forRoot({
-          envFilePath: envFilePath,
-          load: [configuration],
-        }),
-      ],
+      imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         host: configService.get('POSTGRES_HOST'),
@@ -24,10 +26,12 @@ const envFilePath = process.env.NODE_ENV === 'production' ? '.env' : '.env.dev';
         database: configService.get('POSTGRES_DATABASE'),
         username: configService.get('POSTGRES_USERNAME'),
         synchronize: process.env.NODE_ENV === 'production',
-        entities: [process.cwd() + '/../**/*.entity.{js,ts}'],
+        entities: [Product],
       }),
+      inject: [ConfigService],
     }),
   ],
+
   controllers: [AppController],
   providers: [AppService],
 })

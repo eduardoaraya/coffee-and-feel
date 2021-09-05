@@ -94,7 +94,7 @@
     "react-router-dom": "^6.0.0-beta.2",
     "reflect-metadata": "^0.1.13",
     "regenerator-runtime": "0.13.7",
-    "rxjs": "~6.6.3",
+    "rxjs": "^7",
     "swr": "^1.0.0",
     "tslib": "^2.0.0",
     "typeorm": "^0.2.37",
