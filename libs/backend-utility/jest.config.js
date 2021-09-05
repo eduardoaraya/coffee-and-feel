@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'backend-service-products',
+  displayName: 'backend-utility',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +11,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/backend-service-products',
+  coverageDirectory: '../../coverage/libs/backend-utility',
 };

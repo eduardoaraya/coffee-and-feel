@@ -24,6 +24,7 @@ const envFilePath = process.env.NODE_ENV === 'production' ? '.env' : '.env.dev';
         database: configService.get('POSTGRES_DATABASE'),
         username: configService.get('POSTGRES_USERNAME'),
         synchronize: process.env.NODE_ENV === 'production',
+        entities: [process.cwd() + '/../**/*.entity.{js,ts}'],
       }),
     }),
   ],

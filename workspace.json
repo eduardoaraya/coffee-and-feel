@@ -195,22 +195,43 @@
         }
       }
     },
-    "backend-service-products": {
-      "root": "libs/backend-service-products",
-      "sourceRoot": "libs/backend-service-products/src",
+    "backend-module-products": {
+      "root": "libs/backend-module-products",
+      "sourceRoot": "libs/backend-module-products/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/backend-service-products/**/*.ts"]
+            "lintFilePatterns": ["libs/backend-module-products/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/backend-service-products"],
+          "outputs": ["coverage/libs/backend-module-products"],
           "options": {
-            "jestConfig": "libs/backend-service-products/jest.config.js",
+            "jestConfig": "libs/backend-module-products/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-utility": {
+      "root": "libs/backend-utility",
+      "sourceRoot": "libs/backend-utility/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-utility/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-utility"],
+          "options": {
+            "jestConfig": "libs/backend-utility/jest.config.js",
             "passWithNoTests": true
           }
         }
