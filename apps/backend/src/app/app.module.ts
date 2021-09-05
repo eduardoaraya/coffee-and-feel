@@ -25,7 +25,7 @@ export const envFilePath =
         port: +configService.get('POSTGRES_PORT'),
         database: configService.get('POSTGRES_DATABASE'),
         username: configService.get('POSTGRES_USERNAME'),
-        synchronize: process.env.NODE_ENV === 'production',
+        synchronize: process.env.NODE_ENV === 'development',
         entities: [Product],
       }),
       inject: [ConfigService],
