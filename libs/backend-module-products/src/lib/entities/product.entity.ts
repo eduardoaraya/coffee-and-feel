@@ -15,6 +15,7 @@ export interface ProductEntityModel {
   product_weight: number;
   product_width: number;
   product_depth: number;
+  product_height: number;
   product_active: boolean;
 }
 
@@ -47,10 +48,10 @@ export class Product implements ProductEntityModel {
   @Column({ default: true })
   product_active: boolean;
 
-  @Column({ type: 'timestamp', nullable: false })
+  @Column({ type: 'timestamp', nullable: true })
   created_at?: string;
 
-  @Column({ type: 'timestamp', nullable: false })
+  @Column({ type: 'timestamp', nullable: true })
   updated_at?: string;
 
   @BeforeInsert()

@@ -12,7 +12,11 @@ export class ProductsService {
   ) {}
 
   create(createProductDto: CreateProductDto) {
-    return this.productsRepository.insert(createProductDto);
+    // Nesting these calls to make sure creation/update events are triggered, possibly a bug.
+    // https://github.com/typeorm/typeorm/issues/5493
+    return this.productsRepository.save(
+      this.productsRepository.create(createProductDto)
+    );
   }
 
   findAll(): Promise<Product[]> {
