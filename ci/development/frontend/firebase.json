@@ -1,15 +1,15 @@
 {
   "hosting": {
-    "target": "store-prod",
+    "target": "store-dev",
     "rewrites": [
       {
         "source": "**",
         "run": {
-          "serviceId": "front-prod"
+          "serviceId": "store-dev"
         }
       }
     ],
-    "public": "public",
+    "public": "dist/apps/frontend",
     "ignore": [
       "firebase.json",
       "**/.*",
