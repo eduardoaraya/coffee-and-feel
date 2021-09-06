@@ -1,5 +1,9 @@
-import { LayoutEcommerce, Banner } from '@atlascode/coffee-front-components';
-import { Box } from '@material-ui/core';
+import {
+  LayoutEcommerce,
+  Banner,
+  SlideProductRepresentation,
+} from '@atlascode/coffee-front-components';
+import { Box, Container } from '@material-ui/core';
 import { HomePageProps } from './contracts/HomePage.interface';
 import SubscriptionClubAboutSection from './sections/SubscriptionClubAboutSection';
 import KnowMoreSection from './sections/KnowMoreSection';
@@ -12,6 +16,9 @@ export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
         <Banner></Banner>
         <SubscriptionClubAboutSection></SubscriptionClubAboutSection>
         <KnowMoreSection></KnowMoreSection>
+        <Container component="section" sx={style.slideProductRepresentation}>
+          <SlideProductRepresentation></SlideProductRepresentation>
+        </Container>
       </Box>
     </LayoutEcommerce>
   );
