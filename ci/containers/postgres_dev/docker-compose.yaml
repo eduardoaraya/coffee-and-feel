@@ -5,9 +5,9 @@ services:
     ports:
       - '5432:5432'
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: coffee
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: coffee-dev
   admin:
     image: adminer
     restart: always
