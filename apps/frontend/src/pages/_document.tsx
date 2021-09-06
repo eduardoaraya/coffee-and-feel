@@ -74,5 +74,4 @@ class CustomDocument extends Document {
   }
 }
 
-// CustomDocument.getInitialProps =
 export default CustomDocument;
