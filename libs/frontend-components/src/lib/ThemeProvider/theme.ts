@@ -10,10 +10,23 @@ const titleStyle = (size: string): TypographyStyleOptions => ({
 
 const defaultTheme = createTheme({
   components: {
+    MuiButtonGroup: {
+      styleOverrides: {
+        root: {
+          '.MuiButton-root, &.MuiButtonGroup-root, &.MuiButtonGroup-grouped': {
+            borderRadius: '4px',
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
           borderRadius: '50px',
+          '&.MuiButton-outlined': {
+            borderWidth: '2px',
+            color: '#FFF',
+          },
           '&.MuiButton-sizeLarge': {
             padding: '15px 45px',
             fontSize: '15px',

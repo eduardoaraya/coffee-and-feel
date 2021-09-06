@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import Link from 'next/link';
 import style from './style';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { AccountCircle } from '@material-ui/icons';
 import { useState } from 'react';
 
 /* eslint-disable-next-line */
@@ -88,7 +88,7 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
                 </Badge>
               </li>
               <li className="myaccount">
-                <AccountCircleIcon />
+                <AccountCircle />
               </li>
               <li className="menu-mobile" onClick={handleModalTarget}>
                 <img src="./icons/menu.svg" alt="bag" />

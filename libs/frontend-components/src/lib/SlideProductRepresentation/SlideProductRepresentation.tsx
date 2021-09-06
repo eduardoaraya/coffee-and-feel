@@ -1,74 +1,73 @@
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Box from '@material-ui/core/Box';
+import { Box, IconButton } from '@material-ui/core';
 import style from './style';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import {
+  ChevronLeft,
+  ChevronRight,
+  FiberManualRecord,
+} from '@material-ui/icons';
 import Image from 'next/image';
-import Button from '@material-ui/core/Button';
+import ProductCatalogRepresentation from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
+// Swipper Import
+import SwiperCore from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper';
+import 'swiper/swiper.min.css';
+import 'swiper/components/navigation/navigation.min.css';
+import 'swiper/components/pagination/pagination.min.css';
 
 /* eslint-disable-next-line */
 export interface SlideProductRepresentationProps {}
+
+SwiperCore.use([Navigation, Pagination]);
 
 export function SlideProductRepresentation(
   props: SlideProductRepresentationProps
 ) {
   return (
     <Box component="div" sx={style.wrapperSlide}>
-      <IconButton className="left" size="large" color="primary">
-        <ChevronLeftIcon />
+      <IconButton
+        onClick={() => document.querySelector('.swiper-button-prev')?.click()}
+        className="slide-button prev"
+        size="large"
+        color="primary"
+      >
+        <ChevronLeft />
       </IconButton>
-      <Box sx={style.gridProduct}>
-        <Box className="product-image">
-          <figure>
-            <Image
-              src="/imgs/product-sample.png"
-              alt="Product name"
-              layout="intrinsic"
-              width="300px"
-              height="300px"
-            />
-          </figure>
-        </Box>
-        <Box className="product-info">
-          <Box component="ul" sx={style.dotsList}>
-            <li>
-              <FiberManualRecordIcon />
-            </li>
-            <li>
-              <FiberManualRecordIcon color="primary" />
-            </li>
-            <li>
-              <FiberManualRecordIcon />
-            </li>
-            <li>
-              <FiberManualRecordIcon />
-            </li>
-            <li>
-              <FiberManualRecordIcon />
-            </li>
-          </Box>
-          <Typography color="white" variant="h1">
-            Edição Adsumus Conillon
-          </Typography>
-          <Typography color="white" variant="body1">
-            Acumule
-            <Typography color="primary" variant="body1" component="span">
-              {' 70 '}
-            </Typography>
-            Feel Points
-          </Typography>
-          <ButtonGroup>
-            <Button>One</Button>
-            <Button>Two</Button>
-            <Button>Three</Button>
-          </ButtonGroup>
-        </Box>
-      </Box>
-      <IconButton className="right" size="large" color="primary">
-        <ChevronRightIcon />
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        loop={true}
+        navigation
+      >
+        {Array.from({ length: 10 }).map((_, i) => (
+          <SwiperSlide key={i}>
+            <Box sx={style.gridProduct}>
+              <Box className="product-image">
+                <figure>
+                  <Image
+                    src="/imgs/product-sample.png"
+                    alt="Product name"
+                    layout="intrinsic"
+                    width="300px"
+                    height="300px"
+                  />
+                </figure>
+              </Box>
+              <Box className="product-area">
+                <ProductCatalogRepresentation />
+              </Box>
+            </Box>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <IconButton
+        onClick={() => document.querySelector('.swiper-button-next')?.click()}
+        className="slide-button next"
+        size="large"
+        color="primary"
+      >
+        <ChevronRight />
       </IconButton>
     </Box>
   );
