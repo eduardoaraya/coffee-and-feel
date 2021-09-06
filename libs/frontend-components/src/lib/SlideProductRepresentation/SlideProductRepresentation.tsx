@@ -26,7 +26,9 @@ export function SlideProductRepresentation(
   return (
     <Box component="div" sx={style.wrapperSlide}>
       <IconButton
-        onClick={() => document.querySelector('.swiper-button-prev')?.click()}
+        onClick={() =>
+          document.querySelector<HTMLElement>('.swiper-button-prev')?.click()
+        }
         className="slide-button prev"
         size="large"
         color="primary"
@@ -62,7 +64,9 @@ export function SlideProductRepresentation(
         ))}
       </Swiper>
       <IconButton
-        onClick={() => document.querySelector('.swiper-button-next')?.click()}
+        onClick={() =>
+          document.querySelector<HTMLElement>('.swiper-button-next')?.click()
+        }
         className="slide-button next"
         size="large"
         color="primary"
