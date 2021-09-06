@@ -39,6 +39,7 @@ specifiers:
   '@types/node': 14.14.33
   '@types/react': 17.0.3
   '@types/react-dom': 17.0.3
+  '@types/swiper': ^5.4.3
   '@typescript-eslint/eslint-plugin': ~4.28.3
   '@typescript-eslint/parser': ~4.28.3
   axios: ^0.21.1
@@ -70,7 +71,7 @@ specifiers:
   reflect-metadata: ^0.1.13
   regenerator-runtime: 0.13.7
   rxjs: ~6.6.3
-  swiper: ^7.0.2
+  swiper: 6.8.4
   swr: ^1.0.0
   ts-jest: 27.0.3
   tslib: ^2.0.0
@@ -107,7 +108,7 @@ dependencies:
   reflect-metadata: 0.1.13
   regenerator-runtime: 0.13.7
   rxjs: 6.6.7
-  swiper: 7.0.2
+  swiper: 6.8.4
   swr: 1.0.0_react@17.0.2
   tslib: 2.3.1
   yup: 0.32.9
@@ -140,6 +141,7 @@ devDependencies:
   '@types/node': 14.14.33
   '@types/react': 17.0.3
   '@types/react-dom': 17.0.3
+  '@types/swiper': 5.4.3
   '@typescript-eslint/eslint-plugin': 4.28.5_aef98d5017e29b9d77e8f1f0bddfcabc
   '@typescript-eslint/parser': 4.28.5_eslint@7.22.0+typescript@4.3.5
   babel-jest: 27.0.6_@babel+core@7.12.13
@@ -6280,6 +6282,10 @@ packages:
   /@types/stack-utils/2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
 
+  /@types/swiper/5.4.3:
+    resolution: {integrity: sha512-hJXpVeANf+XQXgbvmuFZdsnaSOKqOEZcaLDnHhZOJDRow+lfboatwubW+Ay9XiHobMGyEomkgpXSYRlDVn4gMQ==}
+    dev: true
+
   /@types/tapable/1.0.8:
     resolution: {integrity: sha512-ipixuVrh2OdNmauvtT51o3d8z12p6LtFW9in7U79der/kwejjdNchQC5UMn5u/KxNoM7VHHOs/l8KS8uHxhODQ==}
     dev: true
@@ -9125,10 +9131,10 @@ packages:
     resolution: {integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==}
     dev: true
 
-  /dom7/4.0.0:
-    resolution: {integrity: sha512-xOJ0LAHFwktyj8Xljz4R2wzRI+Y9mR0plkMP0WlqtwqAkqn/vbdAyRifiW/w8mXe17LGktntcAwsQ5fKVDBNYg==}
+  /dom7/3.0.0:
+    resolution: {integrity: sha512-oNlcUdHsC4zb7Msx7JN3K0Nro1dzJ48knvBOnDPKJ2GV9wl1i5vydJZUSyOfrkKFDZEud/jBsTk92S/VGSAe/g==}
     dependencies:
-      ssr-window: 4.0.0
+      ssr-window: 3.0.0
     dev: false
 
   /domain-browser/1.2.0:
@@ -16492,8 +16498,8 @@ packages:
       safer-buffer: 2.1.2
       tweetnacl: 0.14.5
 
-  /ssr-window/4.0.0:
-    resolution: {integrity: sha512-qCg6wJNeGNTVcPK2KFNfwtHU1gA3UZDZdxogu+Ys5+Ue5PMOENxUb7sscpAWWo4mWOBkJRCwQ50IlyA7qZ0hxw==}
+  /ssr-window/3.0.0:
+    resolution: {integrity: sha512-q+8UfWDg9Itrg0yWK7oe5p/XRCJpJF9OBtXfOPgSJl+u3Xd5KI328RUEvUqSMVM9CiQUEf1QdBzJMkYGErj9QA==}
     dev: false
 
   /ssri/6.0.2:
@@ -16929,13 +16935,13 @@ packages:
       csso: 4.2.0
       stable: 0.1.8
 
-  /swiper/7.0.2:
-    resolution: {integrity: sha512-cPqpW3s5tPxeH5CXPh+ZiS4hILhF3nZ9ukb34Sdfm94oFso5cIT2i6Y3yAe1g1/7bGKneNSqKkLNokj1WnO4Xg==}
+  /swiper/6.8.4:
+    resolution: {integrity: sha512-O+buF9Q+sMA0H7luMS8R59hCaJKlpo8PXhQ6ZYu6Rn2v9OsFd4d1jmrv14QvxtQpKAvL/ZiovEeANI/uDGet7g==}
     engines: {node: '>= 4.7.0'}
     requiresBuild: true
     dependencies:
-      dom7: 4.0.0
-      ssr-window: 4.0.0
+      dom7: 3.0.0
+      ssr-window: 3.0.0
     dev: false
 
   /swr/1.0.0_react@17.0.2:
