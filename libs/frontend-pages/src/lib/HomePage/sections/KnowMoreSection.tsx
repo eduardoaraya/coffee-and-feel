@@ -6,7 +6,7 @@ export default function KnowMoreSection() {
   return (
     <Box component="section" sx={style.knowMoreSection}>
       <figure className="plant left">
-        <img src="/imgs/plant0.svg" alt="" />
+        <Image src="/imgs/plant0.svg" layout="fill" alt="Coffe Plant" />
       </figure>
       <Container>
         <div className="section-content">
