@@ -26,10 +26,8 @@ export function SlideProductRepresentation(
   return (
     <Box component="div" sx={style.wrapperSlide}>
       <IconButton
-        onClick={() =>
-          document.querySelector<HTMLElement>('.swiper-button-prev')?.click()
-        }
         className="slide-button prev"
+        id="slide-prev"
         size="large"
         color="primary"
       >
@@ -40,7 +38,10 @@ export function SlideProductRepresentation(
         slidesPerView={1}
         pagination={{ clickable: true }}
         loop={true}
-        navigation
+        navigation={{
+          nextEl: '#slide-next',
+          prevEl: '#slide-prev',
+        }}
       >
         {Array.from({ length: 10 }).map((_, i) => (
           <SwiperSlide key={i}>
@@ -64,9 +65,7 @@ export function SlideProductRepresentation(
         ))}
       </Swiper>
       <IconButton
-        onClick={() =>
-          document.querySelector<HTMLElement>('.swiper-button-next')?.click()
-        }
+        id="slide-next"
         className="slide-button next"
         size="large"
         color="primary"
