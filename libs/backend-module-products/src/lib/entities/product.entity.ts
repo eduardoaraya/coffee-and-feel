@@ -3,8 +3,8 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  BeforeUpdate,
-  BeforeInsert,
+  UpdateDateColumn,
+  CreateDateColumn,
 } from 'typeorm';
 
 export interface ProductEntityModel {
@@ -48,19 +48,9 @@ export class Product implements ProductEntityModel {
   @Column({ default: true })
   product_active: boolean;
 
-  @Column({ type: 'timestamp', nullable: true })
+  @CreateDateColumn()
   created_at?: string;
 
-  @Column({ type: 'timestamp', nullable: true })
+  @UpdateDateColumn()
   updated_at?: string;
-
-  @BeforeInsert()
-  public createdTimestamp() {
-    this.created_at = new Date(Date.now()).toJSON();
-  }
-
-  @BeforeUpdate()
-  public updatedTimestamp() {
-    this.updated_at = new Date(Date.now()).toJSON();
-  }
 }
