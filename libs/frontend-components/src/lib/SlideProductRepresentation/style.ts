@@ -7,7 +7,10 @@ export type SlideProductRepresentationType = {
 export default {
   wrapperSlide: {
     maxWidth: '1030px',
-    height: '544px',
+    height: {
+      sm: '544px',
+      xs: 'auto',
+    },
     margin: '25px auto',
     borderRadius: '22px',
     background: (theme) => theme.palette.secondary.main,
@@ -16,6 +19,7 @@ export default {
 
     // Swiper style overide
     '.swiper-container': {
+      height: '100%',
       '.swiper-button-next, .swiper-button-prev': {
         display: 'none !important',
       },
@@ -49,24 +53,32 @@ export default {
     },
   },
   gridProduct: {
+    position: 'relative',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
     gridAutoRows: 'auto',
-    height: '544px',
+    width: '100%',
+    height: '100%',
     '.product-image': {
-      gridColumn: '1/2',
-      width: '100%',
-      height: '100%',
+      gridColumn: {
+        sm: '1/2',
+        xs: '1/4',
+      },
       display: 'flex',
       justifyContent: 'flex-end',
       alignItems: 'center',
     },
     '.product-area': {
-      gridColumn: '2/3',
+      gridColumn: {
+        sm: '2/3',
+        xs: '1/4',
+      },
       width: '100%',
       height: '100%',
-      paddingTop: '115px',
-
+      paddingTop: {
+        sm: '125px',
+        xs: '0',
+      },
       '.product-title': {
         paddingRight: '125px',
       },
