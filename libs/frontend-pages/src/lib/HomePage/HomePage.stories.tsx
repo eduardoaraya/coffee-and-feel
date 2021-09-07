@@ -5,6 +5,9 @@ import { HomePageProps } from './contracts/HomePage.interface';
 export default {
   component: HomePage,
   title: 'HomePage',
+  parameters: {
+    layout: 'fullscreen',
+  },
 } as Meta;
 
 const Template: Story<HomePageProps> = (args) => <HomePage {...args} />;
