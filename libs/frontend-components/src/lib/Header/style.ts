@@ -8,6 +8,11 @@ type HeaderStyle = {
 const boxShadow = (theme: Theme) =>
   `2px 2px 10px -5px ${theme.palette.secondary.main}`;
 
+const heightBannerTop = {
+  xs: '30px',
+  md: '40px',
+};
+
 export default {
   header: {
     zIndex: 99,
@@ -17,6 +22,13 @@ export default {
     position: 'fixed',
     top: 0,
     left: 0,
+    transition: 'ease-out .3s',
+    '&.hide-banner-top': {
+      transform: {
+        md: `translate3d(0, -${heightBannerTop.md}, 0)`,
+        xs: `translate3d(0, -${heightBannerTop.xs}, 0)`,
+      },
+    },
     '.header-banner-top': {
       width: '100%',
       background: (theme) => theme.palette.primary.main,
@@ -24,10 +36,7 @@ export default {
       justifyContent: 'center',
       alignItems: 'center',
       color: '#FFF',
-      height: {
-        xs: '30px',
-        md: '40px',
-      },
+      height: heightBannerTop,
       fontSize: {
         xs: '12px',
         md: '16px',

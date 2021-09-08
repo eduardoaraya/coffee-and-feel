@@ -10,7 +10,8 @@ import {
 import Link from 'next/link';
 import style from './style';
 import { AccountCircle } from '@material-ui/icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ScrollbarEvents } from 'swiper/types/components/scrollbar';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
@@ -41,13 +42,53 @@ const menuItems: MenuItemType[] = [
 
 export const Header: React.FC = (props: HeaderProps): JSX.Element => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [hideBanner, setHideBanner] = useState<boolean>(false);
+
+  let timer: NodeJS.Timeout;
+
+  function debounce(fnc: CallableFunction, timeout: number): CallableFunction {
+    return (...args: any[]) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        fnc(args);
+      }, timeout);
+    };
+  }
+
+  const debounceScroll = debounce(() => {
+    const { pageYOffset } = window;
+    if (pageYOffset > 70) {
+      return setHideBanner(true);
+    }
+    setHideBanner(false);
+  }, 500);
+
+  useEffect(() => {
+    const handleScroll = (_: Event) => {
+      debounceScroll();
+    };
+    if (window !== undefined) {
+      window.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      if (window !== undefined) {
+        clearTimeout(timer);
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, []);
 
   const handleModalTarget = () => {
     setModalOpen(!modalOpen);
   };
 
   return (
-    <Box component="header" sx={style.header}>
+    <Box
+      component="header"
+      className={hideBanner ? 'hide-banner-top' : ''}
+      id="header-main"
+      sx={style.header}
+    >
       <Box component="div" className="header-banner-top">
         <span>Frete grátis acima de R$ 200,00</span>
       </Box>
