@@ -7,7 +7,8 @@ then
   --ciphertext-file=.env.enc \
   --location=global \
   --keyring=cloudbuild-env \
-  --key=cloudbuild-env
+  --key=cloudbuild-env && \
+    rm .env
 else
     echo ".env file not found"
 fi

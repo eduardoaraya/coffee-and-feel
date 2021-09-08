@@ -10,12 +10,38 @@ const titleStyle = (size: string): TypographyStyleOptions => ({
 
 const defaultTheme = createTheme({
   components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        // input: {
+        //   minWidth: '225px',
+        // },
+
+        root: {
+          borderRadius: '12px',
+        },
+      },
+    },
+
+
+    MuiButtonGroup: {
+      styleOverrides: {
+        root: {
+          '.MuiButton-root, &.MuiButtonGroup-root, &.MuiButtonGroup-grouped': {
+            borderRadius: '4px',
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
           borderRadius: '50px',
+          '&.MuiButton-outlined': {
+            borderWidth: '2px',
+            color: '#FFF',
+          },
           '&.MuiButton-sizeLarge': {
-            padding: '15px 35px',
+            padding: '15px 45px',
             fontSize: '15px',
           },
           '&.MuiButton-sizeMedium': {
@@ -48,7 +74,6 @@ const defaultTheme = createTheme({
     h5: titleStyle('16px'),
     h6: titleStyle('12px'),
     body1: {
-      fontSize: '16px',
       color: '#757575',
     },
   },

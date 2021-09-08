@@ -195,6 +195,48 @@
         }
       }
     },
+    "backend-module-products": {
+      "root": "libs/backend-module-products",
+      "sourceRoot": "libs/backend-module-products/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-products/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-products"],
+          "options": {
+            "jestConfig": "libs/backend-module-products/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-utility": {
+      "root": "libs/backend-utility",
+      "sourceRoot": "libs/backend-utility/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-utility/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-utility"],
+          "options": {
+            "jestConfig": "libs/backend-utility/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend": {
       "root": "apps/frontend",
       "sourceRoot": "apps/frontend",
@@ -380,6 +422,37 @@
           "options": {
             "jestConfig": "libs/frontend-pages/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/frontend-pages/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/frontend-pages",
+            "config": {
+              "configFolder": "libs/frontend-pages/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
