@@ -11,7 +11,6 @@ import Link from 'next/link';
 import style from './style';
 import { AccountCircle } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
-import { ScrollbarEvents } from 'swiper/types/components/scrollbar';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
