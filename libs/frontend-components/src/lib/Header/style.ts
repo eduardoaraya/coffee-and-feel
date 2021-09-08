@@ -22,7 +22,7 @@ export default {
     position: 'fixed',
     top: 0,
     left: 0,
-    transition: 'ease-out .3s',
+    transition: '.3s',
     '&.hide-banner-top': {
       transform: {
         md: `translate3d(0, -${heightBannerTop.md}, 0)`,
