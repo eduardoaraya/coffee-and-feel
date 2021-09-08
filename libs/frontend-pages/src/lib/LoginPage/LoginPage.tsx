@@ -118,16 +118,16 @@ export function LoginPage({
           container
           item
           component={Grid}
-          spacing={10}
+          spacing={8}
           sx={{
-            px: { xs: 5, lg: 12, xl: 40 },
+            px: { xs: 5, lg: 12, xl: 30 },
             mt: { xs: 2, lg: 0 },
           }}
           justifyContent="center"
           flexDirection="column"
         >
           <Grid item>
-            <TextField {...EmailInputFieldProps} />
+            <TextField {...emailFieldProps} />
           </Grid>
 
           <Grid item>

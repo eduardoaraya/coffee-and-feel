@@ -1,6 +1,6 @@
-import Box from '@material-ui/core/Box';
+import { Box, Theme } from '@material-ui/core';
 import { SxProps } from '@material-ui/system';
-import { Header } from '@atlascode/coffee-front-components';
+import { Header } from '../Header/Header';
 
 /* eslint-disable-next-line */
 export interface LayoutStoreProps {}
