@@ -22,3 +22,7 @@ a,
 a.default-link {
   text-decoration: none;
 }
+
+figure {
+  margin: 0;
+}

@@ -9,6 +9,7 @@ import SubscriptionClubAboutSection from './sections/SubscriptionClubAboutSectio
 import SubscriptionClubDetailsSection from './sections/SubscriptionClubDetailsSection';
 import KnowMoreSection from './sections/KnowMoreSection';
 import style from './style';
+import CallInstagramSection from './sections/CallInstagramSection';
 
 export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
   return (
@@ -21,6 +22,7 @@ export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
           <SlideProductRepresentation></SlideProductRepresentation>
         </Container>
         <SubscriptionClubDetailsSection />
+        <CallInstagramSection />
       </Box>
     </LayoutEcommerce>
   );
