@@ -65,7 +65,7 @@ export function RegistrationPage({
 export default RegistrationPage;
 
 interface LeftSideGridProps {
-  activeIndex?: 0 | 1 | 2;
+  activeIndex?: number;
   ForwardButtonProps?: ButtonProps;
   BackwardButtonProps?: ButtonProps;
 }
