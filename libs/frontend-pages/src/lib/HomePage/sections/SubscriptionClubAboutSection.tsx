@@ -1,6 +1,5 @@
 import { Button, Container, Typography } from '@material-ui/core';
 import Box from '@material-ui/system/Box';
-import Image from 'next/image';
 import style from '../style';
 
 export default function SubscriptionClubAboutSection(): JSX.Element {

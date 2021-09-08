@@ -6,6 +6,7 @@ import {
 import { Box, Container } from '@material-ui/core';
 import { HomePageProps } from './contracts/HomePage.interface';
 import SubscriptionClubAboutSection from './sections/SubscriptionClubAboutSection';
+import SubscriptionClubDetailsSection from './sections/SubscriptionClubDetailsSection';
 import KnowMoreSection from './sections/KnowMoreSection';
 import style from './style';
 
@@ -14,11 +15,12 @@ export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
     <LayoutEcommerce>
       <Box sx={style.homePage}>
         <Banner></Banner>
-        <SubscriptionClubAboutSection></SubscriptionClubAboutSection>
+        <SubscriptionClubAboutSection />
         <KnowMoreSection></KnowMoreSection>
         <Container component="section" sx={style.slideProductRepresentation}>
           <SlideProductRepresentation></SlideProductRepresentation>
         </Container>
+        <SubscriptionClubDetailsSection />
       </Box>
     </LayoutEcommerce>
   );

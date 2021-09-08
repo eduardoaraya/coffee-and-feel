@@ -15,4 +15,10 @@ html {
 ul,
 ol {
   list-style: none;
+  padding: '0';
+}
+
+a,
+a.default-link {
+  text-decoration: none;
 }
