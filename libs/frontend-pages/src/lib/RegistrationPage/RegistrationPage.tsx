@@ -1,40 +1,47 @@
-import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  ButtonProps,
+  Grid,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 import { alpha } from '@material-ui/system';
+import _ from 'lodash';
 import React from 'react';
 
 /* eslint-disable-next-line */
-export interface RegistrationPageProps {
-  onIndexChange?: (index: number) => void;
-}
 
-const MAX_INDEX = 2;
+const leftSideGridDefaultProps: Omit<RegistrationPageProps, 'backgroundImage'> =
+  {
+    activeIndex: 0,
+    ForwardButtonProps: {
+      variant: 'contained',
+      color: 'primary',
+      children: 'Avançar',
+    },
+    BackwardButtonProps: {
+      variant: 'outlined',
+      color: 'primary',
+      children: 'Voltar',
+    },
+  };
 
-const onIndexChangeDefault = (index: number) => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('Active index is:' + index);
-  }
-};
+export interface RegistrationPageProps
+  extends RightSideGridProps,
+    LeftSideGridProps {}
 
 export function RegistrationPage({
-  onIndexChange = onIndexChangeDefault,
+  backgroundImage = {
+    src: 'https://via.placeholder.com/1500',
+    alt: 'This is a placeholder alt message to provide better acessibility performance, change me',
+  },
+  ...rest
 }: RegistrationPageProps) {
-  const [activeIndex, setActiveIndex] = React.useState<number>(0);
-
-  const handleForward = () => {
-    if (activeIndex < MAX_INDEX) {
-      setActiveIndex((prevState) => prevState + 1);
-    }
-  };
-
-  const handleBackward = () => {
-    if (activeIndex > 0) {
-      setActiveIndex((prevState) => prevState - 1);
-    }
-  };
-
-  React.useEffect(() => {
-    onIndexChange(activeIndex);
-  }, [activeIndex, onIndexChange]);
+  const leftSidePropsMemoized = React.useMemo(
+    () => _.merge(leftSideGridDefaultProps, rest),
+    [rest]
+  );
 
   return (
     <Box id="root-grid">
@@ -48,8 +55,8 @@ export function RegistrationPage({
           gridTemplateRows: { xs: '1fr', lg: 'none' },
         }}
       >
-        <LeftSideGrid activeIndex={activeIndex} />
-        <RightSideGrid />
+        <LeftSideGrid {...leftSidePropsMemoized} />
+        <RightSideGrid backgroundImage={backgroundImage} />
       </Box>
     </Box>
   );
@@ -58,22 +65,15 @@ export function RegistrationPage({
 export default RegistrationPage;
 
 interface LeftSideGridProps {
-  activeIndex?: number;
-  onForwardButtonClick?: (...args: unknown[]) => void;
-  onBackwardButtonClick?: (...args: unknown[]) => void;
+  activeIndex?: 0 | 1 | 2;
+  ForwardButtonProps?: ButtonProps;
+  BackwardButtonProps?: ButtonProps;
 }
 
 const LeftSideGrid = ({
   activeIndex,
-  onForwardButtonClick = () => {
-    if (process.env.NODE_ENV === 'development')
-      console.log('Forward button click');
-  },
-  onBackwardButtonClick = () => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Backward button click');
-    }
-  },
+  ForwardButtonProps,
+  BackwardButtonProps,
 }: LeftSideGridProps) => {
   return (
     <Box
@@ -118,8 +118,8 @@ const LeftSideGrid = ({
           justifyContent: { xs: 'space-between', lg: 'space-evenly' },
         }}
       >
-        <Button variant="outlined" children="Voltar" />
-        <Button variant="contained" children="Avançar" />
+        <Button {...BackwardButtonProps} />
+        <Button {...ForwardButtonProps} />
       </Box>
 
       <Box sx={{ display: 'flex', justifyContent: 'center', gap: 10 }}>
