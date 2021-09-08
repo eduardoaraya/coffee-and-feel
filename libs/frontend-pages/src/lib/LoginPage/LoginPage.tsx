@@ -12,15 +12,17 @@ import {
   Button,
   InputAdornment,
   ButtonProps,
-  OutlinedTextFieldProps,
+  BaseTextFieldProps,
+  TextFieldProps,
 } from '@material-ui/core';
 import { SxProps } from '@material-ui/system';
 import React from 'react';
 import { Email } from '@material-ui/icons';
+import _ from 'lodash';
 
 /* eslint-disable-next-line */
 export interface LoginPageProps {
-  EmailInputFieldProps?: OutlinedTextFieldProps;
+  EmailInputFieldProps?: BaseTextFieldProps & TextFieldProps;
   PasswordInputFieldProps?: PasswordInputProps;
   ForgotPasswordProps?: ButtonProps;
   LoginButtonProps?: ButtonProps;
@@ -33,55 +35,74 @@ export interface LoginPageProps {
   };
 }
 
-export function LoginPage({
-  EmailInputFieldProps = {
-    label: 'Email',
-    variant: 'outlined',
-    placeholder: 'Seu email...',
-    fullWidth: true,
-    InputProps: {
-      startAdornment: (
-        <InputAdornment
-          position="start"
-          sx={{ '.MuiSvgIcon-root': { fontSize: '1.2rem' } }}
-        >
-          <Email />
-        </InputAdornment>
-      ),
+const emailFieldDefaultProps: BaseTextFieldProps & TextFieldProps = {
+  label: 'Email',
+  variant: 'outlined',
+  placeholder: 'Seu email...',
+  fullWidth: true,
+  InputProps: {
+    startAdornment: (
+      <InputAdornment
+        position="start"
+        sx={{ '.MuiSvgIcon-root': { fontSize: '1.2rem' } }}
+      >
+        <Email />
+      </InputAdornment>
+    ),
+  },
+};
+
+const createAccountDefaultProps: ButtonProps = {
+  children: 'Criar conta',
+};
+
+const socialButtonFacebookProps: SocialLoginButtonProps = {
+  IconProps: {
+    sx: {
+      fontSize: { xs: '1rem !importat', lg: '1.5em !important' },
     },
   },
-  CreateAccountLinkProps = {
-    children: 'Criar conta',
+  variant: 'facebook',
+};
+
+const socialButtonGoogleProps: SocialLoginButtonProps = {
+  IconProps: {
+    sx: {
+      fontSize: { xs: '1rem !importat', lg: '1.5em !important' },
+    },
   },
+  variant: 'google',
+};
+
+const loginPageImageProps: LoginPageProps['backgroundImage'] = {
+  src: 'https://via.placeholder.com/1500',
+  alt: 'Placeholder image alternative text',
+};
+
+const forgotPasswordButtonProps: LoginPageProps['ForgotPasswordProps'] = {
+  children: 'Esqueci a senha',
+  variant: 'text',
+  size: 'small',
+};
+
+export function LoginPage({
+  EmailInputFieldProps,
+  CreateAccountLinkProps,
   PasswordInputFieldProps,
   LoginButtonProps,
-  SocialButtonFacebookProps = {
-    IconProps: {
-      sx: {
-        fontSize: { xs: '1rem !importat', lg: '1.5em !important' },
-      },
-    },
-    variant: 'facebook',
-  },
-  SocialButtonGoogleProps = {
-    IconProps: {
-      sx: {
-        fontSize: { xs: '1rem !importat', lg: '1.5em !important' },
-      },
-    },
-    variant: 'google',
-  },
-  backgroundImage = {
-    src: 'https://via.placeholder.com/1500',
-    alt: 'Placeholder image alternative text',
-  },
-  ForgotPasswordProps = {
-    children: 'Esqueci a senha',
-    variant: 'text',
-    size: 'small',
-  },
+  SocialButtonFacebookProps,
+  SocialButtonGoogleProps,
+  backgroundImage,
+  ForgotPasswordProps,
 }: LoginPageProps) {
   const passwordRef = React.useRef<HTMLElement>(null);
+
+  const emailFieldProps = _.merge(EmailInputFieldProps, emailFieldDefaultProps);
+  const createAccountButtonProps = _.merge(
+    CreateAccountLinkProps,
+    createAccountDefaultProps
+  );
+  const bgImageProps = _.merge(backgroundImage, loginPageImageProps);
 
   return (
     <Box sx={style.root}>
@@ -99,7 +120,7 @@ export function LoginPage({
           component={Grid}
           spacing={10}
           sx={{
-            px: { xs: 5, lg: 12 },
+            px: { xs: 5, lg: 12, xl: 40 },
             mt: { xs: 2, lg: 0 },
           }}
           justifyContent="center"
@@ -111,9 +132,8 @@ export function LoginPage({
 
           <Grid item>
             <PasswordInput
-              placeholder={'Digite sua senha'}
               ref={passwordRef as any}
-              variant="outlined"
+              {...PasswordInputFieldProps}
             />
           </Grid>
 
@@ -193,7 +213,7 @@ export function LoginPage({
           component={Grid}
         >
           <Box sx={style.imageContainer}>
-            <Box sx={style.image} component="img" {...backgroundImage} />
+            <Box sx={style.image} component="img" {...bgImageProps} />
           </Box>
         </Box>
       </Box>
@@ -206,6 +226,7 @@ export default LoginPage;
 const style = {
   root: {
     width: '100%',
+    overflow: 'hidden',
   } as SxProps<Theme>,
 
   mainGrid: {},
