@@ -8,56 +8,60 @@ import {
 
 import { Lock, Visibility, VisibilityOff } from '@material-ui/icons';
 
-export type PasswordInputProps = BaseTextFieldProps;
+export type PasswordInputProps = Omit<BaseTextFieldProps, 'ref'>;
 
-const PasswordInput = ({ ...rest }: PasswordInputProps) => {
-  const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
+export const PasswordInput = React.forwardRef(
+  (props: PasswordInputProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+    const [passwordVisible, setPasswordVisible] =
+      React.useState<boolean>(false);
 
-  const togglePasswordVisibility = () => {
-    setPasswordVisible((prevState) => !prevState);
-  };
+    const togglePasswordVisibility = () => {
+      setPasswordVisible((prevState) => !prevState);
+    };
 
-  return (
-    <TextField
-      label="Senha"
-      type={passwordVisible ? 'password' : 'text'}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment
-            onClick={togglePasswordVisibility}
-            sx={{ '.MuiSvgIcon-root': { fontSize: '1.2rem' } }}
-            position="end"
-          >
-            {passwordVisible ? (
-              <IconButton>
-                <VisibilityOff />
-              </IconButton>
-            ) : (
-              <IconButton>
-                <Visibility />
-              </IconButton>
-            )}
-          </InputAdornment>
-        ),
+    return (
+      <TextField
+        ref={ref}
+        label="Senha"
+        type={passwordVisible ? 'password' : 'text'}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment
+              onClick={togglePasswordVisibility}
+              sx={{ '.MuiSvgIcon-root': { fontSize: '1.2rem' } }}
+              position="end"
+            >
+              {passwordVisible ? (
+                <IconButton>
+                  <VisibilityOff />
+                </IconButton>
+              ) : (
+                <IconButton>
+                  <Visibility />
+                </IconButton>
+              )}
+            </InputAdornment>
+          ),
 
-        startAdornment: (
-          <InputAdornment
-            position="start"
-            sx={{
-              '.MuiSvgIcon-root': {
-                fontSize: '1.2rem',
-              },
-            }}
-          >
-            <Lock />
-          </InputAdornment>
-        ),
-      }}
-      variant="standard"
-      fullWidth
-      {...rest}
-    />
-  );
-};
+          startAdornment: (
+            <InputAdornment
+              position="start"
+              sx={{
+                '.MuiSvgIcon-root': {
+                  fontSize: '1.2rem',
+                },
+              }}
+            >
+              <Lock />
+            </InputAdornment>
+          ),
+        }}
+        variant="standard"
+        fullWidth
+        {...props}
+      />
+    );
+  }
+);
 
 export default PasswordInput;
