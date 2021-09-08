@@ -10,6 +10,19 @@ const titleStyle = (size: string): TypographyStyleOptions => ({
 
 const defaultTheme = createTheme({
   components: {
+    MuiOutlinedInput: {
+      styleOverrides: {
+        // input: {
+        //   minWidth: '225px',
+        // },
+
+        root: {
+          borderRadius: '12px',
+        },
+      },
+    },
+
+
     MuiButtonGroup: {
       styleOverrides: {
         root: {

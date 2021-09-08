@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 import {
   TextField,
   BaseTextFieldProps,
   InputAdornment,
   IconButton,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
-import { Lock, Visibility, VisibilityOff } from "@material-ui/icons";
+import { Lock, Visibility, VisibilityOff } from '@material-ui/icons';
 
-export interface PasswordInputProps extends BaseTextFieldProps {}
+export type PasswordInputProps = BaseTextFieldProps;
 
 const PasswordInput = ({ ...rest }: PasswordInputProps) => {
   const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
@@ -20,12 +20,12 @@ const PasswordInput = ({ ...rest }: PasswordInputProps) => {
   return (
     <TextField
       label="Senha"
-      type={passwordVisible ? "password" : "text"}
+      type={passwordVisible ? 'password' : 'text'}
       InputProps={{
         endAdornment: (
           <InputAdornment
             onClick={togglePasswordVisibility}
-            sx={{ ".MuiSvgIcon-root": { fontSize: "1.2rem" } }}
+            sx={{ '.MuiSvgIcon-root': { fontSize: '1.2rem' } }}
             position="end"
           >
             {passwordVisible ? (
@@ -44,8 +44,8 @@ const PasswordInput = ({ ...rest }: PasswordInputProps) => {
           <InputAdornment
             position="start"
             sx={{
-              ".MuiSvgIcon-root": {
-                fontSize: "1.2rem",
+              '.MuiSvgIcon-root': {
+                fontSize: '1.2rem',
               },
             }}
           >
