@@ -24,4 +24,4 @@ const Template: Story<RegistrationPageProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {} as RegistrationPageProps;

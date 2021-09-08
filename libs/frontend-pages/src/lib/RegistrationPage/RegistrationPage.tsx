@@ -2,15 +2,15 @@ import {
   Box,
   Button,
   ButtonProps,
-  Grid,
   TextField,
   Typography,
 } from '@material-ui/core';
-import { alpha } from '@material-ui/system';
 import _ from 'lodash';
 import React from 'react';
-
-/* eslint-disable-next-line */
+import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
+import { AnimatePresence } from 'framer-motion';
+import Dot from './Dot';
+import RightSideGrid, { RightSideGridProps } from './RightSideGrid';
 
 const leftSideGridDefaultProps: Omit<RegistrationPageProps, 'backgroundImage'> =
   {
@@ -76,7 +76,8 @@ const LeftSideGrid = ({
   BackwardButtonProps,
 }: LeftSideGridProps) => {
   return (
-    <Box
+    <MotionBox
+      layout
       sx={{
         display: 'grid',
         gridTemplateRows: '10% 60% 20% 10%',
@@ -94,23 +95,11 @@ const LeftSideGrid = ({
         Faça seu cadastro em três passos.
       </Typography>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-        <TextField
-          placeholder="placeholder"
-          variant="outlined"
-          label="placeholder"
-        />
-        <TextField
-          placeholder="placeholder"
-          variant="outlined"
-          label="placeholder"
-        />
-        <TextField
-          placeholder="placeholder"
-          variant="outlined"
-          label="placeholder"
-        />
-      </Box>
+      <Box
+        sx={{
+          minHeight: '500px',
+        }}
+      ></Box>
 
       <Box
         sx={{
@@ -127,59 +116,23 @@ const LeftSideGrid = ({
         <Dot index={1} value={activeIndex} />
         <Dot index={2} value={activeIndex} />
       </Box>
-    </Box>
+    </MotionBox>
   );
 };
 
-interface DotProps {
-  index?: number;
-  value?: number;
-}
-
-const Dot = ({ index, value }: DotProps) => {
+const FirstForm = () => {
   return (
-    <Box
+    <MotionBox
       sx={{
-        width: 12,
-        height: 12,
-        borderRadius: '50%',
-        transition: 'all 0.3s ease',
-        boxShadow: (theme) => theme.shadows[5],
-        backgroundColor: (theme) =>
-          value === index
-            ? theme.palette.primary.main
-            : alpha(theme.palette.primary.main, 0.4),
-      }}
-    />
-  );
-};
-
-interface RightSideGridProps {
-  backgroundImage?: {
-    src: string;
-    alt: string;
-  };
-}
-
-const RightSideGrid = ({
-  backgroundImage = {
-    src: 'https://via.placeholder.com/1500',
-    alt: 'This is a placeholder alt message to provide better acessibility performance, change me',
-  },
-}: RightSideGridProps) => {
-  return (
-    <Box
-      sx={{
-        display: { xs: 'none', lg: 'flex' },
-        width: '100%',
-        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 5,
+        minHeight: '500px',
       }}
     >
-      <Box
-        {...backgroundImage}
-        component="img"
-        sx={{ objectFit: 'cover', height: '100%', width: '100%' }}
-      />
-    </Box>
+      <TextField fullWidth placeholder="Nome" label="Nome" />
+      <TextField fullWidth placeholder="Sobrenome" label="Sobrenome" />
+      <TextField fullWidth placeholder="Email" label="Email" />
+    </MotionBox>
   );
 };
