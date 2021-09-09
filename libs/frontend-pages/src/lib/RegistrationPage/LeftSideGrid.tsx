@@ -9,21 +9,21 @@ import SecondForm, { SecondFormProps } from './SecondForm';
 import ThirdForm, { ThirdFormProps } from './ThirdForm';
 
 export interface LeftSideGridProps {
-  activeIndex?: number;
+  activeIndex?: 0 | 1 | 2;
   ForwardButtonProps?: ButtonProps;
   BackwardButtonProps?: ButtonProps;
-  firstFormProps?: FirstFormProps;
-  secondFormProps?: SecondFormProps;
-  thirdFormProps?: ThirdFormProps;
+  FirstFormProps?: FirstFormProps;
+  SecondFormsProps?: SecondFormProps;
+  ThirdFormProps?: ThirdFormProps;
 }
 
 export const LeftSideGrid = ({
   activeIndex,
   ForwardButtonProps,
   BackwardButtonProps,
-  firstFormProps,
-  secondFormProps,
-  thirdFormProps,
+  FirstFormProps: firstFormProps,
+  SecondFormsProps: secondFormProps,
+  ThirdFormProps: thirdFormProps,
 }: LeftSideGridProps) => {
   return (
     <MotionBox

@@ -5,18 +5,20 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import FormContainer, { FormContainerProps } from './FormContainer';
-// import { } from '@material-ui/core'
 import {
   DatePicker,
   DatePickerProps,
   LocalizationProvider,
+  MobileDatePicker,
+  MobileDatePickerProps,
 } from '@material-ui/lab';
 import AdapterFns from '@material-ui/lab/AdapterDateFns';
+import _ from 'lodash';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SecondFormProps {
   FormContainerProps?: FormContainerProps;
-  datePickerField?: DatePickerProps;
+  datePickerField?: MobileDatePickerProps;
   genderField?: BaseTextFieldProps & TextFieldProps;
   cpfField?: BaseTextFieldProps & TextFieldProps;
   phoneField?: BaseTextFieldProps & TextFieldProps;
@@ -32,12 +34,7 @@ export const SecondForm = ({
   return (
     <LocalizationProvider dateAdapter={AdapterFns}>
       <FormContainer {...FormContainerProps}>
-        <DatePicker
-          onChange={() => console.log('hello')}
-          renderInput={(props) => <TextField {...props} />}
-          value={null}
-          {...datePickerField}
-        />
+        <MobileDatePicker {...(datePickerField as MobileDatePickerProps)} />
         <TextField fullWidth placeholder="Gênero" {...genderField} />
         <TextField fullWidth placeholder="CPF" {...cpfField} />
         <TextField fullWidth placeholder="Telefone" {...phoneField} />
