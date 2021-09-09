@@ -23,8 +23,8 @@ export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
           <SlideProductRepresentation></SlideProductRepresentation>
         </Container>
         <SubscriptionClubDetailsSection />
-        <CallInstagramSection />
         <NewslatterSection />
+        <CallInstagramSection />
       </Box>
     </LayoutEcommerce>
   );

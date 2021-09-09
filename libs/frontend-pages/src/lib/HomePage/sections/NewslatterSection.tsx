@@ -17,11 +17,14 @@ export default function NewslatterSection() {
           <Box className="section-content">
             <Box>
               <Typography variant="h1" color="white">
-                Lorem ipsum dolor sit amet, consectetur.
+                Lorem ipsum dolor sit <br /> amet, consectetur.
               </Typography>
-              <Button size="large" variant="contained" color="primary">
-                Saiba Mais
-              </Button>
+              <Box sx={style.newslatterInputSubscription}>
+                <Box component="input" type="email" placeholder="Seu e-mail" />
+                <Button size="medium" variant="contained">
+                  Enviar
+                </Button>
+              </Box>
             </Box>
           </Box>
         </Box>

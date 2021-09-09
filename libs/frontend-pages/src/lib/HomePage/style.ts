@@ -370,19 +370,21 @@ export default {
   },
   newslatterSection: {
     background: (theme) => theme.palette.secondary.main,
-    height: {
+    maxHeight: {
       md: '501.71px',
       xs: 'auto',
     },
     margin: '105px 0px',
     position: 'relative',
     '.wrapper-newslatter': {
+      position: 'relative',
+      height: '100%',
       display: 'flex',
+      alignItems: 'center',
       flexDirection: {
         md: 'row',
         xs: 'column',
       },
-      position: 'relative',
       '.cupofcoffee': {
         position: 'relative',
         width: {
@@ -400,11 +402,43 @@ export default {
       },
       '.section-content': {
         position: 'relative',
-        height: '100%',
-        padding: '40px 0px',
         display: 'flex',
         alignItems: 'center',
+        transform: {
+          md: 'translate3d(0, -70px, 0)',
+          xs: 'translate3d(0, -100px, 0)',
+        },
+        h1: {
+          marginBottom: {
+            md: '35px',
+            xs: '10px',
+          },
+        },
       },
+    },
+  },
+  newslatterInputSubscription: {
+    display: 'flex',
+    alignItems: 'center',
+    maxWidth: '400px',
+    marginTop: '20px',
+
+    input: {
+      flex: 1,
+      height: '44px',
+      outline: 'none',
+      borderRadius: '10px 0 0 10px',
+      background: '#FFF',
+      padding: '0 5px',
+      border: (theme) => `2px solid ${theme.palette.primary.main}`,
+      '&::placeholder': {
+        textIndent: '20px',
+        color: (theme) => theme.palette.secondary.main,
+      },
+    },
+    button: {
+      borderRadius: '0 10px 10px 0',
+      transform: 'translate3d(-2px, 0, 0)',
     },
   },
 } as HomePageStyle;
