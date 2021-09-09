@@ -21,8 +21,8 @@ export const FormContainer = ({
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 5,
-        justifyContent: 'center',
+        gap: 3,
+        justifyContent: 'space-evenly',
         minHeight: '500px',
       }}
       variants={{

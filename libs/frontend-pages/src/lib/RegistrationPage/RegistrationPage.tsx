@@ -101,6 +101,7 @@ const LeftSideGrid = ({
       <Box
         sx={{
           minHeight: '500px',
+          py: 8,
         }}
       >
         <AnimatePresence exitBeforeEnter>
