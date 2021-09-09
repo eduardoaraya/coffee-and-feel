@@ -1,25 +1,25 @@
-import React from "react";
+import React from 'react';
 import {
   TextField,
   BaseTextFieldProps,
   InputAdornment,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
-import { AccountCircle } from "@material-ui/icons";
+import { AccountCircle } from '@material-ui/icons';
 
-export interface UsernameInputProps extends BaseTextFieldProps {}
+export type UsernameInputProps = BaseTextFieldProps;
 
 const UsernameInput = ({ ...rest }: UsernameInputProps) => {
   return (
     <TextField
       fullWidth
-      sx={{ fontSize: "inherit" }}
+      sx={{ fontSize: 'inherit' }}
       InputProps={{
         startAdornment: (
           <InputAdornment
             sx={{
-              ".MuiSvgIcon-root": {
-                fontSize: "1.2rem",
+              '.MuiSvgIcon-root': {
+                fontSize: '1.2rem',
               },
             }}
             position="start"
@@ -30,7 +30,7 @@ const UsernameInput = ({ ...rest }: UsernameInputProps) => {
       }}
       size="small"
       label="Email"
-      variant={"standard"}
+      variant={'standard'}
       {...rest}
     />
   );
