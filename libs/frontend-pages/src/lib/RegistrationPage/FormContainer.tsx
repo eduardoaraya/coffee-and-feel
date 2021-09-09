@@ -18,7 +18,17 @@ export const FormContainer = ({
       exit="hidden"
       initial="hidden"
       animate="visible"
-      variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 5,
+        justifyContent: 'center',
+        minHeight: '500px',
+      }}
+      variants={{
+        hidden: { opacity: 0, x: -500 },
+        visible: { opacity: 1, x: 0 },
+      }}
     ></MotionBox>
   );
 };

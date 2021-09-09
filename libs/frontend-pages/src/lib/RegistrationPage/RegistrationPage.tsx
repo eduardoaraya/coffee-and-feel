@@ -11,6 +11,9 @@ import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
 import { AnimatePresence } from 'framer-motion';
 import Dot from './Dot';
 import RightSideGrid, { RightSideGridProps } from './RightSideGrid';
+import FirstForm from './FirstForm';
+import SecondForm from './SecondForm';
+import ThirdForm from './ThirdForm';
 
 const leftSideGridDefaultProps: Omit<RegistrationPageProps, 'backgroundImage'> =
   {
@@ -99,7 +102,19 @@ const LeftSideGrid = ({
         sx={{
           minHeight: '500px',
         }}
-      ></Box>
+      >
+        <AnimatePresence exitBeforeEnter>
+          {(activeIndex === 0 && (
+            <FirstForm FormContainerProps={{ layoutId: 'one' }} />
+          )) ||
+            (activeIndex === 1 && (
+              <SecondForm FormContainerProps={{ layoutId: 'two' }} />
+            )) ||
+            (activeIndex === 2 && (
+              <ThirdForm FormContainerProps={{ layoutId: 'three' }} />
+            ))}
+        </AnimatePresence>
+      </Box>
 
       <Box
         sx={{
@@ -116,23 +131,6 @@ const LeftSideGrid = ({
         <Dot index={1} value={activeIndex} />
         <Dot index={2} value={activeIndex} />
       </Box>
-    </MotionBox>
-  );
-};
-
-const FirstForm = () => {
-  return (
-    <MotionBox
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 5,
-        minHeight: '500px',
-      }}
-    >
-      <TextField fullWidth placeholder="Nome" label="Nome" />
-      <TextField fullWidth placeholder="Sobrenome" label="Sobrenome" />
-      <TextField fullWidth placeholder="Email" label="Email" />
     </MotionBox>
   );
 };
