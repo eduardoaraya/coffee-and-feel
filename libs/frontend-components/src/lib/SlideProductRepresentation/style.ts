@@ -6,6 +6,7 @@ export type SlideProductRepresentationType = {
 
 export default {
   wrapperSlide: {
+    zIndex: 2,
     maxWidth: '1030px',
     height: {
       sm: '544px',

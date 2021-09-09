@@ -8,9 +8,9 @@ import { HomePageProps } from './contracts/HomePage.interface';
 import SubscriptionClubAboutSection from './sections/SubscriptionClubAboutSection';
 import SubscriptionClubDetailsSection from './sections/SubscriptionClubDetailsSection';
 import KnowMoreSection from './sections/KnowMoreSection';
-import style from './style';
 import CallInstagramSection from './sections/CallInstagramSection';
 import NewsletterSection from './sections/NewsletterSection';
+import style from './style';
 
 export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
   return (
