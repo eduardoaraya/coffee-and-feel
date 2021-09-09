@@ -42,8 +42,8 @@ export default function SubscriptionClubDetailsSection(): JSX.Element {
                 <Typography>Acumule o dobro de Feel Points</Typography>
               </li>
             </ul>
-            <Link href="/#" className="default-link">
-              <a>Saiba mais</a>
+            <Link href="/#">
+              <a className="default-link">Saiba mais</a>
             </Link>
           </div>
           <div className="subscription-box-detail">
@@ -81,8 +81,8 @@ export default function SubscriptionClubDetailsSection(): JSX.Element {
                 <Typography>Acumule o triplo de Feel Points</Typography>
               </li>
             </ul>
-            <Link href="/#" className="default-link">
-              <a>Saiba mais</a>
+            <Link href="/#">
+              <a className="default-link">Saiba mais</a>
             </Link>
           </div>
         </Box>
