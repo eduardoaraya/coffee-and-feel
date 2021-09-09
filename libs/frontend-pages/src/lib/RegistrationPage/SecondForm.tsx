@@ -14,7 +14,7 @@ import {
 import AdapterFns from '@material-ui/lab/AdapterDateFns';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface FirstFormProps {
+export interface SecondFormProps {
   FormContainerProps?: FormContainerProps;
   datePickerField?: DatePickerProps;
   genderField?: BaseTextFieldProps & TextFieldProps;
@@ -28,7 +28,7 @@ export const SecondForm = ({
   genderField,
   cpfField,
   phoneField,
-}: FirstFormProps) => {
+}: SecondFormProps) => {
   return (
     <LocalizationProvider dateAdapter={AdapterFns}>
       <FormContainer {...FormContainerProps}>

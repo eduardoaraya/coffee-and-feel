@@ -7,7 +7,7 @@ import {
 } from '@atlascode/coffee-front-components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface FirstFormProps {
+export interface ThirdFormProps {
   FormContainerProps?: FormContainerProps;
   passwordField?: PasswordInputProps;
   passwordConfirmField?: PasswordInputProps;
@@ -17,7 +17,7 @@ export const ThirdForm = ({
   FormContainerProps,
   passwordField,
   passwordConfirmField,
-}: FirstFormProps) => {
+}: ThirdFormProps) => {
   return (
     <FormContainer {...FormContainerProps}>
       <PasswordInput

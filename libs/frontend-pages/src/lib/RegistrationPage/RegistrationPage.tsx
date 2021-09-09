@@ -11,9 +11,10 @@ import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
 import { AnimatePresence } from 'framer-motion';
 import Dot from './Dot';
 import RightSideGrid, { RightSideGridProps } from './RightSideGrid';
-import FirstForm from './FirstForm';
-import SecondForm from './SecondForm';
-import ThirdForm from './ThirdForm';
+import FirstForm, { FirstFormProps } from './FirstForm';
+import SecondForm, { SecondFormProps } from './SecondForm';
+import ThirdForm, { ThirdFormProps } from './ThirdForm';
+import LeftSideGrid, { LeftSideGridProps } from './LeftSideGrid';
 
 const leftSideGridDefaultProps: Omit<RegistrationPageProps, 'backgroundImage'> =
   {
@@ -66,72 +67,3 @@ export function RegistrationPage({
 }
 
 export default RegistrationPage;
-
-interface LeftSideGridProps {
-  activeIndex?: number;
-  ForwardButtonProps?: ButtonProps;
-  BackwardButtonProps?: ButtonProps;
-}
-
-const LeftSideGrid = ({
-  activeIndex,
-  ForwardButtonProps,
-  BackwardButtonProps,
-}: LeftSideGridProps) => {
-  return (
-    <MotionBox
-      layout
-      sx={{
-        display: 'grid',
-        gridTemplateRows: '10% 60% 20% 10%',
-        gridTemplateColumns: '1fr',
-        alignItems: 'center',
-        py: 5,
-        px: { xs: 4, lg: 10 },
-        textAlign: 'center',
-      }}
-    >
-      <Typography
-        variant="h5"
-        sx={{ color: (theme) => theme.palette.grey[500] }}
-      >
-        Faça seu cadastro em três passos.
-      </Typography>
-
-      <Box
-        sx={{
-          minHeight: '500px',
-          py: 8,
-        }}
-      >
-        <AnimatePresence exitBeforeEnter>
-          {(activeIndex === 0 && (
-            <FirstForm FormContainerProps={{ layoutId: 'one' }} />
-          )) ||
-            (activeIndex === 1 && (
-              <SecondForm FormContainerProps={{ layoutId: 'two' }} />
-            )) ||
-            (activeIndex === 2 && (
-              <ThirdForm FormContainerProps={{ layoutId: 'three' }} />
-            ))}
-        </AnimatePresence>
-      </Box>
-
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: { xs: 'space-between', lg: 'space-evenly' },
-        }}
-      >
-        <Button {...BackwardButtonProps} />
-        <Button {...ForwardButtonProps} />
-      </Box>
-
-      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 10 }}>
-        <Dot index={0} value={activeIndex} />
-        <Dot index={1} value={activeIndex} />
-        <Dot index={2} value={activeIndex} />
-      </Box>
-    </MotionBox>
-  );
-};
