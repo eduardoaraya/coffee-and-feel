@@ -19,7 +19,7 @@ export default {
 
   subscriptionSection: {
     positon: 'relative',
-    zIndex: 9,
+    zIndex: 2,
     width: '100%',
     minHeight: '900px',
     position: 'relative',
@@ -62,6 +62,7 @@ export default {
       alignItems: 'flex-end',
     },
     '.section-info': {
+      position: 'relative',
       '.section-title': {
         lineHeight: {
           md: '46px',
@@ -103,6 +104,7 @@ export default {
         display: 'flex',
         justifyContent: 'center',
         margin: '75px 0px',
+        zIndex: 2,
         flexDirection: {
           md: 'row',
           xs: 'column',
@@ -237,6 +239,27 @@ export default {
       md: '105px 0px',
       xs: '35px 20px',
     },
+    position: 'relative',
+    '.coffees': {
+      display: {
+        md: 'block',
+        xs: 'none',
+      },
+      position: 'absolute',
+      width: '224.08px',
+      height: '907.78px',
+      zIndex: 1,
+      '&.left': {
+        left: 0,
+        top: 'calc(907.78px/3)',
+      },
+      '&.right': {
+        top: 'calc(-907.78px/3)',
+        right: 0,
+        transform: 'rotate(180deg)',
+      },
+    },
+
     '.title-section': {
       textAlign: 'center',
       maxWidth: '420px',
@@ -251,6 +274,7 @@ export default {
       flexWrap: 'wrap',
 
       '.subscription-box-detail': {
+        zIndex: 2,
         minWidth: '315px',
         margin: '10px 31px',
         background: '#FFFFFF',
@@ -369,6 +393,7 @@ export default {
     },
   },
   newsletterSection: {
+    zIndex: 2,
     background: (theme) => theme.palette.secondary.main,
     maxHeight: {
       md: '501.71px',
