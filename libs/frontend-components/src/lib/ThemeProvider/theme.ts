@@ -12,16 +12,11 @@ const defaultTheme = createTheme({
   components: {
     MuiOutlinedInput: {
       styleOverrides: {
-        // input: {
-        //   minWidth: '225px',
-        // },
-
         root: {
           borderRadius: '12px',
         },
       },
     },
-
 
     MuiButtonGroup: {
       styleOverrides: {
@@ -38,7 +33,6 @@ const defaultTheme = createTheme({
           borderRadius: '50px',
           '&.MuiButton-outlined': {
             borderWidth: '2px',
-            color: '#FFF',
           },
           '&.MuiButton-sizeLarge': {
             padding: '15px 45px',
