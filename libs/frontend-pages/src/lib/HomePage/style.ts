@@ -368,4 +368,43 @@ export default {
       },
     },
   },
+  newslatterSection: {
+    background: (theme) => theme.palette.secondary.main,
+    height: {
+      md: '501.71px',
+      xs: 'auto',
+    },
+    margin: '105px 0px',
+    position: 'relative',
+    '.wrapper-newslatter': {
+      display: 'flex',
+      flexDirection: {
+        md: 'row',
+        xs: 'column',
+      },
+      position: 'relative',
+      '.cupofcoffee': {
+        position: 'relative',
+        width: {
+          md: '661px',
+          xs: '361px',
+        },
+        height: {
+          md: '642px',
+          xs: '342px',
+        },
+        transform: {
+          md: 'translate3d(-150px, -150px, 0)',
+          xs: 'translate3d(0px, -150px, 0)',
+        },
+      },
+      '.section-content': {
+        position: 'relative',
+        height: '100%',
+        padding: '40px 0px',
+        display: 'flex',
+        alignItems: 'center',
+      },
+    },
+  },
 } as HomePageStyle;
