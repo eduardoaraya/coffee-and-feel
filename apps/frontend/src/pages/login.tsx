@@ -28,8 +28,6 @@ const LoginPage = (props: LoginPageProps) => {
     onSubmit: () => console.log('submitting'),
   });
 
-  console.log(values);
-
   return (
     <LoginPageComponent
       EmailInputFieldProps={{

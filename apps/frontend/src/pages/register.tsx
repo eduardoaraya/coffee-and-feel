@@ -14,52 +14,43 @@ const GENDERS = ['Masculino', 'Feminino', 'Outro'];
 const RegisterPage = (props: RegisterPageProps) => {
   const [activeIndex, setActiveIndex] = React.useState<number>(0);
 
-  const {
-    values,
-    errors,
-    handleBlur,
-    handleChange,
-    submitForm,
-    isSubmitting,
-    isValid,
-    setFieldValue,
-    setFieldTouched,
-    setFieldError,
-    setErrors,
-  } = useFormik({
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      // Second step
-      birthday: '',
-      gender: '',
-      cpf: '',
-      phone: '',
-      // Third Step
-      password: '',
-      passwordConfirmation: '',
-    },
-    onSubmit: (values, action) => console.log(values),
-    validationSchema: Yup.object({
-      firstName: Yup.string().required('Este campo é obrigatório'),
-      lastName: Yup.string().required('Este campo é obrigatório'),
-      email: Yup.string()
-        .email('Precisa ser um e-mail válido')
-        .required('Este campo é obrigatório'),
-      birthday: Yup.string().required('Este campo é obrigatório'),
-      gender: Yup.string().required('Este campo é obrigatório'),
-      cpf: Yup.string()
-        .required('Este campo é obrigatório')
-        .matches(/\d{3}\.\d{3}\.\d{3}-\d{2}/, {
-          message: 'Precisa ser um CPF válido',
-        }),
-      // Utilizar máscara para forçar padrão de formatação
-      phone: Yup.string().required('Este campo é obrigatório'),
-      password: Yup.string().required('Este campo é obrigatório'),
-      passwordConfirmation: Yup.string().required('Este campo é obrigatório'),
-    }),
-  });
+  const { values, errors, handleBlur, handleChange, setFieldValue } = useFormik(
+    {
+      initialValues: {
+        // First step
+        firstName: '',
+        lastName: '',
+        email: '',
+        // Second step
+        birthday: '',
+        gender: '',
+        cpf: '',
+        phone: '',
+        // Third Step
+        password: '',
+        passwordConfirmation: '',
+      },
+      onSubmit: (values, action) => console.log(values),
+      validationSchema: Yup.object({
+        firstName: Yup.string().required('Este campo é obrigatório'),
+        lastName: Yup.string().required('Este campo é obrigatório'),
+        email: Yup.string()
+          .email('Precisa ser um e-mail válido')
+          .required('Este campo é obrigatório'),
+        birthday: Yup.string().required('Este campo é obrigatório'),
+        gender: Yup.string().required('Este campo é obrigatório'),
+        cpf: Yup.string()
+          .required('Este campo é obrigatório')
+          .matches(/\d{3}\.\d{3}\.\d{3}-\d{2}/, {
+            message: 'Precisa ser um CPF válido',
+          }),
+        // Utilizar máscara para forçar padrão de formatação
+        phone: Yup.string().required('Este campo é obrigatório'),
+        password: Yup.string().required('Este campo é obrigatório'),
+        passwordConfirmation: Yup.string().required('Este campo é obrigatório'),
+      }),
+    }
+  );
 
   const handleForward = () => {
     if (activeIndex < MAX_INDEX) {
@@ -72,8 +63,6 @@ const RegisterPage = (props: RegisterPageProps) => {
       setActiveIndex((prevState) => prevState - 1);
     }
   };
-
-  console.log(values);
 
   return (
     <RegistrationPage
