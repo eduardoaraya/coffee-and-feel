@@ -368,7 +368,7 @@ export default {
       },
     },
   },
-  newslatterSection: {
+  newsletterSection: {
     background: (theme) => theme.palette.secondary.main,
     maxHeight: {
       md: '501.71px',
@@ -417,7 +417,7 @@ export default {
       },
     },
   },
-  newslatterInputSubscription: {
+  newsletterInputSubscription: {
     display: 'flex',
     alignItems: 'center',
     maxWidth: '400px',
