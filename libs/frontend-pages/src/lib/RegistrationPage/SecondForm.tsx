@@ -14,14 +14,19 @@ import {
 } from '@material-ui/lab';
 import AdapterFns from '@material-ui/lab/AdapterDateFns';
 import _ from 'lodash';
+import NumberFormat, { NumberFormatProps } from 'react-number-format';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SecondFormProps {
   FormContainerProps?: FormContainerProps;
   datePickerField?: MobileDatePickerProps;
   genderField?: BaseTextFieldProps & TextFieldProps;
-  cpfField?: BaseTextFieldProps & TextFieldProps;
-  phoneField?: BaseTextFieldProps & TextFieldProps;
+  cpfField?: Omit<BaseTextFieldProps, 'ref'> &
+    Omit<TextFieldProps, 'ref'> &
+    NumberFormatProps;
+  phoneField?: Omit<BaseTextFieldProps, 'ref'> &
+    Omit<TextFieldProps, 'ref'> &
+    NumberFormatProps;
 }
 
 export const SecondForm = ({
@@ -36,8 +41,18 @@ export const SecondForm = ({
       <FormContainer {...FormContainerProps}>
         <MobileDatePicker {...(datePickerField as MobileDatePickerProps)} />
         <TextField fullWidth placeholder="Gênero" {...genderField} />
-        <TextField fullWidth placeholder="CPF" {...cpfField} />
-        <TextField fullWidth placeholder="Telefone" {...phoneField} />
+        <NumberFormat
+          customInput={TextField}
+          fullWidth
+          placeholder="CPF"
+          {...cpfField}
+        />
+        <NumberFormat
+          customInput={TextField}
+          fullWidth
+          placeholder="Telefone"
+          {...phoneField}
+        />
       </FormContainer>
     </LocalizationProvider>
   );

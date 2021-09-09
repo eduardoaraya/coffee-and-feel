@@ -2,12 +2,14 @@ import { RegistrationPage } from '@atlascode/coffee-front-pages';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import React from 'react';
-import { TextField } from '@material-ui/core';
+import { MenuItem, TextField } from '@material-ui/core';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface RegisterPageProps {}
 
 const MAX_INDEX = 2;
+
+const GENDERS = ['Masculino', 'Feminino', 'Outro'];
 
 const RegisterPage = (props: RegisterPageProps) => {
   const [activeIndex, setActiveIndex] = React.useState<number>(0);
@@ -23,6 +25,7 @@ const RegisterPage = (props: RegisterPageProps) => {
     setFieldValue,
     setFieldTouched,
     setFieldError,
+    setErrors,
   } = useFormik({
     initialValues: {
       firstName: '',
@@ -46,8 +49,11 @@ const RegisterPage = (props: RegisterPageProps) => {
         .required('Este campo é obrigatório'),
       birthday: Yup.string().required('Este campo é obrigatório'),
       gender: Yup.string().required('Este campo é obrigatório'),
-      // Fazer validação de REGEX do CPF
-      cpf: Yup.string().required('Este campo é obrigatório'),
+      cpf: Yup.string()
+        .required('Este campo é obrigatório')
+        .matches(/\d{3}\.\d{3}\.\d{3}-\d{2}/, {
+          message: 'Precisa ser um CPF válido',
+        }),
       // Utilizar máscara para forçar padrão de formatação
       phone: Yup.string().required('Este campo é obrigatório'),
       password: Yup.string().required('Este campo é obrigatório'),
@@ -104,7 +110,12 @@ const RegisterPage = (props: RegisterPageProps) => {
           value: values.cpf,
           error: Boolean(errors.cpf),
           helperText: errors.cpf,
-          onChange: handleChange,
+          format: '###.###.###-##',
+          mask: '_',
+          onBlurCapture: handleBlur,
+          onValueChange: (value) => {
+            setFieldValue('cpf', value.formattedValue, true);
+          },
           onBlur: handleBlur,
         },
         datePickerField: {
@@ -125,6 +136,34 @@ const RegisterPage = (props: RegisterPageProps) => {
             setFieldValue('birthday', new Date(date as Date).toJSON());
           },
           value: new Date(values.birthday),
+        },
+        phoneField: {
+          name: 'phone',
+          value: values.phone,
+          error: Boolean(errors.phone),
+          helperText: errors.phone,
+          format: '(##) #-####-####',
+          mask: '',
+          onBlur: handleBlur,
+          onValueChange: (value) => {
+            setFieldValue('phone', value.formattedValue, true);
+          },
+        },
+        genderField: {
+          name: 'gender',
+          value: values.gender,
+          error: Boolean(errors.gender),
+          helperText: errors.gender,
+          onChange: handleChange,
+          onBlur: handleChange,
+          select: true,
+          children: GENDERS.map((value, index) => {
+            return (
+              <MenuItem value={value} key={index}>
+                {value}
+              </MenuItem>
+            );
+          }),
         },
       }}
       ForwardButtonProps={{
