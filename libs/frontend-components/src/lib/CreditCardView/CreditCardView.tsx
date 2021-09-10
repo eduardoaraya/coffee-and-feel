@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, TextField } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import CreditCardChipSVG from './CreditCardChipSVG';
 import CreditCardTextField from './CreditCardTextField';
 
@@ -15,8 +15,8 @@ export function CreditCardView({ flip = false }: CreditCardViewProps) {
         // Change fontsize to scale entire component
         bgcolor: 'transparent',
         fontSize: '10px',
-        width: '26.8em',
-        height: '16.5em',
+        width: '32.8em',
+        height: '18.5em',
         perspective: '1000px',
         cursor: 'pointer',
       }}
@@ -53,35 +53,40 @@ export function CreditCardView({ flip = false }: CreditCardViewProps) {
           <Box
             sx={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gridAutoFlow: 'row',
+              gridTemplateColumns: '1fr',
+              gridTemplateRows: '1fr 1fr',
               gap: 1,
-              columnGap: 5,
-              px: 2,
+              px: 3,
               pb: 1.5,
               justifyItems: 'center',
             }}
           >
             <CreditCardTextField
-              fontSize="1em"
+              fontSize="1.15em"
               label="Número do cartão"
               variant="standard"
+              fullWidth
             />
-            <CreditCardTextField
-              fontSize="1em"
-              label="Nome"
-              variant="standard"
-            />
-            <CreditCardTextField
-              fontSize="1em"
-              label="Vencimento"
-              variant="standard"
-            />
-            <CreditCardTextField
-              fontSize="1em"
-              label="CVV"
-              variant="standard"
-            />
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: '75% 25%',
+              }}
+            >
+              <CreditCardTextField
+                fontSize="1.15em"
+                label="Nome"
+                variant="standard"
+                fullWidth
+                sx={{ pr: 5 }}
+              />
+              <CreditCardTextField
+                fontSize="1.15em"
+                label="Vencimento"
+                variant="standard"
+                fullWidth
+              />
+            </Box>
           </Box>
         </Box>
 
