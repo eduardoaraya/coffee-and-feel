@@ -5,13 +5,15 @@ import {
 } from '@atlascode/coffee-front-components';
 import { Box, Container } from '@material-ui/core';
 import { HomePageProps } from './contracts/HomePage.interface';
-import SubscriptionClubAboutSection from './sections/SubscriptionClubAboutSection';
-import SubscriptionClubDetailsSection from './sections/SubscriptionClubDetailsSection';
-import KnowMoreSection from './sections/KnowMoreSection';
-import CallInstagramSection from './sections/CallInstagramSection';
-import NewsletterSection from './sections/NewsletterSection';
 import style from './style';
-import LastPostsSection from './sections/LastPostsSection';
+import {
+  SubscriptionClubAboutSection,
+  KnowMoreSection,
+  SubscriptionClubDetailsSection,
+  NewsletterSection,
+  CallInstagramSection,
+  LastPostsSection,
+} from '@atlascode/coffee-front-sections';
 
 export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
   return (
