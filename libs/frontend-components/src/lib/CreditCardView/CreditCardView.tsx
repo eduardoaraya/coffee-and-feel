@@ -4,58 +4,99 @@ import CreditCardChipSVG from './CreditCardChipSVG';
 import CreditCardTextField from './CreditCardTextField';
 
 /* eslint-disable-next-line */
-export interface CreditCardViewProps {}
+export interface CreditCardViewProps {
+  flip?: boolean;
+}
 
-export function CreditCardView(props: CreditCardViewProps) {
+export function CreditCardView({ flip = false }: CreditCardViewProps) {
   return (
     <Box
       sx={{
         // Change fontsize to scale entire component
+        bgcolor: 'transparent',
         fontSize: '10px',
-        bgcolor: '#333',
         width: '26.8em',
         height: '16.5em',
-        borderRadius: '9px',
+        perspective: '1000px',
+        cursor: 'pointer',
       }}
     >
       <Box
+        id="card-inner"
         sx={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gridTemplateRows: '30% 70%',
-          overflow: 'hidden',
+          transformStyle: 'preserve-3d',
+          transition: 'transform 0.6s',
+          width: '100%',
+          position: 'relative',
           height: '100%',
+          ...(flip && { transform: 'rotateY(180deg)' }),
         }}
       >
-        <CreditCardChipSVG
-          sx={{ width: '3.1em', height: '2em', alignSelf: 'center', ml: 2 }}
-        />
-
         <Box
+          id="card-front"
           sx={{
+            position: 'absolute',
+            bgcolor: '#333',
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gridAutoFlow: 'row',
-            gap: 1,
-            columnGap: 5,
-            px: 2,
-            pb: 1.5,
-            justifyItems: 'center',
+            borderRadius: '9px',
+            gridTemplateColumns: '1fr',
+            gridTemplateRows: '30% 70%',
+            overflow: 'hidden',
+            height: '100%',
+            backfaceVisibility: 'hidden',
           }}
         >
-          <CreditCardTextField
-            fontSize="1em"
-            label="Número do cartão"
-            variant="standard"
+          <CreditCardChipSVG
+            sx={{ width: '3.1em', height: '2em', alignSelf: 'center', ml: 2 }}
           />
-          <CreditCardTextField fontSize="1em" label="Nome" variant="standard" />
-          <CreditCardTextField
-            fontSize="1em"
-            label="Vencimento"
-            variant="standard"
-          />
-          <CreditCardTextField fontSize="1em" label="CVV" variant="standard" />
+
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gridAutoFlow: 'row',
+              gap: 1,
+              columnGap: 5,
+              px: 2,
+              pb: 1.5,
+              justifyItems: 'center',
+            }}
+          >
+            <CreditCardTextField
+              fontSize="1em"
+              label="Número do cartão"
+              variant="standard"
+            />
+            <CreditCardTextField
+              fontSize="1em"
+              label="Nome"
+              variant="standard"
+            />
+            <CreditCardTextField
+              fontSize="1em"
+              label="Vencimento"
+              variant="standard"
+            />
+            <CreditCardTextField
+              fontSize="1em"
+              label="CVV"
+              variant="standard"
+            />
+          </Box>
         </Box>
+
+        <Box
+          id="card-back"
+          sx={{
+            position: 'absolute',
+            backfaceVisibility: 'hidden',
+            width: '100%',
+            height: '100%',
+            borderRadius: '9px',
+            bgcolor: 'blue',
+            transform: 'rotateY(180deg)',
+          }}
+        ></Box>
       </Box>
     </Box>
   );
