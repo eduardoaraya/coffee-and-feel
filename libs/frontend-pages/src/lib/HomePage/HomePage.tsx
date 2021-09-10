@@ -11,6 +11,7 @@ import KnowMoreSection from './sections/KnowMoreSection';
 import CallInstagramSection from './sections/CallInstagramSection';
 import NewsletterSection from './sections/NewsletterSection';
 import style from './style';
+import LastPostsSection from './sections/LastPostsSection';
 
 export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
   return (
@@ -25,6 +26,7 @@ export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
         <SubscriptionClubDetailsSection />
         <NewsletterSection />
         <CallInstagramSection />
+        <LastPostsSection />
       </Box>
     </LayoutEcommerce>
   );
