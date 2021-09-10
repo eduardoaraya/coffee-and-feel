@@ -28,6 +28,7 @@ export class UserAddress {
   @Column({ name: 'address_reference', type: 'varchar', nullable: true })
   addressReference?: string;
 
+  @Column({ name: 'user_id', type: 'number', nullable: false })
   @ManyToOne((type) => User, (user) => user.id)
   userId: number;
 }
