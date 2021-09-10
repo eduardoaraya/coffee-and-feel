@@ -10,11 +10,11 @@ import {
 
 export class CreateProductDto implements Omit<ProductEntityModel, 'id'> {
   @ApiProperty()
-  @IsString({ message: 'Product SKU must be of string type' })
+  @IsString()
   product_SKU: string;
 
   @ApiProperty()
-  @IsBoolean({ message: 'Product Active field must be a boolean' })
+  @IsBoolean()
   product_active: boolean;
 
   @ApiProperty()
@@ -22,7 +22,7 @@ export class CreateProductDto implements Omit<ProductEntityModel, 'id'> {
   product_depth: number;
 
   @ApiProperty()
-  @IsString({ message: 'Product name must be of type string' })
+  @IsString()
   product_name: string;
 
   @ApiProperty()

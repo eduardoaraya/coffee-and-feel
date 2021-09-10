@@ -13,8 +13,29 @@ export enum UserGender {
   NOT_DECLARED = 'N',
 }
 
+export interface UserEntityModel {
+  id: number;
+  userFirstName: string;
+  userLastName: string;
+  userSalt?: string;
+  userPassHash?: string;
+  userGender: UserGender;
+  userEmail: string;
+  userBirthday: Date;
+  userFacebook?: string;
+  userInstagram?: string;
+  userLinkedin?: string;
+  userPhone?: string;
+  userPhoneAlt?: string;
+  userEmailVerified: boolean;
+  userGoogleId?: string;
+  userFacebookId?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 @Entity({ name: 'user' })
-export class User {
+export class User implements UserEntityModel {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -23,6 +44,12 @@ export class User {
 
   @Column({ name: 'user_lastname', type: 'varchar' })
   userLastName: string;
+
+  @Column({ name: 'user_salt', type: 'text', nullable: true })
+  userSalt?: string;
+
+  @Column({ name: 'user_passhash', type: 'text', nullable: true })
+  userPassHash?: string;
 
   @Column({
     name: 'user_gender',
@@ -55,6 +82,12 @@ export class User {
 
   @Column({ name: 'user_email_verified', type: 'boolean', default: false })
   userEmailVerified: boolean;
+
+  @Column({ name: 'user_facebook_id', type: 'varchar', nullable: true })
+  userFacebookId?: string;
+
+  @Column({ name: 'user_google_id', type: 'varchar', nullable: true })
+  userGoogleId?: string;
 
   @CreateDateColumn()
   createdAt?: string;

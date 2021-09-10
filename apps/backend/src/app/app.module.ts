@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { ProductsModule } from '@atlascode/coffee-backend-module-products';
+import { UsersModule } from '@atlascode/coffee-backend-module-users';
 import { getConnectionOptions } from 'typeorm';
 
 // Remember to initialize the node shell process from the root folder as DotEnv uses process.cwd as root path.
@@ -13,6 +14,7 @@ export const envFilePath =
 @Module({
   imports: [
     ProductsModule,
+    UsersModule,
     ConfigModule.forRoot({ envFilePath: envFilePath }),
     TypeOrmModule.forRootAsync({
       useFactory: async () =>
