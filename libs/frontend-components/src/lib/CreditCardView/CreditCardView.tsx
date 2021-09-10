@@ -1,14 +1,34 @@
 import React from 'react';
-import { Box } from '@material-ui/core';
+import {
+  Box,
+  InputBase,
+  Typography,
+  InputBaseProps,
+  TypographyProps,
+} from '@material-ui/core';
 import CreditCardChipSVG from './CreditCardChipSVG';
-import CreditCardTextField from './CreditCardTextField';
+import CreditCardTextField, {
+  CreditCardTextFieldProps,
+} from './CreditCardTextField';
 
 /* eslint-disable-next-line */
 export interface CreditCardViewProps {
   flip?: boolean;
+  CardNumberFieldProps?: CreditCardTextFieldProps;
+  CardNameFieldProps?: CreditCardTextFieldProps;
+  CardExpiryDateFieldProps?: CreditCardTextFieldProps;
+  CardCVVFieldProps?: InputBaseProps;
+  BackNameProps?: TypographyProps;
 }
 
-export function CreditCardView({ flip = false }: CreditCardViewProps) {
+export function CreditCardView({
+  flip = false,
+  CardNameFieldProps,
+  CardNumberFieldProps,
+  CardExpiryDateFieldProps,
+  CardCVVFieldProps,
+  BackNameProps,
+}: CreditCardViewProps) {
   return (
     <Box
       sx={{
@@ -62,6 +82,7 @@ export function CreditCardView({ flip = false }: CreditCardViewProps) {
             }}
           >
             <CreditCardTextField
+              {...CardNumberFieldProps}
               fontSize="1.15em"
               label="Número do cartão"
               variant="standard"
@@ -74,13 +95,15 @@ export function CreditCardView({ flip = false }: CreditCardViewProps) {
               }}
             >
               <CreditCardTextField
+                {...CardNameFieldProps}
                 fontSize="1.15em"
                 label="Nome"
                 variant="standard"
                 fullWidth
-                sx={{ pr: 5 }}
+                sx={{ pr: 4 }}
               />
               <CreditCardTextField
+                {...CardExpiryDateFieldProps}
                 fontSize="1.15em"
                 label="Vencimento"
                 variant="standard"
@@ -98,10 +121,81 @@ export function CreditCardView({ flip = false }: CreditCardViewProps) {
             width: '100%',
             height: '100%',
             borderRadius: '9px',
-            bgcolor: 'blue',
+            bgcolor: (theme) => theme.palette.grey[800],
             transform: 'rotateY(180deg)',
           }}
-        ></Box>
+        >
+          <Box
+            sx={{
+              display: 'grid',
+              width: '100%',
+              height: '100%',
+              gridTemplateColumns: '1fr',
+              gridTemplateRows: '30% 50% 20%',
+              justifyContent: 'center',
+            }}
+          >
+            <Box
+              sx={{
+                width: '100%',
+                height: '3.5em',
+                bgcolor: (theme) => theme.palette.grey[900],
+                alignSelf: 'flex-end',
+              }}
+            />
+
+            <Box
+              sx={{
+                width: '100%',
+                height: '2.75em',
+                alignSelf: 'center',
+                px: 4,
+              }}
+            >
+              <Box
+                sx={{
+                  borderRadius: '4px',
+                  width: '100%',
+                  height: '100%',
+                  bgcolor: (theme) => theme.palette.grey[500],
+                  display: 'grid',
+                  gridTemplateColumns: '80% 20%',
+                }}
+              >
+                <Box sx={{ width: '100%', height: '100%', overflow: 'hidden' }}>
+                  <Typography
+                    {...BackNameProps}
+                    sx={{ p: 0, m: 0, px: 0.5, fontSize: '1.1em' }}
+                    fontFamily="cursive"
+                    noWrap={true}
+                  ></Typography>
+                </Box>
+                <Box
+                  sx={{
+                    borderTopRightRadius: '4px',
+                    borderBottomRightRadius: '4px',
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    px: 0.5,
+                    bgcolor: (theme) => theme.palette.grey[600],
+                  }}
+                >
+                  <Box
+                    {...CardCVVFieldProps}
+                    component={InputBase}
+                    sx={{
+                      p: 0,
+                      color: (theme) => theme.palette.grey[300],
+                      fontSize: '1.15em !important',
+                    }}
+                  />
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
