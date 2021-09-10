@@ -1,34 +1,36 @@
 import React from 'react';
-import {
-  BaseTextFieldProps,
-  TextField,
-  createStyles,
-  withStyles,
-} from '@material-ui/core';
-import { alpha, lighten, darken } from '@material-ui/system';
+import { BaseTextFieldProps, TextField } from '@material-ui/core';
+import { darken, ResponsiveStyleValue } from '@material-ui/system';
+import { Property } from 'csstype';
 
 export type CreditCardTextFieldProps = BaseTextFieldProps;
 
 const CreditCardTextField = React.forwardRef(
-  (props: CreditCardTextFieldProps, ref: CreditCardTextFieldProps['ref']) => {
+  (
+    {
+      fontSize = '10px',
+      ...props
+    }: CreditCardTextFieldProps & {
+      fontSize?: ResponsiveStyleValue<Property.FontSize>;
+    },
+    ref: CreditCardTextFieldProps['ref']
+  ) => {
     return (
       <TextField
         {...props}
         sx={{
+          '> *': {
+            fontSize: `${fontSize} !important`,
+          },
+
           '.MuiInput-input': {
             color: '#fff',
           },
 
           '.MuiInputLabel-root': {
-            fontSize: '10px',
-
             ':not(.Mui-focused)': {
               color: darken('#fff', 0.05),
             },
-          },
-
-          '.MuiInputBase-root': {
-            fontSize: '10px',
           },
 
           '.MuiInput-root': {

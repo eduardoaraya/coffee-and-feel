@@ -10,6 +10,7 @@ export function CreditCardView(props: CreditCardViewProps) {
   return (
     <Box
       sx={{
+        // Change fontsize to scale entire component
         fontSize: '10px',
         bgcolor: '#333',
         width: '26.8em',
@@ -42,10 +43,18 @@ export function CreditCardView(props: CreditCardViewProps) {
             justifyItems: 'center',
           }}
         >
-          <CreditCardTextField label="Número do cartão" variant="standard" />
-          <CreditCardTextField label="Nome" variant="standard" />
-          <CreditCardTextField label="Vencimento" variant="standard" />
-          <CreditCardTextField label="CVV" variant="standard" />
+          <CreditCardTextField
+            fontSize="1em"
+            label="Número do cartão"
+            variant="standard"
+          />
+          <CreditCardTextField fontSize="1em" label="Nome" variant="standard" />
+          <CreditCardTextField
+            fontSize="1em"
+            label="Vencimento"
+            variant="standard"
+          />
+          <CreditCardTextField fontSize="1em" label="CVV" variant="standard" />
         </Box>
       </Box>
     </Box>
