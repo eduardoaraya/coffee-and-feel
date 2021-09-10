@@ -216,6 +216,38 @@
         }
       }
     },
+    "backend-module-users": {
+      "root": "libs/backend-module-users",
+      "sourceRoot": "libs/backend-module-users/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/backend-module-users",
+            "tsConfig": "libs/backend-module-users/tsconfig.lib.json",
+            "packageJson": "libs/backend-module-users/package.json",
+            "main": "libs/backend-module-users/src/index.ts",
+            "assets": ["libs/backend-module-users/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-users/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-users"],
+          "options": {
+            "jestConfig": "libs/backend-module-users/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "backend-utility": {
       "root": "libs/backend-utility",
       "sourceRoot": "libs/backend-utility/src",

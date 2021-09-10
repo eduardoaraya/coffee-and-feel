@@ -45,6 +45,9 @@
     "backend-module-products": {
       "tags": []
     },
+    "backend-module-users": {
+      "tags": []
+    },
     "backend-utility": {
       "tags": []
     },
