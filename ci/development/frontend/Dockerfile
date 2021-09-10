@@ -25,7 +25,7 @@ RUN mkdir app && cp -a /tmp/node_modules /app
 # Build node
 
 COPY . /app
-RUN cd /app && pnpx nx run frontend:build
+RUN cd /app && pnpx nx run frontend:build -y
 
 
 WORKDIR /app

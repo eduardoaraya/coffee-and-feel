@@ -2,10 +2,14 @@ import { Container, Typography, Box } from '@material-ui/core';
 import { Check } from '@material-ui/icons';
 import Link from 'next/link';
 import style from '../style';
+import Image from 'next/image';
 
 export default function SubscriptionClubDetailsSection(): JSX.Element {
   return (
     <Box component="section" sx={style.subscriptionClubDetailsSection}>
+      <figure className="coffees left">
+        <Image src="/imgs/coffees.png" layout="fill" alt="Beans" />
+      </figure>
       <Container>
         <Typography className="title-section" variant="h1">
           Compare os benefícios do nosso Clube de Assinatura
@@ -83,6 +87,9 @@ export default function SubscriptionClubDetailsSection(): JSX.Element {
           </div>
         </Box>
       </Container>
+      <figure className="coffees right">
+        <Image src="/imgs/coffees.png" layout="fill" alt="Beans" />
+      </figure>
     </Box>
   );
 }
