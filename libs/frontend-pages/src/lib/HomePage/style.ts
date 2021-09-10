@@ -19,7 +19,7 @@ export default {
 
   subscriptionSection: {
     positon: 'relative',
-    zIndex: 9,
+    zIndex: 2,
     width: '100%',
     minHeight: '900px',
     position: 'relative',
@@ -62,6 +62,7 @@ export default {
       alignItems: 'flex-end',
     },
     '.section-info': {
+      position: 'relative',
       '.section-title': {
         lineHeight: {
           md: '46px',
@@ -103,6 +104,7 @@ export default {
         display: 'flex',
         justifyContent: 'center',
         margin: '75px 0px',
+        zIndex: 2,
         flexDirection: {
           md: 'row',
           xs: 'column',
@@ -237,6 +239,27 @@ export default {
       md: '105px 0px',
       xs: '35px 20px',
     },
+    position: 'relative',
+    '.coffees': {
+      display: {
+        md: 'block',
+        xs: 'none',
+      },
+      position: 'absolute',
+      width: '224.08px',
+      height: '907.78px',
+      zIndex: 1,
+      '&.left': {
+        left: 0,
+        top: 'calc(907.78px/3)',
+      },
+      '&.right': {
+        top: 'calc(-907.78px/3)',
+        right: 0,
+        transform: 'rotate(180deg)',
+      },
+    },
+
     '.title-section': {
       textAlign: 'center',
       maxWidth: '420px',
@@ -251,6 +274,7 @@ export default {
       flexWrap: 'wrap',
 
       '.subscription-box-detail': {
+        zIndex: 2,
         minWidth: '315px',
         margin: '10px 31px',
         background: '#FFFFFF',
@@ -369,6 +393,7 @@ export default {
     },
   },
   newsletterSection: {
+    zIndex: 2,
     background: (theme) => theme.palette.secondary.main,
     maxHeight: {
       md: '501.71px',
@@ -439,6 +464,112 @@ export default {
     button: {
       borderRadius: '0 10px 10px 0',
       transform: 'translate3d(-2px, 0, 0)',
+    },
+  },
+  lastPostsSection: {
+    padding: {
+      md: '105px 0px',
+      xs: '45px 0px',
+    },
+
+    '.section-wrapper': {
+      display: 'flex',
+      flexDirection: {
+        md: 'row',
+        xs: 'column',
+      },
+      '.section-cat': {
+        width: {
+          md: '50%',
+          xs: '100%',
+        },
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+        '.section-cat-content': {
+          minWidth: '200px',
+          maxWidth: {
+            md: '350px',
+            xs: '100%',
+          },
+          padding: {
+            md: '0',
+            xs: '45px',
+          },
+          h1: {
+            lineHeight: '45px',
+            marginBottom: '45px',
+            textAlign: {
+              md: 'left',
+              xs: 'center',
+            },
+          },
+        },
+      },
+
+      '.post-list': {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingLeft: {
+          md: '45px',
+          xs: '0',
+        },
+        '.post-item': {
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: {
+            md: 'row',
+            sm: 'row',
+            xs: 'column',
+          },
+          '.post-image': {
+            position: 'relative',
+            width: '304.59px',
+            height: '206.02px',
+            borderRadius: '8px',
+            boxShadow: `0px 3.72152px 3.72152px rgba(0, 0, 0, 0.25), inset 0px 3.72152px 3.72152px rgba(0, 0, 0, 0.25)`,
+            background: (theme) => theme.palette.secondary.main,
+          },
+          '.post-info': {
+            maxWidth: {
+              md: '400px',
+              xs: '300px',
+            },
+            padding: {
+              md: '39px',
+              xs: '15px 10px',
+            },
+            marginBottom: {
+              md: '0',
+              xs: '25px',
+            },
+
+            '.post-info-time': {
+              marginBottom: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              svg: {
+                marginRight: '5px',
+              },
+            },
+            '.post-info-title': {
+              fontSize: '20px',
+              marginBottom: '20px',
+            },
+            '.post-info-tag': {
+              maxWidth: '85px',
+              padding: '5px 15px',
+              fontSize: '12px',
+              borderRadius: '50px',
+              background: (theme) => theme.palette.primary.main,
+              textAlign: 'center',
+              color: '#FFF',
+            },
+          },
+        },
+      },
     },
   },
 } as HomePageStyle;
