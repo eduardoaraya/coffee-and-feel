@@ -30,6 +30,9 @@
       "@atlascode/coffee-front-pages": ["libs/frontend-pages/src/index.ts"],
       "@atlascode/coffee-frontend-utility": [
         "libs/frontend-utility/src/index.ts"
+      ],
+      "@atlascode/coffee-front-sections": [
+        "libs/frontend-sections/src/index.ts"
       ]
     }
   },
