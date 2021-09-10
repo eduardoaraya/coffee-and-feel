@@ -2,8 +2,20 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { User } from './user.entity';
 
+export interface UserAddressEntityModel {
+  id: number;
+  country: string;
+  state: string;
+  city: string;
+  zipcode: string;
+  addressLineOne: string;
+  addressLineTwo: string;
+  addressReference?: string;
+  userId: number;
+}
+
 @Entity('user_address')
-export class UserAddress {
+export class UserAddress implements UserAddressEntityModel {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -28,7 +40,7 @@ export class UserAddress {
   @Column({ name: 'address_reference', type: 'varchar', nullable: true })
   addressReference?: string;
 
-  @Column({ name: 'user_id', type: 'number', nullable: false })
+  @Column()
   @ManyToOne((type) => User, (user) => user.id)
   userId: number;
 }
