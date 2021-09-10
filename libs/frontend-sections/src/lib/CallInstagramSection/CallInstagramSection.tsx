@@ -1,13 +1,13 @@
 import { Box, Container, Typography } from '@material-ui/core';
-import style from '../../../../frontend-pages/src/lib/HomePage/style';
 import Image from 'next/image';
+import style from './style';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CallInstagramSectionProps {}
 
 export const CallInstagramSection: React.FC = (): JSX.Element => {
   return (
-    <Box component="section" sx={style.callInstagramSection}>
+    <Box component="section" sx={style.root}>
       <Container maxWidth="lg">
         <Container maxWidth="md">
           <Box className="section-description">
