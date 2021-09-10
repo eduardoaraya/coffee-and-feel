@@ -5,6 +5,7 @@ import style from './style';
 
 export interface LastPostsSectionProps {
   posts?: {
+    id: number;
     title: string;
     readingTime: string;
     tags: string[];
@@ -13,16 +14,19 @@ export interface LastPostsSectionProps {
 
 const defaultPostData = [
   {
+    id: 1,
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     readingTime: '10m',
     tags: ['Drinks'],
   },
   {
+    id: 2,
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     readingTime: '10m',
     tags: ['Drinks', 'Content'],
   },
   {
+    id: 3,
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     readingTime: '10m',
     tags: ['Drinks'],
@@ -48,7 +52,7 @@ export const LastPostsSection: React.FC<LastPostsSectionProps> = ({
           </Box>
           <Box className="post-list">
             {posts?.map((item) => (
-              <Box className="post-item">
+              <Box className="post-item" key={item.id}>
                 <figure className="post-image">
                   <Image src="/imgs/coffee.png" alt="" layout="fill" />
                 </figure>
@@ -68,8 +72,9 @@ export const LastPostsSection: React.FC<LastPostsSectionProps> = ({
                   >
                     {item.title}
                   </Typography>
-                  {item.tags.map((tag) => (
+                  {item.tags.map((tag, tagKey) => (
                     <Typography
+                      key={tagKey}
                       className="post-info-tag"
                       variant="body2"
                       component="span"

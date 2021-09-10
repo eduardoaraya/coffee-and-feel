@@ -1,10 +1,10 @@
 import { Button, Container, Typography } from '@material-ui/core';
 import Box from '@material-ui/system/Box';
-import style from '../../../../frontend-pages/src/lib/HomePage/style';
+import style from './style';
 
 export const SubscriptionClubAboutSection: React.FC = (): JSX.Element => {
   return (
-    <Box component="section" sx={style.subscriptionSection}>
+    <Box component="section" sx={style.root}>
       <Container>
         <Box className="wrapper">
           <div className="section-info">

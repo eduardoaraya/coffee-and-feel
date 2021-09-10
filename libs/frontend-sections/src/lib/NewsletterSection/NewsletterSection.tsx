@@ -1,10 +1,10 @@
 import { Box, Button, Container, Grid, Typography } from '@material-ui/core';
-import style from '../../../../frontend-pages/src/lib/HomePage/style';
+import style from './style';
 import Image from 'next/image';
 
 export const NewsletterSection: React.FC = (): JSX.Element => {
   return (
-    <Box component="section" sx={style.newsletterSection}>
+    <Box component="section" sx={style.root}>
       <Container>
         <Box className="wrapper-newslatter">
           <figure className="cupofcoffee">
@@ -19,7 +19,7 @@ export const NewsletterSection: React.FC = (): JSX.Element => {
               <Typography variant="h1" color="white">
                 Lorem ipsum dolor sit <br /> amet, consectetur.
               </Typography>
-              <Box sx={style.newsletterInputSubscription}>
+              <Box className="newsletter-action">
                 <Box component="input" type="email" placeholder="Seu e-mail" />
                 <Button size="medium" variant="contained">
                   Enviar

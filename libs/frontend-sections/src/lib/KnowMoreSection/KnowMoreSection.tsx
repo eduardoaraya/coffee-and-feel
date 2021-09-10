@@ -1,10 +1,10 @@
 import { Box, Button, Container, Typography } from '@material-ui/core';
-import style from '../../../../frontend-pages/src/lib/HomePage/style';
+import style from './style';
 import Image from 'next/image';
 
 export const KnowMoreSection: React.FC = (): JSX.Element => {
   return (
-    <Box component="section" sx={style.knowMoreSection}>
+    <Box component="section" sx={style.root}>
       <figure className="plant left">
         <Image src="/imgs/plant0.svg" layout="fill" alt="Coffe Plant" />
       </figure>
