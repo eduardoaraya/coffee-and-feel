@@ -1,16 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserAddressDto } from '../dto/create-user-address.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { UserAddress } from '../entities/userAddress.entity';
 import { UpdateUserAddressDto } from '../dto/update-user-address.dto';
+import { UserAddressRepository } from '../repositories/userAddress.repository';
 
 @Injectable()
 export class UsersAddressesService {
-  constructor(
-    @InjectRepository(UserAddress)
-    private usersAddressesRepository: Repository<UserAddress>
-  ) {}
+  constructor(private usersAddressesRepository: UserAddressRepository) {}
 
   create(createUserAddressDto: CreateUserAddressDto) {
     return this.usersAddressesRepository.create(createUserAddressDto);
