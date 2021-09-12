@@ -22,7 +22,7 @@ export class UserNotification {
   @CreateDateColumn()
   created_at?: string;
 
-  @Column({ name: 'user_id', type: 'number', nullable: false })
+  @Column({ name: 'user_id' })
   @ManyToOne((type) => User, (user) => user.id)
   userId: number;
 }

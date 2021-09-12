@@ -7,16 +7,16 @@ export class UserPointsWallet {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ name: 'points_available', type: 'number', default: 0 })
+  @Column({ name: 'points_available', type: 'int', default: 0 })
   pointsAvailable: number;
 
-  @Column({ name: 'points_total', type: 'number', default: 0 })
+  @Column({ name: 'points_total', type: 'int', default: 0 })
   pointsTotal: number;
 
-  @Column({ name: 'points_blocked', type: 'number', default: 0 })
+  @Column({ name: 'points_blocked', type: 'int', default: 0 })
   pointsBlocked: number;
 
-  @Column({ name: 'user_id', nullable: false, type: 'number' })
+  @Column({ name: 'user_id' })
   @OneToOne((type) => User)
   userId: number;
 }

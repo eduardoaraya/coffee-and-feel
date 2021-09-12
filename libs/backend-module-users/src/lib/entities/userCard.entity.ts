@@ -27,7 +27,7 @@ export class UserCard {
   @Column({ name: 'user_cc_fullname', type: 'varchar', nullable: false })
   userCCFullname: string;
 
-  @Column({ name: 'user_cc_last_four', type: 'number', nullable: false })
+  @Column({ name: 'user_cc_last_four', type: 'int', nullable: false })
   userCCLastFour: number;
 
   @Column({ name: 'user_cc_expiry_date', type: 'date', nullable: false })
@@ -42,7 +42,7 @@ export class UserCard {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt?: string;
 
-  @Column({ name: 'user_id', type: 'number', nullable: false })
+  @Column({ name: 'user_id' })
   @ManyToOne((type) => User, (user) => user.id)
   userId: number;
 }
