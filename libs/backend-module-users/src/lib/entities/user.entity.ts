@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  Unique,
 } from 'typeorm';
 
 export enum UserGender {
@@ -35,6 +36,7 @@ export interface UserEntityModel {
 }
 
 @Entity({ name: 'user' })
+@Unique(['userEmail'] as Array<keyof UserEntityModel>)
 export class User implements UserEntityModel {
   @PrimaryGeneratedColumn()
   id: number;
