@@ -18,8 +18,7 @@ export interface UserEntityModel {
   id: number;
   userFirstName: string;
   userLastName: string;
-  userSalt?: string;
-  userPassHash?: string;
+  userPassword?: string;
   userGender: UserGender;
   userEmail: string;
   userBirthday: Date;
@@ -47,11 +46,8 @@ export class User implements UserEntityModel {
   @Column({ name: 'user_lastname', type: 'varchar' })
   userLastName: string;
 
-  @Column({ name: 'user_salt', type: 'text', nullable: true })
-  userSalt?: string;
-
   @Column({ name: 'user_passhash', type: 'text', nullable: true })
-  userPassHash?: string;
+  userPassword?: string;
 
   @Column({
     name: 'user_gender',

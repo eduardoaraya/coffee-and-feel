@@ -1,5 +1,5 @@
 import { UserEntityModel, UserGender } from '../entities/user.entity';
-
+import { PartialType, OmitType } from '@nestjs/mapped-types';
 import { ApiProperty } from '@nestjs/swagger';
 import {
   IsString,
@@ -9,11 +9,15 @@ import {
   IsUrl,
   IsPhoneNumber,
   IsDate,
+  Matches,
 } from 'class-validator';
+import { User } from '../entities/user.entity';
 
-export class CreateUserDto
-  implements Omit<UserEntityModel, 'id' | 'createdAt' | 'updatedAt'>
-{
+export class CreateUserDto extends OmitType(User, [
+  'id',
+  'createdAt',
+  'updatedAt',
+]) {
   @ApiProperty()
   @IsString()
   userFirstName: string;
@@ -52,7 +56,12 @@ export class CreateUserDto
 
   @ApiProperty({ nullable: true })
   @IsString()
-  userPassHash?: string;
+  userPassword?: string;
+
+  @ApiProperty()
+  @IsString()
+  @Matches('userPassword')
+  userPasswordConfirmation?: string;
 
   @ApiProperty({ nullable: true })
   @IsPhoneNumber('BR')

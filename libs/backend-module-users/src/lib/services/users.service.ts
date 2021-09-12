@@ -13,7 +13,7 @@ export class UsersService {
   constructor(private usersRepository: UserRepository) {}
 
   create(createUserDto: CreateUserDto) {
-    return this.usersRepository.create(createUserDto);
+    return this.usersRepository.createUser(createUserDto);
   }
 
   findAll(): Promise<User[]> {
