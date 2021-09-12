@@ -1,5 +1,5 @@
-import { UserEntityModel, UserGender } from '../entities/user.entity';
-import { PartialType, OmitType } from '@nestjs/mapped-types';
+import { UserGender } from '../entities/user.entity';
+import { OmitType } from '@nestjs/mapped-types';
 import { ApiProperty } from '@nestjs/swagger';
 import {
   IsString,

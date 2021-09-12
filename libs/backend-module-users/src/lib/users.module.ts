@@ -6,9 +6,16 @@ import { UsersAddressesService } from './services/usersAddresses.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserRepository } from './repositories/user.repository';
 import { UserAddressRepository } from './repositories/userAddress.repository';
+import { UserCardRepository } from './repositories/userCard.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([UserRepository, UserAddressRepository])],
+  imports: [
+    TypeOrmModule.forFeature([
+      UserRepository,
+      UserAddressRepository,
+      UserCardRepository,
+    ]),
+  ],
   controllers: [UsersController, UsersAddressesController],
   providers: [UsersService, UsersAddressesService],
 })

@@ -3,7 +3,6 @@ import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
 import { User } from '../entities/user.entity';
 import { UpdateResult } from 'typeorm';
-import * as bcrypt from 'bcrypt';
 import { UserRepository } from '../repositories/user.repository';
 
 // const SALT_ROUNDS = 10;
@@ -30,9 +29,5 @@ export class UsersService {
 
   async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id);
-  }
-
-  private async hashPassword(password: string, salt: string): Promise<string> {
-    return bcrypt.hash(password, salt);
   }
 }
