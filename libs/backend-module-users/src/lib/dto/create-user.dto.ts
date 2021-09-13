@@ -78,7 +78,7 @@ export class CreateUserDto extends OmitType(User, [
   @IsString()
   userFacebookId?: string;
 
-  @ApiProperty({ nullable: true })
+  @ApiProperty({ nullable: true, default: null })
   @IsString()
   userGoogleId?: string;
 }
