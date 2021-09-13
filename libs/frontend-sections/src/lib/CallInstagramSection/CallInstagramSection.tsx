@@ -8,17 +8,23 @@ import {
   useTransform,
 } from 'framer-motion';
 import { ScrollTarget } from '@atlascode/coffee-frontend-utility';
+import { useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CallInstagramSectionProps {}
 
 export const CallInstagramSection: React.FC = (): JSX.Element => {
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <ScrollTarget
       className="insta-section"
-      handleOut={() => console.log('handleOut')}
-      handleOver={() => console.log('handleOver')}
-      handleIn={() => console.log('handleIn')}
+      handleOut={() => {
+        setIsVisible(false);
+      }}
+      handleIn={() => {
+        setIsVisible(true);
+      }}
+      handleOver={() => console.log('aq')}
     >
       <Box component="section" sx={style.root}>
         <Container maxWidth="lg">
@@ -39,27 +45,63 @@ export const CallInstagramSection: React.FC = (): JSX.Element => {
               </Typography>
             </Box>
           </Container>
-          <figure className="insta-photo photo-one">
-            <Image
-              src="/imgs/insta0.png"
-              layout="fill"
-              alt="Instagram photo one"
-            />
-          </figure>
-          <figure className="insta-photo photo-two">
-            <Image
-              src="/imgs/insta1.png"
-              layout="fill"
-              alt="Instagram photo two"
-            />
-          </figure>
-          <figure className="insta-photo photo-three">
-            <Image
-              src="/imgs/insta2.png"
-              layout="fill"
-              alt="Instagram photo three"
-            />
-          </figure>
+          <AnimatePresence>
+            {isVisible && (
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ ease: 'easeOut', duration: 1.5 }}
+                className="insta-photo photo-one"
+              >
+                <figure className="insta-photo photo-one">
+                  <Image
+                    src="/imgs/insta0.png"
+                    layout="fill"
+                    alt="Instagram photo one"
+                  />
+                </figure>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {isVisible && (
+              <motion.div
+                initial={{ opacity: 0, x: -150 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ ease: 'easeOut', duration: 1.5 }}
+                className="insta-photo photo-two"
+              >
+                <figure>
+                  <Image
+                    src="/imgs/insta1.png"
+                    layout="fill"
+                    alt="Instagram photo two"
+                  />
+                </figure>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {isVisible && (
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ ease: 'easeOut', duration: 1.5 }}
+                className="insta-photo photo-three"
+              >
+                <figure>
+                  <Image
+                    src="/imgs/insta2.png"
+                    layout="fill"
+                    alt="Instagram photo three"
+                  />
+                </figure>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Container>
       </Box>
     </ScrollTarget>
