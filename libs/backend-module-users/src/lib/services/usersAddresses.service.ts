@@ -9,7 +9,7 @@ export class UsersAddressesService {
   constructor(private usersAddressesRepository: UserAddressRepository) {}
 
   create(createUserAddressDto: CreateUserAddressDto) {
-    return this.usersAddressesRepository.create(createUserAddressDto);
+    return this.usersAddressesRepository.save(createUserAddressDto);
   }
 
   findAll(): Promise<UserAddress[]> {

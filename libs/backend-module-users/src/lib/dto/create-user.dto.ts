@@ -8,10 +8,10 @@ import {
   IsEmail,
   IsUrl,
   IsPhoneNumber,
-  IsDate,
-  Matches,
+  IsDateString,
 } from 'class-validator';
 import { User } from '../entities/user.entity';
+import { IsEqualTo } from '../util/isEqualTo.decorator';
 
 export class CreateUserDto extends OmitType(User, [
   'id',
@@ -26,11 +26,11 @@ export class CreateUserDto extends OmitType(User, [
   @IsString()
   userLastName: string;
 
-  @ApiProperty()
-  @IsDate()
+  @ApiProperty({ default: new Date(Date.now()).toJSON() })
+  @IsDateString()
   userBirthday: Date;
 
-  @ApiProperty()
+  @ApiProperty({ default: 'user@email.com' })
   @IsEmail()
   userEmail: string;
 
@@ -38,7 +38,7 @@ export class CreateUserDto extends OmitType(User, [
   @IsBoolean()
   userEmailVerified: boolean;
 
-  @ApiProperty({ nullable: true })
+  @ApiProperty({ nullable: true, default: 'https://facebook.com/randomHandle' })
   @IsUrl()
   userFacebook?: string;
 
@@ -46,11 +46,14 @@ export class CreateUserDto extends OmitType(User, [
   @IsEnum(UserGender)
   userGender: UserGender;
 
-  @ApiProperty({ nullable: true })
+  @ApiProperty({
+    nullable: true,
+    default: 'https://instagram.com/randomHandle',
+  })
   @IsUrl()
   userInstagram?: string;
 
-  @ApiProperty({ nullable: true })
+  @ApiProperty({ nullable: true, default: 'https://linkedin.com/random' })
   @IsUrl()
   userLinkedin?: string;
 
@@ -60,20 +63,16 @@ export class CreateUserDto extends OmitType(User, [
 
   @ApiProperty()
   @IsString()
-  @Matches('userPassword')
+  @IsEqualTo('userPassword')
   userPasswordConfirmation?: string;
 
-  @ApiProperty({ nullable: true })
+  @ApiProperty({ nullable: true, default: '51998477733' })
   @IsPhoneNumber('BR')
   userPhone?: string;
 
-  @ApiProperty({ nullable: true })
+  @ApiProperty({ nullable: true, default: '51998877339' })
   @IsPhoneNumber('BR')
   userPhoneAlt?: string;
-
-  @ApiProperty({ nullable: true })
-  @IsString()
-  userSalt?: string;
 
   @ApiProperty({ nullable: true })
   @IsString()

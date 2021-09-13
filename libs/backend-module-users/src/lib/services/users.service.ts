@@ -13,9 +13,9 @@ export class UsersService {
   public async create(createUserDto: CreateUserDto) {
     const hashedPassword = await this.hashPassword(createUserDto.userPassword);
 
-    return this.usersRepository.create({
-      userPassword: hashedPassword,
+    return this.usersRepository.save({
       ...createUserDto,
+      userPassword: hashedPassword,
     });
   }
 

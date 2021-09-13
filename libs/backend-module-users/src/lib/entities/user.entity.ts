@@ -46,7 +46,7 @@ export class User implements UserEntityModel {
   @Column({ name: 'user_lastname', type: 'varchar' })
   userLastName: string;
 
-  @Column({ name: 'user_passhash', type: 'text', nullable: true })
+  @Column({ name: 'user_password', type: 'text', nullable: true })
   userPassword?: string;
 
   @Column({

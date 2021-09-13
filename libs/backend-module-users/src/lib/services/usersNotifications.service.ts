@@ -14,7 +14,7 @@ export class UsersNotificationsService {
   public async create(
     createUserNotificationDto: CreateUserNotificationDto
   ): Promise<UserNotification> {
-    return this.usersNotificationRepository.create(createUserNotificationDto);
+    return this.usersNotificationRepository.save(createUserNotificationDto);
   }
 
   public async update(

@@ -10,7 +10,7 @@ export class UsersCardsService {
   constructor(private usersCardsRepository: UserCardRepository) {}
 
   public async create(createUserCardDto: CreateUserCardDto): Promise<UserCard> {
-    return this.usersCardsRepository.create(createUserCardDto);
+    return this.usersCardsRepository.save(createUserCardDto);
   }
 
   public async update(
