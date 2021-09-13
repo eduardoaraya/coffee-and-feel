@@ -42,6 +42,9 @@
     "backend": {
       "tags": []
     },
+    "backend-module-admin": {
+      "tags": []
+    },
     "backend-module-products": {
       "tags": []
     },

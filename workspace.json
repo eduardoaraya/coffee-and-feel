@@ -195,6 +195,27 @@
         }
       }
     },
+    "backend-module-admin": {
+      "root": "libs/backend-module-admin",
+      "sourceRoot": "libs/backend-module-admin/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-admin/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-admin"],
+          "options": {
+            "jestConfig": "libs/backend-module-admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "backend-module-products": {
       "root": "libs/backend-module-products",
       "sourceRoot": "libs/backend-module-products/src",
