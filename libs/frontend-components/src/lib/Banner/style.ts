@@ -13,21 +13,23 @@ export default {
     backgroundColor: 'transparent',
     width: '100%',
     height: {
-      md: '476px',
+      md: '480px',
       xs: '250px',
     },
     position: 'relative',
   },
 
   banner: (banner) => ({
-    position: 'absolute',
-    transition: '1s',
-    top: 0,
-    left: 0,
+    // position: 'absolute',
+    // transition: '1s',
+    // top: 0,
+    // left: 0,
     width: '100%',
-    height: '100%',
-    opacity: 0,
-    backgroundColor: 'transparent',
+    height: {
+      md: '480px',
+      xs: '250px',
+    },
+    backgroundColor: '#000',
     backgroundImage: {
       md: `url('${banner?.link.desktop}')`,
       xs: `url('${banner?.link.mobile}')`,
@@ -35,8 +37,5 @@ export default {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    '&.active': {
-      opacity: 1,
-    },
   }),
 } as BannerStyle;
