@@ -13,8 +13,9 @@ export default {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#f4f2e9',
-    backgroundImage: `url(/imgs/bg_default.svg)`,
+    backgroundColor: '#ffffff',
+    backgroundImage: `radial-gradient(#b6c5cc 0.9500000000000001px, #ffffff 0.9500000000000001px)`,
+    backgroundSize: '19px 19px',
   },
   slideProductRepresentation: {
     padding: '35px 0px 105px 0px',
