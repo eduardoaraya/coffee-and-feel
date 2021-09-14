@@ -3,41 +3,45 @@ import { ApiProperty } from '@nestjs/swagger';
 import {
   IsString,
   IsBoolean,
-  IsNumber,
   IsCurrency,
   IsDecimal,
+  IsNumberString,
 } from 'class-validator';
 
 export class CreateProductDto implements Omit<ProductEntityModel, 'id'> {
   @ApiProperty()
-  @IsString({ message: 'Product SKU must be of string type' })
+  @IsString()
   product_SKU: string;
 
   @ApiProperty()
-  @IsBoolean({ message: 'Product Active field must be a boolean' })
+  @IsBoolean()
   product_active: boolean;
 
-  @ApiProperty()
-  @IsNumber({ allowInfinity: false, allowNaN: false })
-  product_depth: number;
+  @ApiProperty({ default: '1.85' })
+  @IsNumberString()
+  product_depth: string;
 
   @ApiProperty()
-  @IsString({ message: 'Product name must be of type string' })
+  @IsString()
   product_name: string;
 
-  @ApiProperty()
+  @ApiProperty({ default: '1.55' })
+  @IsNumberString()
   @IsCurrency()
-  product_price: number;
+  product_price: string;
 
-  @ApiProperty()
+  @ApiProperty({ default: 1.35 })
+  @IsNumberString()
   @IsDecimal()
-  product_weight: number;
+  product_weight: string;
 
-  @ApiProperty()
+  @ApiProperty({ default: 1.75 })
+  @IsNumberString()
   @IsDecimal()
-  product_width: number;
+  product_width: string;
 
-  @ApiProperty()
+  @ApiProperty({ default: 0.55 })
+  @IsNumberString()
   @IsDecimal()
-  product_height: number;
+  product_height: string;
 }

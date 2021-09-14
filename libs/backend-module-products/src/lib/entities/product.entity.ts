@@ -11,11 +11,11 @@ export interface ProductEntityModel {
   id: number;
   product_SKU: string;
   product_name: string;
-  product_price: number;
-  product_weight: number;
-  product_width: number;
-  product_depth: number;
-  product_height: number;
+  product_price: string;
+  product_weight: string;
+  product_width: string;
+  product_depth: string;
+  product_height: string;
   product_active: boolean;
 }
 
@@ -31,19 +31,19 @@ export class Product implements ProductEntityModel {
   product_name: string;
 
   @Column('decimal')
-  product_price: number;
+  product_price: string;
 
   @Column('float')
-  product_weight: number;
+  product_weight: string;
 
   @Column('float')
-  product_width: number;
+  product_width: string;
 
   @Column('float')
-  product_height: number;
+  product_height: string;
 
   @Column('float')
-  product_depth: number;
+  product_depth: string;
 
   @Column({ default: true })
   product_active: boolean;
