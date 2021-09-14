@@ -42,7 +42,13 @@
     "backend": {
       "tags": []
     },
+    "backend-module-admin": {
+      "tags": []
+    },
     "backend-module-products": {
+      "tags": []
+    },
+    "backend-module-users": {
       "tags": []
     },
     "backend-utility": {

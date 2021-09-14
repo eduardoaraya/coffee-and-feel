@@ -195,6 +195,27 @@
         }
       }
     },
+    "backend-module-admin": {
+      "root": "libs/backend-module-admin",
+      "sourceRoot": "libs/backend-module-admin/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-admin/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-admin"],
+          "options": {
+            "jestConfig": "libs/backend-module-admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "backend-module-products": {
       "root": "libs/backend-module-products",
       "sourceRoot": "libs/backend-module-products/src",
@@ -211,6 +232,38 @@
           "outputs": ["coverage/libs/backend-module-products"],
           "options": {
             "jestConfig": "libs/backend-module-products/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-module-users": {
+      "root": "libs/backend-module-users",
+      "sourceRoot": "libs/backend-module-users/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/backend-module-users",
+            "tsConfig": "libs/backend-module-users/tsconfig.lib.json",
+            "packageJson": "libs/backend-module-users/package.json",
+            "main": "libs/backend-module-users/src/index.ts",
+            "assets": ["libs/backend-module-users/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-users/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-users"],
+          "options": {
+            "jestConfig": "libs/backend-module-users/jest.config.js",
             "passWithNoTests": true
           }
         }

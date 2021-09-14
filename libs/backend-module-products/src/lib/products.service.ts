@@ -11,7 +11,7 @@ export class ProductsService {
     @InjectRepository(Product) private productsRepository: Repository<Product>
   ) {}
 
-  create(createProductDto: CreateProductDto) {
+  async create(createProductDto: CreateProductDto) {
     // Nesting these calls to make sure creation/update events are triggered, possibly a bug.
     // https://github.com/typeorm/typeorm/issues/5493
     return this.productsRepository.save(
