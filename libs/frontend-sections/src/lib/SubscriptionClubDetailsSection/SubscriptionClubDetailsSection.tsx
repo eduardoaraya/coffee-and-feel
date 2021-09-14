@@ -10,14 +10,18 @@ export interface SubscriptionClubDetailsSection {
     title: string;
     content: string[];
     subtitle: string;
+    priceText: string;
+    priceInfo?: string;
   }[];
 }
 
 const defaultPlans = [
   {
     id: 1,
-    title: 'Assinatura Standard',
-    subtitle: 'Receba todos os meses',
+    title: 'Standard',
+    subtitle: 'Você recebe 40 cápsulas todos os meses',
+    priceText: 'R$ 71,60/mês',
+    priceInfo: '+ taxa de entrega',
     content: [
       'Café Blend Suave',
       'Café Blend Intenso',
@@ -28,8 +32,9 @@ const defaultPlans = [
   },
   {
     id: 2,
-    title: 'Assinatura Premium',
-    subtitle: 'Receba todos os meses',
+    title: 'Premium',
+    subtitle: 'Você recebe 60 cápsulas todos os meses',
+    priceText: 'R$ 132,60/mês',
     content: [
       'Café Blend Suave',
       'Café Blend Intenso',
@@ -51,7 +56,7 @@ export const SubscriptionClubDetailsSection: React.FC<SubscriptionClubDetailsSec
         </figure>
         <Container>
           <Typography className="title-section" variant="h1">
-            Compare os benefícios do nosso Clube de Assinatura
+            Conheça nosso Clube de Assinatura
           </Typography>
           <Box className="subscription-details-wrapper">
             {defaultPlans?.map((plan) => (
@@ -68,6 +73,16 @@ export const SubscriptionClubDetailsSection: React.FC<SubscriptionClubDetailsSec
                     </li>
                   ))}
                 </ul>
+                <div className="price-area">
+                  <Typography className="price-total">
+                    {plan.priceText}
+                  </Typography>
+                  {plan.priceInfo ?? (
+                    <Typography variant="body1" className="price-info">
+                      {plan.priceInfo}
+                    </Typography>
+                  )}
+                </div>
                 <Link href="/#">
                   <a className="default-link">Saiba mais</a>
                 </Link>

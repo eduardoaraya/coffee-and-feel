@@ -29,9 +29,8 @@ export default {
 
     '.title-section': {
       textAlign: 'center',
-      maxWidth: '420px',
       margin: '0 auto',
-      marginBottom: '85px',
+      marginBottom: '45px',
     },
     '.subscription-details-wrapper': {
       display: 'flex',
@@ -53,7 +52,7 @@ export default {
         '.title-box': {
           padding: '0 36px',
           'h3.MuiTypography-root': {
-            fontSize: '20px',
+            fontSize: '30px',
             marginBottom: '14px',
           },
           'p.MuiTypography-root': {
@@ -75,9 +74,22 @@ export default {
             svg: {
               color: (theme) => theme.palette.success.main,
             },
-            '>*': {
-              margin: '0 10px',
+            '>*:not(svg)': {
+              margin: '0 0 0 15px',
             },
+          },
+        },
+        '.price-area': {
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+          marginBottom: '25px',
+          '.price-total': {
+            fontWeight: 'bolder',
+            marginBottom: '5px',
+            color: '#323232',
           },
         },
       },
