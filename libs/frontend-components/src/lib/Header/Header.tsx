@@ -111,7 +111,7 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
             sx={style.navigatorCustomer}
           >
             <ul>
-              <li className="points">0</li>
+              <li className="points">332</li>
               <li className="bag">
                 <Badge badgeContent={4} color="primary">
                   <img src="./icons/bag.svg" alt="bag" />

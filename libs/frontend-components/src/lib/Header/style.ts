@@ -23,6 +23,7 @@ export default {
     top: 0,
     left: 0,
     transition: '.3s',
+    boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
     '&.hide-banner-top': {
       transform: {
         md: `translate3d(0, -${heightBannerTop.md}, 0)`,
