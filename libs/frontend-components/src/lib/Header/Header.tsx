@@ -11,6 +11,7 @@ import Link from 'next/link';
 import style from './style';
 import { AccountCircle } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
+import { useDebounce } from '@atlascode/coffee-frontend-utility';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
@@ -43,18 +44,7 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [hideBanner, setHideBanner] = useState<boolean>(false);
 
-  let timer: NodeJS.Timeout;
-
-  function debounce(fnc: CallableFunction, timeout: number): CallableFunction {
-    return (...args: any[]) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        fnc(args);
-      }, timeout);
-    };
-  }
-
-  const debounceScroll = debounce(() => {
+  const debounceScroll = useDebounce(() => {
     const { pageYOffset } = window;
     if (pageYOffset > 70) {
       return setHideBanner(true);
@@ -71,10 +61,10 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
     }
     return () => {
       if (window !== undefined) {
-        clearTimeout(timer);
         window.removeEventListener('scroll', handleScroll);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleModalTarget = () => {
@@ -121,14 +111,14 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
             sx={style.navigatorCustomer}
           >
             <ul>
-              <li className="points">0</li>
+              <li className="points">332</li>
+              <li className="myaccount">
+                <AccountCircle />
+              </li>
               <li className="bag">
                 <Badge badgeContent={4} color="primary">
                   <img src="./icons/bag.svg" alt="bag" />
                 </Badge>
-              </li>
-              <li className="myaccount">
-                <AccountCircle />
               </li>
               <li className="menu-mobile" onClick={handleModalTarget}>
                 <img src="./icons/menu.svg" alt="bag" />
