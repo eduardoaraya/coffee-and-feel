@@ -10,14 +10,16 @@ export class AuthUserService {
   ) {}
 
   async validateUser(email: string, password: string) {
-    const user = await this.usersService.findByEmail(email)[0];
+    const user = await this.usersService.findByEmail(email);
+
+    console.log(user);
 
     let passwordCheck: boolean;
 
-    if (user) {
+    if (user.length > 0) {
       passwordCheck = await this.authenticationPassword.comparePassword(
         password,
-        user.userPassword
+        user[0].userPassword
       );
     } else {
       throw new NotFoundException();

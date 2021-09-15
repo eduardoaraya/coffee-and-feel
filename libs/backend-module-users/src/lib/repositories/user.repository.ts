@@ -27,9 +27,13 @@ export class UserRepository extends AbstractRepository<User> {
 
   public async findUserByEmail(email: string, id: number | null = null) {
     if (id) {
-      return this.repository.find({ where: { id: id, userEmail: email } });
+      return await this.repository.find({
+        where: { id: id, userEmail: email },
+      });
     } else {
-      return this.repository.find({ where: { userEmail: email } });
+      return await this.repository.find({
+        where: { userEmail: email },
+      });
     }
   }
 
