@@ -13,26 +13,40 @@ export class UsersService {
   public async create(createUserDto: CreateUserDto) {
     const hashedPassword = await this.hashPassword(createUserDto.userPassword);
 
-    return await this.usersRepository.save({
+    return await this.usersRepository.saveUser({
       ...createUserDto,
       userPassword: hashedPassword,
     });
   }
 
-  findAll(): Promise<User[]> {
-    return this.usersRepository.find();
+  public async findAll(): Promise<User[]> {
+    return await this.usersRepository.findAllUsers();
   }
 
   findOne(id: number): Promise<User> {
-    return this.usersRepository.findOne(id);
+    return this.usersRepository.findUserById(id);
+  }
+
+  public async findByEmail(
+    email: string,
+    id: number | null = null
+  ): Promise<User[]> {
+    return await this.usersRepository.findUserByEmail(email, id);
+  }
+
+  public async findByCPF(
+    cpf: string,
+    id: number | null = null
+  ): Promise<User[]> {
+    return await this.usersRepository.findUserByCPF(cpf, id);
   }
 
   update(id: number, updateUserDto: UpdateUserDto): Promise<UpdateResult> {
-    return this.usersRepository.update(id, updateUserDto);
+    return this.usersRepository.updateUser(id, updateUserDto);
   }
 
   async remove(id: number): Promise<void> {
-    await this.usersRepository.delete(id);
+    await this.usersRepository.deleteUser(id);
   }
 
   private async hashPassword(password: string): Promise<string> {

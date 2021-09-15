@@ -9,9 +9,13 @@ import {
   IsUrl,
   IsPhoneNumber,
   IsDateString,
+  IsNotEmpty,
+  Matches,
+  IsOptional,
 } from 'class-validator';
 import { User } from '../entities/user.entity';
 import { IsEqualTo } from '../util/isEqualTo.decorator';
+import { internet, date, phone } from 'faker';
 
 export class CreateUserDto extends OmitType(User, [
   'id',
@@ -26,11 +30,11 @@ export class CreateUserDto extends OmitType(User, [
   @IsString()
   userLastName: string;
 
-  @ApiProperty({ default: new Date(Date.now()).toJSON() })
+  @ApiProperty({ default: date.past() })
   @IsDateString()
   userBirthday: Date;
 
-  @ApiProperty({ default: 'user@email.com' })
+  @ApiProperty({ default: internet.email() })
   @IsEmail()
   userEmail: string;
 
@@ -38,7 +42,7 @@ export class CreateUserDto extends OmitType(User, [
   @IsBoolean()
   userEmailVerified: boolean;
 
-  @ApiProperty({ nullable: true, default: 'https://facebook.com/randomHandle' })
+  @ApiProperty({ nullable: true, default: internet.url() })
   @IsUrl()
   userFacebook?: string;
 
@@ -46,39 +50,54 @@ export class CreateUserDto extends OmitType(User, [
   @IsEnum(UserGender)
   userGender: UserGender;
 
+  @ApiProperty({ nullable: true, default: '010.938.680-90' })
+  @Matches(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)
+  @IsNotEmpty()
+  userCPF?: string;
+
   @ApiProperty({
     nullable: true,
-    default: 'https://instagram.com/randomHandle',
+    default: internet.url(),
   })
   @IsUrl()
   userInstagram?: string;
 
-  @ApiProperty({ nullable: true, default: 'https://linkedin.com/random' })
+  @ApiProperty({ nullable: true, default: internet.url() })
   @IsUrl()
   userLinkedin?: string;
 
-  @ApiProperty({ nullable: true })
+  @ApiProperty({ nullable: true, default: 'password123' })
   @IsString()
   userPassword?: string;
 
-  @ApiProperty()
+  @ApiProperty({ nullable: true, default: 'password123' })
   @IsString()
   @IsEqualTo('userPassword')
   userPasswordConfirmation?: string;
 
-  @ApiProperty({ nullable: true, default: '51998477733' })
+  @ApiProperty({
+    nullable: true,
+    default: phone.phoneNumber('(##) 9-####-####'),
+  })
   @IsPhoneNumber('BR')
+  @IsOptional()
   userPhone?: string;
 
-  @ApiProperty({ nullable: true, default: '51998877339' })
+  @ApiProperty({
+    nullable: true,
+    default: phone.phoneNumber('(##) 9-####-####'),
+  })
+  @IsOptional()
   @IsPhoneNumber('BR')
   userPhoneAlt?: string;
 
-  @ApiProperty({ nullable: true })
+  @ApiProperty({ nullable: true, default: null })
+  @IsOptional()
   @IsString()
   userFacebookId?: string;
 
   @ApiProperty({ nullable: true, default: null })
+  @IsOptional()
   @IsString()
   userGoogleId?: string;
 }

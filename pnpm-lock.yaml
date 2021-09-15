@@ -42,9 +42,11 @@ specifiers:
   '@types/bcrypt': ^5.0.0
   '@types/bl': ^5.0.1
   '@types/express': ^4.17.13
+  '@types/faker': ^5.5.8
   '@types/jest': 26.0.24
   '@types/material-ui': ^0.21.9
   '@types/node': 14.14.33
+  '@types/passport-local': ^1.0.34
   '@types/react': 17.0.3
   '@types/react-dom': 17.0.3
   '@types/swiper': ^5.4.3
@@ -70,6 +72,7 @@ specifiers:
   eslint-plugin-react: 7.23.1
   eslint-plugin-react-hooks: 4.2.0
   express: ^4.17.1
+  faker: ^5.5.3
   formik: ^2.2.9
   framer-motion: ^4.1.17
   history: ^5.0.1
@@ -178,9 +181,11 @@ devDependencies:
   '@types/bcrypt': 5.0.0
   '@types/bl': 5.0.1
   '@types/express': 4.17.13
+  '@types/faker': 5.5.8
   '@types/jest': 26.0.24
   '@types/material-ui': 0.21.9
   '@types/node': 14.14.33
+  '@types/passport-local': 1.0.34
   '@types/react': 17.0.3
   '@types/react-dom': 17.0.3
   '@types/swiper': 5.4.3
@@ -198,6 +203,7 @@ devDependencies:
   eslint-plugin-jsx-a11y: 6.4.1_eslint@7.22.0
   eslint-plugin-react: 7.23.1_eslint@7.22.0
   eslint-plugin-react-hooks: 4.2.0_eslint@7.22.0
+  faker: 5.5.3
   jest: 27.0.3
   prettier: 2.3.2
   ts-jest: 27.0.3_jest@27.0.3+typescript@4.3.5
@@ -6263,6 +6269,10 @@ packages:
       '@types/serve-static': 1.13.10
     dev: true
 
+  /@types/faker/5.5.8:
+    resolution: {integrity: sha512-bsl0rYsaZVHlZkynL5O04q6YXDmVjcid6MbOHWqvtE2WWs/EKhp0qchDDhVWlWyQXUffX1G83X9LnMxRl8S/Mw==}
+    dev: true
+
   /@types/fs-extra/8.1.2:
     resolution: {integrity: sha512-SvSrYXfWSc7R4eqnOzbQF4TZmfpNSM9FrSWLU3EUnWBuyZqNBOrv1B1JA3byUDPUl9z4Ab3jeZG2eDdySlgNMg==}
     dependencies:
@@ -6385,6 +6395,27 @@ packages:
 
   /@types/parse5/5.0.3:
     resolution: {integrity: sha512-kUNnecmtkunAoQ3CnjmMkzNU/gtxG8guhi+Fk2U/kOpIKjIMKnXGp4IJCgQJrXSgMsWYimYG4TGjz/UzbGEBTw==}
+    dev: true
+
+  /@types/passport-local/1.0.34:
+    resolution: {integrity: sha512-PSc07UdYx+jhadySxxIYWuv6sAnY5e+gesn/5lkPKfBeGuIYn9OPR+AAEDq73VRUh6NBTpvE/iPE62rzZUslog==}
+    dependencies:
+      '@types/express': 4.17.13
+      '@types/passport': 1.0.7
+      '@types/passport-strategy': 0.2.35
+    dev: true
+
+  /@types/passport-strategy/0.2.35:
+    resolution: {integrity: sha512-o5D19Jy2XPFoX2rKApykY15et3Apgax00RRLf0RUotPDUsYrQa7x4howLYr9El2mlUApHmCMv5CZ1IXqKFQ2+g==}
+    dependencies:
+      '@types/express': 4.17.13
+      '@types/passport': 1.0.7
+    dev: true
+
+  /@types/passport/1.0.7:
+    resolution: {integrity: sha512-JtswU8N3kxBYgo+n9of7C97YQBT+AYPP2aBfNGTzABqPAZnK/WOAaKfh3XesUYMZRrXFuoPc2Hv0/G/nQFveHw==}
+    dependencies:
+      '@types/express': 4.17.13
     dev: true
 
   /@types/prettier/2.3.2:
@@ -10293,6 +10324,10 @@ packages:
   /extsprintf/1.3.0:
     resolution: {integrity: sha1-lpGEQOMEGnpBT4xS48V06zw+HgU=}
     engines: {'0': node >=0.6.0}
+
+  /faker/5.5.3:
+    resolution: {integrity: sha512-wLTv2a28wjUyWkbnX7u/ABZBkUkIF2fCd73V6P2oFqEGEktDfzWx4UxrSqtPRw0xPRAcjeAOIiJWqZm3pP4u3g==}
+    dev: true
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}

@@ -48,6 +48,9 @@
     "backend-module-authentication": {
       "tags": []
     },
+    "backend-module-common": {
+      "tags": []
+    },
     "backend-module-products": {
       "tags": []
     },
