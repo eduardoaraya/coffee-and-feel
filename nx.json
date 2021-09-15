@@ -75,6 +75,9 @@
     },
     "frontend-utility": {
       "tags": []
+    },
+    "shared-helpers": {
+      "tags": []
     }
   }
 }

@@ -90,6 +90,7 @@ specifiers:
   prettier: ^2.3.1
   react: 17.0.2
   react-dom: 17.0.2
+  react-intersection-observer: ^8.32.1
   react-number-format: ^4.7.3
   react-quill: ^1.3.5
   react-router-dom: ^6.0.0-beta.2
@@ -147,6 +148,7 @@ dependencies:
   pg: 8.7.1
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-intersection-observer: 8.32.1_react@17.0.2
   react-number-format: 4.7.3_react-dom@17.0.2+react@17.0.2
   react-quill: 1.3.5_react@17.0.2
   react-router-dom: 6.0.0-beta.2_94912414cd94cc5bc891cce65dd59788
@@ -15932,6 +15934,14 @@ packages:
       prop-types: 15.7.2
       react: 17.0.2
     dev: true
+
+  /react-intersection-observer/8.32.1_react@17.0.2:
+    resolution: {integrity: sha512-FOmMkMw7MeJ8FkuADpU8TRcvGuTvPB+DRkaikS1QXcWArYLCWC3mjRorq2XeRGBuqmaueOBd27PUazTu9AgInw==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0
+    dependencies:
+      react: 17.0.2
+    dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
