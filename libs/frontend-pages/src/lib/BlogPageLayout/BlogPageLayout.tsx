@@ -5,8 +5,6 @@ import { Facebook, Instagram, WhatsApp, LockClock } from '@material-ui/icons';
 import _ from 'lodash';
 import { useInView } from 'react-intersection-observer';
 import { AnimatePresence } from 'framer-motion';
-import IconButtonCircle from '../../components/icon-button-circle/IconButtonCircle';
-import BlogPreviewCard from '../../components/blog-preview-card-v1/BlogPreviewCardV1';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
 import { getReadingTime } from '@atlascode/coffee-shared-helpers';
 
@@ -136,7 +134,7 @@ export function BlogLayoutV1({
                 direction="row"
                 gap="2.5rem"
               >
-                <IconButtonCircle
+                {/* <IconButtonCircle
                   size="small"
                   elevation
                   href="https://atlascode.dev"
@@ -154,7 +152,7 @@ export function BlogLayoutV1({
                   elevation
                   variant="contained"
                   icon={WhatsApp}
-                />
+                /> */}
               </Stack>
             </Box>
           </MotionBox>
@@ -296,7 +294,7 @@ export function BlogLayoutV1({
               Últimos posts
             </Box>
 
-            <Box
+            {/* <Box
               id="Atlas-BlogLayoutV1-latestBlogs-postGrid"
               sx={{
                 display: 'grid',
@@ -319,7 +317,7 @@ export function BlogLayoutV1({
                   />
                 );
               })}
-            </Box>
+            </Box> */}
           </Box>
         )}
       </Box>
