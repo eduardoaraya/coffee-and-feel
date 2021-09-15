@@ -1,9 +1,5 @@
 import { Box, Container, Typography } from '@material-ui/core';
-import Image from 'next/image';
 import style from './style';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ScrollTarget } from '@atlascode/coffee-frontend-utility';
-import { useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CallInstagramSectionProps {}
