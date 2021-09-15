@@ -3,7 +3,7 @@ import {
   Banner,
   SlideProductRepresentation,
 } from '@atlascode/coffee-front-components';
-import { Box, Container } from '@material-ui/core';
+import { Box, Container, Typography } from '@material-ui/core';
 import { HomePageProps } from './contracts/HomePage.interface';
 import style from './style';
 import {
@@ -23,6 +23,9 @@ export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
         <SubscriptionClubAboutSection />
         <KnowMoreSection></KnowMoreSection>
         <Container component="section" sx={style.slideProductRepresentation}>
+          <Typography className="title-slide-product" variant="h1">
+            Cafés especiais e selecionados
+          </Typography>
           <SlideProductRepresentation></SlideProductRepresentation>
         </Container>
         <SubscriptionClubDetailsSection />

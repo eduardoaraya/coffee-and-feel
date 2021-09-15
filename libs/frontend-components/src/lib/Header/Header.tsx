@@ -112,13 +112,13 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
           >
             <ul>
               <li className="points">332</li>
+              <li className="myaccount">
+                <AccountCircle />
+              </li>
               <li className="bag">
                 <Badge badgeContent={4} color="primary">
                   <img src="./icons/bag.svg" alt="bag" />
                 </Badge>
-              </li>
-              <li className="myaccount">
-                <AccountCircle />
               </li>
               <li className="menu-mobile" onClick={handleModalTarget}>
                 <img src="./icons/menu.svg" alt="bag" />

@@ -65,9 +65,14 @@ export default {
         sm: '1/2',
         xs: '1/4',
       },
-      display: 'flex',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
+      figure: {
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
     },
     '.product-area': {
       gridColumn: {
@@ -77,7 +82,7 @@ export default {
       width: '100%',
       height: '100%',
       paddingTop: {
-        sm: '125px',
+        sm: '100px',
         xs: '0',
       },
       '.product-title': {

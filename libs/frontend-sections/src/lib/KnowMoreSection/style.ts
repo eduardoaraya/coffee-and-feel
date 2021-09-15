@@ -3,7 +3,10 @@ import { SxProps, Theme } from '@material-ui/system';
 export default {
   root: {
     position: 'relative',
-    minHeight: '650px',
+    minHeight: {
+      md: '650px',
+      sm: 'auto',
+    },
     '.section-content': {
       position: 'relative',
       zIndex: 1,
@@ -13,7 +16,8 @@ export default {
       },
       maxWidth: {
         md: '550px',
-        xs: '310px',
+        sm: '360px',
+        xs: '240px',
       },
       margin: {
         md: '0 auto',
@@ -67,13 +71,15 @@ export default {
     '.circlecoffee.right': {
       position: 'absolute',
       transform: 'rotate(180deg)',
-      width: {
-        md: '970px',
-        xs: '510.98px',
-      },
-      height: {
-        md: '970px',
-        xs: '510.98px',
+      img: {
+        width: {
+          md: '970px',
+          xs: '510.98px',
+        },
+        height: {
+          md: '970px',
+          xs: '510.98px',
+        },
       },
       right: {
         md: 'calc(-970px/2)',

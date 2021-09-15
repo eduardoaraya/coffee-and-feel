@@ -15,13 +15,13 @@ export default {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: {
       md: '0px 100px',
-      xs: '0px 130px',
+      xs: '0px 180px',
     },
     backgroundSize: {
       lg: '600px',
       md: '35%',
       sm: '45%',
-      xs: '263px',
+      xs: '273px',
     },
     padding: {
       md: '103px 0px',

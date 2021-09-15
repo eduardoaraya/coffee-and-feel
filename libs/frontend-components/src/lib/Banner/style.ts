@@ -12,18 +12,32 @@ export default {
   wrapper: {
     backgroundColor: 'transparent',
     width: '100%',
-    height: {
+    paddingBottom: '40px',
+    minHeight: {
       md: '480px',
       xs: '250px',
     },
     position: 'relative',
+    '.swiper-container': {
+      overflow: 'visible',
+      '.swiper-pagination': {
+        bottom: '-40px',
+        '&.swiper-pagination-bullets': {
+          '.swiper-pagination-bullet': {
+            width: '10px',
+            height: '10px',
+            margin: '0 7px',
+            opacity: 1,
+            background: (theme) => theme.palette.secondary.main,
+            '&.swiper-pagination-bullet-active': {
+              background: (theme) => theme.palette.primary.main,
+            },
+          },
+        },
+      },
+    },
   },
-
   banner: (banner) => ({
-    // position: 'absolute',
-    // transition: '1s',
-    // top: 0,
-    // left: 0,
     width: '100%',
     height: {
       md: '480px',

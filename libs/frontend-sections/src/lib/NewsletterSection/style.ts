@@ -4,13 +4,50 @@ import { SxProps, Theme } from '@material-ui/system';
 export default {
   root: {
     padding: '105px 0px',
+    position: 'relative',
     '.content-newsletter': {
       position: 'relative',
       zIndex: 2,
       background: (theme) => theme.palette.secondary.main,
       maxHeight: {
-        md: '501.71px',
+        md: '401.71px',
         xs: 'auto',
+      },
+    },
+    '.custom-shape-divider-bottom': {
+      position: 'absolute',
+      top: '-59px',
+      left: 0,
+      width: '100%',
+      overflow: 'hidden',
+      lineHeight: 0,
+      transform: 'rotate(180deg)',
+      svg: {
+        position: 'relative',
+        display: 'block',
+        width: 'calc(194% + 1.3px)',
+        height: '59px',
+        '.shape-fill': {
+          fill: (theme) => theme.palette.secondary.main,
+        },
+      },
+    },
+    '.custom-shape-divider-top': {
+      position: 'absolute',
+      bottom: '-59px',
+      left: 0,
+      width: '100%',
+      overflow: 'hidden',
+      lineHeight: 0,
+      transform: 'rotate(0)',
+      svg: {
+        position: 'relative',
+        display: 'block',
+        width: 'calc(194% + 1.3px)',
+        height: '59px',
+        '.shape-fill': {
+          fill: (theme) => theme.palette.secondary.main,
+        },
       },
     },
     '.wrapper-newsletter': {
@@ -35,8 +72,8 @@ export default {
           },
         },
         transform: {
-          md: 'translate3d(-150px, -150px, 0)',
-          xs: 'translate3d(0px, -150px, 0)',
+          md: 'translate3d(-150px, -180px, 0)',
+          xs: 'translate3d(0px, -40px, 0)',
         },
       },
       '.section-content': {
@@ -44,8 +81,8 @@ export default {
         display: 'flex',
         alignItems: 'center',
         transform: {
-          md: 'translate3d(0, -70px, 0)',
-          xs: 'translate3d(0, -100px, 0)',
+          md: 'translate3d(0, -130px, 0)',
+          xs: 'translate3d(0, -50px, 0)',
         },
         h1: {
           marginBottom: {

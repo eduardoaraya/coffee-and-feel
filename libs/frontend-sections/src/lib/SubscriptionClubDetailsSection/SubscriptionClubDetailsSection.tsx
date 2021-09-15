@@ -1,4 +1,4 @@
-import { Container, Typography, Box } from '@material-ui/core';
+import { Container, Typography, Box, Button } from '@material-ui/core';
 import { Check } from '@material-ui/icons';
 import Link from 'next/link';
 import style from './style';
@@ -83,9 +83,7 @@ export const SubscriptionClubDetailsSection: React.FC<SubscriptionClubDetailsSec
                     </Typography>
                   )}
                 </div>
-                <Link href="/#">
-                  <a className="default-link">Saiba mais</a>
-                </Link>
+                <Button>Saiba mais</Button>
               </div>
             ))}
           </Box>

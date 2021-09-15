@@ -59,11 +59,9 @@ export default {
             fontSize: '14px',
           },
         },
-        a: {
-          color: (theme) => theme.palette.primary.main,
-          fontWeight: 'bolder',
-          fontSize: '14px',
-          textAlign: 'center',
+        button: {
+          maxWidth: '180px',
+          margin: '0 auto',
         },
         '.check-list': {
           padding: '36px',
@@ -90,6 +88,10 @@ export default {
             fontWeight: 'bolder',
             marginBottom: '5px',
             color: '#323232',
+            fontSize: {
+              md: '22px',
+              xs: '18px',
+            },
           },
         },
       },

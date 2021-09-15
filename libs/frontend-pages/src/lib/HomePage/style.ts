@@ -19,5 +19,9 @@ export default {
   },
   slideProductRepresentation: {
     padding: '35px 0px 105px 0px',
+    '.title-slide-product': {
+      textAlign: 'center',
+      marginBottom: '55px',
+    },
   },
 } as HomePageStyle;

@@ -2,12 +2,16 @@ import style from './style';
 import Box from '@material-ui/core/Box';
 import { BannerProps } from './contracts/Banner.interface';
 import { BannerEntityType } from './contracts/types';
+
+//Swiper import
 import SwiperCore, { EffectFade } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
 import 'swiper/swiper.min.css';
 import 'swiper/components/effect-fade/effect-fade.min.css';
+import 'swiper/components/pagination/pagination.min.css';
 
-SwiperCore.use([EffectFade]);
+SwiperCore.use([Pagination]);
 
 const BannerList: BannerEntityType[] = [
   {
@@ -32,7 +36,13 @@ const BannerList: BannerEntityType[] = [
 export const Banner: React.FC<BannerProps> = (): JSX.Element => {
   return (
     <Box sx={style.wrapper}>
-      <Swiper effect={'fade'} slidesPerView={1} loop={true}>
+      <Swiper
+        effect={'fade'}
+        slidesPerView={1}
+        loop={true}
+        autoplay={true}
+        pagination={{ clickable: true }}
+      >
         {BannerList.map((banner) => (
           <SwiperSlide key={banner.id}>
             <Box sx={style.banner(banner)} />

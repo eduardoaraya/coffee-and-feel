@@ -43,9 +43,14 @@ export const LastPostsSection: React.FC<LastPostsSectionProps> = ({
           <Box className="section-cat">
             <Box className="section-cat-content">
               <Typography variant="h1">
-                Acompanhe nossas postagens sobre a comunidade barista
+                Acomanhe as postagens sobre o mundo do café
               </Typography>
-              <Button size="large" variant="contained" color="primary">
+              <Button
+                size="large"
+                className="btn-more-post"
+                variant="contained"
+                color="primary"
+              >
                 Ver mais postagens
               </Button>
             </Box>
@@ -86,6 +91,14 @@ export const LastPostsSection: React.FC<LastPostsSectionProps> = ({
               </Box>
             ))}
           </Box>
+          <Button
+            size="medium"
+            className="btn-more-post-mobile"
+            variant="contained"
+            color="primary"
+          >
+            Ver mais postagens
+          </Button>
         </Box>
       </Container>
     </Box>

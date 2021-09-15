@@ -126,8 +126,8 @@ export default {
           height: '60px',
           paddingLeft: '30px',
           userSelect: 'none',
-
           a: {
+            userSelect: 'none',
             minWidth: '100%',
             height: '100%',
             display: 'flex',
@@ -199,6 +199,7 @@ export default {
         transition: '.3s',
         borderRadius: '50%',
         padding: '3px',
+        userSelect: 'none',
 
         '&:hover, &:active': {
           boxShadow,
@@ -209,6 +210,7 @@ export default {
           color: '#333',
         },
         '&.points': {
+          position: 'relative',
           fontSize: '12px',
           color: '#343434',
           width: '36px',
@@ -217,6 +219,17 @@ export default {
           display: {
             md: 'flex',
             xs: 'none',
+          },
+          '&::after': {
+            left: '2px',
+            position: 'absolute',
+            content: '""',
+            display: 'block',
+            boxShadow: (theme) =>
+              `0px 0px 3px 0px ${theme.palette.primary.main}`,
+            width: '90%',
+            height: '90%',
+            borderRadius: '50%',
           },
         },
 

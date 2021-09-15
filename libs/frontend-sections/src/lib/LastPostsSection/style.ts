@@ -13,6 +13,14 @@ export default {
         md: 'row',
         xs: 'column',
       },
+      '.btn-more-post-mobile': {
+        maxWidth: '294px',
+        margin: '25px auto',
+        display: {
+          md: 'none',
+          xs: 'block',
+        },
+      },
       '.section-cat': {
         width: {
           md: '50%',
@@ -33,11 +41,23 @@ export default {
             xs: '45px',
           },
           h1: {
-            lineHeight: '45px',
-            marginBottom: '45px',
+            lineHeight: {
+              md: '45px',
+              xs: '35px',
+            },
+            marginBottom: {
+              md: '45px',
+              xs: '0',
+            },
             textAlign: {
               md: 'left',
               xs: 'center',
+            },
+          },
+          '.btn-more-post': {
+            display: {
+              md: 'block',
+              xs: 'none',
             },
           },
         },
@@ -101,6 +121,7 @@ export default {
               background: (theme) => theme.palette.primary.main,
               textAlign: 'center',
               color: '#FFF',
+              marginRight: '5px',
             },
           },
         },
