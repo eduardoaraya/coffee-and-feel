@@ -6,7 +6,10 @@ import { User } from '../entities/user.entity';
 @EntityRepository(User)
 export class UserRepository extends AbstractRepository<User> {
   public async saveUser(createUserDto: CreateUserDto) {
-    return await this.repository.save(createUserDto);
+    return await this.repository.save({
+      ...createUserDto,
+      userEmail: createUserDto.userEmail.toUpperCase(),
+    });
   }
 
   public async updateUser(id: number, updateUserDto: UpdateUserDto) {
