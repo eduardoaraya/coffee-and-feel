@@ -36,8 +36,8 @@ export function SlideProductRepresentation(
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
-        pagination={{ clickable: true }}
         loop={true}
+        pagination={{ clickable: true }}
         navigation={{
           nextEl: '#slide-next',
           prevEl: '#slide-prev',
