@@ -18,6 +18,7 @@ export default {
       xs: '0px 130px',
     },
     backgroundSize: {
+      lg: '600px',
       md: '35%',
       sm: '45%',
       xs: '263px',

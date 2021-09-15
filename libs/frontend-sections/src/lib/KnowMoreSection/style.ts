@@ -56,7 +56,7 @@ export default {
         width: '100%',
       },
       '&.left': {
-        left: '-50px',
+        left: '30px',
         transform: 'rotate(-15.2deg)',
         img: {
           position: 'absolute',

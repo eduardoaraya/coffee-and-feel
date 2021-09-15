@@ -1,12 +1,11 @@
 import { Box, Button, Container, Typography } from '@material-ui/core';
 import style from './style';
-import Image from 'next/image';
 
 export const KnowMoreSection: React.FC = (): JSX.Element => {
   return (
     <Box component="section" sx={style.root}>
       <figure className="plant left">
-        <Image src="/imgs/plant0.svg" layout="fill" alt="Coffe Plant" />
+        <img src="/imgs/plant0.svg" alt="Coffe Plant" />
       </figure>
       <Container>
         <div className="section-content">
@@ -24,7 +23,7 @@ export const KnowMoreSection: React.FC = (): JSX.Element => {
         </div>
       </Container>
       <figure className="circlecoffee right">
-        <Image src="/imgs/circlecoffee.png" layout="fill" alt="Cicle coffe" />
+        <img src="/imgs/circlecoffee.png" alt="Cicle coffe" />
       </figure>
     </Box>
   );

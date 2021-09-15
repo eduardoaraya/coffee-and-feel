@@ -1,16 +1,19 @@
+import { red } from '@material-ui/core/colors';
 import { SxProps, Theme } from '@material-ui/system';
 
 export default {
   root: {
-    zIndex: 2,
-    background: (theme) => theme.palette.secondary.main,
-    maxHeight: {
-      md: '501.71px',
-      xs: 'auto',
+    padding: '105px 0px',
+    '.content-newsletter': {
+      position: 'relative',
+      zIndex: 2,
+      background: (theme) => theme.palette.secondary.main,
+      maxHeight: {
+        md: '501.71px',
+        xs: 'auto',
+      },
     },
-    margin: '105px 0px',
-    position: 'relative',
-    '.wrapper-newslatter': {
+    '.wrapper-newsletter': {
       position: 'relative',
       height: '100%',
       display: 'flex',
@@ -21,13 +24,15 @@ export default {
       },
       '.cupofcoffee': {
         position: 'relative',
-        width: {
-          md: '661px',
-          xs: '361px',
-        },
-        height: {
-          md: '642px',
-          xs: '342px',
+        img: {
+          width: {
+            md: '661px',
+            xs: '361px',
+          },
+          height: {
+            md: '642px',
+            xs: '342px',
+          },
         },
         transform: {
           md: 'translate3d(-150px, -150px, 0)',
