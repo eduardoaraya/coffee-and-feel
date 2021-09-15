@@ -34,5 +34,6 @@ import { UsersCardsService } from './services/usersCards.service';
     UsersNotificationsService,
     UsersCardsService,
   ],
+  exports: [UsersService],
 })
 export class UsersModule {}

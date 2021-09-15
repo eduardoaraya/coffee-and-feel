@@ -21,6 +21,12 @@
       "@atlascode/coffee-backend-module-admin": [
         "libs/backend-module-admin/src/index.ts"
       ],
+      "@atlascode/coffee-backend-module-authentication": [
+        "libs/backend-module-authentication/src/index.ts"
+      ],
+      "@atlascode/coffee-backend-module-common": [
+        "libs/backend-module-common/src/index.ts"
+      ],
       "@atlascode/coffee-backend-module-products": [
         "libs/backend-module-products/src/index.ts"
       ],

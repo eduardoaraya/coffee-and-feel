@@ -19,6 +19,7 @@ export interface UserEntityModel {
   userFirstName: string;
   userLastName: string;
   userPassword?: string;
+  userCPF?: string;
   userGender: UserGender;
   userEmail: string;
   userBirthday: Date;
@@ -56,6 +57,13 @@ export class User implements UserEntityModel {
     default: UserGender.NOT_DECLARED,
   })
   userGender: UserGender;
+
+  @Column({
+    name: 'user_cpf',
+    type: 'varchar',
+    nullable: true,
+  })
+  userCPF?: string;
 
   @Column({ name: 'user_email', type: 'varchar' })
   userEmail: string;

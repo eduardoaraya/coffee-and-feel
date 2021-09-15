@@ -216,6 +216,48 @@
         }
       }
     },
+    "backend-module-authentication": {
+      "root": "libs/backend-module-authentication",
+      "sourceRoot": "libs/backend-module-authentication/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-authentication/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-authentication"],
+          "options": {
+            "jestConfig": "libs/backend-module-authentication/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-module-common": {
+      "root": "libs/backend-module-common",
+      "sourceRoot": "libs/backend-module-common/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-common/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-common"],
+          "options": {
+            "jestConfig": "libs/backend-module-common/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "backend-module-products": {
       "root": "libs/backend-module-products",
       "sourceRoot": "libs/backend-module-products/src",

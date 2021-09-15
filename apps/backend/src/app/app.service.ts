@@ -1,6 +1,5 @@
-import { Injectable, Get, Req, Ip } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { envFilePath } from './app.module';
-import { Request } from 'express';
 
 @Injectable()
 export class AppService {
