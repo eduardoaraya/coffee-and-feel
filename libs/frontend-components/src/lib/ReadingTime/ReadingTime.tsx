@@ -12,35 +12,15 @@ import { SxProps, ResponsiveStyleValue } from '@material-ui/system';
 import _ from 'lodash';
 import { Property } from 'csstype';
 
-/* eslint-disable-next-line */
 export interface ReadingTimeProps {
-  icon: React.FC<unknown>;
   time: boolean | number;
   ContainerProps?: BoxProps;
+  icon?: React.FC<unknown>;
   IconProps?: BoxProps;
   TypographyProps?: TypographyProps;
   content?: string;
   fontSize?: ResponsiveStyleValue<Property.FontSize>;
 }
-
-const defaultStyles = (
-  fontSize: ResponsiveStyleValue<Property.FontSize> = '10px'
-) => {
-  return {
-    display: 'flex',
-    alignItems: 'center',
-    fontSize: fontSize,
-    gap: 1.2,
-
-    '.Atlas-readingTime-typography': {
-      fontSize: '1.5em',
-    },
-
-    '.Atlas-readingTime-icon': {
-      fontSize: '2em',
-    },
-  } as SxProps<Theme>;
-};
 
 export function ReadingTime({
   icon: Icon = AccessTimeFilled,
@@ -73,3 +53,22 @@ export function ReadingTime({
 }
 
 export default ReadingTime;
+
+const defaultStyles = (
+  fontSize: ResponsiveStyleValue<Property.FontSize> = '10px'
+) => {
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: fontSize,
+    gap: 1.2,
+
+    '.Atlas-readingTime-typography': {
+      fontSize: '1.5em',
+    },
+
+    '.Atlas-readingTime-icon': {
+      fontSize: '2em',
+    },
+  } as SxProps<Theme>;
+};

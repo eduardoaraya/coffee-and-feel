@@ -1,33 +1,42 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, BoxProps, Theme } from '@material-ui/core';
 import React from 'react';
-import Image from 'next/image';
-import { AccessTime } from '@material-ui/icons';
+import BlogPostPhoto from './BlogPostPhoto';
+import BlogPostInfo from './BlogPostInfo';
+import { SxProps } from '@material-ui/system';
+import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
 /* eslint-disable-next-line */
 export interface BlogPostCardProps {
-  tags: string[];
-  readingTime: number;
-  title: string;
+  ContainerProps?: BoxProps;
 }
 
 export const BlogPostCard = React.forwardRef(
-  (
-    {
-      tags = ['Marketing', 'Publicidade', 'Informativo'],
-      readingTime,
-      title,
-    }: BlogPostCardProps,
-    ref: React.Ref<HTMLElement>
-  ) => {
+  ({ ContainerProps }: BlogPostCardProps, ref: React.Ref<HTMLElement>) => {
+    const mergedStyles = useMemoizedMergedObject(
+      defaultStyles(),
+      ContainerProps?.sx
+    );
+
     return (
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gridTemplateRows: '1fr',
-        }}
-      ></Box>
+      <Box ref={ref} sx={mergedStyles}>
+        <BlogPostPhoto />
+        <BlogPostInfo
+          ContainerProps={{
+            sx: { alignSelf: 'center', justifyContent: 'center' },
+          }}
+        />
+      </Box>
     );
   }
 );
 
 export default BlogPostCard;
+
+const defaultStyles = () => {
+  return {
+    display: 'grid',
+    gridTemplateColumns: 'auto 1fr',
+    gridTemplateRows: '1fr',
+    width: 'fit-content',
+    gap: 2,
+  } as SxProps<Theme>;
+};

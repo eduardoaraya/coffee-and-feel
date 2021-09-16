@@ -5,16 +5,20 @@ import { Property } from 'csstype';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BlogPostPhoto {
-  src: string;
-  alt: string;
-  fontSize: ResponsiveStyleValue<Property.FontSize>;
+  src?: string;
+  alt?: string;
+  fontSize?: ResponsiveStyleValue<Property.FontSize>;
 }
 
-const BlogPostPhoto = ({ alt, src, fontSize }: BlogPostPhoto) => {
+const BlogPostPhoto = ({
+  alt = 'This is an alternative text placeholder meant to enhance accessibility, edit me',
+  src = 'https://via.placeholder.com/750',
+  fontSize,
+}: BlogPostPhoto) => {
   return (
     <Box
       sx={{
-        fontSize: 'inherit',
+        fontSize: '10px',
         width: '26.3em',
         height: '18.8em',
         boxShadow: (theme) => theme.shadows[3],
@@ -25,7 +29,7 @@ const BlogPostPhoto = ({ alt, src, fontSize }: BlogPostPhoto) => {
         component="img"
         alt={alt}
         src={src}
-        sx={{ objectFit: 'contain', width: '100%', height: '100%' }}
+        sx={{ objectFit: 'cover', width: '100%', height: '100%' }}
       />
     </Box>
   );

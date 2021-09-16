@@ -43,6 +43,7 @@
       "@atlascode/coffee-front-sections": [
         "libs/frontend-sections/src/index.ts"
       ],
+      "@atlascode/coffee-frontend-hooks": ["libs/frontend-hooks/src/index.ts"],
       "@atlascode/coffee-frontend-utility": [
         "libs/frontend-utility/src/index.ts"
       ],
