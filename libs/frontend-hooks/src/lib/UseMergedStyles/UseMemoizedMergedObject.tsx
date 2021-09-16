@@ -3,14 +3,14 @@ import _ from 'lodash';
 /* eslint-disable-next-line */
 
 export function useMemoizedMergedObject<T, R>(
-  defaultStyles: T,
-  incomingStyles: R,
+  destinationObject: T,
+  sourceObject: R,
   deps?: React.DependencyList | undefined
 ) {
   return React.useMemo(
-    () => _.merge(defaultStyles, incomingStyles ?? {}),
+    () => _.merge(destinationObject, sourceObject ?? {}),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [defaultStyles, incomingStyles, ...(deps ?? [])]
+    [destinationObject, sourceObject, ...(deps ?? [])]
   );
 }
 

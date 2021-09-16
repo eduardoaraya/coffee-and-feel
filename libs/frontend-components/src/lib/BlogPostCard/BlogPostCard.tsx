@@ -1,41 +1,48 @@
-import { Box, BoxProps, Theme } from '@material-ui/core';
+import { Box, BoxProps, Theme, useMediaQuery } from '@material-ui/core';
 import React from 'react';
 import BlogPostPhoto, { BlogPostPhotoProps } from './BlogPostPhoto';
 import BlogPostInfo, { BlogPostInfoProps } from './BlogPostInfo';
 import { SxProps } from '@material-ui/system';
 import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
+import {
+  ReadingTime,
+  ReadingTimeProps,
+} from '@atlascode/coffee-front-components';
 /* eslint-disable-next-line */
-export interface BlogPostCardProps {
-  ContainerProps?: BoxProps;
+export interface BlogPostCardProps extends Omit<BoxProps, 'ref'> {
   BlogPostPhotoProps?: BlogPostPhotoProps;
   BlogPostInfoProps?: BlogPostInfoProps;
   infoLeft?: boolean;
+  readingTime?: ReadingTimeProps['time'];
 }
 
 export const BlogPostCard = React.forwardRef<HTMLElement, BlogPostCardProps>(
   (
     {
-      ContainerProps,
       BlogPostInfoProps,
       BlogPostPhotoProps,
       infoLeft = false,
+      readingTime = 2,
+      sx,
+      ...rest
     }: BlogPostCardProps,
     ref: React.Ref<HTMLElement>
   ) => {
-    const mergedStyles = useMemoizedMergedObject(
-      defaultStyles(infoLeft),
-      ContainerProps?.sx,
-      [infoLeft]
-    );
+    const mergedStyles = useMemoizedMergedObject(defaultStyles(infoLeft), sx, [
+      infoLeft,
+    ]);
+
+    const isDesktop = useMediaQuery('(min-width: 1024px)');
 
     return (
-      <Box ref={ref} sx={mergedStyles}>
+      <Box ref={ref} sx={mergedStyles} {...rest}>
+        {(!infoLeft && <ReadingTime time={readingTime} />) ||
+          (!isDesktop && <ReadingTime time={readingTime} />)}
         <BlogPostPhoto {...BlogPostPhotoProps} />
         <BlogPostInfo
+          readingTime={!infoLeft || !isDesktop ? 'hidden' : readingTime}
           {...BlogPostInfoProps}
-          ContainerProps={{
-            sx: { alignSelf: 'center', justifyContent: 'center' },
-          }}
+          sx={{ alignSelf: 'center', justifyContent: 'center' }}
         />
       </Box>
     );

@@ -5,27 +5,31 @@ import { SxProps } from '@material-ui/system';
 import _ from 'lodash';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface BlogPostInfoProps {
+export interface BlogPostInfoProps extends BoxProps {
   title?: string;
   tags?: string[];
-  ContainerProps?: BoxProps;
+  readingTime?: ReadingTimeProps['time'] | 'hidden';
   ReadingTimeProps?: ReadingTimeProps;
 }
 
 const BlogPostInfo = ({
-  ReadingTimeProps = { time: 1 },
+  ReadingTimeProps,
   tags = ['Marketing', 'Publicidade', 'Informativo'],
   title = 'Placeholder title, this is it.',
-  ContainerProps,
+  readingTime = 2,
+  sx,
+  ...rest
 }: BlogPostInfoProps) => {
   const defaultStylesMemo = React.useMemo(
-    () => _.merge(defaultStyles(), ContainerProps?.sx ?? {}),
-    [ContainerProps?.sx]
+    () => _.merge(defaultStyles(), sx ?? {}),
+    [sx]
   );
 
   return (
-    <Box {...{ ContainerProps, sx: defaultStylesMemo }}>
-      <ReadingTime {...ReadingTimeProps} />
+    <Box {...{ rest, sx: defaultStylesMemo }}>
+      {readingTime && readingTime !== 'hidden' && (
+        <ReadingTime time={readingTime} {...ReadingTimeProps} />
+      )}
 
       <Typography className="Atlascode-blogPostInfo-title" variant="caption">
         {title}

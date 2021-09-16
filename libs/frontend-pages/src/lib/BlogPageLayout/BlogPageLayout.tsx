@@ -5,46 +5,31 @@ import { Facebook, Instagram, WhatsApp, LockClock } from '@material-ui/icons';
 import { useInView } from 'react-intersection-observer';
 import { AnimatePresence } from 'framer-motion';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
-import { ReadingTime } from '@atlascode/coffee-front-components';
+import {
+  BlogPostCardProps,
+  ReadingTime,
+  ReadingTimeProps,
+} from '@atlascode/coffee-front-components';
 import { SocialMediaShareTray } from './SocialMediaShareTray';
 import { polkaPattern } from '@atlascode/coffee-frontend-mixins';
 
-interface SocialMediaRef {
-  facebook: string;
-  instagram: string;
-  twitter: string;
-}
-
-interface BlogPost {
-  title?: string;
-  readingTime: boolean | number;
-  featuredImage?: string;
-  date?: string | Date;
-  tags?: string[];
-  content?: string;
-}
-
 /* eslint-disable-next-line */
-export interface BlogPageLayoutProps extends BlogPost {
-  socials?: Partial<SocialMediaRef>;
-  latestPosts?: BlogPost[];
+export interface BlogPageLayoutProps {
+  latestPosts?: BlogPostCardProps[];
+  content?: string;
+  title?: string;
+  featuredImage?: string;
 }
 
 export function BlogPageLayout({
-  readingTime,
-  date,
-  featuredImage,
   latestPosts,
-  socials,
-  tags,
-  title,
   content = '',
+  featuredImage = 'https://via.placeholder.com/1500',
+  title = 'Placeholder title',
 }: BlogPageLayoutProps) {
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: false,
   });
-
-  console.log(featuredImage);
 
   return (
     <Box
@@ -67,7 +52,8 @@ export function BlogPageLayout({
           position: 'absolute',
           top: 0,
           left: 0,
-          ...(polkaPattern('#fff', 0.4, 25, '#333') as Record<string, unknown>),
+          ...(polkaPattern('#fff', 0.3, 25, '#333') as Record<string, unknown>),
+          zIndex: -1,
         }}
       />
       <Box sx={{ position: 'fixed', right: 0, top: '10%' }}>
