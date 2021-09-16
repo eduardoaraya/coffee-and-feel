@@ -2,11 +2,11 @@
 import React from 'react';
 import { alpha, Box, Container, Stack } from '@material-ui/core';
 import { Facebook, Instagram, WhatsApp, LockClock } from '@material-ui/icons';
-import _ from 'lodash';
 import { useInView } from 'react-intersection-observer';
 import { AnimatePresence } from 'framer-motion';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
-import { getReadingTime } from '@atlascode/coffee-shared-helpers';
+import { ReadingTime } from '@atlascode/coffee-front-components';
+import { SocialMediaShareTray } from './SocialMediaShareTray';
 
 interface SocialMediaRef {
   facebook: string;
@@ -24,12 +24,12 @@ interface BlogPost {
 }
 
 /* eslint-disable-next-line */
-export interface BlogLayoutV1Props extends BlogPost {
+export interface BlogPageLayoutProps extends BlogPost {
   socials?: Partial<SocialMediaRef>;
   latestPosts?: BlogPost[];
 }
 
-export function BlogLayoutV1({
+export function BlogPageLayout({
   readingTime,
   date,
   featuredImage,
@@ -38,33 +38,13 @@ export function BlogLayoutV1({
   tags,
   title,
   content = '',
-}: BlogLayoutV1Props) {
+}: BlogPageLayoutProps) {
   const { ref, inView, entry } = useInView({
     triggerOnce: false,
     threshold: 0.2,
   });
 
-  console.log(inView);
-
-  const [readingTimeState, setReadingTime] = React.useState<
-    ReturnType<typeof getReadingTime> | number
-  >(0);
-
-  React.useEffect(() => {
-    if (typeof readingTime === 'number') {
-      setReadingTime(readingTime);
-    } else {
-      let readingTimeInner = getReadingTime(content).readTime;
-
-      if (readingTimeInner < 1) {
-        readingTimeInner = Math.ceil(readingTimeInner);
-      } else {
-        readingTimeInner = Math.floor(readingTimeInner);
-      }
-
-      setReadingTime(readingTimeInner);
-    }
-  }, [content, readingTime]);
+  console.log(featuredImage);
 
   return (
     <Box
@@ -80,84 +60,7 @@ export function BlogLayoutV1({
         fontSize: '1rem',
       }}
     >
-      <AnimatePresence>
-        {inView && (
-          <MotionBox
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={{
-              hidden: {
-                opacity: 0,
-              },
-              visible: {
-                opacity: 1,
-              },
-            }}
-            id="Atlas-BlogLayoutV1-socialMediaTray-container"
-            sx={{
-              position: 'fixed',
-              top: 0,
-              right: 0,
-              transform: {
-                display: { xs: 'none', lg: 'block' },
-                lg: 'translate(-20px, 90px)',
-                xl: 'translate(-150px, 90px)',
-              },
-            }}
-          >
-            <Box
-              id="Atlas-BlogLayoutV1-socialMediaTray-flexContainer"
-              sx={{
-                borderLeft: (theme) =>
-                  `5px solid ${theme.palette.primary.main}`,
-                borderRadius: '4px',
-                p: '15px',
-                width: '225px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '2rem',
-              }}
-            >
-              <Box
-                id="Atlas-BlogLayoutV1-socialMediaTray-label"
-                sx={{
-                  color: (theme) => theme.palette.grey[600],
-                  fontSize: '16px',
-                }}
-              >
-                Compartilhe a postagem nas suas redes sociais
-              </Box>
-
-              <Stack
-                id="Atlas-BlogLayoutV1-socialMediaTray-iconsContainer"
-                direction="row"
-                gap="2.5rem"
-              >
-                {/* <IconButtonCircle
-                  size="small"
-                  elevation
-                  href="https://atlascode.dev"
-                  variant="contained"
-                  icon={Facebook}
-                />
-                <IconButtonCircle
-                  size="small"
-                  elevation
-                  variant="contained"
-                  icon={Instagram}
-                />
-                <IconButtonCircle
-                  size="small"
-                  elevation
-                  variant="contained"
-                  icon={WhatsApp}
-                /> */}
-              </Stack>
-            </Box>
-          </MotionBox>
-        )}
-      </AnimatePresence>
+      <SocialMediaShareTray />
       <Box sx={{ width: '100%' }} id="Atlas-BlogLayoutV1-container">
         <Box
           sx={{
@@ -186,30 +89,7 @@ export function BlogLayoutV1({
             >
               {title}
             </Box>
-            {readingTime && content && (
-              <Stack
-                id="Atlas-BlogLayoutV1-readingTime"
-                direction="row"
-                gap="0.85rem"
-                alignItems="flex-end"
-              >
-                <Box
-                  sx={{
-                    color: (theme) => theme.palette.primary.main,
-                    fontSize: '1.5rem',
-                  }}
-                  component={LockClock}
-                />
-                <Box
-                  sx={{
-                    fontWeight: 700,
-                    color: (theme) => theme.palette.grey[500],
-                  }}
-                >{`${readingTimeState} minuto${
-                  readingTimeState > 1 ? 's' : ''
-                } de leitura`}</Box>
-              </Stack>
-            )}
+            <ReadingTime time={true} content={content} />
           </Stack>
         </Box>
 
@@ -293,31 +173,6 @@ export function BlogLayoutV1({
             >
               Últimos posts
             </Box>
-
-            {/* <Box
-              id="Atlas-BlogLayoutV1-latestBlogs-postGrid"
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: { xs: '1fr', lg: '1fr 1fr 1fr' },
-                gridTemplateRows: '1fr',
-                gridAutoFlow: 'row',
-                gap: '15px',
-                justifyItems: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {latestPosts.map((blogPost, index) => {
-                return (
-                  <BlogPreviewCard
-                    content={blogPost.content!}
-                    readingTime={true}
-                    tags={blogPost.tags || ['Marketing', 'Development', 'AI']}
-                    thumbnail={blogPost.featuredImage!}
-                    title={blogPost.title!}
-                  />
-                );
-              })}
-            </Box> */}
           </Box>
         )}
       </Box>
@@ -325,4 +180,4 @@ export function BlogLayoutV1({
   );
 }
 
-export default BlogLayoutV1;
+export default BlogPageLayout;
