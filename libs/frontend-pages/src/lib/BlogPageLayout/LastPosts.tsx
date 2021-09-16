@@ -37,7 +37,6 @@ const defaultStyles = () => {
 
     '@media (min-width: 1024px)': {
       my: 12,
-      justifyItems: 'center',
       alignItems: 'unset',
     },
 
@@ -45,8 +44,9 @@ const defaultStyles = () => {
       display: 'grid',
       gridTemplateColumns: '1fr',
       gridAutoFlow: 'row',
-      rowGap: 4,
+      rowGap: 8,
       justifyContent: 'center',
+      justifyItems: 'center',
 
       '@media (min-width: 1024px)': {
         gridTemplateColumns: '33.333% 33.333% 33.333%',

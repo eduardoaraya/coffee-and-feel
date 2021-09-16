@@ -34,6 +34,11 @@ export function BlogPageLayout({
     triggerOnce: false,
   });
 
+  const { ref: postsRef, inView: postsInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
   const defaultStylesMemo = useMemoizedMergedObject(defaultStyles(), sx);
 
   return (
@@ -41,7 +46,7 @@ export function BlogPageLayout({
       <Box className="Atlas-BlogLayoutV1-pattern" />
       <Box className="Atlas-BlogLayoutV1-fixedSocialMediaTrayContainer">
         <AnimatePresence>
-          {!inView && (
+          {!inView && !postsInView && (
             <MotionBox
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -92,6 +97,7 @@ export function BlogPageLayout({
 
       {latestPosts.length > 0 && (
         <Container
+          ref={postsRef}
           className="Atlas-BlogLayoutV1-latestPosts-container"
           maxWidth="lg"
         >
@@ -131,6 +137,11 @@ const defaultStyles = () => {
       position: 'fixed',
       right: 0,
       top: '10%',
+      display: 'none',
+
+      '@media (min-width: 1024px)': {
+        display: 'unset',
+      },
     },
 
     '.Atlas-BlogLayoutV1-content': {
