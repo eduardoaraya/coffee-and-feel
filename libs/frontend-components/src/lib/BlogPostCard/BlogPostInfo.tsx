@@ -5,7 +5,7 @@ import { SxProps } from '@material-ui/system';
 import _ from 'lodash';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface BlogPostInfo {
+export interface BlogPostInfoProps {
   title?: string;
   tags?: string[];
   ContainerProps?: BoxProps;
@@ -13,11 +13,11 @@ interface BlogPostInfo {
 }
 
 const BlogPostInfo = ({
-  ReadingTimeProps = { time: 3 },
+  ReadingTimeProps = { time: 1 },
   tags = ['Marketing', 'Publicidade', 'Informativo'],
   title = 'Placeholder title, this is it.',
   ContainerProps,
-}: BlogPostInfo) => {
+}: BlogPostInfoProps) => {
   const defaultStylesMemo = React.useMemo(
     () => _.merge(defaultStyles(), ContainerProps?.sx ?? {}),
     [ContainerProps?.sx]
@@ -64,7 +64,8 @@ const defaultStyles = () => {
       gap: 2,
 
       '.Atlascode-blogPostInfo-tagsChip': {
-        fontSize: '1em',
+        fontSize: '1.2em',
+        padding: '1em',
       },
     },
 

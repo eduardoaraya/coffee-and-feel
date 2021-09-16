@@ -24,7 +24,7 @@ export interface ReadingTimeProps {
 
 export function ReadingTime({
   icon: Icon = AccessTimeFilled,
-  time = 3,
+  time = 1,
   ContainerProps,
   IconProps,
   TypographyProps,

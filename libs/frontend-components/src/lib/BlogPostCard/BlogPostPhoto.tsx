@@ -4,7 +4,7 @@ import { ResponsiveStyleValue } from '@material-ui/system';
 import { Property } from 'csstype';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface BlogPostPhoto {
+export interface BlogPostPhotoProps {
   src?: string;
   alt?: string;
   fontSize?: ResponsiveStyleValue<Property.FontSize>;
@@ -13,14 +13,14 @@ interface BlogPostPhoto {
 const BlogPostPhoto = ({
   alt = 'This is an alternative text placeholder meant to enhance accessibility, edit me',
   src = 'https://via.placeholder.com/750',
-  fontSize,
-}: BlogPostPhoto) => {
+  fontSize = '10px',
+}: BlogPostPhotoProps) => {
   return (
     <Box
       sx={{
-        fontSize: '10px',
-        width: '26.3em',
-        height: '18.8em',
+        fontSize: fontSize,
+        width: '32.3em',
+        height: '20.8em',
         boxShadow: (theme) => theme.shadows[3],
         borderRadius: '8px',
       }}
