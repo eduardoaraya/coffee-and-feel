@@ -32,14 +32,25 @@ const defaultStyles = () => {
   return {
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
+    my: 10,
+
+    '@media (min-width: 1024px)': {
+      my: 12,
+      justifyItems: 'center',
+      alignItems: 'unset',
+    },
 
     '.post-grid': {
       display: 'grid',
       gridTemplateColumns: '1fr',
       gridAutoFlow: 'row',
+      rowGap: 4,
+      justifyContent: 'center',
 
       '@media (min-width: 1024px)': {
         gridTemplateColumns: '33.333% 33.333% 33.333%',
+        rowGap: 15,
       },
     },
   } as SxProps<Theme>;
