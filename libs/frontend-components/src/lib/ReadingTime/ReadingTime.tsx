@@ -8,8 +8,9 @@ import {
 } from '@material-ui/core';
 import { AccessTimeFilled } from '@material-ui/icons';
 import { useReadingTime } from './useReadingTime';
-import { SxProps } from '@material-ui/system';
+import { SxProps, ResponsiveStyleValue } from '@material-ui/system';
 import _ from 'lodash';
+import { Property } from 'csstype';
 
 /* eslint-disable-next-line */
 export interface ReadingTimeProps {
@@ -19,22 +20,27 @@ export interface ReadingTimeProps {
   IconProps?: BoxProps;
   TypographyProps?: TypographyProps;
   content?: string;
+  fontSize?: ResponsiveStyleValue<Property.FontSize>;
 }
 
-const defaultStyles = {
-  display: 'flex',
-  alignItems: 'center',
-  fontSize: '10px',
-  gap: 1.2,
+const defaultStyles = (
+  fontSize: ResponsiveStyleValue<Property.FontSize> = '10px'
+) => {
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: fontSize,
+    gap: 1.2,
 
-  '.Atlas-readingTime-typography': {
-    fontSize: '1em',
-  },
+    '.Atlas-readingTime-typography': {
+      fontSize: '1.5em',
+    },
 
-  '.Atlas-readingTime-icon': {
-    fontSize: '2em',
-  },
-} as SxProps<Theme>;
+    '.Atlas-readingTime-icon': {
+      fontSize: '2em',
+    },
+  } as SxProps<Theme>;
+};
 
 export function ReadingTime({
   icon: Icon = AccessTimeFilled,
@@ -43,19 +49,20 @@ export function ReadingTime({
   IconProps,
   TypographyProps,
   content,
+  fontSize,
 }: ReadingTimeProps) {
   const readingTime = useReadingTime(time, content);
 
   const defaultStylesMemo = React.useMemo(
-    () => _.merge(defaultStyles, ContainerProps?.sx || {}),
-    [ContainerProps?.sx]
+    () => _.merge(defaultStyles(fontSize), ContainerProps?.sx || {}),
+    [ContainerProps?.sx, fontSize]
   );
 
   return (
     <Box sx={defaultStylesMemo}>
       <Box className="Atlas-readingTime-icon" {...IconProps} component={Icon} />
       <Typography
-        id="Atlas-readingTime-typography"
+        className="Atlas-readingTime-typography"
         variant="subtitle2"
         {...TypographyProps}
       >
