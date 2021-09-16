@@ -1,8 +1,3 @@
-import {
-  LayoutEcommerce,
-  Banner,
-  SlideProductRepresentation,
-} from '@atlascode/coffee-front-components';
 import { Box, Container, Typography } from '@material-ui/core';
 import { HomePageProps } from './contracts/HomePage.interface';
 import style from './style';
@@ -14,6 +9,12 @@ import {
   CallInstagramSection,
   LastPostsSection,
 } from '@atlascode/coffee-front-sections';
+import {
+  LayoutEcommerce,
+  Banner,
+  SlideProductRepresentation,
+  MobileSlideProductRepresentation,
+} from '@atlascode/coffee-front-components';
 
 export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
   return (
@@ -27,6 +28,7 @@ export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
             Cafés especiais e selecionados
           </Typography>
           <SlideProductRepresentation></SlideProductRepresentation>
+          <MobileSlideProductRepresentation></MobileSlideProductRepresentation>
         </Container>
         <SubscriptionClubDetailsSection />
         <NewsletterSection />
