@@ -12,6 +12,7 @@ import { SocialMediaShareTray } from './SocialMediaShareTray';
 import { polkaPattern } from '@atlascode/coffee-frontend-mixins';
 import { SxProps } from '@material-ui/system';
 import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
+import LastPosts from './LastPosts';
 
 /* eslint-disable-next-line */
 export interface BlogPageLayoutProps extends BoxProps {
@@ -22,7 +23,7 @@ export interface BlogPageLayoutProps extends BoxProps {
 }
 
 export function BlogPageLayout({
-  latestPosts,
+  latestPosts = [],
   content = '',
   featuredImage = 'https://via.placeholder.com/1500',
   title = 'Placeholder title',
@@ -88,6 +89,15 @@ export function BlogPageLayout({
           />
         </Container>
       </Box>
+
+      {latestPosts.length > 0 && (
+        <Container
+          className="Atlas-BlogLayoutV1-latestPosts-container"
+          maxWidth="lg"
+        >
+          <LastPosts posts={latestPosts} />
+        </Container>
+      )}
     </Box>
   );
 }
@@ -104,6 +114,8 @@ const defaultStyles = () => {
     textRendering: 'optimizeLegibility',
     fontSmooth: 'always',
     fontSize: '1rem',
+
+    '.Atlas-BlogLayoutV1-latestPosts-container': {},
 
     '.Atlas-BlogLayoutV1-pattern': {
       width: '100%',

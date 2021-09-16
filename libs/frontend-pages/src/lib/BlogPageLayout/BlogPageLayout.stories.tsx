@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { BlogPageLayout, BlogPageLayoutProps } from './BlogPageLayout';
 import * as faker from 'faker';
-
 export default {
   component: BlogPageLayout,
   title: 'BlogPageLayout',
@@ -20,4 +19,12 @@ Primary.args = {
   title: 'Lorem ipsum title dundun lelel',
   featuredImage: faker.image.business(1000, 600),
   tags: ['marketing digital', 'teste 1', 'teste2'],
+  latestPosts: [
+    {
+      readingTime: true,
+      src: faker.image.business(300, 300),
+      title: faker.lorem.sentence(),
+      content: faker.lorem.lines(200),
+    },
+  ],
 } as BlogPageLayoutProps;

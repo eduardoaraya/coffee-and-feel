@@ -13,9 +13,21 @@ export interface BlogPostCardProps extends Omit<BoxProps, 'ref'> {
   BlogPostPhotoProps?: BlogPostPhotoProps;
   BlogPostInfoProps?: BlogPostInfoProps;
   infoLeft?: boolean;
-  readingTime?: ReadingTimeProps['time'];
+  content?: string;
+  readingTime: ReadingTimeProps['time'];
+  title: string;
+  src: string;
+  alt?: string;
 }
 
+/**
+ * @param title string
+ * @param infoLeft boolean
+ * @param content string
+ * @param readingTime 'hidden' | boolean
+ * @param src string
+ * @param alt string
+ */
 export const BlogPostCard = React.forwardRef<HTMLElement, BlogPostCardProps>(
   (
     {
@@ -23,7 +35,11 @@ export const BlogPostCard = React.forwardRef<HTMLElement, BlogPostCardProps>(
       BlogPostPhotoProps,
       infoLeft = false,
       readingTime = 2,
+      content,
+      title = 'Placeholder title',
       sx,
+      src,
+      alt,
       ...rest
     }: BlogPostCardProps,
     ref: React.Ref<HTMLElement>
@@ -36,10 +52,12 @@ export const BlogPostCard = React.forwardRef<HTMLElement, BlogPostCardProps>(
 
     return (
       <Box ref={ref} sx={mergedStyles} {...rest}>
-        {(!infoLeft && <ReadingTime time={readingTime} />) ||
-          (!isDesktop && <ReadingTime time={readingTime} />)}
-        <BlogPostPhoto {...BlogPostPhotoProps} />
+        {(!infoLeft && <ReadingTime content={content} time={readingTime} />) ||
+          (!isDesktop && <ReadingTime content={content} time={readingTime} />)}
+        <BlogPostPhoto src={src} alt={alt} {...BlogPostPhotoProps} />
         <BlogPostInfo
+          title={title}
+          content={content}
           readingTime={!infoLeft || !isDesktop ? 'hidden' : readingTime}
           {...BlogPostInfoProps}
           sx={{ alignSelf: 'center', justifyContent: 'center' }}
@@ -54,6 +72,7 @@ const defaultStyles = (leftAligned = false) => {
     display: 'grid',
     gridTemplateColumns: '1fr',
     gridTemplateRows: 'auto 1fr',
+    maxWidth: '25em',
     width: 'fit-content',
     gap: 3,
 

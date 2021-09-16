@@ -9,6 +9,7 @@ export interface BlogPostInfoProps extends BoxProps {
   title?: string;
   tags?: string[];
   readingTime?: ReadingTimeProps['time'] | 'hidden';
+  content?: ReadingTimeProps['content'];
   ReadingTimeProps?: ReadingTimeProps;
 }
 
@@ -18,6 +19,7 @@ const BlogPostInfo = ({
   title = 'Placeholder title, this is it.',
   readingTime = 2,
   sx,
+  content,
   ...rest
 }: BlogPostInfoProps) => {
   const defaultStylesMemo = React.useMemo(
@@ -28,7 +30,11 @@ const BlogPostInfo = ({
   return (
     <Box {...{ rest, sx: defaultStylesMemo }}>
       {readingTime && readingTime !== 'hidden' && (
-        <ReadingTime time={readingTime} {...ReadingTimeProps} />
+        <ReadingTime
+          content={content}
+          time={readingTime}
+          {...ReadingTimeProps}
+        />
       )}
 
       <Typography className="Atlascode-blogPostInfo-title" variant="caption">
@@ -60,6 +66,7 @@ const defaultStyles = () => {
     fontSize: '10px',
     display: 'flex',
     flexDirection: 'column',
+    maxWidth: '25em',
     gap: 2,
 
     '.Atlascode-blogPostInfo-tagsContainer': {
