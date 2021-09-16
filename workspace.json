@@ -533,6 +533,27 @@
         }
       }
     },
+    "frontend-mixins": {
+      "root": "libs/frontend-mixins",
+      "sourceRoot": "libs/frontend-mixins/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/frontend-mixins/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend-mixins"],
+          "options": {
+            "jestConfig": "libs/frontend-mixins/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend-pages": {
       "root": "libs/frontend-pages",
       "sourceRoot": "libs/frontend-pages/src",

@@ -157,35 +157,6 @@ export function BlogPageLayout({
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </Container>
-        {latestPosts && latestPosts.length > 0 && (
-          <Box
-            sx={{
-              width: '100%',
-              bgcolor: (theme) => alpha(theme.palette.primary.light, 0.05),
-              py: { xs: '45px', lg: '55px' },
-              mt: { xs: '45px', lg: '55px' },
-            }}
-            id="Atlas-BlogLayoutV1-latestBlogs-container"
-          >
-            <Box
-              sx={{
-                display: 'flex',
-                width: '100%',
-                justifyContent: 'center',
-                color: (theme) => theme.palette.primary.main,
-                mx: 0,
-                px: 0,
-                pb: { xs: '45px', lg: '55px' },
-                fontWeight: 600,
-                fontSize: { xs: '2.5vh', lg: '4vh' },
-                textTransform: 'capitalize',
-              }}
-              id="Atlas-BlogLayoutV1-latestBlogs-containerTitle"
-            >
-              Últimos posts
-            </Box>
-          </Box>
-        )}
       </Box>
     </Box>
   );

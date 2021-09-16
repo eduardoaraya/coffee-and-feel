@@ -73,6 +73,9 @@
     "frontend-hooks": {
       "tags": []
     },
+    "frontend-mixins": {
+      "tags": []
+    },
     "frontend-pages": {
       "tags": []
     },
