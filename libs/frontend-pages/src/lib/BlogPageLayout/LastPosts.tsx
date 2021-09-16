@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BoxProps, Theme } from '@material-ui/core';
+import { Box, BoxProps, Theme, Typography } from '@material-ui/core';
 import { SxProps } from '@material-ui/system';
 import {
   BlogPostCard,
@@ -17,6 +17,10 @@ const LastPosts = ({ posts, sx, ...rest }: LastPostsProps) => {
 
   return (
     <Box sx={defaultStylesMemo} {...rest}>
+      <Typography className="latestPosts-title" variant="h3">
+        Últimas postagens
+      </Typography>
+
       <Box className="post-grid">
         {posts.map((post, index) => {
           return <BlogPostCard {...post} key={index} />;
@@ -33,10 +37,16 @@ const defaultStyles = () => {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    my: 10,
+    my: 6,
+
+    '.latestPosts-title': {
+      textAlign: 'center',
+      fontWeight: 700,
+      py: 10,
+    },
 
     '@media (min-width: 1024px)': {
-      my: 12,
+      my: 6,
       alignItems: 'unset',
     },
 
