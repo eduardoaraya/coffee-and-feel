@@ -41,7 +41,6 @@ export function BlogPageLayout({
 }: BlogPageLayoutProps) {
   const { ref, inView, entry } = useInView({
     triggerOnce: false,
-    threshold: 0.2,
   });
 
   console.log(featuredImage);
@@ -60,7 +59,19 @@ export function BlogPageLayout({
         fontSize: '1rem',
       }}
     >
-      <SocialMediaShareTray />
+      <Box sx={{ position: 'fixed', right: 0, top: '10%' }}>
+        <AnimatePresence>
+          {!inView && (
+            <MotionBox
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <SocialMediaShareTray />
+            </MotionBox>
+          )}
+        </AnimatePresence>
+      </Box>
       <Box sx={{ width: '100%' }} id="Atlas-BlogLayoutV1-container">
         <Box
           sx={{
@@ -97,6 +108,7 @@ export function BlogPageLayout({
           id="Atlas-BlogLayoutV1-featuredImage-container"
           maxWidth="md"
           sx={{ p: 0, my: '3.5em' }}
+          ref={ref}
         >
           <Box
             component="figure"
@@ -123,7 +135,6 @@ export function BlogPageLayout({
         </Container>
 
         <Container
-          ref={ref}
           sx={{
             mt: '3.5em',
             maxWidth: { sm: '680px' },
