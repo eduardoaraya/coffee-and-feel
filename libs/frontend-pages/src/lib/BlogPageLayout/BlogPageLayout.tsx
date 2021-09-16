@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from 'react';
-import { alpha, Box, Container, Stack } from '@material-ui/core';
-import { Facebook, Instagram, WhatsApp, LockClock } from '@material-ui/icons';
+import { Box, BoxProps, Container, Stack, Theme } from '@material-ui/core';
 import { useInView } from 'react-intersection-observer';
 import { AnimatePresence } from 'framer-motion';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
 import {
   BlogPostCardProps,
   ReadingTime,
-  ReadingTimeProps,
 } from '@atlascode/coffee-front-components';
 import { SocialMediaShareTray } from './SocialMediaShareTray';
 import { polkaPattern } from '@atlascode/coffee-frontend-mixins';
+import { SxProps } from '@material-ui/system';
+import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
 
 /* eslint-disable-next-line */
-export interface BlogPageLayoutProps {
+export interface BlogPageLayoutProps extends BoxProps {
   latestPosts?: BlogPostCardProps[];
   content?: string;
   title?: string;
@@ -26,37 +26,19 @@ export function BlogPageLayout({
   content = '',
   featuredImage = 'https://via.placeholder.com/1500',
   title = 'Placeholder title',
+  sx,
+  ...rest
 }: BlogPageLayoutProps) {
   const { ref, inView } = useInView({
     triggerOnce: false,
   });
 
+  const defaultStylesMemo = useMemoizedMergedObject(defaultStyles(), sx);
+
   return (
-    <Box
-      id="Atlas-BlogLayoutV1-root"
-      sx={{
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden',
-        fontFamily: 'inherit',
-        position: 'relative',
-        textRendering: 'optimizeLegibility',
-        fontSmooth: 'always',
-        fontSize: '1rem',
-      }}
-    >
-      <Box
-        sx={{
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          ...(polkaPattern('#fff', 0.3, 25, '#333') as Record<string, unknown>),
-          zIndex: -1,
-        }}
-      />
-      <Box sx={{ position: 'fixed', right: 0, top: '10%' }}>
+    <Box id="Atlas-BlogLayoutV1-root" sx={defaultStylesMemo}>
+      <Box className="Atlas-BlogLayoutV1-pattern" />
+      <Box className="Atlas-BlogLayoutV1-fixedSocialMediaTrayContainer">
         <AnimatePresence>
           {!inView && (
             <MotionBox
@@ -69,32 +51,13 @@ export function BlogPageLayout({
           )}
         </AnimatePresence>
       </Box>
-      <Box sx={{ width: '100%' }} id="Atlas-BlogLayoutV1-container">
-        <Box
-          sx={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            px: '20px',
-          }}
-          id="Atlas-BlogLayoutV1-header"
-        >
+      <Box className="Atlas-BlogLayoutV1-container">
+        <Box className="Atlas-BlogLayoutV1-header">
           <Stack
-            id="Atlas-BlogLayoutV1-headerInnerContainer"
-            sx={{ gap: '10px' }}
+            className="Atlas-BlogLayoutV1-headerInnerContainer"
             direction="column"
           >
-            <Box
-              component="h1"
-              sx={{
-                m: 0,
-                p: 0,
-                fontWeight: 600,
-                fontSize: { xs: '3.5vh', lg: '5vh' },
-                textTransform: 'capitalize',
-              }}
-              id="Atlas-BlogLayoutV1-title"
-            >
+            <Box component="h1" className="Atlas-BlogLayoutV1-title">
               {title}
             </Box>
             <ReadingTime time={true} content={content} />
@@ -102,55 +65,25 @@ export function BlogPageLayout({
         </Box>
 
         <Container
-          id="Atlas-BlogLayoutV1-featuredImage-container"
+          className="Atlas-BlogLayoutV1-featuredImage-container"
           maxWidth="md"
-          sx={{ p: 0, my: '3.5em' }}
           ref={ref}
         >
           <Box
             component="figure"
-            sx={{
-              width: '100%',
-              height: 'auto',
-              position: 'relative',
-              m: 0,
-              p: 0,
-            }}
-            id="Atlas-BlogLayoutV1-featuredImage-figure"
+            className="Atlas-BlogLayoutV1-featuredImage-figure"
           >
             <Box
-              id="Atlas-BlogLayoutV1-featuredImage"
+              className="Atlas-BlogLayoutV1-featuredImage"
               src={featuredImage}
               component="img"
-              sx={{
-                maxWidth: '100%',
-                width: '100%',
-                height: 'auto',
-              }}
             />
           </Box>
         </Container>
 
-        <Container
-          sx={{
-            mt: '3.5em',
-            maxWidth: { sm: '680px' },
-            px: '24px',
-            position: 'relative',
-
-            '*': {
-              fontSize: 'clamp(16px, 18px, 30px)!important',
-              wordBreak: 'break-word',
-              wordWrap: 'break-word',
-              letterSpacing: { xs: '-0.003px' },
-              lineHeight: { xs: '42px' },
-            },
-          }}
-          id="Atlas-BlogLayoutV1-contentContainer"
-        >
+        <Container className="Atlas-BlogLayoutV1-contentContainer">
           <Box
-            id="Atlas-BlogLayoutV1-content"
-            sx={{ width: '100%' }}
+            className="Atlas-BlogLayoutV1-content"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </Container>
@@ -160,3 +93,93 @@ export function BlogPageLayout({
 }
 
 export default BlogPageLayout;
+
+const defaultStyles = () => {
+  return {
+    width: '100%',
+    height: '100%',
+    overflow: 'hidden',
+    fontFamily: 'inherit',
+    position: 'relative',
+    textRendering: 'optimizeLegibility',
+    fontSmooth: 'always',
+    fontSize: '1rem',
+
+    '.Atlas-BlogLayoutV1-pattern': {
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      ...(polkaPattern('#fff', 0.3, 25, '#333') as Record<string, unknown>),
+      zIndex: -1,
+    },
+
+    '.Atlas-BlogLayoutV1-fixedSocialMediaTrayContainer': {
+      position: 'fixed',
+      right: 0,
+      top: '10%',
+    },
+
+    '.Atlas-BlogLayoutV1-content': {
+      width: '100%',
+    },
+
+    '.Atlas-BlogLayoutV1-featuredImage': {
+      maxWidth: '100%',
+      width: '100%',
+      height: 'auto',
+    },
+
+    '.Atlas-BlogLayoutV1-contentContainer': {
+      mt: '3.5em',
+      maxWidth: { sm: '680px' },
+      px: '24px',
+      position: 'relative',
+
+      '*': {
+        fontSize: 'clamp(16px, 18px, 30px)!important',
+        wordBreak: 'break-word',
+        wordWrap: 'break-word',
+        letterSpacing: { xs: '-0.003px' },
+        lineHeight: { xs: '42px' },
+      },
+    },
+
+    '.Atlas-BlogLayoutV1-featuredImage-figure': {
+      width: '100%',
+      height: 'auto',
+      position: 'relative',
+      m: 0,
+      p: 0,
+    },
+
+    '.Atlas-BlogLayoutV1-featuredImage-container': {
+      p: 0,
+      my: '3.5em',
+    },
+
+    '.Atlas-BlogLayoutV1-container': {
+      width: '100%',
+    },
+
+    '.Atlas-BlogLayoutV1-headerInnerContainer': {
+      gap: '10px',
+
+      '.Atlas-BlogLayoutV1-title': {
+        m: 0,
+        p: 0,
+        fontWeight: 600,
+        fontSize: { xs: '3.5vh', lg: '5vh' },
+        textTransform: 'capitalize',
+      },
+    },
+
+    '.Atlas-BlogLayoutV1-header': {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      px: '20px',
+    },
+  } as SxProps<Theme>;
+};
