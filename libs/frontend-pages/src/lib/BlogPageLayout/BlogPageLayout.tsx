@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React from 'react';
-import { Box, BoxProps, Container, Stack, Theme } from '@material-ui/core';
+import {
+  Box,
+  BoxProps,
+  Container,
+  Stack,
+  Theme,
+  Typography,
+} from '@material-ui/core';
 import { useInView } from 'react-intersection-observer';
 import { AnimatePresence } from 'framer-motion';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
@@ -8,11 +15,14 @@ import {
   BlogPostCardProps,
   ReadingTime,
 } from '@atlascode/coffee-front-components';
-import { SocialMediaShareTray } from './SocialMediaShareTray';
+import {
+  SocialMediaShareTray,
+  SocialMediaShareTrayProps,
+} from './SocialMediaShareTray';
 import { polkaPattern } from '@atlascode/coffee-frontend-mixins';
 import { SxProps } from '@material-ui/system';
 import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
-import LastPosts from './LastPosts';
+import LastPosts, { LastPostsProps } from './LastPosts';
 
 /* eslint-disable-next-line */
 export interface BlogPageLayoutProps extends BoxProps {
@@ -20,6 +30,8 @@ export interface BlogPageLayoutProps extends BoxProps {
   content?: string;
   title?: string;
   featuredImage?: string;
+  SocialMediaShareTrayProps?: SocialMediaShareTrayProps;
+  LastPostsProps?: LastPostsProps;
 }
 
 export function BlogPageLayout({
@@ -28,6 +40,8 @@ export function BlogPageLayout({
   featuredImage = 'https://via.placeholder.com/1500',
   title = 'Placeholder title',
   sx,
+  LastPostsProps,
+  SocialMediaShareTrayProps,
   ...rest
 }: BlogPageLayoutProps) {
   const { ref, inView } = useInView({
@@ -52,7 +66,7 @@ export function BlogPageLayout({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <SocialMediaShareTray />
+              <SocialMediaShareTray {...SocialMediaShareTrayProps} />
             </MotionBox>
           )}
         </AnimatePresence>
@@ -63,7 +77,11 @@ export function BlogPageLayout({
             className="Atlas-BlogLayoutV1-headerInnerContainer"
             direction="column"
           >
-            <Box component="h1" className="Atlas-BlogLayoutV1-title">
+            <Box
+              component={Typography}
+              variant="h1"
+              className="Atlas-BlogLayoutV1-title"
+            >
               {title}
             </Box>
             <ReadingTime time={true} content={content} />
@@ -101,7 +119,7 @@ export function BlogPageLayout({
           className="Atlas-BlogLayoutV1-latestPosts-container"
           maxWidth="lg"
         >
-          <LastPosts posts={latestPosts} />
+          <LastPosts posts={latestPosts} {...LastPostsProps} />
         </Container>
       )}
     </Box>
@@ -112,6 +130,7 @@ export default BlogPageLayout;
 
 const defaultStyles = () => {
   return {
+    my: 5,
     width: '100%',
     height: '100%',
     overflow: 'hidden',
@@ -192,9 +211,10 @@ const defaultStyles = () => {
       '.Atlas-BlogLayoutV1-title': {
         m: 0,
         p: 0,
-        fontWeight: 600,
+        fontWeight: 700,
         fontSize: { xs: '3.5vh', lg: '5vh' },
         textTransform: 'capitalize',
+        color: (theme) => theme.palette.secondary.main,
       },
     },
 

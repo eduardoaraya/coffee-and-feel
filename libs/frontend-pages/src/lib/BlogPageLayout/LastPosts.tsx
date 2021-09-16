@@ -1,5 +1,11 @@
 import React from 'react';
-import { Box, BoxProps, Theme, Typography } from '@material-ui/core';
+import {
+  Box,
+  BoxProps,
+  Theme,
+  Typography,
+  TypographyProps,
+} from '@material-ui/core';
 import { SxProps } from '@material-ui/system';
 import {
   BlogPostCard,
@@ -8,22 +14,34 @@ import {
 import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface LastPostsProps extends BoxProps {
+export interface LastPostsProps extends BoxProps {
   posts: BlogPostCardProps[];
+  TypographyProps?: TypographyProps;
+  BlogPostCardProps?: BlogPostCardProps;
 }
 
-const LastPosts = ({ posts, sx, ...rest }: LastPostsProps) => {
+const LastPosts = ({
+  posts,
+  sx,
+  TypographyProps,
+  BlogPostCardProps,
+  ...rest
+}: LastPostsProps) => {
   const defaultStylesMemo = useMemoizedMergedObject(defaultStyles(), sx);
 
   return (
     <Box sx={defaultStylesMemo} {...rest}>
-      <Typography className="latestPosts-title" variant="h3">
+      <Typography
+        className="latestPosts-title"
+        variant="h3"
+        {...TypographyProps}
+      >
         Últimas postagens
       </Typography>
 
       <Box className="post-grid">
         {posts.map((post, index) => {
-          return <BlogPostCard {...post} key={index} />;
+          return <BlogPostCard {...post} key={index} {...BlogPostCardProps} />;
         })}
       </Box>
     </Box>
