@@ -7,6 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
 import { ReadingTime } from '@atlascode/coffee-front-components';
 import { SocialMediaShareTray } from './SocialMediaShareTray';
+import { polkaPattern } from '@atlascode/coffee-frontend-mixins';
 
 interface SocialMediaRef {
   facebook: string;
@@ -59,6 +60,16 @@ export function BlogPageLayout({
         fontSize: '1rem',
       }}
     >
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          ...(polkaPattern('#fff', 0.4, 25, '#333') as Record<string, unknown>),
+        }}
+      />
       <Box sx={{ position: 'fixed', right: 0, top: '10%' }}>
         <AnimatePresence>
           {!inView && (

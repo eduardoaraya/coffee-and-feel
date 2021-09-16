@@ -5,6 +5,9 @@ import * as faker from 'faker';
 export default {
   component: BlogPageLayout,
   title: 'BlogPageLayout',
+  parameters: {
+    layout: 'fullscreen',
+  },
 } as Meta;
 
 const Template: Story<BlogPageLayoutProps> = (args) => (
