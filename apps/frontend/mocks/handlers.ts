@@ -1,23 +1,18 @@
 import { rest } from 'msw';
+import { blogData } from './data/blog';
 
-const loginRequest = rest.post('login', (req, res, ctx) => {
-  sessionStorage.setItem('is-authenticated', 'true');
-
-  return res(ctx.status(200));
+const findAllBlog = rest.get('/api/blog', (req, res, ctx) => {
+  return res(ctx.status(200), ctx.json({ data: blogData }));
 });
 
-const userRequest = rest.get('/user', (req, res, ctx) => {
-  const isAuthenticated = sessionStorage.getItem('is-authenticated');
+const findOneBlog = rest.get('/api/blog/:id', (req, res, ctx) => {
+  const { id } = req.params;
 
-  if (!isAuthenticated) {
-    return res(ctx.status(403), ctx.json({ errorMessage: 'Not authorized' }));
-  }
+  const data = blogData.filter((value, index) => {
+    return (value.id = id);
+  });
 
-  return res(ctx.status(200), ctx.json({ username: 'admin' }));
+  return res(ctx.status(200), ctx.json({ data: data }));
 });
 
-const testRequest = rest.get('/stuff', (req, res, ctx) => {
-  return res(ctx.status(200), ctx.json({ items: [1, 2, 3, 4, 5, 6] }));
-});
-
-export const handlers = [loginRequest, userRequest, testRequest];
+export const handlers = [findAllBlog, findOneBlog];
