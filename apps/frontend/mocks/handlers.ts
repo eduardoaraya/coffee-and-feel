@@ -16,4 +16,8 @@ const userRequest = rest.get('/user', (req, res, ctx) => {
   return res(ctx.status(200), ctx.json({ username: 'admin' }));
 });
 
-export const handlers = [loginRequest, userRequest];
+const testRequest = rest.get('/stuff', (req, res, ctx) => {
+  return res(ctx.status(200), ctx.json({ items: [1, 2, 3, 4, 5, 6] }));
+});
+
+export const handlers = [loginRequest, userRequest, testRequest];

@@ -27,7 +27,7 @@ export interface BlogPostCardProps extends Omit<BoxProps, 'ref'> {
  * @param readingTime 'hidden' | boolean
  * @param src string
  * @param alt string
- */
+ **/
 export const BlogPostCard = React.forwardRef<HTMLElement, BlogPostCardProps>(
   (
     {

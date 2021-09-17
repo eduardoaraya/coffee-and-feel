@@ -123,5 +123,8 @@
     "typeorm": "^0.2.37",
     "yup": "^0.32.9",
     "zustand": "^3.5.10"
+  },
+  "msw": {
+    "workerDirectory": "apps/frontend/public"
   }
 }

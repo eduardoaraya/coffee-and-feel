@@ -5,6 +5,10 @@ import createEmotionCache from '@emotion/cache';
 import { ThemeProvider } from '@atlascode/coffee-front-components';
 import '../../public/css/global.css';
 
+if (process.env.NODE_ENV === 'development') {
+  require('../../mocks');
+}
+
 function CustomApp(props: AppProps & { emotionCache?: EmotionCache }) {
   const clientSideCache = createEmotionCache({ key: 'css' });
   const {
