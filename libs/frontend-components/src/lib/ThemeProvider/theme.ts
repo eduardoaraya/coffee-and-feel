@@ -33,6 +33,9 @@ const defaultTheme = createTheme({
           borderRadius: '50px',
           '&.MuiButton-outlined': {
             borderWidth: '2px',
+            '&.white-text': {
+              color: '#FFF',
+            },
           },
           '&.MuiButton-sizeLarge': {
             padding: '15px 45px',

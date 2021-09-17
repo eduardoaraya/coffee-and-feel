@@ -24,7 +24,7 @@ export function SlideProductRepresentation(
   props: SlideProductRepresentationProps
 ) {
   return (
-    <Box component="div" sx={style.wrapperSlide}>
+    <Box component="div" sx={style.root}>
       <IconButton
         className="slide-button prev"
         id="slide-prev"
@@ -34,7 +34,7 @@ export function SlideProductRepresentation(
         <ChevronLeft />
       </IconButton>
       <Swiper
-        spaceBetween={50}
+        spaceBetween={10}
         slidesPerView={1}
         loop={true}
         pagination={{ clickable: true }}
@@ -45,7 +45,7 @@ export function SlideProductRepresentation(
       >
         {Array.from({ length: 10 }).map((_, i) => (
           <SwiperSlide key={i}>
-            <Box sx={style.gridProduct}>
+            <Box className="product-grid">
               <Box className="product-image">
                 <figure>
                   <Image
@@ -58,7 +58,7 @@ export function SlideProductRepresentation(
                 </figure>
               </Box>
               <Box className="product-area">
-                <ProductCatalogRepresentation />
+                <ProductCatalogRepresentation variantViewPort={'mobile'} />
               </Box>
             </Box>
           </SwiperSlide>

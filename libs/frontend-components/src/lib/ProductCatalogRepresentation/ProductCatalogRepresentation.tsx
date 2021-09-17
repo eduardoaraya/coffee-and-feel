@@ -9,13 +9,26 @@ import Image from 'next/image';
 import style from './style';
 
 /* eslint-disable-next-line */
-export interface ProductCatalogRepresentationProps {}
 
-export function ProductCatalogRepresentation(
-  props: ProductCatalogRepresentationProps
-) {
+type variantView = 'mobile' | 'desktop';
+export interface ProductCatalogRepresentationProps {
+  variantViewPort?: variantView;
+}
+
+const getSizeButton = (
+  variant: string
+): 'small' | 'medium' | 'large' | undefined =>
+  'mobile' === variant ? 'small' : 'large';
+
+export function ProductCatalogRepresentation({
+  variantViewPort = 'desktop',
+}: ProductCatalogRepresentationProps) {
   return (
-    <Box component="div" sx={style.productRepresentation}>
+    <Box
+      component="div"
+      className="product-representation"
+      sx={style.productRepresentation}
+    >
       <Box className="product-title">
         <Typography color="white" variant="h1">
           Edição Adsumus Conillon
@@ -33,11 +46,13 @@ export function ProductCatalogRepresentation(
           Feel Points
         </Typography>
       </Box>
-      <ButtonGroup size="small" variant="contained">
-        <Button>Basic</Button>
-        <Button>Standard</Button>
-        <Button>Premium</Button>
-      </ButtonGroup>
+      <Box className="product-plans-options">
+        <ButtonGroup size="small" variant="contained">
+          <Button>Basic</Button>
+          <Button>Standard</Button>
+          <Button>Premium</Button>
+        </ButtonGroup>
+      </Box>
       <Box component="div" className="product-price-info">
         <Box className="product-price-descount-info">
           <Typography
@@ -60,10 +75,15 @@ export function ProductCatalogRepresentation(
         </Typography>
       </Box>
       <Box component="div" className="actions">
-        <Button variant="outlined" size="large" color="primary">
+        <Button
+          className="white-text"
+          variant="outlined"
+          size={getSizeButton(variantViewPort)}
+          color="primary"
+        >
           Detalhes
         </Button>
-        <IconButton size="large" color="primary">
+        <IconButton size={getSizeButton(variantViewPort)} color="primary">
           <Image
             src="/icons/add-cart.svg"
             width="30px"
