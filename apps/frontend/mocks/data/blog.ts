@@ -11,12 +11,12 @@ export type BlogPost = {
 export const blogData: BlogPost[] = [
   {
     id: 1,
-    title: 'Blog post 1',
+    title: 'Blog post 2',
     category: 'Category',
     content: 'lorem ipsum',
     date: new Date(Date.now()).toJSON(),
     imgAlt: 'Alternative text',
-    imgURL: 'https://via.placeholder.com/1500',
+    imgURL: 'https://via.placeholder.com/1500x700',
   },
   {
     id: 2,

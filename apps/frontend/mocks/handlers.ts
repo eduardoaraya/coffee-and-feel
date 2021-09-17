@@ -1,18 +1,24 @@
 import { rest } from 'msw';
 import { blogData } from './data/blog';
 
-const findAllBlog = rest.get('/api/blog', (req, res, ctx) => {
-  return res(ctx.status(200), ctx.json({ data: blogData }));
-});
+export const findAllBlog = rest.get(
+  `https://mockbackend.com/api/blog`,
+  (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json([...blogData]));
+  }
+);
 
-const findOneBlog = rest.get('/api/blog/:id', (req, res, ctx) => {
-  const { id } = req.params;
+export const findOneBlog = rest.get(
+  `https://mockbackend.com/api/blog/:id`,
+  (req, res, ctx) => {
+    const { id } = req.params;
 
-  const data = blogData.filter((value, index) => {
-    return (value.id = id);
-  });
+    const data = blogData.filter((value, index) => {
+      return (value.id = id);
+    });
 
-  return res(ctx.status(200), ctx.json({ data: data }));
-});
+    return res(ctx.status(200), ctx.json({ ...data[0] }));
+  }
+);
 
 export const handlers = [findAllBlog, findOneBlog];

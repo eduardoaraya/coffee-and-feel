@@ -3,10 +3,10 @@ import {
   BlogPageLayout,
   BlogPageLayoutProps,
 } from '@atlascode/coffee-front-pages';
-import { Box, BoxProps, Theme } from '@material-ui/core';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Axios from 'axios';
-import * as faker from 'faker';
+import Axios, { AxiosResponse } from 'axios';
+import { BlogPost } from '../../../../mocks/data/blog';
+import { convertToSlug } from '@atlascode/coffee-shared-helpers';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 
@@ -15,13 +15,8 @@ type BlogPageProps = Pick<
   'title' | 'content' | 'latestPosts' | 'featuredImage'
 >;
 
-const BlogPage = ({
-  latestPosts,
-  content,
-  title,
-  featuredImage,
-}: BlogPageProps) => {
-  return <BlogPageLayout />;
+const BlogPage = (props: BlogPageProps) => {
+  return <BlogPageLayout {...props} />;
 };
 
 type BlogStaticPaths = GetStaticPaths<{ slug: string; id: string }>;
@@ -30,40 +25,48 @@ export const getStaticPaths: BlogStaticPaths = async ({
   defaultLocale,
   locales,
 }) => {
+  const blogRequest: AxiosResponse<BlogPost[]> = await Axios.get(
+    'https://mockbackend.com/api/blog'
+  );
+
+  console.log(blogRequest);
+
   return {
-    paths: [],
+    paths: blogRequest.data.map((value, index) => {
+      return {
+        params: {
+          id: `${value.id}`,
+          slug: convertToSlug(value.title),
+        },
+      };
+    }),
     fallback: false,
   };
 };
 
-export const getStactProps: GetStaticProps<BlogPageProps> = async ({
+export const getStaticProps: GetStaticProps<BlogPageProps> = async ({
   defaultLocale,
   params,
   preview,
   locale,
 }) => {
-  return { props: {} };
+  const findOneBlogRequest: AxiosResponse<BlogPost> = await Axios.get(
+    `https://mockbackend.com/api/blog/${params.id}`
+  );
+
+  const findOneBlogRequestData: BlogPost = findOneBlogRequest.data;
+
+  return {
+    props: {
+      content: findOneBlogRequestData.content,
+      featuredImage: findOneBlogRequestData.imgURL,
+      latestPosts: [],
+      title: findOneBlogRequestData.title,
+    },
+  };
 };
 
 export default BlogPage;
-
-const blogPostsMockData = Array.from({ length: 15 }).map((value, index) => {
-  return {
-    id: faker.datatype.number(),
-    alt: faker.lorem.sentences(),
-    content: faker.lorem.paragraphs(Math.floor(Math.random() * 55 + 1)),
-    date: faker.date.recent(),
-    img: faker.image.business(1000, 600),
-    title: faker.lorem.sentence(),
-  } as {
-    id: number;
-    title: string;
-    content: string;
-    img: string;
-    alt: string;
-    date: Date;
-  };
-});
 
 type RequiredKeys<T> = {
   // eslint-disable-next-line @typescript-eslint/ban-types
