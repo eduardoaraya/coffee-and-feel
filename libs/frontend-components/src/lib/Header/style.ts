@@ -221,7 +221,7 @@ export default {
             xs: 'none',
           },
           '&::after': {
-            left: '2px',
+            left: '6.3%',
             position: 'absolute',
             content: '""',
             display: 'block',

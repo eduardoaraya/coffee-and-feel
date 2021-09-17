@@ -19,7 +19,7 @@ import {
 export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
   return (
     <LayoutEcommerce>
-      <Box sx={style.homePage}>
+      <Box className="page home-page">
         <Banner></Banner>
         <SubscriptionClubAboutSection />
         <KnowMoreSection></KnowMoreSection>
