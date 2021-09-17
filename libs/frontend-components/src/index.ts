@@ -1,3 +1,5 @@
+export * from './lib/ReadingTime/ReadingTime';
+export * from './lib/BlogPostCard/BlogPostCard';
 export * from './lib/CreditCardView/CreditCardView';
 export * from './lib/PasswordInput/PasswordInput';
 export * from './lib/SocialLoginButton/SocialLoginButton';
