@@ -76,6 +76,4 @@ export function SlideProductRepresentation(
   );
 }
 
-export * from './MobileSlideProductRepresentation';
-
 export default SlideProductRepresentation;
