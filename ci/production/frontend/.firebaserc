@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "coffee-and-feel"
+  },
+  "targets": {
+    "coffee-and-feel": {
+      "hosting": {
+        "store-prod": [
+          "coffee-and-feel"
+        ]
+      }
+    }
+  }
+}

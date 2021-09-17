@@ -9,8 +9,9 @@ import {
 } from '@material-ui/core';
 import Link from 'next/link';
 import style from './style';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { useState } from 'react';
+import { AccountCircle } from '@material-ui/icons';
+import { useEffect, useState } from 'react';
+import { useDebounce } from '@atlascode/coffee-frontend-utility';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
@@ -41,13 +42,42 @@ const menuItems: MenuItemType[] = [
 
 export const Header: React.FC = (props: HeaderProps): JSX.Element => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [hideBanner, setHideBanner] = useState<boolean>(false);
+
+  const debounceScroll = useDebounce(() => {
+    const { pageYOffset } = window;
+    if (pageYOffset > 70) {
+      return setHideBanner(true);
+    }
+    setHideBanner(false);
+  }, 500);
+
+  useEffect(() => {
+    const handleScroll = (_: Event) => {
+      debounceScroll();
+    };
+    if (window !== undefined) {
+      window.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      if (window !== undefined) {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleModalTarget = () => {
     setModalOpen(!modalOpen);
   };
 
   return (
-    <Box component="header" sx={style.header}>
+    <Box
+      component="header"
+      className={hideBanner ? 'hide-banner-top' : ''}
+      id="header-main"
+      sx={style.header}
+    >
       <Box component="div" className="header-banner-top">
         <span>Frete grátis acima de R$ 200,00</span>
       </Box>
@@ -81,14 +111,14 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
             sx={style.navigatorCustomer}
           >
             <ul>
-              <li className="points">0</li>
+              <li className="points">332</li>
+              <li className="myaccount">
+                <AccountCircle />
+              </li>
               <li className="bag">
                 <Badge badgeContent={4} color="primary">
                   <img src="./icons/bag.svg" alt="bag" />
                 </Badge>
-              </li>
-              <li className="myaccount">
-                <AccountCircleIcon />
               </li>
               <li className="menu-mobile" onClick={handleModalTarget}>
                 <img src="./icons/menu.svg" alt="bag" />

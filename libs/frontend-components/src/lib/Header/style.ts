@@ -8,6 +8,11 @@ type HeaderStyle = {
 const boxShadow = (theme: Theme) =>
   `2px 2px 10px -5px ${theme.palette.secondary.main}`;
 
+const heightBannerTop = {
+  xs: '30px',
+  md: '40px',
+};
+
 export default {
   header: {
     zIndex: 99,
@@ -17,6 +22,14 @@ export default {
     position: 'fixed',
     top: 0,
     left: 0,
+    transition: '.3s',
+    boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
+    '&.hide-banner-top': {
+      transform: {
+        md: `translate3d(0, -${heightBannerTop.md}, 0)`,
+        xs: `translate3d(0, -${heightBannerTop.xs}, 0)`,
+      },
+    },
     '.header-banner-top': {
       width: '100%',
       background: (theme) => theme.palette.primary.main,
@@ -24,10 +37,7 @@ export default {
       justifyContent: 'center',
       alignItems: 'center',
       color: '#FFF',
-      height: {
-        xs: '30px',
-        md: '40px',
-      },
+      height: heightBannerTop,
       fontSize: {
         xs: '12px',
         md: '16px',
@@ -116,8 +126,8 @@ export default {
           height: '60px',
           paddingLeft: '30px',
           userSelect: 'none',
-
           a: {
+            userSelect: 'none',
             minWidth: '100%',
             height: '100%',
             display: 'flex',
@@ -189,6 +199,7 @@ export default {
         transition: '.3s',
         borderRadius: '50%',
         padding: '3px',
+        userSelect: 'none',
 
         '&:hover, &:active': {
           boxShadow,
@@ -199,6 +210,7 @@ export default {
           color: '#333',
         },
         '&.points': {
+          position: 'relative',
           fontSize: '12px',
           color: '#343434',
           width: '36px',
@@ -207,6 +219,17 @@ export default {
           display: {
             md: 'flex',
             xs: 'none',
+          },
+          '&::after': {
+            left: '2px',
+            position: 'absolute',
+            content: '""',
+            display: 'block',
+            boxShadow: (theme) =>
+              `0px 0px 3px 0px ${theme.palette.primary.main}`,
+            width: '90%',
+            height: '90%',
+            borderRadius: '50%',
           },
         },
 

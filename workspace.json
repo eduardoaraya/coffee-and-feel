@@ -195,6 +195,143 @@
         }
       }
     },
+    "backend-module-admin": {
+      "root": "libs/backend-module-admin",
+      "sourceRoot": "libs/backend-module-admin/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-admin/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-admin"],
+          "options": {
+            "jestConfig": "libs/backend-module-admin/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-module-authentication": {
+      "root": "libs/backend-module-authentication",
+      "sourceRoot": "libs/backend-module-authentication/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-authentication/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-authentication"],
+          "options": {
+            "jestConfig": "libs/backend-module-authentication/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-module-common": {
+      "root": "libs/backend-module-common",
+      "sourceRoot": "libs/backend-module-common/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-common/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-common"],
+          "options": {
+            "jestConfig": "libs/backend-module-common/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-module-products": {
+      "root": "libs/backend-module-products",
+      "sourceRoot": "libs/backend-module-products/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-products/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-products"],
+          "options": {
+            "jestConfig": "libs/backend-module-products/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-module-users": {
+      "root": "libs/backend-module-users",
+      "sourceRoot": "libs/backend-module-users/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/backend-module-users",
+            "tsConfig": "libs/backend-module-users/tsconfig.lib.json",
+            "packageJson": "libs/backend-module-users/package.json",
+            "main": "libs/backend-module-users/src/index.ts",
+            "assets": ["libs/backend-module-users/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-module-users/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-module-users"],
+          "options": {
+            "jestConfig": "libs/backend-module-users/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "backend-utility": {
+      "root": "libs/backend-utility",
+      "sourceRoot": "libs/backend-utility/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/backend-utility/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/backend-utility"],
+          "options": {
+            "jestConfig": "libs/backend-utility/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend": {
       "root": "apps/frontend",
       "sourceRoot": "apps/frontend",
@@ -379,6 +516,98 @@
           "outputs": ["coverage/libs/frontend-pages"],
           "options": {
             "jestConfig": "libs/frontend-pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/react",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/frontend-pages/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "uiFramework": "@storybook/react",
+            "outputPath": "dist/storybook/frontend-pages",
+            "config": {
+              "configFolder": "libs/frontend-pages/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "frontend-sections": {
+      "root": "libs/frontend-sections",
+      "sourceRoot": "libs/frontend-sections/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/frontend-sections/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend-sections"],
+          "options": {
+            "jestConfig": "libs/frontend-sections/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "frontend-utility": {
+      "root": "libs/frontend-utility",
+      "sourceRoot": "libs/frontend-utility/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/frontend-utility",
+            "tsConfig": "libs/frontend-utility/tsconfig.lib.json",
+            "project": "libs/frontend-utility/package.json",
+            "entryFile": "libs/frontend-utility/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/frontend-utility/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/frontend-utility/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend-utility"],
+          "options": {
+            "jestConfig": "libs/frontend-utility/jest.config.js",
             "passWithNoTests": true
           }
         }

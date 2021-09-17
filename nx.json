@@ -42,6 +42,24 @@
     "backend": {
       "tags": []
     },
+    "backend-module-admin": {
+      "tags": []
+    },
+    "backend-module-authentication": {
+      "tags": []
+    },
+    "backend-module-common": {
+      "tags": []
+    },
+    "backend-module-products": {
+      "tags": []
+    },
+    "backend-module-users": {
+      "tags": []
+    },
+    "backend-utility": {
+      "tags": []
+    },
     "frontend": {
       "tags": []
     },
@@ -53,6 +71,12 @@
       "implicitDependencies": ["frontend"]
     },
     "frontend-pages": {
+      "tags": []
+    },
+    "frontend-sections": {
+      "tags": []
+    },
+    "frontend-utility": {
       "tags": []
     }
   }
