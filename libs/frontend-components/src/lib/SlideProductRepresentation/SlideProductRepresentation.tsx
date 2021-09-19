@@ -1,10 +1,6 @@
 import { Box, IconButton } from '@material-ui/core';
 import style from './style';
-import {
-  ChevronLeft,
-  ChevronRight,
-  FiberManualRecord,
-} from '@material-ui/icons';
+import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import Image from 'next/image';
 import ProductCatalogRepresentation from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
 // Swipper Import

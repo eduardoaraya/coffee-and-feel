@@ -13,6 +13,7 @@ import style from './style';
 type variantView = 'mobile' | 'desktop';
 export interface ProductCatalogRepresentationProps {
   variantViewPort?: variantView;
+  className?: string;
 }
 
 const getSizeButton = (
@@ -22,23 +23,17 @@ const getSizeButton = (
 
 export function ProductCatalogRepresentation({
   variantViewPort = 'desktop',
+  className,
 }: ProductCatalogRepresentationProps) {
   return (
     <Box
       component="div"
-      className="product-representation"
+      className={`product-representation ${className}`}
       sx={style.productRepresentation}
     >
       <Box className="product-title">
-        <Typography color="white" variant="h1">
-          Edição Adsumus Conillon
-        </Typography>
-        <Typography
-          className="label-feel-points"
-          component="p"
-          color="white"
-          variant="body1"
-        >
+        <Typography variant="h1">Edição Adsumus Conillon</Typography>
+        <Typography className="label-feel-points" component="p" variant="body1">
           Acumule
           <Typography color="primary" variant="body1" component="span">
             {' 70 '}
@@ -56,27 +51,23 @@ export function ProductCatalogRepresentation({
       <Box component="div" className="product-price-info">
         <Box className="product-price-descount-info">
           <Typography
+            color="white"
             component="span"
             className="product-price-descount-porcent"
-            color="white"
           >
             xx% OFF
           </Typography>
-          <Typography
-            component="span"
-            className="product-price-descount"
-            color="white"
-          >
+          <Typography component="span" className="product-price-descount">
             R$ 24,90
           </Typography>
         </Box>
-        <Typography component="span" color="white" className="product-price">
+        <Typography component="span" className="product-price">
           R$ 17,90
         </Typography>
       </Box>
       <Box component="div" className="actions">
         <Button
-          className="white-text"
+          // className="white-text"
           variant="outlined"
           size={getSizeButton(variantViewPort)}
           color="primary"
