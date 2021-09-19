@@ -4,13 +4,14 @@ import {
   CatalogRepresentation,
   LayoutEcommerce,
 } from '@atlascode/coffee-front-components';
+import { SubscriptionClubAboutSection } from '@atlascode/coffee-front-sections';
 import { Box, Container } from '@material-ui/core';
 import style from './style';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CatalogPageProps {}
 
-export const CatalogPage: React.FC = (props: CatalogPageProps): JSX.Element => {
+export const CatalogPage: React.FC<CatalogPageProps> = (props): JSX.Element => {
   return (
     <LayoutEcommerce>
       <Box sx={style.root} className="page catalog-page">
@@ -21,6 +22,7 @@ export const CatalogPage: React.FC = (props: CatalogPageProps): JSX.Element => {
             <CatalogRepresentation className="catalog-representation"></CatalogRepresentation>
           </Box>
         </Container>
+        <SubscriptionClubAboutSection />
       </Box>
     </LayoutEcommerce>
   );

@@ -1,6 +1,11 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core';
 import { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
 
+const colors = {
+  primary: '#8953E3',
+  secondary: '#323232',
+};
+
 const titleStyle = (size: string): TypographyStyleOptions => ({
   fontSize: size,
   fontFamily: 'Rufina Bold, serif',
@@ -76,12 +81,16 @@ const defaultTheme = createTheme({
   },
   palette: {
     primary: {
-      main: '#8953E3',
+      main: colors.primary,
     },
     secondary: {
-      main: '#323232',
+      main: colors.secondary,
     },
   },
+  // shadows: [
+  //   ...(Array.from({ length: 23 }).map((_) => 'none') as Shadows),
+  //   `0px 0px 3px 0px ${colors.secondary}`,
+  // ],
 });
 
 export default responsiveFontSizes(defaultTheme);

@@ -4,13 +4,18 @@ import style from './style';
 import Image from 'next/image';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ProductCatalogItemProps {}
+export interface ProductCatalogItemProps {
+  variantView?: 'mobile' | 'desktop';
+}
 
-export const ProductCatalogItem: React.FC = (
-  props: ProductCatalogItemProps
-): JSX.Element => {
+export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
+  variantView = 'desktop',
+}): JSX.Element => {
   return (
-    <Box sx={style.root}>
+    <Box
+      sx={style.root}
+      className={`product-catalog-item product-catalog-item-${variantView}`}
+    >
       <Box className="product-image">
         <figure>
           <Image
@@ -22,7 +27,10 @@ export const ProductCatalogItem: React.FC = (
           />
         </figure>
       </Box>
-      <ProductCatalogRepresentation className="product-info" />
+      <ProductCatalogRepresentation
+        variantViewPort={variantView}
+        className="product-info"
+      />
     </Box>
   );
 };
