@@ -50,7 +50,7 @@ export const TabGroup: React.FC<TabGroupProps> = ({
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '10px 10px',
+            padding: '10px 15px',
             cursor: 'pointer',
             fontSize: {
               md: '0.96em',

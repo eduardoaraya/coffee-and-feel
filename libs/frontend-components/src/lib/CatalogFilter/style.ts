@@ -5,7 +5,7 @@ export default {
     width: '100%',
     minHeight: '300px',
     background: '#FFF',
-    boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
+    boxShadow: '2px 2px 5px -1px rgba(52, 52, 52, 0.12)',
     borderRadius: '6px',
   },
 } as {

@@ -10,43 +10,14 @@ import { ProductInterface } from '../ProductCatalogRepresentation/ProductCatalog
 export interface CatalogRepresentationProps {
   className?: string;
   children?: React.ReactNode;
+  products?: ProductInterface[];
 }
 
 type VariantMode = 'grid' | 'list';
 
-const dataProduct = [
-  {
-    id: 1,
-    feelPoints: 70,
-    name: 'Product test',
-    plans: [
-      {
-        id: 1,
-        name: 'Basic',
-        priceTotal: 'R$ 17,90',
-        price: 'R$ 24,90',
-        porcent: 0.1,
-      },
-      {
-        id: 2,
-        name: 'Standard',
-        priceTotal: 'R$ 37,90',
-        price: 'R$ 49,90',
-        porcent: 0.15,
-      },
-      {
-        id: 3,
-        name: 'Premium',
-        priceTotal: 'R$ 53,90',
-        price: 'R$ 60,90',
-        porcent: 0.2,
-      },
-    ],
-  },
-] as ProductInterface[];
-
 export const CatalogRepresentation: React.FC<CatalogRepresentationProps> = ({
   className,
+  products,
 }): JSX.Element => {
   const [mode, setMode] = useState<VariantMode>('list');
   const tabs: TabOption[] = [
@@ -75,11 +46,11 @@ export const CatalogRepresentation: React.FC<CatalogRepresentationProps> = ({
         <Box
           className={`representation-catalog-grid representation-catalog-grid-mode-${mode}`}
         >
-          {dataProduct.map((product, key) => (
+          {products?.map((product) => (
             <ProductCatalogItem
               product={product}
               variantView={mode === 'grid' ? 'mobile' : 'desktop'}
-              key={key}
+              key={product.id}
             />
           ))}
         </Box>

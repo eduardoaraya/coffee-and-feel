@@ -2,20 +2,27 @@ import { SxProps, Theme } from '@material-ui/system';
 
 export default {
   root: {
+    cursor: 'pointer',
+    transition: '.2s',
+    position: 'relative',
     background: '#FFF',
     boxSizing: 'border-box',
-    boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
+    boxShadow: '2px 2px 5px -1px rgba(52, 52, 52, 0.12)',
     padding: '25px',
     display: 'flex',
-    marginBottom: '25px',
+    marginBottom: '45px',
+    '&:hover': {
+      boxShadow: '2px 2px 15px -9px rgba(52, 52, 52, 0.62)',
+    },
     flexDirection: {
       md: 'row',
       xs: 'column',
     },
     borderRadius: '17px',
     '.product-image': {
-      width: {
-        md: '320px',
+      minWidth: {
+        lg: '406px',
+        md: '300px',
         xs: '100%',
       },
     },
@@ -24,8 +31,16 @@ export default {
     },
     '&.product-catalog-item-mobile': {
       flexDirection: 'column',
+      paddingTop: {
+        md: '130px',
+        xs: '90px',
+      },
+      marginTop: '195px !important',
       '.product-image': {
-        width: '100%',
+        minWidth: '100%',
+        position: 'absolute',
+        top: '-200px',
+        left: 0,
       },
       '.product-info': {
         paddingLeft: 0,
