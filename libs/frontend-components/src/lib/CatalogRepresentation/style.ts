@@ -24,7 +24,6 @@ export default {
         },
         '.product-catalog-item': {
           maxWidth: '320px',
-          marginBottom: '25px',
         },
       },
     },

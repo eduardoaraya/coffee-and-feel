@@ -31,8 +31,8 @@ export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
           <MobileSlideProductRepresentation></MobileSlideProductRepresentation>
         </Container>
         <SubscriptionClubDetailsSection />
-        <NewsletterSection />
         <CallInstagramSection />
+        <NewsletterSection />
         <LastPostsSection />
       </Box>
     </LayoutEcommerce>

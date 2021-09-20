@@ -13,14 +13,23 @@ export default {
     '.product-title': {
       display: 'flex',
       flexDirection: 'column',
+      '.product-title': {
+        h1: {
+          fontSize: '0.58em',
+        },
+      },
     },
     '.label-feel-points': {
       margin: '15px 0',
     },
     '.product-price-info': {
       padding: '30px 0',
-      display: 'flex',
-      flexDirection: 'row',
+      '.product-price-area': {
+        display: 'none',
+        '&.active': {
+          display: 'flex',
+        },
+      },
       '.product-price-descount-info': {
         display: 'flex',
         flexDirection: 'column',

@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { alpha, Box } from '@material-ui/core';
 
 export type TabOption = {
   id: number;
@@ -32,27 +32,39 @@ export const TabGroup: React.FC<TabGroupProps> = ({
         flexDirection: 'row',
         '.tab-group-wrapper': {
           borderRadius: '6px',
-          boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
-          background: '#FFF',
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          overflow: 'hidden',
           '.tab-item': {
+            userSelect: 'none',
+            background: '#FFF',
+            '&.tab-item:nth-last-child(1)': {
+              borderRadius: '0 6px 6px 0',
+            },
+            '&.tab-item:nth-child(1)': {
+              borderRadius: '6px 0 0 6px',
+            },
             transition: '.3s',
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '10px 25px',
+            padding: '10px 10px',
             cursor: 'pointer',
-            userSelect: 'none',
+            fontSize: {
+              md: '0.96em',
+              xs: '1em',
+            },
             boxShadow: (theme) =>
-              `0px 0.5px 1px 0px ${theme.palette.primary.main}, 0px -0.5px 1px 0px ${theme.palette.primary.main}`,
+              [
+                `0 1px 3px 0 ${alpha(theme.palette.secondary.main, 0.16)}`,
+                `inset 0.3px 0.3px 1px 0px ${theme.palette.primary.main}`,
+                `inset -0.3px -0.3px 1px 0px ${theme.palette.primary.main}`,
+              ].join(','),
             '&.active': {
-              fontWeight: 'bold',
               background: (theme) => theme.palette.primary.main,
+              color: '#FFF',
               svg: {
                 color: '#FFF',
               },
@@ -70,7 +82,7 @@ export const TabGroup: React.FC<TabGroupProps> = ({
           >
             {typeof tab.content === 'string'
               ? tab.content
-              : tab.content(tab.contentProps.props)}
+              : tab.content(tab.contentProps?.props)}
           </Box>
         ))}
       </Box>

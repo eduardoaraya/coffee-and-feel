@@ -1,4 +1,7 @@
-import { ProductCatalogRepresentation } from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
+import {
+  ProductCatalogRepresentation,
+  ProductInterface,
+} from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
 import { Box } from '@material-ui/core';
 import style from './style';
 import Image from 'next/image';
@@ -6,10 +9,12 @@ import Image from 'next/image';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ProductCatalogItemProps {
   variantView?: 'mobile' | 'desktop';
+  product?: ProductInterface;
 }
 
 export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
   variantView = 'desktop',
+  product,
 }): JSX.Element => {
   return (
     <Box
@@ -28,6 +33,7 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
         </figure>
       </Box>
       <ProductCatalogRepresentation
+        product={product}
         variantViewPort={variantView}
         className="product-info"
       />
