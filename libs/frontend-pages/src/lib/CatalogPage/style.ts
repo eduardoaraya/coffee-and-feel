@@ -4,7 +4,10 @@ export default {
   root: {
     '.page-catalog-grid': {
       display: 'grid',
-      gridTemplateColumns: 'minmax(250px, 300px) 1fr',
+      gridTemplateColumns: {
+        md: 'minmax(250px, 300px) 1fr',
+        xs: '1fr',
+      },
       gridAutoRows: 'auto',
       '.catalog-filter': {
         marginTop: '50px',
