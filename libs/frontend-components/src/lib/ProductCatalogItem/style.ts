@@ -3,7 +3,6 @@ import { SxProps, Theme } from '@material-ui/system';
 export default {
   root: {
     cursor: 'pointer',
-    transition: '.2s',
     position: 'relative',
     background: '#FFF',
     boxSizing: 'border-box',
@@ -12,6 +11,7 @@ export default {
     display: 'flex',
     marginBottom: '45px',
     '&:hover': {
+      transition: '.3s',
       boxShadow: '2px 2px 15px -9px rgba(52, 52, 52, 0.62)',
     },
     flexDirection: {
