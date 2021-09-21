@@ -13,10 +13,8 @@ export default {
     '.product-title': {
       display: 'flex',
       flexDirection: 'column',
-      '.product-title': {
-        h1: {
-          fontSize: '0.58em',
-        },
+      h2: {
+        fontSize: '1.9em',
       },
     },
     '.label-feel-points': {

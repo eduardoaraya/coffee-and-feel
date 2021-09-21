@@ -94,7 +94,9 @@ export const ProductCatalogRepresentation: React.FC<ProductCatalogRepresentation
       >
         <Box className="product-title">
           {product?.name ? (
-            <Typography variant="h2">{product?.name}</Typography>
+            <Typography component="h2" variant="h2">
+              {product?.name}
+            </Typography>
           ) : (
             <Skeleton height={35} variant="rectangular" />
           )}
