@@ -63,6 +63,7 @@ export const ProductCatalogRepresentation: React.FC<ProductCatalogRepresentation
       product && product.plans.length > 0
         ? product.plans.map((plan) => (
             <Box
+              key={plan.id}
               className={`product-price-area ${
                 isCurrentPlan(plan.id) ? 'active' : ''
               }`}
