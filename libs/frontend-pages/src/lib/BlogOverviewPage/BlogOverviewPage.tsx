@@ -1,3 +1,5 @@
+import { Box, BoxProps } from '@material-ui/core';
+
 /* eslint-disable-next-line */
 export interface BlogOverviewPageProps {}
 
