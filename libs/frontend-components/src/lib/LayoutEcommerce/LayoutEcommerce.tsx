@@ -8,12 +8,14 @@ export interface LayoutStoreProps {}
 const style: SxProps<Theme> = {
   layout: {
     main: {
+      position: 'relative',
       height: '100%',
+      minHeight: '100vh',
     },
     '.page': {
+      position: 'relative',
       overflow: 'hidden',
       top: '105px',
-      position: 'relative',
       height: '100%',
       width: '100%',
       display: 'flex',

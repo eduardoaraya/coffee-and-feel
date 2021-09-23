@@ -86,7 +86,7 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src="./logo.svg" alt="logo" />
+                <img src="/logo.svg" alt="logo" />
               </a>
             </Link>
           </div>
@@ -117,11 +117,11 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
               </li>
               <li className="bag">
                 <Badge badgeContent={4} color="primary">
-                  <img src="./icons/bag.svg" alt="bag" />
+                  <img src="/icons/bag.svg" alt="bag" />
                 </Badge>
               </li>
               <li className="menu-mobile" onClick={handleModalTarget}>
-                <img src="./icons/menu.svg" alt="bag" />
+                <img src="/icons/menu.svg" alt="bag" />
               </li>
             </ul>
           </Box>
