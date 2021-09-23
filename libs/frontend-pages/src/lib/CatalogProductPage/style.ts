@@ -52,13 +52,14 @@ export default () =>
       '.product-attribute-row': {
         display: 'flex',
         flexDirection: 'row',
+        flexWrap: 'wrap',
         padding: {
-          md: '75px 45px',
+          md: '75px 65px',
           xs: '25px',
         },
         '.MuiPaper-root': {
           minWidth: '200px',
-          margin: '0 auto',
+          margin: '10px auto',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
