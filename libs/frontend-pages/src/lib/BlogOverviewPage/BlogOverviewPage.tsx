@@ -1,12 +1,30 @@
-import { Box, BoxProps, Container } from '@material-ui/core';
+import { Box, BoxProps, Container, Button } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import BlogPreviewCategorySelect from './BlogPreviewCategorySelect';
-import { BlogPostCard } from '@atlascode/coffee-front-components';
+import {
+  BlogPostCard,
+  BlogPostCardProps,
+} from '@atlascode/coffee-front-components';
+import { useLoadMore } from '@atlascode/coffee-frontend-hooks';
+import { MotionBox } from '@atlascode/coffee-frontend-utility';
 
 /* eslint-disable-next-line */
-export interface BlogOverviewPageProps extends BoxProps {}
+export interface BlogOverviewPageProps extends BoxProps {
+  posts: BlogPostCardProps[];
+}
 
-export function BlogOverviewPage({ sx, ...rest }: BlogOverviewPageProps) {
+const MOCK_LIST = Array.from({ length: 23 });
+
+export function BlogOverviewPage({
+  sx,
+  posts = [],
+  ...rest
+}: BlogOverviewPageProps) {
+  const { fullData, loadMore, fullyLoaded, visible } = useLoadMore(
+    MOCK_LIST,
+    6
+  );
+
   return (
     <Box sx={{ ...sx, ...styles.root }} {...rest}>
       <Container maxWidth="lg">
@@ -16,17 +34,37 @@ export function BlogOverviewPage({ sx, ...rest }: BlogOverviewPageProps) {
           </Box>
 
           <Box sx={styles.grid}>
-            {Array.from({ length: 10 }).map((_, index) => {
+            {visible.map((_, index) => {
               return (
-                <BlogPostCard
+                <MotionBox
+                  variants={{
+                    hidden: { opacity: 0, y: 250 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  initial="hidden"
+                  animate="visible"
                   key={index}
-                  readingTime={3}
-                  src={'https://via.placeholder.com/1500'}
-                  title="Placeholder"
-                />
+                >
+                  <BlogPostCard
+                    readingTime={3}
+                    src={'https://via.placeholder.com/1500'}
+                    title="Placeholder"
+                  />
+                </MotionBox>
               );
             })}
           </Box>
+        </Box>
+
+        <Box sx={styles.buttonContainer}>
+          <Button
+            onClick={loadMore}
+            variant="outlined"
+            color="primary"
+            disabled={fullyLoaded}
+          >
+            {fullyLoaded ? 'Não há mais posts' : 'Carregar mais'}
+          </Button>
         </Box>
       </Container>
     </Box>
@@ -52,11 +90,18 @@ const styles = AtlasStylesheet.create({
     justifyContent: 'center',
   },
 
+  buttonContainer: {
+    py: { xs: 10 },
+    display: 'flex',
+    justifyContent: 'center',
+  },
+
   grid: {
     display: 'grid',
     gridTemplateColumns: { xs: '1fr', lg: '33.333% 33.333% 33.333%' },
     gridAutoFlow: 'row',
     justifyItems: { xs: 'center' },
-    rowGap: { xs: '3.5em', lg: '10em' },
+    rowGap: { xs: '5.5em', lg: '10em' },
+    px: { xs: 2 },
   },
 });
