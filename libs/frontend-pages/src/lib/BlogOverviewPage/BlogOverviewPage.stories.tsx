@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { BlogOverviewPage, BlogOverviewPageProps } from './BlogOverviewPage';
+import { LayoutEcommerce } from '@atlascode/coffee-front-components';
 
 export default {
   component: BlogOverviewPage,
@@ -10,6 +11,13 @@ export default {
       defaultViewport: 'brazilDesktop1',
     },
   },
+  decorators: [
+    (Story) => (
+      <LayoutEcommerce>
+        <Story />
+      </LayoutEcommerce>
+    ),
+  ],
 } as Meta;
 
 const Template: Story<BlogOverviewPageProps> = (args) => (
