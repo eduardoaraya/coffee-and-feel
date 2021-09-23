@@ -21,7 +21,7 @@ type MenuItemType = {
   path: string;
 };
 
-const menuItems: MenuItemType[] = [
+export const menuItems: MenuItemType[] = [
   {
     name: 'Sobre nós',
     path: '/about-us',
