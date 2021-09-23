@@ -1,5 +1,6 @@
 import { Box, Theme } from '@material-ui/core';
 import { SxProps } from '@material-ui/system';
+import Footer from '../Footer/Footer';
 import { Header } from '../Header/Header';
 
 /* eslint-disable-next-line */
@@ -12,7 +13,7 @@ const style: SxProps<Theme> = {
     },
     '.page': {
       overflow: 'hidden',
-      top: '105px',
+      marginTop: '105px',
       position: 'relative',
       height: '100%',
       width: '100%',
@@ -30,7 +31,7 @@ export const LayoutEcommerce: React.FC = ({ children }): JSX.Element => {
     <Box sx={style.layout}>
       <Header />
       <main>{children}</main>
-      <footer></footer>
+      <Footer />
     </Box>
   );
 };
