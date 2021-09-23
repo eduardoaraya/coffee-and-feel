@@ -4,7 +4,6 @@ import {
 } from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
 import { Box } from '@material-ui/core';
 import style from './style';
-import Image from 'next/image';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ProductCatalogItemProps {
@@ -23,13 +22,7 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
     >
       <Box className="product-image">
         <figure>
-          <Image
-            src="/imgs/product-sample.png"
-            alt="Product name"
-            layout="intrinsic"
-            width="300px"
-            height="300px"
-          />
+          <img src="/imgs/product-sample1.png" alt="Product name" />
         </figure>
       </Box>
       <ProductCatalogRepresentation

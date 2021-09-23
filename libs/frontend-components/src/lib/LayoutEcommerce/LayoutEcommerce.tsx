@@ -19,7 +19,7 @@ const style: SxProps<Theme> = {
       display: 'flex',
       flexDirection: 'column',
       backgroundColor: '#ffffff',
-      backgroundImage: `radial-gradient(#b6c5cc 0.9500000000000001px, #ffffff 0.9500000000000001px)`,
+      backgroundImage: `radial-gradient(#b6c5cc 0.9500000000000001px, #f6f6f6 0.9500000000000001px)`,
       backgroundSize: '19px 19px',
     },
   },

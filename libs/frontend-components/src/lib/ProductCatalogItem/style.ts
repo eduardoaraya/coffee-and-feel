@@ -25,6 +25,17 @@ export default {
         md: '300px',
         xs: '100%',
       },
+      figure: {
+        position: 'relative',
+        width: '100%',
+        maxWidth: '300px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        img: {
+          width: '100%',
+        },
+      },
     },
     '.product-info': {
       paddingLeft: '55px',
@@ -41,6 +52,10 @@ export default {
         position: 'absolute',
         top: '-200px',
         left: 0,
+        figure: {
+          maxWidth: '250px',
+          margin: '0 auto',
+        },
       },
       '.product-info': {
         paddingLeft: 0,
