@@ -13,14 +13,21 @@ export default {
     '.product-title': {
       display: 'flex',
       flexDirection: 'column',
+      h2: {
+        fontSize: '1.9em',
+      },
     },
     '.label-feel-points': {
       margin: '15px 0',
     },
     '.product-price-info': {
       padding: '30px 0',
-      display: 'flex',
-      flexDirection: 'row',
+      '.product-price-area': {
+        display: 'none',
+        '&.active': {
+          display: 'flex',
+        },
+      },
       '.product-price-descount-info': {
         display: 'flex',
         flexDirection: 'column',

@@ -96,21 +96,22 @@ export default {
         width: '100%',
         height: '100%',
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         gridColumn: {
           sm: '2/3',
           xs: '1/4',
         },
         '.product-title': {
-          marginTop: {
-            md: 0,
-            xs: '10px',
+          h2: {
+            fontSize: '2.1em',
           },
-          paddingRight: {
-            md: '125px',
-            xs: '0',
-          },
+        },
+        '.MuiTypography-root ': {
+          color: '#FFF',
+        },
+        '.actions button': {
+          color: '#FFF',
         },
       },
     },
