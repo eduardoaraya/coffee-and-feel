@@ -2,9 +2,11 @@ import React from 'react';
 import { TextField, MenuItem, TextFieldProps } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 
-type BlogPreviewCategorySelectProps = TextFieldProps & { options?: string[] };
+export type BlogPreviewCategorySelectProps = TextFieldProps & {
+  options?: string[];
+};
 
-const BlogPreviewCategorySelect = ({
+export const BlogPreviewCategorySelect = ({
   sx,
   options = ['Todos', 'Marketing', 'Desenvolvimento', 'Outros'],
   ...rest

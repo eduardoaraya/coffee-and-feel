@@ -1,6 +1,9 @@
 import { Box, BoxProps, Container, Button } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import BlogPreviewCategorySelect from './BlogPreviewCategorySelect';
+import {
+  BlogPreviewCategorySelectProps,
+  BlogPreviewCategorySelect,
+} from './BlogPreviewCategorySelect';
 import {
   BlogPostCard,
   BlogPostCardProps,
@@ -10,7 +13,8 @@ import { MotionBox } from '@atlascode/coffee-frontend-utility';
 
 /* eslint-disable-next-line */
 export interface BlogOverviewPageProps extends BoxProps {
-  posts: BlogPostCardProps[];
+  posts?: BlogPostCardProps[];
+  selectProps?: BlogPreviewCategorySelectProps;
 }
 
 const MOCK_LIST = Array.from({ length: 23 });
@@ -18,10 +22,13 @@ const MOCK_LIST = Array.from({ length: 23 });
 export function BlogOverviewPage({
   sx,
   posts = [],
+  selectProps,
   ...rest
 }: BlogOverviewPageProps) {
   const { fullData, loadMore, fullyLoaded, visible } = useLoadMore(
-    MOCK_LIST,
+    process.env.NODE_ENV === 'development' && posts.length <= 0
+      ? MOCK_LIST
+      : posts,
     6
   );
 
@@ -30,7 +37,7 @@ export function BlogOverviewPage({
       <Container maxWidth="lg">
         <Box sx={styles.container}>
           <Box sx={styles.selectContainer}>
-            <BlogPreviewCategorySelect />
+            <BlogPreviewCategorySelect {...selectProps} />
           </Box>
 
           <Box sx={styles.grid}>
