@@ -9,3 +9,7 @@ export * from './lib/LayoutEcommerce/LayoutEcommerce';
 export * from './lib/Banner/Banner';
 export * from './lib/SlideProductRepresentation';
 export * from './lib/ProductCatalogRepresentation/ProductCatalogRepresentation';
+export * from './lib/CatalogFilter/CatalogFilter';
+export * from './lib/CatalogRepresentation/CatalogRepresentation';
+export * from './lib/ProductCatalogItem/ProductCatalogItem';
+export * from './lib/TabGroup/TabGroup';
