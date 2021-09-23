@@ -1,12 +1,18 @@
 import { Story, Meta } from '@storybook/react';
-import { UseLoadMore, UseLoadMoreProps } from './UseLoadMore';
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+type DemoProps = {};
+
+const Demo = () => {
+  return <div>Hello Demo</div>;
+};
 
 export default {
-  component: UseLoadMore,
+  component: Demo,
   title: 'UseLoadMore',
 } as Meta;
 
-const Template: Story<UseLoadMoreProps> = (args) => <UseLoadMore {...args} />;
+const Template: Story<DemoProps> = (args) => <Demo {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

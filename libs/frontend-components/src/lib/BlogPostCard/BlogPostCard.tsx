@@ -3,11 +3,9 @@ import React from 'react';
 import BlogPostPhoto, { BlogPostPhotoProps } from './BlogPostPhoto';
 import BlogPostInfo, { BlogPostInfoProps } from './BlogPostInfo';
 import { SxProps } from '@material-ui/system';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
-import {
-  ReadingTime,
-  ReadingTimeProps,
-} from '@atlascode/coffee-front-components';
+import { ReadingTime, ReadingTimeProps } from '../ReadingTime/ReadingTime';
 /* eslint-disable-next-line */
 export interface BlogPostCardProps extends Omit<BoxProps, 'ref'> {
   BlogPostPhotoProps?: BlogPostPhotoProps;
@@ -75,6 +73,7 @@ const defaultStyles = (leftAligned = false) => {
     maxWidth: '25em',
     width: 'fit-content',
     gap: 3,
+    justifyContent: 'center',
 
     '@media (min-width: 1024px)': {
       gridTemplateColumns: leftAligned ? 'auto 1fr' : '1fr',

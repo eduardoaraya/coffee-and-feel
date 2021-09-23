@@ -1,7 +1,11 @@
 import _ from 'lodash';
 import React from 'react';
 
-function useLoadMore<T>(data: Array<T>, loadLimit: number, deps?: unknown[]) {
+export function useLoadMore<T>(
+  data: Array<T>,
+  loadLimit: number,
+  deps?: unknown[]
+) {
   const [visibleData, setVisibleData] = React.useState<T[]>([]);
   const [fullData, setFullData] = React.useState<T[][]>([]);
   const [activeIndex, setActiveIndex] = React.useState<number>(0);
