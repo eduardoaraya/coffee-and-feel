@@ -105,6 +105,5 @@ const styles = AtlasStylesheet.create({
     gridAutoFlow: 'row',
     justifyItems: { xs: 'center' },
     rowGap: { xs: '5.5em', lg: '10em' },
-    px: { xs: 2 },
   },
 });

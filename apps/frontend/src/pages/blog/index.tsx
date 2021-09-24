@@ -55,14 +55,11 @@ const BlogIndexPage = ({ posts = [] }: BlogIndexPageProps) => {
         posts={(categoriestList[activeCategory] as BlogPost[]).map(
           (value, index) => {
             return {
-              readingTime: false,
+              readingTime: 3,
               src: value.imgURL,
               title: value.title,
-              BlogPostInfoProps: {
-                tags: [value.category],
-                content: value.content,
-                readingTime: true,
-              },
+              tags: [value.category],
+              content: value.content,
             };
           }
         )}

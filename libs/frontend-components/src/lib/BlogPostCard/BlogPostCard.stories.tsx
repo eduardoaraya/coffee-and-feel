@@ -10,5 +10,6 @@ const Template: Story<BlogPostCardProps> = (args) => <BlogPostCard {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  infoLeft: false,
+  leftAligned: false,
+  timeHidden: false,
 } as BlogPostCardProps;

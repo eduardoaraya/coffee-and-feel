@@ -1,49 +1,43 @@
 import React from 'react';
-import { Box, BoxProps, Theme } from '@material-ui/core';
-import { ResponsiveStyleValue, SxProps } from '@material-ui/system';
-import { Property } from 'csstype';
+import { Box, BoxProps } from '@material-ui/core';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 
-import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-react-hooks';
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface BlogPostPhotoProps extends BoxProps {
   src?: string;
   alt?: string;
-  fontSize?: ResponsiveStyleValue<Property.FontSize>;
 }
 
-const BlogPostPhoto = ({
-  alt = 'This is an alternative text placeholder meant to enhance accessibility, edit me',
-  src = 'https://via.placeholder.com/750',
-  fontSize = '10px',
+export const BlogPostPhoto = ({
   sx,
+  src = 'https://via.placeholder.com/1500',
+  alt = 'This is a placeholder alternative text, change me',
   ...rest
 }: BlogPostPhotoProps) => {
-  const defaultStyleMemo = useMemoizedMergedObject(defaultStyles(fontSize), sx);
-
   return (
-    <Box sx={defaultStyleMemo} {...rest}>
-      <Box className="img" component="img" alt={alt} src={src} />
+    <Box sx={{ ...styles.root, ...sx }} {...rest}>
+      <Box sx={styles.container}>
+        <Box component="img" alt={alt} src={src} sx={styles.img} />
+      </Box>
     </Box>
   );
 };
 
-export default BlogPostPhoto;
-
-const defaultStyles = (
-  fontSize: ResponsiveStyleValue<Property.FontSize> = '10px'
-): SxProps<Theme> => {
-  return {
-    fontSize: fontSize,
-    width: '32.3em',
-    height: '20.8em',
+const styles = AtlasStylesheet.create({
+  root: {
+    fontSize: '10px',
+  },
+  container: {
+    width: { xs: '32.3em' },
+    height: { xs: '20.8em' },
     boxShadow: (theme) => theme.shadows[3],
     borderRadius: '8px',
+  },
+  img: {
+    objectFit: 'cover',
+    width: '100%',
+    height: '100%',
+  },
+});
 
-    '.img': {
-      objectFit: 'cover',
-      width: '100%',
-      height: '100%',
-    },
-  };
-};
+export default BlogPostPhoto;
