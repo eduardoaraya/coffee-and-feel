@@ -3,6 +3,7 @@ import { Box, BoxProps, Chip, Typography } from '@material-ui/core';
 import _ from 'lodash';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
+import Link from 'next/link';
 
 export interface BlogPostInfoProps extends BoxProps {
   readingTime?: ReadingTimeProps['time'];
@@ -10,6 +11,7 @@ export interface BlogPostInfoProps extends BoxProps {
   tags?: string[];
   content?: ReadingTimeProps['content'];
   timeHidden?: boolean;
+  url?: string;
 }
 
 export const BlogPostInfo = ({
@@ -18,15 +20,20 @@ export const BlogPostInfo = ({
   title = 'Placeholder Title',
   tags = ['Placeholder', 'Placeholder'],
   content,
+  url = '/',
   ...rest
 }: BlogPostInfoProps) => {
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       <Box sx={styles.container}>
         <ReadingTime time={readingTime} />
-        <Typography sx={styles.title} variant="caption">
-          {title}
-        </Typography>
+
+        <Link href={url}>
+          <Box component="a" sx={styles.title}>
+            {title}
+          </Box>
+        </Link>
+
         <Box sx={styles.tagsContainer}>
           {tags.map((value, index) => {
             return (
@@ -69,5 +76,8 @@ const styles = AtlasStylesheet.create({
     fontSize: { xs: '1.2em' },
     padding: { xs: '1em' },
   },
-  title: {},
+  title: {
+    cursor: 'pointer',
+    fontSize: { xs: '1.2em' },
+  },
 });

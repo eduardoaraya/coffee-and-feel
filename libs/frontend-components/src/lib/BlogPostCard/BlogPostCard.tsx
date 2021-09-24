@@ -23,6 +23,7 @@ export const BlogPostCard = ({
   tags,
   src,
   alt,
+  url,
   ...rest
 }: BlogPostCardProps) => {
   const stylesMemo = React.useMemo(() => styles(leftAligned), [leftAligned]);
@@ -34,6 +35,7 @@ export const BlogPostCard = ({
       <Box sx={stylesMemo.grid}>
         <BlogPostPhoto src={src} alt={alt} />
         <BlogPostInfo
+          url={url}
           content={content}
           readingTime={readingTime}
           title={title}

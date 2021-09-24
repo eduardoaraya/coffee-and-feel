@@ -30,7 +30,7 @@ export function BlogOverviewPage({
   const { fullData, loadMore, fullyLoaded, visible } = useLoadMore(posts, 6);
 
   return (
-    <Box sx={{ ...sx, ...styles.root }} {...rest}>
+    <Box className="page" sx={{ ...sx, ...styles.root }} {...rest}>
       <Container maxWidth="lg">
         <Box sx={styles.container}>
           <Box sx={styles.selectContainer}>

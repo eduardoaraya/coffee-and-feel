@@ -130,21 +130,19 @@ const dataProduct = [
 
 export const CatalogPage: React.FC<CatalogPageProps> = (props): JSX.Element => {
   return (
-    <LayoutEcommerce>
-      <Box sx={style.root} className="page catalog-page">
-        <Banner></Banner>
-        <Container>
-          <Box className="page-catalog-grid">
-            <CatalogFilter className="catalog-filter"></CatalogFilter>
-            <CatalogRepresentation
-              products={dataProduct}
-              className="catalog-representation"
-            ></CatalogRepresentation>
-          </Box>
-        </Container>
-        <SubscriptionClubAboutSection />
-      </Box>
-    </LayoutEcommerce>
+    <Box sx={style.root} className="page catalog-page">
+      <Banner></Banner>
+      <Container>
+        <Box className="page-catalog-grid">
+          <CatalogFilter className="catalog-filter"></CatalogFilter>
+          <CatalogRepresentation
+            products={dataProduct}
+            className="catalog-representation"
+          ></CatalogRepresentation>
+        </Box>
+      </Container>
+      <SubscriptionClubAboutSection />
+    </Box>
   );
 };
 

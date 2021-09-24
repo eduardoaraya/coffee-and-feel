@@ -137,28 +137,26 @@ export interface HomePageProps {}
 
 export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
   return (
-    <LayoutEcommerce>
-      <Box className="page home-page">
-        <Banner></Banner>
-        <SubscriptionClubAboutSection />
-        <KnowMoreSection></KnowMoreSection>
-        <Container component="section" sx={style.slideProductRepresentation}>
-          <Typography className="title-slide-product" variant="h1">
-            Cafés especiais e selecionados
-          </Typography>
-          <SlideProductRepresentation
-            products={dataProduct}
-          ></SlideProductRepresentation>
-          <MobileSlideProductRepresentation
-            products={dataProduct}
-          ></MobileSlideProductRepresentation>
-        </Container>
-        <SubscriptionClubDetailsSection />
-        <CallInstagramSection />
-        <NewsletterSection />
-        <LastPostsSection />
-      </Box>
-    </LayoutEcommerce>
+    <Box className="page home-page">
+      <Banner></Banner>
+      <SubscriptionClubAboutSection />
+      <KnowMoreSection></KnowMoreSection>
+      <Container component="section" sx={style.slideProductRepresentation}>
+        <Typography className="title-slide-product" variant="h1">
+          Cafés especiais e selecionados
+        </Typography>
+        <SlideProductRepresentation
+          products={dataProduct}
+        ></SlideProductRepresentation>
+        <MobileSlideProductRepresentation
+          products={dataProduct}
+        ></MobileSlideProductRepresentation>
+      </Container>
+      <SubscriptionClubDetailsSection />
+      <CallInstagramSection />
+      <NewsletterSection />
+      <LastPostsSection />
+    </Box>
   );
 };
 

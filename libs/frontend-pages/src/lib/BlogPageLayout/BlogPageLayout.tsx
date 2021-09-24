@@ -155,7 +155,7 @@ const defaultStyles = () => {
     '.Atlas-BlogLayoutV1-fixedSocialMediaTrayContainer': {
       position: 'fixed',
       right: 0,
-      top: '10%',
+      top: '15%',
       display: 'none',
 
       '@media (min-width: 1024px)': {
@@ -165,6 +165,10 @@ const defaultStyles = () => {
 
     '.Atlas-BlogLayoutV1-content': {
       width: '100%',
+
+      '& img': {
+        width: '100%',
+      },
     },
 
     '.Atlas-BlogLayoutV1-featuredImage': {
