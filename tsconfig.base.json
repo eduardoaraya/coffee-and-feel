@@ -53,7 +53,10 @@
       "@atlascode/coffee-frontend-utility": [
         "libs/frontend-utility/src/index.ts"
       ],
-      "@atlascode/coffee-shared-helpers": ["libs/shared-helpers/src/index.ts"]
+      "@atlascode/coffee-shared-helpers": ["libs/shared-helpers/src/index.ts"],
+      "@coffee-and-feel/frontend-service": [
+        "libs/frontend-service/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

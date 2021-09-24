@@ -85,6 +85,9 @@
     "frontend-sections": {
       "tags": []
     },
+    "frontend-service": {
+      "tags": []
+    },
     "frontend-utility": {
       "tags": []
     },

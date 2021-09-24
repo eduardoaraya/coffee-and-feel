@@ -1,7 +1,5 @@
 import { CatalogPage } from '@atlascode/coffee-front-pages';
 
-export function Catalog() {
-  return <CatalogPage />;
-}
+export const Catalog: React.FC = (): JSX.Element => <CatalogPage />;
 
 export default Catalog;

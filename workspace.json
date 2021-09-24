@@ -738,6 +738,46 @@
         }
       }
     },
+    "frontend-service": {
+      "root": "libs/frontend-service",
+      "sourceRoot": "libs/frontend-service/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/frontend-service",
+            "tsConfig": "libs/frontend-service/tsconfig.lib.json",
+            "project": "libs/frontend-service/package.json",
+            "entryFile": "libs/frontend-service/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/frontend-service/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/frontend-service/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend-service"],
+          "options": {
+            "jestConfig": "libs/frontend-service/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend-utility": {
       "root": "libs/frontend-utility",
       "sourceRoot": "libs/frontend-utility/src",
