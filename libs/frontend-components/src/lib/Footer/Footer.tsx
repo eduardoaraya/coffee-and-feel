@@ -1,4 +1,5 @@
-import { menuItems } from '@atlascode/coffee-front-components';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { menuItems } from '../Header/Header';
 import { Container, Typography } from '@material-ui/core';
 import { Box } from '@material-ui/system';
 import Link from 'next/link';

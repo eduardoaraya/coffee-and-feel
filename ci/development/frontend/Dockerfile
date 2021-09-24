@@ -19,13 +19,14 @@ RUN pnpm add --global firebase-tools
 # Deps node
 
 ADD package.json /tmp/package.json
+ADD pnpm-lock.yaml /tmp/pnpm-lock.yaml
 RUN cd /tmp && pnpm install 
-RUN mkdir app && cp -a /tmp/node_modules /app
+RUN mkdir app && cp -a /tmp/node_modules /app 
 
 # Build node
 
 COPY . /app
-RUN cd /app && pnpx nx run frontend:build -y
+RUN cd /app && pnpx nx run frontend:export -y
 
 
 WORKDIR /app
