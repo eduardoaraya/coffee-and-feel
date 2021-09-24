@@ -6,7 +6,6 @@ import {
   Box,
   Skeleton,
 } from '@material-ui/core';
-import Image from 'next/image';
 import style from './style';
 import { useState } from 'react';
 
@@ -140,12 +139,7 @@ export const ProductCatalogRepresentation: React.FC<ProductCatalogRepresentation
             Detalhes
           </Button>
           <IconButton size={getSizeButton(variantViewPort)} color="primary">
-            <Image
-              src="/icons/add-cart.svg"
-              width="30px"
-              height="30px"
-              layout="fixed"
-            />
+            <img src="/icons/add-cart.svg" alt="Cart icon" />
           </IconButton>
         </Box>
       </Box>
