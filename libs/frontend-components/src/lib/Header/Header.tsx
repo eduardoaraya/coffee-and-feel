@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import {
   Box,
   Container,
@@ -20,25 +21,6 @@ type MenuItemType = {
   name: string;
   path: string;
 };
-
-export const menuItems: MenuItemType[] = [
-  {
-    name: 'Sobre nós',
-    path: '/about-us',
-  },
-  {
-    name: 'Clube de assinatura',
-    path: '/plans',
-  },
-  {
-    name: 'Produtos',
-    path: '/catalog',
-  },
-  {
-    name: 'Blog',
-    path: '/blog',
-  },
-];
 
 export const Header: React.FC = (props: HeaderProps): JSX.Element => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -150,3 +132,22 @@ export const Header: React.FC = (props: HeaderProps): JSX.Element => {
 };
 
 export default Header;
+
+export const menuItems: MenuItemType[] = [
+  {
+    name: 'Sobre nós',
+    path: '/about-us',
+  },
+  {
+    name: 'Clube de assinatura',
+    path: '/plans',
+  },
+  {
+    name: 'Produtos',
+    path: '/catalog',
+  },
+  {
+    name: 'Blog',
+    path: '/blog',
+  },
+];
