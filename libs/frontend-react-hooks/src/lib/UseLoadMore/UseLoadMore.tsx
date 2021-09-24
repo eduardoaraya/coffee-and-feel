@@ -10,17 +10,26 @@ export function useLoadMore<T>(
   const [fullData, setFullData] = React.useState<T[][]>([]);
   const [activeIndex, setActiveIndex] = React.useState<number>(0);
   const [fullyLoaded, setFullyLoaded] = React.useState<boolean>(false);
+  const [fullDataFlatLength, setFullDataFlatLength] = React.useState<number>(0);
 
-  const fulllDataChunked = React.useMemo(() => {
-    return _.chunk(_.cloneDeep(data), loadLimit);
-  }, [data, loadLimit]);
+  const dataCopy = React.useMemo(() => [...data], [data]);
 
-  const fullDataFlatLength = React.useMemo(() => {
-    return _.flattenDeep(fullData).length;
+  React.useEffect(() => {
+    const dataChunks = _.chunk(dataCopy, loadLimit);
+    const dataFlatLength = _.flatten(dataChunks).length;
+
+    setFullData(dataChunks);
+    setFullDataFlatLength(dataFlatLength);
+  }, [loadLimit, dataCopy]);
+
+  React.useEffect(() => {
+    if (fullData.length > 0) {
+      setVisibleData(fullData[0]);
+    }
   }, [fullData]);
 
   const loadMoreData = React.useCallback(() => {
-    if (fullDataFlatLength !== visibleData.length) {
+    if (visibleData && fullDataFlatLength !== visibleData.length) {
       setVisibleData((prevState) =>
         _.concat(prevState, ...fullData[activeIndex + 1])
       );
@@ -29,17 +38,7 @@ export function useLoadMore<T>(
       setFullyLoaded(true);
       _.noop();
     }
-  }, [activeIndex, fullData, fullDataFlatLength, visibleData.length]);
-
-  React.useEffect(() => {
-    if (fullData.length <= 0 && fulllDataChunked.length) {
-      setFullData(fulllDataChunked);
-    }
-
-    if (visibleData.length <= 0 && fulllDataChunked.length) {
-      setVisibleData(fulllDataChunked[0]);
-    }
-  }, [fulllDataChunked, visibleData.length, fullData.length]);
+  }, [activeIndex, fullData, fullDataFlatLength, visibleData]);
 
   return {
     visible: visibleData,

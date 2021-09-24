@@ -3,29 +3,71 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import Axios, { AxiosResponse } from 'axios';
 import { BlogPost } from '../../../mocks/data/blog';
-import { getReadingTime } from '@atlascode/coffee-shared-helpers';
+import _ from 'lodash';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BlogIndexPageProps {
   posts: BlogPost[];
 }
 
-const BlogIndexPage = (props: BlogIndexPageProps) => {
+const SHOW_ALL = 'Todos';
+
+const BlogIndexPage = ({ posts = [] }: BlogIndexPageProps) => {
+  const [categoriestList, setCategoriesList] = React.useState<{
+    [key: string]: unknown[];
+  }>({ [SHOW_ALL]: [] });
+  const [uniqCategories, setUniqueCategories] = React.useState<string[]>([]);
+  const [activeCategory, setActiveCategory] = React.useState<string>(SHOW_ALL);
+
+  React.useEffect(() => {
+    const allCategories = posts.map((value, index) => {
+      return value.category;
+    });
+
+    const uniqueCategories = _.uniq(allCategories);
+
+    const categorizedPosts = {};
+
+    uniqueCategories.forEach((category, index) => {
+      const postCategoryLocal = posts.filter((post, index) => {
+        return post.category === category;
+      });
+
+      categorizedPosts[category] = postCategoryLocal;
+    });
+
+    setCategoriesList({ ...categorizedPosts, [SHOW_ALL]: [...posts] });
+    setUniqueCategories(uniqueCategories);
+  }, [posts]);
+
+  const handleActiveCategory = (category: string) => {
+    setActiveCategory(category);
+  };
+
   return (
-    <BlogOverviewPage
-      posts={props.posts.map((value, index) => {
-        return {
-          readingTime: false,
-          src: value.imgURL,
-          title: value.title,
-          BlogPostInfoProps: {
-            tags: [value.category],
-            content: value.content,
-            readingTime: true,
-          },
-        };
-      })}
-    />
+    <React.Fragment>
+      <BlogOverviewPage
+        selectProps={{
+          options: [SHOW_ALL, ...uniqCategories],
+          value: activeCategory,
+          onChange: (e) => handleActiveCategory(e.target.value),
+        }}
+        posts={(categoriestList[activeCategory] as BlogPost[]).map(
+          (value, index) => {
+            return {
+              readingTime: false,
+              src: value.imgURL,
+              title: value.title,
+              BlogPostInfoProps: {
+                tags: [value.category],
+                content: value.content,
+                readingTime: true,
+              },
+            };
+          }
+        )}
+      />
+    </React.Fragment>
   );
 };
 

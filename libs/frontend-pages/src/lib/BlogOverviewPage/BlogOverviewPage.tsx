@@ -1,4 +1,5 @@
 import { Box, BoxProps, Container, Button } from '@material-ui/core';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import {
   BlogPreviewCategorySelectProps,
@@ -10,6 +11,7 @@ import {
 } from '@atlascode/coffee-front-components';
 import { useLoadMore } from '@atlascode/coffee-frontend-react-hooks';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
+import { AnimatePresence } from 'framer-motion';
 
 /* eslint-disable-next-line */
 export interface BlogOverviewPageProps extends BoxProps {
@@ -25,12 +27,10 @@ export function BlogOverviewPage({
   selectProps,
   ...rest
 }: BlogOverviewPageProps) {
-  const { fullData, loadMore, fullyLoaded, visible } = useLoadMore(
-    process.env.NODE_ENV === 'development' && posts.length <= 0
-      ? MOCK_LIST
-      : posts,
-    6
-  );
+  const { fullData, loadMore, fullyLoaded, visible } = useLoadMore(posts, 6);
+
+  console.log('FULL DATA', fullData);
+  console.log('VISIBLE', visible);
 
   return (
     <Box sx={{ ...sx, ...styles.root }} {...rest}>
@@ -41,25 +41,24 @@ export function BlogOverviewPage({
           </Box>
 
           <Box sx={styles.grid}>
-            {visible.map((_, index) => {
-              return (
-                <MotionBox
-                  variants={{
-                    hidden: { opacity: 0, y: 250 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
-                  initial="hidden"
-                  animate="visible"
-                  key={index}
-                >
-                  <BlogPostCard
-                    readingTime={3}
-                    src={'https://via.placeholder.com/1500'}
-                    title="Placeholder"
-                  />
-                </MotionBox>
-              );
-            })}
+            <AnimatePresence>
+              {visible.map((value, index) => {
+                return (
+                  <MotionBox
+                    variants={{
+                      hidden: { opacity: 0, y: 250 },
+                      visible: { opacity: 1, y: 0 },
+                    }}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    key={index}
+                  >
+                    <BlogPostCard {...value} />
+                  </MotionBox>
+                );
+              })}
+            </AnimatePresence>
           </Box>
         </Box>
 
