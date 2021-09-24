@@ -486,6 +486,25 @@
       "sourceRoot": "libs/frontend-hooks/src",
       "projectType": "library",
       "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/frontend-hooks",
+            "tsConfig": "libs/frontend-hooks/tsconfig.lib.json",
+            "project": "libs/frontend-hooks/package.json",
+            "entryFile": "libs/frontend-hooks/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/frontend-hooks/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
@@ -538,6 +557,17 @@
       "sourceRoot": "libs/frontend-mixins/src",
       "projectType": "library",
       "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/frontend-mixins",
+            "tsConfig": "libs/frontend-mixins/tsconfig.lib.json",
+            "packageJson": "libs/frontend-mixins/package.json",
+            "main": "libs/frontend-mixins/src/index.ts",
+            "assets": ["libs/frontend-mixins/*.md"]
+          }
+        },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
@@ -597,6 +627,7 @@
           "options": {
             "uiFramework": "@storybook/react",
             "port": 4400,
+            "staticDir": ["apps/frontend/public"],
             "config": {
               "configFolder": "libs/frontend-pages/.storybook"
             }
@@ -625,11 +656,72 @@
         }
       }
     },
+    "frontend-react-hooks": {
+      "root": "libs/frontend-react-hooks",
+      "sourceRoot": "libs/frontend-react-hooks/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/frontend-react-hooks",
+            "tsConfig": "libs/frontend-react-hooks/tsconfig.lib.json",
+            "project": "libs/frontend-react-hooks/package.json",
+            "entryFile": "libs/frontend-react-hooks/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/frontend-react-hooks/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend-react-hooks/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend-react-hooks"],
+          "options": {
+            "jestConfig": "libs/frontend-react-hooks/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend-sections": {
       "root": "libs/frontend-sections",
       "sourceRoot": "libs/frontend-sections/src",
       "projectType": "library",
       "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/frontend-sections",
+            "tsConfig": "libs/frontend-sections/tsconfig.lib.json",
+            "project": "libs/frontend-sections/package.json",
+            "entryFile": "libs/frontend-sections/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/frontend-sections/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
@@ -691,6 +783,17 @@
       "sourceRoot": "libs/shared-helpers/src",
       "projectType": "library",
       "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared-helpers",
+            "tsConfig": "libs/shared-helpers/tsconfig.lib.json",
+            "packageJson": "libs/shared-helpers/package.json",
+            "main": "libs/shared-helpers/src/index.ts",
+            "assets": ["libs/shared-helpers/*.md"]
+          }
+        },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {

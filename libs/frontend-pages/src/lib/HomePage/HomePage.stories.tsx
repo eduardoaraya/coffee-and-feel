@@ -1,6 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { HomePage } from './HomePage';
-import { HomePageProps } from './contracts/HomePage.interface';
+import { HomePage, HomePageProps } from './HomePage';
 
 export default {
   component: HomePage,

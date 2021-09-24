@@ -1,15 +1,15 @@
 import { Story, Meta } from '@storybook/react';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface DemoProps {}
+// eslint-disable-next-line @typescript-eslint/ban-types
+type DemoProps = {};
 
-const Demo = (props: DemoProps) => {
-  return <div>Hello world</div>;
+const Demo = () => {
+  return <div>Hello Demo</div>;
 };
 
 export default {
   component: Demo,
-  title: 'UseMergedStyles',
+  title: 'UseLoadMore',
 } as Meta;
 
 const Template: Story<DemoProps> = (args) => <Demo {...args} />;

@@ -5,9 +5,10 @@ import {
   LayoutEcommerce,
   ProductInterface,
 } from '@atlascode/coffee-front-components';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { SubscriptionClubAboutSection } from '@atlascode/coffee-front-sections';
 import { Box, Container } from '@material-ui/core';
-import style from './style';
+import { style } from './styles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CatalogPageProps {}

@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { getReadingTime } from '@atlascode/coffee-shared-helpers';
 
 export function useReadingTime(

@@ -1,7 +1,6 @@
 import { Box, IconButton } from '@material-ui/core';
 import style from './style';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
-import Image from 'next/image';
 import ProductCatalogRepresentation, {
   ProductInterface,
 } from '../ProductCatalogRepresentation/ProductCatalogRepresentation';

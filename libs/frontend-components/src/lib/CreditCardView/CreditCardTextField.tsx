@@ -1,10 +1,14 @@
 import React from 'react';
-import { BaseTextFieldProps, TextField } from '@material-ui/core';
+import {
+  BaseTextFieldProps,
+  TextField,
+  TextFieldProps,
+} from '@material-ui/core';
 import { darken, ResponsiveStyleValue } from '@material-ui/system';
 import { Property } from 'csstype';
 import _ from 'lodash';
 
-export type CreditCardTextFieldProps = BaseTextFieldProps;
+export type CreditCardTextFieldProps = TextFieldProps;
 
 const defaultStyles = (
   fontSize: ResponsiveStyleValue<Property.FontSize>
