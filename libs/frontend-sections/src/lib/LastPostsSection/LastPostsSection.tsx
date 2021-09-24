@@ -1,6 +1,5 @@
 import { Box, Button, Container, Typography } from '@material-ui/core';
 import { AccessTime } from '@material-ui/icons';
-import Image from 'next/image';
 import style from './style';
 
 export interface LastPostsSectionProps {
@@ -59,7 +58,7 @@ export const LastPostsSection: React.FC<LastPostsSectionProps> = ({
             {posts?.map((item) => (
               <Box className="post-item" key={item.id}>
                 <figure className="post-image">
-                  <Image src="/imgs/coffee.png" alt="" layout="fill" />
+                  <img src="/imgs/coffee.png" alt="" />
                 </figure>
                 <Box className="post-info">
                   <Typography

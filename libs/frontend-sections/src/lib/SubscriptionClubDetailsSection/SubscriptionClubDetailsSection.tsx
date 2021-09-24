@@ -2,7 +2,6 @@ import { Container, Typography, Box, Button } from '@material-ui/core';
 import { Check } from '@material-ui/icons';
 import Link from 'next/link';
 import style from './style';
-import Image from 'next/image';
 
 export interface SubscriptionClubDetailsSection {
   plans?: {
@@ -52,7 +51,7 @@ export const SubscriptionClubDetailsSection: React.FC<SubscriptionClubDetailsSec
     return (
       <Box component="section" sx={style.root}>
         <figure className="coffees left">
-          <Image src="/imgs/coffees.png" layout="fill" alt="Beans" />
+          <img src="/imgs/coffees.png" alt="Coffee" />
         </figure>
         <Container>
           <Typography className="title-section" variant="h1">
@@ -89,7 +88,7 @@ export const SubscriptionClubDetailsSection: React.FC<SubscriptionClubDetailsSec
           </Box>
         </Container>
         <figure className="coffees right">
-          <Image src="/imgs/coffees.png" layout="fill" alt="Beans" />
+          <img src="/imgs/coffees.png" alt="Coffee" />
         </figure>
       </Box>
     );

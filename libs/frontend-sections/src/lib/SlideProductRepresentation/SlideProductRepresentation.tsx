@@ -1,10 +1,10 @@
 import { Box, IconButton } from '@material-ui/core';
 import style from './style';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
-import Image from 'next/image';
-import ProductCatalogRepresentation, {
+import {
   ProductInterface,
-} from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
+  ProductCatalogRepresentation,
+} from '@atlascode/coffee-front-components';
 // Swipper Import
 import SwiperCore from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -47,7 +47,7 @@ export const SlideProductRepresentation: React.FC<SlideProductRepresentationProp
               <Box className="product-grid">
                 <Box className="product-image">
                   <figure>
-                    <img src="/imgs/product-sample1.png" alt="Product name" />
+                    <img src="/imgs/product-sample.png" alt="Product name" />
                   </figure>
                 </Box>
                 <Box className="product-area">

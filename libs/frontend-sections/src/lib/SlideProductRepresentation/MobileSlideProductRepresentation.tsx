@@ -1,8 +1,8 @@
 import { Box } from '@material-ui/core';
-import Image from 'next/image';
-import ProductCatalogRepresentation, {
+import {
+  ProductCatalogRepresentation,
   ProductInterface,
-} from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
+} from '@atlascode/coffee-front-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import style from './style';
 
@@ -26,11 +26,7 @@ export const MobileSlideProductRepresentation: React.FC<MobileSlideProductRepres
               <Box className="product-grid">
                 <Box className="product-image">
                   <figure>
-                    <img
-                      src="/imgs/product-sample.png"
-                      alt="Product name"
-                      layout="fill"
-                    />
+                    <img src="/imgs/product-sample.png" alt="Product name" />
                   </figure>
                 </Box>
                 <Box className="product-area">

@@ -3,7 +3,7 @@ import { alpha, Box } from '@material-ui/core';
 export type TabOption = {
   id: number;
   content: string | React.FC;
-  contentProps: {
+  contentProps?: {
     props: {
       children?: React.ReactNode;
     };
