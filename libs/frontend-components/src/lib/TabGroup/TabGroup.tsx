@@ -82,7 +82,8 @@ export const TabGroup: React.FC<TabGroupProps> = ({
           >
             {typeof tab.content === 'string'
               ? tab.content
-              : tab.content(tab.contentProps?.props)}
+              : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                tab.content(tab.contentProps!.props)}
           </Box>
         ))}
       </Box>

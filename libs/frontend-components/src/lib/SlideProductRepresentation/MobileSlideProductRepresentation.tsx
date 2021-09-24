@@ -1,5 +1,4 @@
 import { Box } from '@material-ui/core';
-import Image from 'next/image';
 import ProductCatalogRepresentation, {
   ProductInterface,
 } from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
@@ -26,11 +25,7 @@ export const MobileSlideProductRepresentation: React.FC<MobileSlideProductRepres
               <Box className="product-grid">
                 <Box className="product-image">
                   <figure>
-                    <img
-                      src="/imgs/product-sample.png"
-                      alt="Product name"
-                      layout="fill"
-                    />
+                    <img src="/imgs/product-sample.png" alt="Product name" />
                   </figure>
                 </Box>
                 <Box className="product-area">
