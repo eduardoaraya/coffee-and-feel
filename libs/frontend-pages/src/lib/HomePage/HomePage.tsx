@@ -14,6 +14,7 @@ import {
   Banner,
   SlideProductRepresentation,
   MobileSlideProductRepresentation,
+  ProductInterface,
 } from '@atlascode/coffee-front-components';
 
 const dataProduct = [
