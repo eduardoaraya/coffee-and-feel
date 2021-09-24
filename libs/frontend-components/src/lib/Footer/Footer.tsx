@@ -65,8 +65,8 @@ export const Footer: React.FC<FooterProps> = (props): JSX.Element => (
             Formas de Pagamento
           </Typography>
           <Box className="wrapper-items">
-            {['visa', 'mastercard', 'elo'].map((item) => (
-              <Box className="item item-payment">
+            {['visa', 'mastercard', 'elo'].map((item, key) => (
+              <Box key={key} className="item item-payment">
                 <img
                   src={`/icons/${item}.svg`}
                   alt={`Payment method ${item}`}
@@ -84,8 +84,8 @@ export const Footer: React.FC<FooterProps> = (props): JSX.Element => (
             Redes Sociais
           </Typography>
           <Box className="wrapper-items">
-            {['instagram', 'facebook'].map((item) => (
-              <Box className="item item-social">
+            {['instagram', 'facebook'].map((item, key) => (
+              <Box key={key} className="item item-social">
                 <img src={`/icons/${item}.svg`} alt={`Social ${item}`} />
               </Box>
             ))}

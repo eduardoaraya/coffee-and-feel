@@ -48,7 +48,7 @@ export const SlideProductRepresentation: React.FC<SlideProductRepresentationProp
                 <Box className="product-image">
                   <figure>
                     <Image
-                      src="/imgs/product-sample.png"
+                      src="/imgs/product-sample1.png"
                       alt="Product name"
                       layout="intrinsic"
                       width="300px"

@@ -4,4 +4,3 @@ export * from './lib/LastPostsSection/LastPostsSection';
 export * from './lib/NewsletterSection/NewsletterSection';
 export * from './lib/SubscriptionClubAboutSection/SubscriptionClubAboutSection';
 export * from './lib/SubscriptionClubDetailsSection/SubscriptionClubDetailsSection';
-export * from './lib/ServiceSection/ServiceSection';

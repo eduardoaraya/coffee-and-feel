@@ -26,7 +26,7 @@ export const MobileSlideProductRepresentation: React.FC<MobileSlideProductRepres
               <Box className="product-grid">
                 <Box className="product-image">
                   <figure>
-                    <Image
+                    <img
                       src="/imgs/product-sample.png"
                       alt="Product name"
                       layout="fill"
