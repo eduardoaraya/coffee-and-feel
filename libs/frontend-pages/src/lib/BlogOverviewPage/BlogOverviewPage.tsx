@@ -29,9 +29,6 @@ export function BlogOverviewPage({
 }: BlogOverviewPageProps) {
   const { fullData, loadMore, fullyLoaded, visible } = useLoadMore(posts, 6);
 
-  console.log('FULL DATA', fullData);
-  console.log('VISIBLE', visible);
-
   return (
     <Box sx={{ ...sx, ...styles.root }} {...rest}>
       <Container maxWidth="lg">
