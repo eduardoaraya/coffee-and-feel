@@ -47,13 +47,7 @@ export const SlideProductRepresentation: React.FC<SlideProductRepresentationProp
               <Box className="product-grid">
                 <Box className="product-image">
                   <figure>
-                    <Image
-                      src="/imgs/product-sample1.png"
-                      alt="Product name"
-                      layout="intrinsic"
-                      width="300px"
-                      height="300px"
-                    />
+                    <img src="/imgs/product-sample1.png" alt="Product name" />
                   </figure>
                 </Box>
                 <Box className="product-area">
