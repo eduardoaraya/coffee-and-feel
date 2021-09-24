@@ -1,6 +1,4 @@
 import { Box, Container, Typography } from '@material-ui/core';
-import { HomePageProps } from './contracts/HomePage.interface';
-import style from './style';
 import {
   SubscriptionClubAboutSection,
   KnowMoreSection,
@@ -14,7 +12,9 @@ import {
   Banner,
   SlideProductRepresentation,
   MobileSlideProductRepresentation,
+  ProductInterface,
 } from '@atlascode/coffee-front-components';
+import { style } from './styles';
 
 const dataProduct = [
   {
@@ -130,6 +130,9 @@ const dataProduct = [
     ],
   },
 ] as ProductInterface[];
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface HomePageProps {}
 
 export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
   return (

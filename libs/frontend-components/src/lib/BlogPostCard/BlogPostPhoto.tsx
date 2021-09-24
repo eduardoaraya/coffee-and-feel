@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, BoxProps, Theme } from '@material-ui/core';
 import { ResponsiveStyleValue, SxProps } from '@material-ui/system';
 import { Property } from 'csstype';
-import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
+
+import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-react-hooks';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface BlogPostPhotoProps extends BoxProps {

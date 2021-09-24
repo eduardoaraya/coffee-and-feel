@@ -8,7 +8,7 @@ import {
   BlogPostCard,
   BlogPostCardProps,
 } from '@atlascode/coffee-front-components';
-import { useLoadMore } from '@atlascode/coffee-frontend-hooks';
+import { useLoadMore } from '@atlascode/coffee-frontend-react-hooks';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
 
 /* eslint-disable-next-line */

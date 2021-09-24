@@ -47,6 +47,9 @@
       "@atlascode/coffee-frontend-mixins": [
         "libs/frontend-mixins/src/index.ts"
       ],
+      "@atlascode/coffee-frontend-react-hooks": [
+        "libs/frontend-react-hooks/src/index.ts"
+      ],
       "@atlascode/coffee-frontend-utility": [
         "libs/frontend-utility/src/index.ts"
       ],

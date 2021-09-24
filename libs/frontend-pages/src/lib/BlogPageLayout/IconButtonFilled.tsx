@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  Box,
-  BoxProps,
-  SvgIcon,
-  Theme,
-  ButtonBase,
-  ButtonBaseProps,
-} from '@material-ui/core';
+import { Box, BoxProps, SvgIcon, Theme, ButtonBase } from '@material-ui/core';
 import { SxProps } from '@material-ui/system';
 import { SvgIconComponent } from '@material-ui/icons';
-import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
+import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-react-hooks';
 
 export interface IconButtonFilledProps extends BoxProps<typeof ButtonBase> {
   icon: SvgIconComponent;

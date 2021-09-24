@@ -1,6 +1,7 @@
-import { SxProps, Theme } from '@material-ui/system';
+import { Theme } from '@material-ui/core';
+import { SxProps } from '@material-ui/system';
 
-export default {
+export const style = {
   root: {
     '.page-catalog-grid': {
       display: 'grid',

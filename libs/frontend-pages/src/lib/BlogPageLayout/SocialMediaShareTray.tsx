@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  BoxProps,
-  IconButton,
-  IconButtonClassKey,
-  Theme,
-  Typography,
-} from '@material-ui/core';
+import { Box, BoxProps, Theme, Typography } from '@material-ui/core';
 import {
   WhatsApp,
   Facebook,
@@ -14,7 +7,7 @@ import {
   SvgIconComponent,
 } from '@material-ui/icons';
 import { SxProps } from '@material-ui/system';
-import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
+import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-react-hooks';
 import IconButtonFilled from './IconButtonFilled';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

@@ -3,8 +3,7 @@ import React from 'react';
 import BlogPostPhoto, { BlogPostPhotoProps } from './BlogPostPhoto';
 import BlogPostInfo, { BlogPostInfoProps } from './BlogPostInfo';
 import { SxProps } from '@material-ui/system';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-hooks';
+import { useMemoizedMergedObject } from '@atlascode/coffee-frontend-react-hooks';
 import { ReadingTime, ReadingTimeProps } from '../ReadingTime/ReadingTime';
 /* eslint-disable-next-line */
 export interface BlogPostCardProps extends Omit<BoxProps, 'ref'> {
