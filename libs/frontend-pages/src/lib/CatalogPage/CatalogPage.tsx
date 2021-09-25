@@ -2,7 +2,6 @@ import {
   Banner,
   CatalogFilter,
   CatalogRepresentation,
-  LayoutEcommerce,
   ProductInterface,
 } from '@atlascode/coffee-front-components';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
@@ -11,7 +10,9 @@ import { Box, Container } from '@material-ui/core';
 import { style } from './styles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface CatalogPageProps {}
+export interface CatalogPageProps {
+  products?: ProductInterface[];
+}
 
 const dataProduct = [
   {
@@ -128,7 +129,9 @@ const dataProduct = [
   },
 ] as ProductInterface[];
 
-export const CatalogPage: React.FC<CatalogPageProps> = (props): JSX.Element => {
+export const CatalogPage: React.FC<CatalogPageProps> = ({
+  products,
+}): JSX.Element => {
   return (
     <Box sx={style.root} className="page catalog-page">
       <Banner></Banner>
@@ -136,7 +139,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = (props): JSX.Element => {
         <Box className="page-catalog-grid">
           <CatalogFilter className="catalog-filter"></CatalogFilter>
           <CatalogRepresentation
-            products={dataProduct}
+            products={products}
             className="catalog-representation"
           ></CatalogRepresentation>
         </Box>

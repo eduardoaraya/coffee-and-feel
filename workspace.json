@@ -738,24 +738,24 @@
         }
       }
     },
-    "frontend-service": {
-      "root": "libs/frontend-service",
-      "sourceRoot": "libs/frontend-service/src",
+    "frontend-services": {
+      "root": "libs/frontend-services",
+      "sourceRoot": "libs/frontend-services/src",
       "projectType": "library",
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/libs/frontend-service",
-            "tsConfig": "libs/frontend-service/tsconfig.lib.json",
-            "project": "libs/frontend-service/package.json",
-            "entryFile": "libs/frontend-service/src/index.ts",
+            "outputPath": "dist/libs/frontend-services",
+            "tsConfig": "libs/frontend-services/tsconfig.lib.json",
+            "project": "libs/frontend-services/package.json",
+            "entryFile": "libs/frontend-services/src/index.ts",
             "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
-                "glob": "libs/frontend-service/README.md",
+                "glob": "libs/frontend-services/README.md",
                 "input": ".",
                 "output": "."
               }
