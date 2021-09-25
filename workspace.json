@@ -396,7 +396,7 @@
             "tsConfig": "libs/frontend-components/tsconfig.lib.json",
             "project": "libs/frontend-components/package.json",
             "entryFile": "libs/frontend-components/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": ["react/jsx-runtime", "react-is", "@emotion/styled/base"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -862,11 +862,19 @@
         "babel": true
       },
       "component": {
-        "style": "none"
+        "style": "none",
+        "export": true,
+        "pascalCaseDirectory": true,
+        "pascalCaseFiles": true,
+        "skipTests": true
       },
       "library": {
         "style": "none",
-        "linter": "eslint"
+        "pascalCaseFiles": true,
+        "publishable": false,
+        "component": true,
+        "buildable": true,
+        "importPath": "@atlascode/frontend-"
       }
     },
     "@nrwl/next": {

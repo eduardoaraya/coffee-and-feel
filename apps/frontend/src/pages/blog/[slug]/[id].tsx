@@ -16,7 +16,10 @@ type BlogPageProps = Pick<
 >;
 
 const BlogPage = (props: BlogPageProps) => {
-  return <BlogPageLayout {...props} />;
+  return <div className='page'>
+
+<BlogPageLayout  {...props} />
+  </div>
 };
 
 type BlogStaticPaths = GetStaticPaths<{ slug: string; id: string }>;

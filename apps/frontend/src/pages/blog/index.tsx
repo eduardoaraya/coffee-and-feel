@@ -4,6 +4,7 @@ import React from 'react';
 import Axios, { AxiosResponse } from 'axios';
 import { BlogPost } from '../../../mocks/data/blog';
 import _ from 'lodash';
+import { convertToSlug } from '@atlascode/coffee-shared-helpers';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BlogIndexPageProps {
@@ -60,6 +61,7 @@ const BlogIndexPage = ({ posts = [] }: BlogIndexPageProps) => {
               title: value.title,
               tags: [value.category],
               content: value.content,
+              url: `/blog/${convertToSlug(value.title)}/${value.id}`,
             };
           }
         )}

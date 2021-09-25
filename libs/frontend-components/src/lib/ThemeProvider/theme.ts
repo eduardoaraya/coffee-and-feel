@@ -1,4 +1,5 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core';
+import { alpha } from '@material-ui/system';
 import { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
 
 const colors = {
@@ -19,6 +20,29 @@ const defaultTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: '12px',
+        },
+      },
+    },
+
+    MuiCssBaseline: {
+      styleOverrides: {
+        scrollBehavior: 'smooth',
+
+        '&::-webkit-scrollbar-thumb': {
+          background: colors.primary,
+          borderRadius: '6px',
+        },
+
+        '&::-webkit-scrollbar-thumb:hover': {
+          background: alpha(colors.primary, 0.09),
+        },
+
+        '&::-webkit-scrollbar-track': {
+          opacity: 1,
+        },
+
+        '&::-webkit-scrollbar': {
+          width: '8px',
         },
       },
     },
