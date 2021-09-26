@@ -4,8 +4,11 @@ import { ProductInterface } from '@atlascode/coffee-front-components';
 export class ProductService {
   constructor(private readonly provider: ClientProvider) {}
 
-  getCatalogProduct() {
-    return this.provider.getClient().get<ProductInterface[]>('products', {});
+  async getCatalogProduct() {
+    const { data } = await this.provider
+      .getClient()
+      .get<ProductInterface[]>('catalog', {});
+    return data;
   }
 }
 

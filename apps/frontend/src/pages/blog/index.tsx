@@ -2,7 +2,7 @@ import { BlogOverviewPage } from '@atlascode/coffee-front-pages';
 import { GetStaticProps } from 'next';
 import React from 'react';
 import Axios, { AxiosResponse } from 'axios';
-import { BlogPost } from '../../../mocks/data/blog';
+import { BlogPost } from '../../../mocks/data/blog-mock';
 import _ from 'lodash';
 import { convertToSlug } from '@atlascode/coffee-shared-helpers';
 
@@ -82,7 +82,7 @@ export const getStaticProps: GetStaticProps<BlogIndexPageProps> = async ({
   previewData,
 }) => {
   const blogRequest: AxiosResponse<BlogPost[]> = await Axios.get(
-    'https://mockbackend.com/api/blog'
+    'https://mockbackend.com/blog'
   );
 
   return {

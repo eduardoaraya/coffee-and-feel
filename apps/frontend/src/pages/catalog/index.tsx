@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import { CatalogPage } from '@atlascode/coffee-front-pages';
 import { ProductInterface } from '@atlascode/coffee-front-components';
-import Services from '@atlascode/coffee-frontend-services';
+import ServiceProvider from '@atlascode/coffee-frontend-services';
 
 export interface CatalogProps {
   products?: ProductInterface[];
@@ -13,12 +13,16 @@ export const Catalog: React.FC<CatalogProps> = ({ products }): JSX.Element => (
 
 export default Catalog;
 
-const service = Services.CatalogService.default();
+const service = ServiceProvider.CatalogService.default();
 export const getStaticProps: GetStaticProps<CatalogProps> = async () => {
-  const result = await service.getCatalogProduct();
+  let result: ProductInterface[] = [];
+  try {
+    result = await service.getCatalogProduct();
+    // eslint-disable-next-line no-empty
+  } catch {}
   return {
     props: {
-      products: result.data,
+      products: result,
     },
   };
 };

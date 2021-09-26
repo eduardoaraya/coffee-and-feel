@@ -1,13 +1,10 @@
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
-import ServiceProviderInterface from './Providers/ServiceProviderInterface';
+import axios from 'axios';
 import Backend from './Providers/Backend';
 
-type Provider = ServiceProviderInterface<AxiosResponse, AxiosRequestConfig>;
-
 export class ClientProvider {
-  constructor(private serverProvider: Provider) {}
+  constructor(private serverProvider: Backend) {}
 
-  getClient(): Provider {
+  getClient(): Backend {
     return this.serverProvider;
   }
 }

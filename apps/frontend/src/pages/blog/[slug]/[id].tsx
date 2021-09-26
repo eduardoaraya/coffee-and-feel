@@ -5,7 +5,7 @@ import {
 } from '@atlascode/coffee-front-pages';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Axios, { AxiosResponse } from 'axios';
-import { BlogPost } from '../../../../mocks/data/blog';
+import { BlogPost } from '../../../../mocks/data/blog-mock';
 import { convertToSlug } from '@atlascode/coffee-shared-helpers';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -16,10 +16,11 @@ type BlogPageProps = Pick<
 >;
 
 const BlogPage = (props: BlogPageProps) => {
-  return <div className='page'>
-
-<BlogPageLayout  {...props} />
-  </div>
+  return (
+    <div className="page">
+      <BlogPageLayout {...props} />
+    </div>
+  );
 };
 
 type BlogStaticPaths = GetStaticPaths<{ slug: string; id: string }>;

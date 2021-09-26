@@ -4,11 +4,8 @@ import {
   AxiosRequestConfig,
   AxiosInstance,
 } from 'axios';
-import ServiceProviderInterface from './ServiceProviderInterface';
 
-export default class Backend
-  implements ServiceProviderInterface<AxiosResponse, AxiosRequestConfig>
-{
+export default class Backend {
   readonly BASE_URL = 'https://mockbackend.com/';
 
   private client: AxiosInstance;
@@ -23,19 +20,33 @@ export default class Backend
     return this.BASE_URL + path;
   }
 
-  async get<T>(path: string, options?: AxiosRequestConfig) {
+  async get<T>(
+    path: string,
+    options?: AxiosRequestConfig
+  ): Promise<AxiosResponse<T>> {
     return await this.client.get<T>(this.getPath(path), options);
   }
 
-  async post<Data, T>(path: string, data?: Data, options?: AxiosRequestConfig) {
+  async post<Data, T>(
+    path: string,
+    data?: Data,
+    options?: AxiosRequestConfig
+  ): Promise<AxiosResponse<T>> {
     return await this.client.post<T>(this.getPath(path), data, options);
   }
 
-  async put<Data, T>(path: string, data?: Data, options?: AxiosRequestConfig) {
+  async put<Data, T>(
+    path: string,
+    data?: Data,
+    options?: AxiosRequestConfig
+  ): Promise<AxiosResponse<T>> {
     return await this.client.put<T>(this.getPath(path), data, options);
   }
 
-  async delete<T>(path: string, options?: AxiosRequestConfig) {
+  async delete<T>(
+    path: string,
+    options?: AxiosRequestConfig
+  ): Promise<AxiosResponse<T>> {
     return await this.client.delete<T>(this.getPath(path), options);
   }
 }

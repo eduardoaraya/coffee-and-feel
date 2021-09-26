@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Box } from '@material-ui/core';
+import { Box, Alert } from '@material-ui/core';
+import { TableRowsRounded, GridViewRounded } from '@material-ui/icons';
+import { ProductInterface } from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
 import { ProductCatalogItem } from '../ProductCatalogItem/ProductCatalogItem';
 import TabGroup, { TabOption } from '../TabGroup/TabGroup';
-import { TableRowsRounded, GridViewRounded } from '@material-ui/icons';
 import style from './style';
-import { ProductInterface } from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CatalogRepresentationProps {
@@ -40,20 +40,29 @@ export const CatalogRepresentation: React.FC<CatalogRepresentationProps> = ({
   return (
     <Box className={className} sx={style.root}>
       <Box className="representation-catalog-wrapper">
-        <Box className="representation-catalog-actions">
-          <TabGroup tabs={tabs} />
-        </Box>
-        <Box
-          className={`representation-catalog-grid representation-catalog-grid-mode-${mode}`}
-        >
-          {products?.map((product) => (
-            <ProductCatalogItem
-              product={product}
-              variantView={mode === 'grid' ? 'mobile' : 'desktop'}
-              key={product.id}
-            />
-          ))}
-        </Box>
+        {products && products.length !== 0 ? (
+          <>
+            <Box className="representation-catalog-actions">
+              <TabGroup tabs={tabs} />
+            </Box>
+            <Box
+              className={`representation-catalog-grid representation-catalog-grid-mode-${mode}`}
+            >
+              {products.map((product) => (
+                <ProductCatalogItem
+                  product={product}
+                  variantView={mode === 'grid' ? 'mobile' : 'desktop'}
+                  key={product.id}
+                />
+              ))}
+            </Box>
+          </>
+        ) : (
+          <>
+            <Box className="representation-catalog-actions"></Box>
+            <Alert severity="warning">Nenhum produto encontrado</Alert>
+          </>
+        )}
       </Box>
     </Box>
   );
