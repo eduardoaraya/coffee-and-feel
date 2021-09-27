@@ -52,7 +52,10 @@ export default () =>
       '.product-attributes-bg': {
         position: 'relative',
         background: (theme) => theme.palette.secondary.main,
-        height: '419px',
+        height: {
+          md: '419px',
+          xs: 'auto',
+        },
         marginTop: {
           md: '145px',
           xs: '45px',
@@ -64,7 +67,10 @@ export default () =>
         flexDirection: 'row',
         flexWrap: 'wrap',
         zIndex: 2,
-        transform: 'translate3d(0, calc(-419px/2), 0)',
+        transform: {
+          md: 'translate3d(0, calc(-419px/2), 0)',
+          xs: 'translate3d(0, 0, 0)',
+        },
         padding: {
           md: '75px 65px',
           xs: '25px',
@@ -118,9 +124,13 @@ export default () =>
         position: 'relative',
         zIndex: 2,
         margin: '0 auto',
-        transform: 'translate3d(0, calc(-419px/1.5), 0)',
+        transform: {
+          md: 'translate3d(0, calc(-419px/1.5), 0)',
+          xs: 'translate3d(0, 0, 0)',
+        },
         padding: {
           md: '105px 45px',
+          xs: '75px 0px',
         },
       },
     },
