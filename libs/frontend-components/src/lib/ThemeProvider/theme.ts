@@ -111,10 +111,6 @@ const defaultTheme = createTheme({
       main: colors.secondary,
     },
   },
-  // shadows: [
-  //   ...(Array.from({ length: 23 }).map((_) => 'none') as Shadows),
-  //   `0px 0px 3px 0px ${colors.secondary}`,
-  // ],
 });
 
 export default responsiveFontSizes(defaultTheme);
