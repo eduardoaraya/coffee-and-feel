@@ -1,9 +1,13 @@
+import React, { ReactElement } from 'react';
 import { HomePage } from '@atlascode/coffee-front-pages';
-import Axios from 'axios';
-import React from 'react';
+import { LayoutEcommerce } from '@atlascode/coffee-front-components';
 
-export function Index() {
+export function Index<NextPage>(): JSX.Element {
   return <HomePage />;
 }
 
 export default Index;
+
+Index.getLayout = function getLayout(page: ReactElement) {
+  return <LayoutEcommerce>{page}</LayoutEcommerce>;
+};

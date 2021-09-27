@@ -1,10 +1,11 @@
 import { BlogOverviewPage } from '@atlascode/coffee-front-pages';
 import { GetStaticProps } from 'next';
-import React from 'react';
-import Axios, { AxiosResponse } from 'axios';
+import React, { ReactElement } from 'react';
 import { BlogPost } from '../../../mocks/data/blog-mock';
-import _ from 'lodash';
 import { convertToSlug } from '@atlascode/coffee-shared-helpers';
+import ServiceProvider from '@atlascode/coffee-frontend-services';
+import { LayoutEcommerce } from '@atlascode/coffee-front-components';
+import _ from 'lodash';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BlogIndexPageProps {
@@ -13,7 +14,7 @@ interface BlogIndexPageProps {
 
 const SHOW_ALL = 'Todos';
 
-const BlogIndexPage = ({ posts = [] }: BlogIndexPageProps) => {
+export function BlogIndexPage({ posts = [] }: BlogIndexPageProps): JSX.Element {
   const [categoriestList, setCategoriesList] = React.useState<{
     [key: string]: unknown[];
   }>({ [SHOW_ALL]: [] });
@@ -68,9 +69,11 @@ const BlogIndexPage = ({ posts = [] }: BlogIndexPageProps) => {
       />
     </React.Fragment>
   );
-};
+}
 
 export default BlogIndexPage;
+
+const service = ServiceProvider.BlogService.default();
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 export const getStaticProps: GetStaticProps<BlogIndexPageProps> = async ({
@@ -81,13 +84,18 @@ export const getStaticProps: GetStaticProps<BlogIndexPageProps> = async ({
   preview,
   previewData,
 }) => {
-  const blogRequest: AxiosResponse<BlogPost[]> = await Axios.get(
-    'https://mockbackend.com/blog'
-  );
-
+  let result: BlogPost[] = [];
+  try {
+    result = await service.getAllPosts();
+    // eslint-disable-next-line no-empty
+  } catch {}
   return {
     props: {
-      posts: blogRequest.data,
+      posts: result,
     },
   };
+};
+
+BlogIndexPage.getLayout = function getLayout(page: ReactElement) {
+  return <LayoutEcommerce>{page}</LayoutEcommerce>;
 };

@@ -1,4 +1,4 @@
-import provider, { ClientProvider } from '../Client';
+import provider, { ClientProvider } from '../ClientProvider';
 import { ProductInterface } from '@atlascode/coffee-front-components';
 
 export class ProductService {

@@ -1,15 +1,19 @@
 import { GetStaticProps } from 'next';
 import { CatalogPage } from '@atlascode/coffee-front-pages';
-import { ProductInterface } from '@atlascode/coffee-front-components';
+import {
+  LayoutEcommerce,
+  ProductInterface,
+} from '@atlascode/coffee-front-components';
 import ServiceProvider from '@atlascode/coffee-frontend-services';
+import React, { ReactElement } from 'react';
 
 export interface CatalogProps {
   products?: ProductInterface[];
 }
 
-export const Catalog: React.FC<CatalogProps> = ({ products }): JSX.Element => (
-  <CatalogPage products={products} />
-);
+export function Catalog({ products }: CatalogProps): JSX.Element {
+  return <CatalogPage products={products} />;
+}
 
 export default Catalog;
 
@@ -22,7 +26,11 @@ export const getStaticProps: GetStaticProps<CatalogProps> = async () => {
   } catch {}
   return {
     props: {
-      products: result,
+      products: [],
     },
   };
+};
+
+Catalog.getLayout = function getLayout(page: ReactElement) {
+  return <LayoutEcommerce>{page}</LayoutEcommerce>;
 };

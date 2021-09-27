@@ -60,7 +60,7 @@ export const CatalogRepresentation: React.FC<CatalogRepresentationProps> = ({
         ) : (
           <>
             <Box className="representation-catalog-actions"></Box>
-            <Alert severity="warning">Nenhum produto encontrado</Alert>
+            <Alert severity="info">Nenhum produto encontrado</Alert>
           </>
         )}
       </Box>
