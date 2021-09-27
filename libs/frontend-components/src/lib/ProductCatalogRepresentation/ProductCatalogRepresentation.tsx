@@ -1,79 +1,149 @@
+import { TabGroup, TabOption } from '../TabGroup/TabGroup';
 import {
   Button,
   Typography,
   IconButton,
-  ButtonGroup,
   Box,
+  Skeleton,
 } from '@material-ui/core';
-import Image from 'next/image';
 import style from './style';
+import { useState } from 'react';
+
+type variantView = 'mobile' | 'desktop';
+
+export interface ProductPlans {
+  id: number;
+  name: string;
+  priceTotal: string;
+  price: string;
+  porcent: number;
+}
+
+export interface ProductInterface {
+  id: number;
+  name: string;
+  feelPoints: number;
+  plans: ProductPlans[];
+}
 
 /* eslint-disable-next-line */
-export interface ProductCatalogRepresentationProps {}
-
-export function ProductCatalogRepresentation(
-  props: ProductCatalogRepresentationProps
-) {
-  return (
-    <Box component="div" sx={style.productRepresentation}>
-      <Box className="product-title">
-        <Typography color="white" variant="h1">
-          Edição Adsumus Conillon
-        </Typography>
-        <Typography
-          className="label-feel-points"
-          component="p"
-          color="white"
-          variant="body1"
-        >
-          Acumule
-          <Typography color="primary" variant="body1" component="span">
-            {' 70 '}
-          </Typography>
-          Feel Points
-        </Typography>
-      </Box>
-      <ButtonGroup size="small" variant="contained">
-        <Button>Basic</Button>
-        <Button>Standard</Button>
-        <Button>Premium</Button>
-      </ButtonGroup>
-      <Box component="div" className="product-price-info">
-        <Box className="product-price-descount-info">
-          <Typography
-            component="span"
-            className="product-price-descount-porcent"
-            color="white"
-          >
-            xx% OFF
-          </Typography>
-          <Typography
-            component="span"
-            className="product-price-descount"
-            color="white"
-          >
-            R$ 24,90
-          </Typography>
-        </Box>
-        <Typography component="span" color="white" className="product-price">
-          R$ 17,90
-        </Typography>
-      </Box>
-      <Box component="div" className="actions">
-        <Button variant="outlined" size="large" color="primary">
-          Detalhes
-        </Button>
-        <IconButton size="large" color="primary">
-          <Image
-            src="/icons/add-cart.svg"
-            width="30px"
-            height="30px"
-            layout="fixed"
-          />
-        </IconButton>
-      </Box>
-    </Box>
-  );
+export interface ProductCatalogRepresentationProps {
+  variantViewPort?: variantView;
+  className?: string;
+  product?: ProductInterface;
 }
+
+const getSizeButton = (
+  variant: string
+): 'small' | 'medium' | 'large' | undefined =>
+  'mobile' === variant ? 'small' : 'large';
+
+export const ProductCatalogRepresentation: React.FC<ProductCatalogRepresentationProps> =
+  ({ variantViewPort = 'desktop', className, product }): JSX.Element => {
+    const [userPlan, setUserPlan] = useState<number>(1);
+
+    const isCurrentPlan = (id: number): boolean => id === userPlan;
+
+    const getOptionsByProduct = (product?: ProductInterface): TabOption[] => {
+      return product && product.plans.length > 0
+        ? product.plans.map(
+            (plan) =>
+              ({
+                id: plan.id,
+                content: plan.name,
+                active: isCurrentPlan(plan.id),
+                handleClick: () => setUserPlan(plan.id),
+              } as TabOption)
+          )
+        : [];
+    };
+
+    const getInfoPriceByPlans = (product?: ProductInterface) =>
+      product && product.plans.length > 0
+        ? product.plans.map((plan) => (
+            <Box
+              key={plan.id}
+              className={`product-price-area ${
+                isCurrentPlan(plan.id) ? 'active' : ''
+              }`}
+            >
+              <Box className="product-price-descount-info">
+                <Typography
+                  color="white"
+                  component="span"
+                  className="product-price-descount-porcent"
+                >
+                  {`${plan.porcent * 100}%OFF`}
+                </Typography>
+                <Typography component="span" className="product-price-descount">
+                  {plan.price}
+                </Typography>
+              </Box>
+              <Typography component="span" className="product-price">
+                {plan.priceTotal}
+              </Typography>
+            </Box>
+          ))
+        : [];
+
+    return (
+      <Box
+        component="div"
+        className={`product-representation ${className}`}
+        sx={style.productRepresentation}
+      >
+        <Box className="product-title">
+          {product?.name ? (
+            <Typography component="h2" variant="h2">
+              {product?.name}
+            </Typography>
+          ) : (
+            <Skeleton height={35} variant="rectangular" />
+          )}
+          {product?.name ? (
+            <Typography
+              className="label-feel-points"
+              component="p"
+              variant="body1"
+            >
+              Acumule{' '}
+              <Typography color="primary" variant="body1" component="span">
+                {product?.feelPoints}
+              </Typography>{' '}
+              Feel Points
+            </Typography>
+          ) : (
+            <Skeleton
+              className="label-feel-points"
+              height={35}
+              variant="rectangular"
+            />
+          )}
+        </Box>
+        <Box className="product-plans-options">
+          <TabGroup
+            className="product-representation-tab-groups"
+            tabs={getOptionsByProduct(product)}
+          />
+        </Box>
+        <Box component="div" className="product-price-info">
+          {getInfoPriceByPlans(product)}
+        </Box>
+        <Box component="div" className="actions">
+          <Button
+            // className="white-text"
+            variant="outlined"
+            size={getSizeButton(variantViewPort)}
+            color="primary"
+          >
+            Detalhes
+          </Button>
+          <IconButton size={getSizeButton(variantViewPort)} color="primary">
+            <img src="/icons/add-cart.svg" alt="Cart icon" />
+          </IconButton>
+        </Box>
+      </Box>
+    );
+  };
 
 export default ProductCatalogRepresentation;

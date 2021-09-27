@@ -1,5 +1,11 @@
 import { createTheme, responsiveFontSizes } from '@material-ui/core';
+import { alpha } from '@material-ui/system';
 import { TypographyStyleOptions } from '@material-ui/core/styles/createTypography';
+
+const colors = {
+  primary: '#8953E3',
+  secondary: '#323232',
+};
 
 const titleStyle = (size: string): TypographyStyleOptions => ({
   fontSize: size,
@@ -14,6 +20,29 @@ const defaultTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: '12px',
+        },
+      },
+    },
+
+    MuiCssBaseline: {
+      styleOverrides: {
+        scrollBehavior: 'smooth',
+
+        '&::-webkit-scrollbar-thumb': {
+          background: colors.primary,
+          borderRadius: '6px',
+        },
+
+        '&::-webkit-scrollbar-thumb:hover': {
+          background: alpha(colors.primary, 0.09),
+        },
+
+        '&::-webkit-scrollbar-track': {
+          opacity: 1,
+        },
+
+        '&::-webkit-scrollbar': {
+          width: '8px',
         },
       },
     },
@@ -33,6 +62,9 @@ const defaultTheme = createTheme({
           borderRadius: '50px',
           '&.MuiButton-outlined': {
             borderWidth: '2px',
+            '&.white-text': {
+              color: '#FFF',
+            },
           },
           '&.MuiButton-sizeLarge': {
             padding: '15px 45px',
@@ -73,12 +105,16 @@ const defaultTheme = createTheme({
   },
   palette: {
     primary: {
-      main: '#8953E3',
+      main: colors.primary,
     },
     secondary: {
-      main: '#323232',
+      main: colors.secondary,
     },
   },
+  // shadows: [
+  //   ...(Array.from({ length: 23 }).map((_) => 'none') as Shadows),
+  //   `0px 0px 3px 0px ${colors.secondary}`,
+  // ],
 });
 
 export default responsiveFontSizes(defaultTheme);

@@ -70,13 +70,25 @@
       "tags": [],
       "implicitDependencies": ["frontend"]
     },
+    "frontend-hooks": {
+      "tags": []
+    },
+    "frontend-mixins": {
+      "tags": []
+    },
     "frontend-pages": {
+      "tags": []
+    },
+    "frontend-react-hooks": {
       "tags": []
     },
     "frontend-sections": {
       "tags": []
     },
     "frontend-utility": {
+      "tags": []
+    },
+    "shared-helpers": {
       "tags": []
     }
   }

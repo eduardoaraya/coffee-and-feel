@@ -221,14 +221,13 @@ export default {
             xs: 'none',
           },
           '&::after': {
-            left: '2px',
             position: 'absolute',
             content: '""',
             display: 'block',
             boxShadow: (theme) =>
               `0px 0px 3px 0px ${theme.palette.primary.main}`,
-            width: '90%',
-            height: '90%',
+            width: '100%',
+            height: '100%',
             borderRadius: '50%',
           },
         },

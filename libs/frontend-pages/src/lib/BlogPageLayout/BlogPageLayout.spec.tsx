@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import HomePage from './HomePage';
+import BlogPageLayout from './BlogPageLayout';
 
-describe('HomePage', () => {
+describe('BlogPageLayout', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<HomePage />);
+    const { baseElement } = render(<BlogPageLayout />);
     expect(baseElement).toBeTruthy();
   });
 });
