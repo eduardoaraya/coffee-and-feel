@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {
   BlogPageLayout,
   BlogPageLayoutProps,
 } from '@atlascode/coffee-front-pages';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Axios, { AxiosResponse } from 'axios';
-import { BlogPost } from '../../../../mocks/data/blog';
+import { BlogPost } from '../../../../mocks/data/blog-mock';
 import { convertToSlug } from '@atlascode/coffee-shared-helpers';
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+import ServiceProvider from '@atlascode/coffee-frontend-services';
+import { LayoutEcommerce } from '@atlascode/coffee-front-components';
 
 type BlogPageProps = Pick<
   BlogPageLayoutProps,
@@ -16,11 +15,16 @@ type BlogPageProps = Pick<
 >;
 
 const BlogPage = (props: BlogPageProps) => {
-  return <div className='page'>
-
-<BlogPageLayout  {...props} />
-  </div>
+  return (
+    <div className="page">
+      <BlogPageLayout {...props} />
+    </div>
+  );
 };
+
+export default BlogPage;
+
+const service = ServiceProvider.BlogService.default();
 
 type BlogStaticPaths = GetStaticPaths<{ slug: string; id: string }>;
 
@@ -28,14 +32,9 @@ export const getStaticPaths: BlogStaticPaths = async ({
   defaultLocale,
   locales,
 }) => {
-  const blogRequest: AxiosResponse<BlogPost[]> = await Axios.get(
-    'https://mockbackend.com/api/blog'
-  );
-
-  console.log(blogRequest);
-
+  const blogRequest: BlogPost[] = await service.getAllPosts();
   return {
-    paths: blogRequest.data.map((value, index) => {
+    paths: blogRequest.map((value, index) => {
       return {
         params: {
           id: `${value.id}`,
@@ -53,33 +52,29 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async ({
   preview,
   locale,
 }) => {
-  const findOneBlogRequest: AxiosResponse<BlogPost> = await Axios.get(
-    `https://mockbackend.com/api/blog/${params.id}`
-  );
-
-  const findOneBlogRequestData: BlogPost = findOneBlogRequest.data;
-
-  return {
-    props: {
-      content: findOneBlogRequestData.content,
-      featuredImage: findOneBlogRequestData.imgURL,
-      latestPosts: [],
-      title: findOneBlogRequestData.title,
-    },
-  };
+  const { id } = params;
+  try {
+    const { content, imgURL, title } = await service.getPost(id.toString());
+    return {
+      props: {
+        content,
+        title,
+        featuredImage: imgURL,
+        latestPosts: [],
+      },
+    };
+  } catch {
+    return {
+      props: {
+        content: null,
+        title: null,
+        featuredImage: null,
+        latestPosts: [],
+      },
+    };
+  }
 };
 
-export default BlogPage;
-
-type RequiredKeys<T> = {
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
-}[keyof T];
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-type OptionalPropertyOf<T extends object> = Exclude<
-  {
-    [K in keyof T]: T extends Record<K, T[K]> ? never : K;
-  }[keyof T],
-  undefined
->;
+BlogPage.getLayout = function getLayout(page: ReactElement) {
+  return <LayoutEcommerce>{page}</LayoutEcommerce>;
+};

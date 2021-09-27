@@ -1,15 +1,21 @@
+import { ReactElement, ReactNode } from 'react';
+import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import { LayoutEcommerce } from '@atlascode/coffee-front-components';
-import createEmotionCache from '@emotion/cache';
 import { ThemeProvider } from '@atlascode/coffee-front-components';
-import '../../public/css/global.css';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import createEmotionCache from '@emotion/cache';
+import '../../public/css/global.css';
 
 require('../../mocks');
 
-function CustomApp(props: AppProps & { emotionCache?: EmotionCache }) {
+function CustomApp(
+  props: AppProps & {
+    emotionCache?: EmotionCache;
+    Component: NextPage & { getLayout?: (page: ReactElement) => ReactNode };
+  }
+) {
   const clientSideCache = createEmotionCache({ key: 'css' });
   const {
     Component,
@@ -17,6 +23,8 @@ function CustomApp(props: AppProps & { emotionCache?: EmotionCache }) {
     emotionCache = clientSideCache,
     router,
   } = props;
+
+  const getLayout = Component.getLayout || ((page) => page);
 
   return (
     <>
@@ -44,11 +52,7 @@ function CustomApp(props: AppProps & { emotionCache?: EmotionCache }) {
             sx={{ width: '100%', height: '100%' }}
             key={router.route}
           >
-            <LayoutEcommerce>
-              <div className="app">
-                <Component {...pageProps} />
-              </div>
-            </LayoutEcommerce>
+            <div className="app">{getLayout(<Component {...pageProps} />)}</div>
           </MotionBox>
         </ThemeProvider>
       </CacheProvider>
@@ -57,6 +61,3 @@ function CustomApp(props: AppProps & { emotionCache?: EmotionCache }) {
 }
 
 export default CustomApp;
-
-// Front simples para landing -
-// Front com painel - Nextjs + Painel dinâmico  + Instanciar EC2 ou equivalente na nuvem e rodar imagem do POSTGRES

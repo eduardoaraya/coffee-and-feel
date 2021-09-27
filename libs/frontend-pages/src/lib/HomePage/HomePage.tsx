@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from '@material-ui/core';
-// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { NextPage } from 'next';
 import {
   SubscriptionClubAboutSection,
   KnowMoreSection,
@@ -16,6 +16,7 @@ import {
   ProductInterface,
 } from '@atlascode/coffee-front-components';
 import { style } from './styles';
+import { ReactElement, ReactNode } from 'react';
 
 const dataProduct = [
   {
@@ -135,7 +136,7 @@ const dataProduct = [
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface HomePageProps {}
 
-export const HomePage: React.FC = (props: HomePageProps): JSX.Element => {
+export const HomePage: React.FC<HomePageProps> = (props): JSX.Element => {
   return (
     <Box className="page home-page">
       <Banner></Banner>
