@@ -1,20 +1,53 @@
-import { TabGroup } from '@atlascode/coffee-front-components';
+import { TabGroup, WavyBackground } from '@atlascode/coffee-front-components';
 import {
   Container,
   Box,
   Typography,
   Button,
-  Paper,
   Accordion,
   AccordionSummary,
   AccordionDetails,
 } from '@material-ui/core';
 import getDefaultStyle from './style';
-import StarIcon from '@material-ui/icons/Star';
-import ArrowForwardIosSharpIcon from '@material-ui/icons/ArrowForwardIosSharp';
+import { Star, BarChart, BubbleChart, Room } from '@material-ui/icons';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CatalogProductPageProps {}
+
+export interface ProductAttributeBoxInterface {
+  id: number;
+  name: string;
+  value: string;
+  icon: CallableFunction;
+}
+
+const ProductAttributeBox: React.FC<ProductAttributeBoxInterface> = ({
+  name,
+  value,
+  icon,
+}) => (
+  <Box className="product-attribute-item-box">
+    {icon()}
+    <Typography
+      className="product-attribute-name"
+      color="primary"
+      variant="body1"
+    >
+      {name}
+    </Typography>
+    <Typography
+      color="secondary"
+      className={
+        value.length > 3
+          ? `product-attribute-value t-size-2`
+          : `product-attribute-value t-size-1`
+      }
+      variant="body1"
+    >
+      {value}
+    </Typography>
+  </Box>
+);
 
 export const CatalogProductPage: React.FC<CatalogProductPageProps> = (
   props: CatalogProductPageProps
@@ -62,54 +95,45 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = (
           </Box>
         </Box>
       </Box>
-      <Box className="product-attributes">
-        <Box className="product-attribute-row">
-          <Paper elevation={3}>
-            <StarIcon />
-            <Typography color="primary" variant="body1">
-              Pontuação
-            </Typography>
-            <Typography className="product-attribute-value" variant="body1">
-              9.4
-            </Typography>
-          </Paper>
-          <Paper elevation={3}>
-            <StarIcon />
-            <Typography color="primary" variant="body1">
-              Pontuação
-            </Typography>
-            <Typography className="product-attribute-value" variant="body1">
-              9.4
-            </Typography>
-          </Paper>
-          <Paper elevation={3}>
-            <StarIcon />
-            <Typography color="primary" variant="body1">
-              Pontuação
-            </Typography>
-            <Typography className="product-attribute-value" variant="body1">
-              9.4
-            </Typography>
-          </Paper>
-          <Paper elevation={3}>
-            <StarIcon />
-            <Typography color="primary" variant="body1">
-              Pontuação
-            </Typography>
-            <Typography className="product-attribute-value" variant="body1">
-              9.4
-            </Typography>
-          </Paper>
-          <Paper elevation={3}>
-            <StarIcon />
-            <Typography color="primary" variant="body1">
-              Pontuação
-            </Typography>
-            <Typography className="product-attribute-value" variant="body1">
-              9.4
-            </Typography>
-          </Paper>
-        </Box>
+    </Container>
+    <Box className="product-attributes">
+      <WavyBackground className="product-attributes-bg">
+        <Container>
+          <Box className="product-attribute-row">
+            {[
+              {
+                id: 1,
+                icon: () => <Star />,
+                name: 'Pontuação',
+                value: '9.4',
+              },
+              {
+                id: 2,
+                icon: () => <BarChart />,
+                name: 'Intensidade',
+                value: '9',
+              },
+              {
+                id: 3,
+                icon: () => <BubbleChart />,
+                name: 'Tipo',
+                value: 'Torrado e moído em cápsulas',
+              },
+              {
+                id: 4,
+                icon: () => <Room />,
+                name: 'Origem',
+                value: 'Pedra Azul - ES',
+              },
+            ].map((item: ProductAttributeBoxInterface) => (
+              <Box key={item.id} className="separator">
+                <ProductAttributeBox {...item} />
+              </Box>
+            ))}
+          </Box>
+        </Container>
+      </WavyBackground>
+      <Container>
         <Box className="product-attribute-accordion">
           {[
             {
@@ -150,7 +174,7 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = (
             </Accordion>
           ))}
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   </Box>
 );

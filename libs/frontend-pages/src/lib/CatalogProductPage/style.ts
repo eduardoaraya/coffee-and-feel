@@ -49,38 +49,76 @@ export default () =>
     },
 
     '.product-attributes': {
+      '.product-attributes-bg': {
+        position: 'relative',
+        background: (theme) => theme.palette.secondary.main,
+        height: '419px',
+        marginTop: {
+          md: '145px',
+          xs: '45px',
+        },
+      },
       '.product-attribute-row': {
+        position: 'relative',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        zIndex: 2,
+        transform: 'translate3d(0, calc(-419px/2), 0)',
         padding: {
           md: '75px 65px',
           xs: '25px',
         },
-        '.MuiPaper-root': {
-          minWidth: '200px',
+        '.separator': {
           margin: '10px auto',
+        },
+        '.product-attribute-item-box': {
+          transition: '.3s',
+          cursor: 'pointer',
+          userSelect: 'none',
+          boxShadow: '0px 2px 7px 2px rgba(137, 83, 227, 0.1)',
+          background: '#FFF',
+          width: '220px',
+          height: '220px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           borderRadius: '20px',
           padding: '25px 0px',
+          ':hover': {
+            boxShadow: '0px 2px 1px 2px rgba(137, 83, 227, 0.1)',
+          },
           '>*': {
             margin: '10px 0',
           },
           svg: {
+            color: (theme) => theme.palette.secondary.main,
             width: '40px',
             height: '40px',
           },
-          '.product-attribute-value': {
-            fontSize: '2em',
+          '.product-attribute-name': {
+            textTransform: 'uppercase',
             fontWeight: 'bold',
+          },
+          '.product-attribute-value': {
+            maxWidth: '120px',
+            '&.t-size-1': {
+              fontSize: '2em',
+              fontWeight: 'bold',
+            },
+            '&.t-size-2': {
+              fontSize: '1em',
+            },
+            textAlign: 'center',
           },
         },
       },
 
       '.product-attribute-accordion': {
+        position: 'relative',
+        zIndex: 2,
         margin: '0 auto',
+        transform: 'translate3d(0, calc(-419px/1.5), 0)',
         padding: {
           md: '105px 45px',
         },
