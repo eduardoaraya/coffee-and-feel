@@ -23,10 +23,10 @@ export const getStaticProps: GetStaticProps<CatalogProps> = async () => {
   try {
     result = await service.getCatalogProduct();
     // eslint-disable-next-line no-empty
-  } catch {}
+  } catch (err) {}
   return {
     props: {
-      products: [],
+      products: result,
     },
   };
 };

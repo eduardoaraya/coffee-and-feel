@@ -30,23 +30,27 @@ export default [
     feelPoints: 70,
     name: 'Product test',
     plans: plansData,
+    sku: 'product-test-1',
   },
   {
     id: 2,
     feelPoints: 70,
     name: 'Product test',
     plans: plansData,
+    sku: 'product-test-2',
   },
   {
     id: 3,
     feelPoints: 70,
     name: 'Product test',
     plans: plansData,
+    sku: 'product-test-3',
   },
   {
     id: 4,
     feelPoints: 70,
     name: 'Product test',
     plans: plansData,
+    sku: 'product-test-4',
   },
 ] as ProductInterface[];

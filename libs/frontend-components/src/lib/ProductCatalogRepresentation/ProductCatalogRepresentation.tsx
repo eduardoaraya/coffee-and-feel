@@ -24,6 +24,7 @@ export interface ProductInterface {
   name: string;
   feelPoints: number;
   plans: ProductPlans[];
+  sku: string;
 }
 
 /* eslint-disable-next-line */

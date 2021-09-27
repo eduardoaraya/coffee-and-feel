@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import {
   ProductCatalogRepresentation,
   ProductInterface,
@@ -15,9 +16,11 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
   variantView = 'desktop',
   product,
 }): JSX.Element => {
+  const router = useRouter();
   return (
     <Box
       sx={style.root}
+      onClick={(_) => router.push(`catalog/product/${product.sku}`)}
       className={`product-catalog-item product-catalog-item-${variantView}`}
     >
       <Box className="product-image">
