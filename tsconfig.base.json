@@ -50,13 +50,13 @@
       "@atlascode/coffee-frontend-react-hooks": [
         "libs/frontend-react-hooks/src/index.ts"
       ],
+      "@atlascode/coffee-frontend-services": [
+        "libs/frontend-services/src/index.ts"
+      ],
       "@atlascode/coffee-frontend-utility": [
         "libs/frontend-utility/src/index.ts"
       ],
-      "@atlascode/coffee-shared-helpers": ["libs/shared-helpers/src/index.ts"],
-      "@atlascode/coffee-frontend-services": [
-        "libs/frontend-services/src/index.ts"
-      ]
+      "@atlascode/coffee-shared-helpers": ["libs/shared-helpers/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,13 +1,18 @@
 import { ReactElement } from 'react';
 import { LayoutEcommerce } from '@atlascode/coffee-front-components';
-import { CatalogProductPage } from '@atlascode/coffee-front-pages';
+import {
+  CatalogProductPage,
+  CatalogProductPageProps as CatalogProductPageComponentProps,
+} from '@atlascode/coffee-front-pages';
+import type { Page } from '../../../../types';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ProductCatalogPageProps {}
+export interface ProductCatalogPageProps
+  extends CatalogProductPageComponentProps {}
 
-export function CatalogProduct(props: ProductCatalogPageProps): JSX.Element {
+export const CatalogProduct: Page<ProductCatalogPageProps> = (props) => {
   return <CatalogProductPage />;
-}
+};
 
 export default CatalogProduct;
 

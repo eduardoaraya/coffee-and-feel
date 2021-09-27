@@ -1,11 +1,11 @@
 import { SxProps } from '@material-ui/system';
 import { Theme } from '@material-ui/core';
-import { BannerEntityType } from './contracts/types';
+import { BannerItem } from './Banner';
 
 type BannerStyle = {
   [key: string]: SxProps<Theme>;
 } & {
-  banner: (b: BannerEntityType | null) => SxProps<Theme>;
+  banner: (b: BannerItem | null) => SxProps<Theme>;
 };
 
 export default {
@@ -19,7 +19,7 @@ export default {
     },
     position: 'relative',
     '.swiper-container': {
-      overflow: 'visible',
+      overflow: 'hidden',
       '.swiper-pagination': {
         bottom: '-40px',
         '&.swiper-pagination-bullets': {
@@ -45,8 +45,8 @@ export default {
     },
     backgroundColor: '#000',
     backgroundImage: {
-      md: `url('${banner?.link.desktop}')`,
-      xs: `url('${banner?.link.mobile}')`,
+      md: `url('${banner?.desktopURL ?? 'https://via.placeholder.com/1500'}')`,
+      xs: `url('${banner?.mobileURL ?? 'https://via.placeholder.com/500'}')`,
     },
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',

@@ -1,5 +1,6 @@
+import { BannerProps } from '@atlascode/coffee-front-components';
 import { Story, Meta } from '@storybook/react';
-import { Banner, BannerProps } from './Banner';
+import { CatalogPage, CatalogPageProps } from './CatalogPage';
 
 const BannerList: BannerProps['items'] = [
   {
@@ -17,13 +18,15 @@ const BannerList: BannerProps['items'] = [
 ];
 
 export default {
-  component: Banner,
-  title: 'Banner',
+  component: CatalogPage,
+  title: 'CatalogPage',
 } as Meta;
 
-const Template: Story<BannerProps> = (args) => <Banner {...args} />;
+const Template: Story<CatalogPageProps> = (args) => <CatalogPage {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  items: BannerList,
-} as BannerProps;
+  BannerProps: {
+    items: BannerList,
+  },
+};

@@ -396,7 +396,11 @@
             "tsConfig": "libs/frontend-components/tsconfig.lib.json",
             "project": "libs/frontend-components/package.json",
             "entryFile": "libs/frontend-components/src/index.ts",
-            "external": ["react/jsx-runtime", "react-is", "@emotion/styled/base"],
+            "external": [
+              "react/jsx-runtime",
+              "react-is",
+              "@emotion/styled/base"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
