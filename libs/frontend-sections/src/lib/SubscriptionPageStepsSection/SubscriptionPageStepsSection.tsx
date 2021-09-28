@@ -21,6 +21,12 @@ export function SubscriptionPageStepsSection({
         </Typography>
 
         <Box sx={styles.grid}>
+          <Box
+            component="img"
+            src="./imgs/coffee-beans.svg"
+            sx={styles.backgroundIllustration}
+          />
+
           <Box sx={styles.illustrationContainer}>
             <SubscriptionPageFirstSVG sx={styles.illustration} />
             <Typography sx={styles.illustrationCaption} variant="subtitle1">
@@ -54,7 +60,19 @@ const styles = AtlasStylesheet.create({
     fontSize: '10px',
   },
 
+  backgroundIllustration: {
+    position: 'absolute',
+    top: '20%',
+    transform: 'translateX(-50%)',
+    left: '50%',
+    width: '60%',
+    height: 'auto',
+    zIndex: 1,
+    display: { xs: 'none', lg: 'block' },
+  },
+
   illustrationContainer: {
+    position: 'relative',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -93,5 +111,6 @@ const styles = AtlasStylesheet.create({
   illustration: {
     width: { xs: '21em' },
     height: { xs: '16em' },
+    zIndex: 2,
   },
 });

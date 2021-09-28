@@ -1,3 +1,4 @@
+export * from './lib/SubscriptionPageDefenseSection/SubscriptionPageDefenseSection';
 export * from './lib/SubscriptionPageStepsSection/SubscriptionPageStepsSection';
 export * from './lib/CallInstagramSection/CallInstagramSection';
 export * from './lib/KnowMoreSection/KnowMoreSection';
