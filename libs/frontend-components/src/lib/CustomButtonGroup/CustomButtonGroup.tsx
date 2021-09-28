@@ -55,11 +55,13 @@ const styles = AtlasStylesheet.create({
     return {
       bgcolor: (theme) => (active ? theme.palette.primary.main : '#fff'),
       color: (theme) => (active ? theme.palette.primary.contrastText : '#333'),
-      fontWeight: 700,
+      fontWeight: 500,
       border: '1px solid transparent',
       textTransform: 'inherit',
       borderColor: { xs: 'none', sm: 'none', md: 'none' },
-      boxShadow: '2px 2px 5px 1px rgba(52, 52, 52, 0.2)',
+      boxShadow: active
+        ? '2px 2px 5px 1px rgba(52, 52, 52, 0.5)'
+        : '2px 2px 5px 1px rgba(52, 52, 52, 0.2)',
       fontSize: { xs: '1.2em' },
 
       ':hover': {
