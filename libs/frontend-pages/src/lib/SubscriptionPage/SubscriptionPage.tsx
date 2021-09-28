@@ -1,7 +1,6 @@
 import { Box, BoxProps, Container } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Banner, BannerProps } from '@atlascode/coffee-front-components';
-import { SubscriptionClubAboutSection } from '@atlascode/coffee-front-sections';
 
 /* eslint-disable-next-line */
 export interface SubscriptionPageProps extends BoxProps {
