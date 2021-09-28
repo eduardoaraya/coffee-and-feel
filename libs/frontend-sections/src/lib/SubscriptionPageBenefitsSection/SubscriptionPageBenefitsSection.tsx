@@ -1,22 +1,18 @@
-import {
-  CustomButtonGroup,
-  SubscriptionPageBenefitCard,
-} from '@atlascode/coffee-front-components';
-import {
-  CoffeeBagSVG,
-  DiscountSVG,
-  DeliveryTimeSVG,
-} from '@atlascode/coffee-frontend-svg';
+import { CustomButtonGroup } from '@atlascode/coffee-front-components';
+
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps, Container, Typography } from '@material-ui/core';
 import React from 'react';
-import { AnimatePresence } from 'framer-motion';
-import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
 import SubscriptionBenefitsDesktop from './SubscriptionBenefitsDesktop';
 import { SubscriptionBenefitsMobile } from './SubscriptionBenefitsMobile';
+import { SubscriptionPageBenefitCardProps } from '@atlascode/coffee-front-components';
+
+type BenefitCategory = { [label: string]: SubscriptionPageBenefitCardProps };
 
 /* eslint-disable-next-line */
-export interface SubscriptionPageBenefitsSectionProps extends BoxProps {}
+export interface SubscriptionPageBenefitsSectionProps extends BoxProps {
+  benefits: BenefitCategory[];
+}
 
 export function SubscriptionPageBenefitsSection({
   sx,
@@ -40,8 +36,6 @@ export function SubscriptionPageBenefitsSection({
             ]}
           />
         </Box>
-
-        {/* <SubscriptionBenefitsDesktop activeIndex={value as 0 | 1} /> */}
         <SubscriptionBenefitsMobile />
       </Container>
     </Box>

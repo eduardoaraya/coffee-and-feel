@@ -9,17 +9,17 @@ import {
 } from '@atlascode/coffee-front-components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface SubscriptionBenefitsMobileProps extends BoxProps {
+export interface SubscriptionPageBenefitsMobileProps extends BoxProps {
   SwiperProps?: Swiper;
   items?: SubscriptionPageBenefitCardProps[];
 }
 
-export const SubscriptionBenefitsMobile = ({
+export const SubscriptionPageBenefitsMobile = ({
   sx,
   SwiperProps,
   items = [],
   ...rest
-}: SubscriptionBenefitsMobileProps) => {
+}: SubscriptionPageBenefitsMobileProps) => {
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       <SwiperGenericWrapper
@@ -36,7 +36,7 @@ export const SubscriptionBenefitsMobile = ({
   );
 };
 
-export default SubscriptionBenefitsMobile;
+export default SubscriptionPageBenefitsMobile;
 
 const styles = AtlasStylesheet.create({
   root: {},

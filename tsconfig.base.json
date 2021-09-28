@@ -60,5 +60,6 @@
       "@atlascode/coffee-shared-helpers": ["libs/shared-helpers/src/index.ts"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "include": ["./.storybook/tsconfig.json"]
 }
