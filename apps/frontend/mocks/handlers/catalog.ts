@@ -6,6 +6,14 @@ const allProducts = () =>
     res(ctx.status(200), ctx.json([...catalogData]))
   );
 
-export const handlers = [allProducts()];
+const productSku = () =>
+  rest.get(`https://mockbackend.com/catalog/product/:sku/`, (req, res, ctx) => {
+    const { sku } = req.params;
+    const data = catalogData.find((item) => item.sku === sku);
+    console.log(data);
+    return res(ctx.status(data ? 200 : 404), ctx.json(data));
+  });
+
+export const handlers = [allProducts(), productSku()];
 
 export default handlers;

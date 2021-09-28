@@ -7,7 +7,10 @@ import {
   Skeleton,
 } from '@material-ui/core';
 import style from './style';
-import { MouseEventHandler, useState } from 'react';
+import { MouseEventHandler } from 'react';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { useProductPlansTabs } from '@atlascode/coffee-frontend-hooks';
+import InfoPrice from './InfoPrice';
 
 type variantView = 'mobile' | 'desktop';
 
@@ -47,51 +50,7 @@ export const ProductCatalogRepresentation: React.FC<ProductCatalogRepresentation
     product,
     handleClickDetailsButton,
   }): JSX.Element => {
-    const [userPlan, setUserPlan] = useState<number>(1);
-
-    const isCurrentPlan = (id: number): boolean => id === userPlan;
-
-    const getOptionsByProduct = (product?: ProductInterface): TabOption[] => {
-      return product && product.plans.length > 0
-        ? product.plans.map(
-            (plan) =>
-              ({
-                id: plan.id,
-                content: plan.name,
-                active: isCurrentPlan(plan.id),
-                handleClick: () => setUserPlan(plan.id),
-              } as TabOption)
-          )
-        : [];
-    };
-
-    const getInfoPriceByPlans = (product?: ProductInterface) =>
-      product && product.plans.length > 0
-        ? product.plans.map((plan) => (
-            <Box
-              key={plan.id}
-              className={`product-price-area ${
-                isCurrentPlan(plan.id) ? 'active' : ''
-              }`}
-            >
-              <Box className="product-price-descount-info">
-                <Typography
-                  color="white"
-                  component="span"
-                  className="product-price-descount-porcent"
-                >
-                  {`${plan.porcent * 100}%OFF`}
-                </Typography>
-                <Typography component="span" className="product-price-descount">
-                  {plan.price}
-                </Typography>
-              </Box>
-              <Typography component="span" className="product-price">
-                {plan.priceTotal}
-              </Typography>
-            </Box>
-          ))
-        : [];
+    const { tabs, isCurrentPlan, userPlan } = useProductPlansTabs(product);
 
     return (
       <Box
@@ -128,16 +87,13 @@ export const ProductCatalogRepresentation: React.FC<ProductCatalogRepresentation
           )}
         </Box>
         <Box className="product-plans-options">
-          <TabGroup
-            className="product-representation-tab-groups"
-            tabs={getOptionsByProduct(product)}
-          />
+          <TabGroup className="product-representation-tab-groups" tabs={tabs} />
         </Box>
         <Box component="div" className="product-price-info">
-          {getInfoPriceByPlans(product)}
+          {InfoPrice({ product, isCurrentPlan })}
         </Box>
         <Box component="div" className="actions">
-          {handleClickDetailsButton !== undefined ? (
+          {handleClickDetailsButton ? (
             <Button
               variant="outlined"
               size={getSizeButton(variantViewPort)}

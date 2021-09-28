@@ -69,11 +69,12 @@ export default () =>
           marginBottom: '25px',
           maxWidth: '260px',
           '&.product-price': {
-            display: 'flex',
+            // display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
           },
           '.product-amount': {
+            display: 'flex',
             margin: '20px 0px',
           },
           '.product-price-total': {

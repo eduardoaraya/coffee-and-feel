@@ -22,35 +22,6 @@ export default {
     },
     '.product-price-info': {
       padding: '30px 0',
-      '.product-price-area': {
-        display: 'none',
-        '&.active': {
-          display: 'flex',
-        },
-      },
-      '.product-price-descount-info': {
-        display: 'flex',
-        flexDirection: 'column',
-        marginRight: '20px',
-        justifyContent: 'content',
-        alignItems: 'center',
-        '.product-price-descount': {
-          padding: '5px 15px',
-          textAlign: 'center',
-          textDecoration: 'line-through',
-        },
-      },
-      '.product-price-descount-porcent': {
-        maxWidth: '85px',
-        padding: '5px 15px',
-        fontSize: '12px',
-        borderRadius: '50px',
-        background: (theme) => theme.palette.success.main,
-        textAlign: 'center',
-      },
-      '.product-price': {
-        fontSize: '33px',
-      },
     },
     '.MuiButtonGroup-root': {
       maxWidth: '275px',

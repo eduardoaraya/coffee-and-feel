@@ -29,7 +29,6 @@ export const CounterInput: React.FC<CounterInputProps> = ({
     <Box
       sx={{
         boxShadow: 3,
-        maxWidth: '130px',
         display: 'flex',
         width: 'auto',
         justifyContent: 'center',
