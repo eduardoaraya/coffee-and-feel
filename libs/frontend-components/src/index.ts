@@ -1,3 +1,4 @@
+export * from './lib/SubscriptionPageBenefitCard/SubscriptionPageBenefitCard';
 export * from './lib/ReadingTime/ReadingTime';
 export * from './lib/BlogPostCard/BlogPostCard';
 export * from './lib/CreditCardView/CreditCardView';
