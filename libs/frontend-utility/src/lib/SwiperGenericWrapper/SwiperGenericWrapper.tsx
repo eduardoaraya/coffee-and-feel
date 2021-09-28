@@ -1,31 +1,25 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/ban-types */
 import { Box, BoxProps } from '@material-ui/core';
 import React from 'react';
 import SwiperCore, {
   Navigation,
   Pagination,
-  Scrollbar,
-  A11y,
   Autoplay,
   SwiperOptions,
 } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { SwiperComponent } from 'swiper/types/shared';
+import 'swiper/swiper-bundle.min.css';
 
-require('swiper/swiper.min.css');
-require('swiper/components/navigation/navigation.min.css');
-require('swiper/components/pagination/pagination.min.css');
-require('swiper/components/scrollbar/scrollbar.min.css');
-require('swiper/components/effect-fade/effect-fade.min.css');
-require('swiper/components/scrollbar/scrollbar.min.css');
-require('swiper/components/lazy/lazy.min.css');
-
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
+type Handler = (...args: unknown[]) => void | Promise<void>;
 
 export type SwiperGenericWrapperProps<C> = {
   component: React.FC<C>;
   list?: C[];
   SwiperProps?: Omit<SwiperOptions, 'width' | 'height'>;
   sx?: Omit<BoxProps['sx'], 'width'>;
+  swiperModules?: SwiperComponent[];
 };
 /**
  *
@@ -39,10 +33,13 @@ export const SwiperGenericWrapper = <T extends {}>({
   component: Component,
   SwiperProps,
   list = [],
+  swiperModules = defaultSwiperModules,
   sx,
 }: SwiperGenericWrapperProps<T>) => {
+  React.useMemo(() => SwiperCore.use([...swiperModules!]), [swiperModules]);
+
   return (
-    <Box sx={sx} component={Swiper} {...SwiperProps}>
+    <Box navigation pagination sx={sx} component={Swiper} {...SwiperProps}>
       {list.map((value, index) => {
         return (
           <SwiperSlide key={index}>
@@ -55,3 +52,7 @@ export const SwiperGenericWrapper = <T extends {}>({
 };
 
 export default SwiperGenericWrapper;
+
+const defaultSwiperModules: SwiperGenericWrapperProps<
+  React.FC<unknown>
+>['swiperModules'] = [Navigation, Pagination, Autoplay] as SwiperComponent[];
