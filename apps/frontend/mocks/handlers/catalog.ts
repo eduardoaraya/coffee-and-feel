@@ -10,7 +10,6 @@ const productSku = () =>
   rest.get(`https://mockbackend.com/catalog/product/:sku/`, (req, res, ctx) => {
     const { sku } = req.params;
     const data = catalogData.find((item) => item.sku === sku);
-    console.log(data);
     return res(ctx.status(data ? 200 : 404), ctx.json(data));
   });
 
