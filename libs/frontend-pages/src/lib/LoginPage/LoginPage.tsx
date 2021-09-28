@@ -132,7 +132,7 @@ export function LoginPage({
 
           <Grid item>
             <PasswordInput
-              ref={passwordRef as any}
+              ref={passwordRef as React.RefObject<HTMLDivElement>}
               {...PasswordInputFieldProps}
             />
           </Grid>

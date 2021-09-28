@@ -53,6 +53,7 @@
       "@atlascode/coffee-frontend-services": [
         "libs/frontend-services/src/index.ts"
       ],
+      "@atlascode/coffee-frontend-svg": ["libs/frontend-svg/src/index.ts"],
       "@atlascode/coffee-frontend-utility": [
         "libs/frontend-utility/src/index.ts"
       ],

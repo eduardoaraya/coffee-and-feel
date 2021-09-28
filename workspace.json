@@ -782,6 +782,47 @@
         }
       }
     },
+    "frontend-svg": {
+      "root": "libs/frontend-svg",
+      "sourceRoot": "libs/frontend-svg/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/frontend-svg",
+            "tsConfig": "libs/frontend-svg/tsconfig.lib.json",
+            "project": "libs/frontend-svg/package.json",
+            "entryFile": "libs/frontend-svg/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/frontend-svg/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/frontend-svg/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/frontend-svg"],
+          "options": {
+            "jestConfig": "libs/frontend-svg/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "frontend-utility": {
       "root": "libs/frontend-utility",
       "sourceRoot": "libs/frontend-utility/src",
