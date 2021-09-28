@@ -25,7 +25,7 @@ export function SubscriptionPageBenefitCard({
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       <Box sx={styles.container}>
-        <Box sx={styles.icon} component={CoffeeBagSVG} />
+        <Box sx={styles.icon} component={icon} />
         <Typography variant="caption" sx={styles.caption}>
           {caption}
         </Typography>
