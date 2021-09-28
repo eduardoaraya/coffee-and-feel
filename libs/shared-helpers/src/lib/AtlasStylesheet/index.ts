@@ -1,8 +1,10 @@
 import { SxProps } from '@material-ui/system';
 import { Theme } from '@material-ui/core';
 
+type StylesheetHandler = (...args: unknown[]) => SxProps<Theme>;
+
 type ThemeCSSProperties = {
-  [key: string]: SxProps<Theme>;
+  [key: string]: SxProps<Theme> | StylesheetHandler;
 };
 
 export class AtlasStylesheet {
