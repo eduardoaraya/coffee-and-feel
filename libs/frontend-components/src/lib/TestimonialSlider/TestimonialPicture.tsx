@@ -1,9 +1,10 @@
+import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps } from '@material-ui/core';
 import React from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface TestimonialPictureProps extends BoxProps {
+export interface TestimonialPictureProps extends MotionBoxProps {
   src?: string;
   alt?: string;
 }
@@ -15,9 +16,10 @@ const TestimonialPicture = ({
   ...rest
 }: TestimonialPictureProps) => {
   return (
-    <Box sx={{ ...styles.root, ...rest }}>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <MotionBox sx={{ ...styles.root, ...sx }} {...rest}>
       <Box component={'img'} sx={styles.img} src={src} alt={alt} />
-    </Box>
+    </MotionBox>
   );
 };
 

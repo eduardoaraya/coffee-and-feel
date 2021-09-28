@@ -1,55 +1,109 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps, Container, Typography } from '@material-ui/core';
 import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
 import TestimonialPicture from './TestimonialPicture';
 import { CircleIconButton } from '@atlascode/coffee-front-components';
 import { ArrowBack, ArrowForward } from '@material-ui/icons';
+import _ from 'lodash';
+import { AnimatePresence, Variants } from 'framer-motion';
+import React from 'react';
+import { useTestimonialSlider } from './useTestimonialSlider';
+
+export type Testimonial = {
+  attestantSocial?: string;
+  testimonial?: string;
+  attestantName?: string;
+  attestantLocation?: string;
+  src?: string;
+  alt?: string;
+};
 
 /* eslint-disable-next-line */
-export interface TestimonialSliderProps extends BoxProps {}
+export interface TestimonialSliderProps extends MotionBoxProps {
+  title?: string;
+  testimonials?: Testimonial[];
+}
 
-export function TestimonialSlider({ sx, ...rest }: TestimonialSliderProps) {
+const transition: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+  },
+};
+
+export function TestimonialSlider({
+  sx,
+  title = 'Placeholder title',
+  testimonials = [],
+  ...rest
+}: TestimonialSliderProps) {
+  const { activeIndex, activeTestimonial, backwards, forward } =
+    useTestimonialSlider(testimonials);
+
   return (
-    <Box sx={{ ...styles.root, ...sx }} {...rest}>
+    <MotionBox
+      key={activeIndex}
+      sx={{ ...(styles.root as any), ...(sx as any) }}
+      {...rest}
+    >
       <Container maxWidth="lg" sx={styles.container}>
         <Box sx={styles.grid}>
-          <TestimonialPicture />
-          <Box sx={styles.textContainer}>
-            <Box>
-              <Typography variant="h2" sx={styles.title}>
-                Quem assina recomenda
-              </Typography>
-            </Box>
+          {activeTestimonial && (
+            <TestimonialPicture
+              key={activeIndex}
+              src={activeTestimonial.src}
+              alt={activeTestimonial.alt}
+              variants={transition}
+              initial="hidden"
+              animate="visible"
+            />
+          )}
 
-            <Box>
-              <Typography variant="caption" sx={styles.attestantSocial}>
-                @fernandes.rafa
-              </Typography>
+          <MotionBox
+            variants={transition}
+            initial="hidden"
+            animate="visible"
+            key={activeIndex}
+          >
+            {activeTestimonial && (
+              <Box sx={styles.textContainer}>
+                <Box>
+                  <Typography variant="h2" sx={styles.title}>
+                    {title}
+                  </Typography>
+                </Box>
 
-              <Typography variant="subtitle1" sx={styles.testimonial}>
-                “Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                aliquam, purus sit amet luctus venenatis”.
-              </Typography>
-            </Box>
+                <Box>
+                  <Typography variant="caption" sx={styles.attestantSocial}>
+                    {activeTestimonial.attestantSocial}
+                  </Typography>
 
-            <Box>
-              <Typography variant="subtitle2" sx={styles.attestant}>
-                Rafaela Fernandes
-              </Typography>
+                  <Box sx={styles.testimonial}>
+                    {activeTestimonial.testimonial}
+                  </Box>
+                </Box>
 
-              <Typography variant="body1" sx={styles.attestantLocation}>
-                São Paulo/SP
-              </Typography>
-            </Box>
+                <Box>
+                  <Typography variant="subtitle2" sx={styles.attestant}>
+                    {activeTestimonial.attestantName}
+                  </Typography>
+
+                  <Typography variant="body1" sx={styles.attestantLocation}>
+                    {activeTestimonial.attestantLocation}
+                  </Typography>
+                </Box>
+              </Box>
+            )}
 
             <Box sx={styles.navigationButtonContainer}>
-              <CircleIconButton icon={ArrowBack} />
-              <CircleIconButton icon={ArrowForward} />
+              <CircleIconButton onClick={backwards} icon={ArrowBack} />
+              <CircleIconButton onClick={forward} icon={ArrowForward} />
             </Box>
-          </Box>
+          </MotionBox>
         </Box>
       </Container>
-    </Box>
+    </MotionBox>
   );
 }
 
@@ -73,6 +127,7 @@ const styles = AtlasStylesheet.create({
     gap: { xs: '1.5em', lg: '3em' },
     display: 'flex',
     flexDirection: 'column',
+    flexBasis: { lg: '50%' },
   },
   title: {
     fontSize: { xs: '2em', lg: '3em' },
@@ -100,5 +155,6 @@ const styles = AtlasStylesheet.create({
     width: '100%',
     justifyContent: { xs: 'center', lg: 'flex-start' },
     gap: { xs: '3em' },
+    pt: { xs: '2em' },
   },
 });

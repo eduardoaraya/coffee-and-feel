@@ -1,3 +1,4 @@
+export * from './lib/TextRevealAnimation/TextRevealAnimation';
 export * from './lib/CircleIconButton/CircleIconButton';
 export * from './lib/TestimonialSlider/TestimonialSlider';
 export * from './lib/TabPanel/TabPanel';
