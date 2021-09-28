@@ -7,7 +7,7 @@ import {
   Skeleton,
 } from '@material-ui/core';
 import style from './style';
-import { useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 
 type variantView = 'mobile' | 'desktop';
 
@@ -32,6 +32,7 @@ export interface ProductCatalogRepresentationProps {
   variantViewPort?: variantView;
   className?: string;
   product?: ProductInterface;
+  handleClickDetailsButton?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 const getSizeButton = (
@@ -40,7 +41,12 @@ const getSizeButton = (
   'mobile' === variant ? 'small' : 'large';
 
 export const ProductCatalogRepresentation: React.FC<ProductCatalogRepresentationProps> =
-  ({ variantViewPort = 'desktop', className, product }): JSX.Element => {
+  ({
+    variantViewPort = 'desktop',
+    className,
+    product,
+    handleClickDetailsButton,
+  }): JSX.Element => {
     const [userPlan, setUserPlan] = useState<number>(1);
 
     const isCurrentPlan = (id: number): boolean => id === userPlan;
@@ -131,14 +137,24 @@ export const ProductCatalogRepresentation: React.FC<ProductCatalogRepresentation
           {getInfoPriceByPlans(product)}
         </Box>
         <Box component="div" className="actions">
-          <Button
-            // className="white-text"
-            variant="outlined"
-            size={getSizeButton(variantViewPort)}
-            color="primary"
-          >
-            Detalhes
-          </Button>
+          {handleClickDetailsButton !== undefined ? (
+            <Button
+              variant="outlined"
+              size={getSizeButton(variantViewPort)}
+              color="primary"
+              onClick={handleClickDetailsButton}
+            >
+              Detalhes
+            </Button>
+          ) : (
+            <Button
+              variant="outlined"
+              size={getSizeButton(variantViewPort)}
+              color="primary"
+            >
+              Detalhes
+            </Button>
+          )}
           <IconButton size={getSizeButton(variantViewPort)} color="primary">
             <img src="/icons/add-cart.svg" alt="Cart icon" />
           </IconButton>

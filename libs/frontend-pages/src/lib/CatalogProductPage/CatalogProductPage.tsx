@@ -1,4 +1,8 @@
-import { TabGroup, WavyBackground } from '@atlascode/coffee-front-components';
+import {
+  TabGroup,
+  WavyBackground,
+  CounterInput,
+} from '@atlascode/coffee-front-components';
 import {
   Container,
   Box,
@@ -37,11 +41,9 @@ const ProductAttributeBox: React.FC<ProductAttributeBoxInterface> = ({
     </Typography>
     <Typography
       color="secondary"
-      className={
-        value.length > 3
-          ? `product-attribute-value t-size-2`
-          : `product-attribute-value t-size-1`
-      }
+      className={`product-attribute-value ${
+        value.length > 3 ? `t-size-2` : `t-size-1`
+      }`}
       variant="body1"
     >
       {value}
@@ -85,11 +87,15 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = (
             ]}
           />
           <Box className="product-info-row product-price">
-            <Box className="product-amount">+ 1 -</Box>
-            <Box className="product-price-total">R$ 17,50</Box>
+            <Box className="product-amount">
+              <CounterInput />
+            </Box>
+            <Typography color="primary" className="product-price-total">
+              R$ 17,50
+            </Typography>
           </Box>
           <Box className="product-info-row product-actions">
-            <Button variant="contained" color="primary">
+            <Button variant="contained" size="medium" color="primary">
               Adicionar à Sacola
             </Button>
           </Box>
@@ -98,7 +104,8 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = (
     </Container>
     <Box className="product-attributes">
       <WavyBackground className="product-attributes-bg">
-        <Container>
+        <figure className="plant left"></figure>
+        <Container className="overflow-top">
           <Box className="product-attribute-row">
             {[
               {
@@ -132,8 +139,9 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = (
             ))}
           </Box>
         </Container>
+        <figure className="plant right"></figure>
       </WavyBackground>
-      <Container>
+      <Container className="overflow-top">
         <Box className="product-attribute-accordion">
           {[
             {
@@ -161,14 +169,16 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = (
                 blandit leo lobortis eget.`,
             },
           ].map(({ title, content }: any) => (
-            <Accordion>
+            <Accordion className="accordion-item">
               <AccordionSummary
                 aria-controls="panel1d-content"
                 id="panel1d-header"
               >
-                <Typography>{title}</Typography>
+                <Box className="accordion-item-title">
+                  <Typography>{title}</Typography>
+                </Box>
               </AccordionSummary>
-              <AccordionDetails>
+              <AccordionDetails className="accordion-item-content">
                 <Typography>{content}</Typography>
               </AccordionDetails>
             </Accordion>

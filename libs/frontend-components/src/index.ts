@@ -15,3 +15,4 @@ export * from './lib/ProductCatalogItem/ProductCatalogItem';
 export * from './lib/TabGroup/TabGroup';
 export * from './lib/Footer/Footer';
 export * from './lib/WavyBackground/WavyBackground';
+export * from './lib/CounterInput/CounterInput';

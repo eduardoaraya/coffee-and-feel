@@ -20,7 +20,6 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
   return (
     <Box
       sx={style.root}
-      onClick={(_) => router.push(`catalog/product/${product.sku}`)}
       className={`product-catalog-item product-catalog-item-${variantView}`}
     >
       <Box className="product-image">
@@ -32,6 +31,9 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
         product={product}
         variantViewPort={variantView}
         className="product-info"
+        handleClickDetailsButton={(_) =>
+          router.push(`catalog/product/${product?.sku}`)
+        }
       />
     </Box>
   );

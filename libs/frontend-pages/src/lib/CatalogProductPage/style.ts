@@ -3,9 +3,32 @@ import { SxProps, Theme } from '@material-ui/system';
 
 export default () =>
   ({
+    position: 'relative',
     paddingTop: {
       md: '75px',
       xs: '45px',
+    },
+    '.plant': {
+      zIndex: -1,
+      position: 'absolute',
+      backgroundRepeat: 'no-repeat',
+      background: '#FFF',
+      '&.right': {
+        width: '259.5px',
+        height: '396.91px',
+        top: 0,
+        right: '-45px',
+        transform: 'rotate(-20deg)',
+        mask: 'url(/imgs/plant2.svg) no-repeat center',
+      },
+      '&.left': {
+        width: '350px',
+        height: '300px',
+        left: '-75px',
+        top: '48px',
+        transform: 'rotate(109deg)',
+        mask: 'url(/imgs/plant1.svg) no-repeat center',
+      },
     },
     '.product': {
       display: 'flex',
@@ -44,20 +67,42 @@ export default () =>
         },
         '.product-info-row': {
           marginBottom: '25px',
+          maxWidth: '260px',
+          '&.product-price': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          },
+          '.product-amount': {
+            margin: '20px 0px',
+          },
+          '.product-price-total': {
+            fontSize: '1.7em',
+          },
         },
       },
     },
 
     '.product-attributes': {
+      '.overflow-top': {
+        position: 'relative',
+        zIndex: 9,
+        transform: {
+          lg: 'translate3d(0, calc(-319px/2), 0)',
+          md: 'translate3d(0, calc(-419px/2), 0)',
+          xs: 'translate3d(0, 0, 0)',
+        },
+      },
       '.product-attributes-bg': {
         position: 'relative',
         background: (theme) => theme.palette.secondary.main,
         height: {
+          lg: '319px',
           md: '419px',
           xs: 'auto',
         },
         marginTop: {
-          md: '145px',
+          md: '105px',
           xs: '45px',
         },
       },
@@ -67,10 +112,6 @@ export default () =>
         flexDirection: 'row',
         flexWrap: 'wrap',
         zIndex: 2,
-        transform: {
-          md: 'translate3d(0, calc(-419px/2), 0)',
-          xs: 'translate3d(0, 0, 0)',
-        },
         padding: {
           md: '75px 65px',
           xs: '25px',
@@ -124,13 +165,33 @@ export default () =>
         position: 'relative',
         zIndex: 2,
         margin: '0 auto',
-        transform: {
-          md: 'translate3d(0, calc(-419px/1.5), 0)',
-          xs: 'translate3d(0, 0, 0)',
+        '.MuiPaper-root': {
+          boxShadow: '2px 2px 5px 1px rgba(52, 52, 52, 0.2)',
+          '&.Mui-expanded': {},
+          '.MuiTypography-root': {},
         },
         padding: {
-          md: '105px 45px',
+          md: '105px 120px',
           xs: '75px 0px',
+        },
+        '.accordion-item-title, .accordion-item-content': {
+          maxWidth: '850px',
+          margin: '0 auto',
+          width: '100%',
+        },
+        '.accordion-item-title': {
+          '.MuiTypography-root': {
+            padding: '10px 0',
+            fontWeight: 'bold',
+            color: '#323232',
+          },
+        },
+        '.accordion-item-content': {
+          '.MuiTypography-root': {
+            marginBottom: '60px',
+            lineHeight: '32px',
+            textAlign: 'left',
+          },
         },
       },
     },
