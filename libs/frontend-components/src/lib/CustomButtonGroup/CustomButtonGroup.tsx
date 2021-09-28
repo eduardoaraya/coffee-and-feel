@@ -32,7 +32,10 @@ export function CustomButtonGroup({
       {buttons.map(({ sx: buttonSx, ...rest }, index) => {
         return (
           <Button
-            sx={{ ...styles.button(index === value), ...buttonSx }}
+            sx={{
+              ...styles.button(index === value, index % 2 > 0),
+              ...buttonSx,
+            }}
             {...rest}
             key={index}
           />
@@ -46,17 +49,22 @@ export default CustomButtonGroup;
 
 const styles = AtlasStylesheet.create({
   root: {
-    flexWrap: 'wrap',
     borderColor: { xs: 'none' },
     fontSize: '10px',
+
+    '.MuiButtonGroup-grouped:not(:last-of-type)': {
+      border: '1px solid transparent',
+    },
   },
 
-  button: (active = false) => {
+  button: (active = false, bordered = false) => {
     return {
       bgcolor: (theme) => (active ? theme.palette.primary.main : '#fff'),
       color: (theme) => (active ? theme.palette.primary.contrastText : '#333'),
       fontWeight: 500,
-      border: '1px solid transparent',
+      border: !bordered
+        ? '1px solid transparent'
+        : '1px solid rgba(0, 0, 0, 0.5)',
       textTransform: 'inherit',
       borderColor: { xs: 'none', sm: 'none', md: 'none' },
       boxShadow: active

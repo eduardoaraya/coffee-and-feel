@@ -1,4 +1,5 @@
 import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
+import { Box } from '@material-ui/system';
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
 
@@ -15,19 +16,18 @@ export const TabPanel = ({
   ...rest
 }: TabPanelProps) => {
   return (
-    <AnimatePresence>
+    <Box>
       {value === index && (
         <MotionBox
           initial="hidden"
           animate="visible"
-          exit="hidden"
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
           {...rest}
         >
           {children}
         </MotionBox>
       )}
-    </AnimatePresence>
+    </Box>
   );
 };
 

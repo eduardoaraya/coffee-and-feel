@@ -1,13 +1,21 @@
-import { CustomButtonGroup } from '@atlascode/coffee-front-components';
+import {
+  CustomButtonGroup,
+  TabPanel,
+} from '@atlascode/coffee-front-components';
 
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps, Container, Typography } from '@material-ui/core';
 import React from 'react';
-import SubscriptionBenefitsDesktop from './SubscriptionBenefitsDesktop';
-import { SubscriptionBenefitsMobile } from './SubscriptionBenefitsMobile';
-import { SubscriptionPageBenefitCardProps } from '@atlascode/coffee-front-components';
+import {
+  SubscriptionPageBenefitCardProps,
+  SubscriptionPageBenefitsDesktop,
+  SubscriptionPageBenefitsMobile,
+} from '@atlascode/coffee-front-components';
 
-type BenefitCategory = { [label: string]: SubscriptionPageBenefitCardProps };
+type BenefitCategory = {
+  categoryLabel: string;
+  benefits: SubscriptionPageBenefitCardProps[];
+};
 
 /* eslint-disable-next-line */
 export interface SubscriptionPageBenefitsSectionProps extends BoxProps {
@@ -16,6 +24,7 @@ export interface SubscriptionPageBenefitsSectionProps extends BoxProps {
 
 export function SubscriptionPageBenefitsSection({
   sx,
+  benefits,
   ...rest
 }: SubscriptionPageBenefitsSectionProps) {
   const [value, setValue] = React.useState<number>(0);
@@ -30,13 +39,29 @@ export function SubscriptionPageBenefitsSection({
         <Box sx={styles.buttonGroupContainer}>
           <CustomButtonGroup
             value={value}
-            buttons={[
-              { children: 'Standard', onClick: () => setValue(0) },
-              { children: 'Premium', onClick: () => setValue(1) },
-            ]}
+            buttons={benefits.map((value, index) => {
+              return {
+                children: value.categoryLabel,
+                onClick: () => setValue(index),
+              };
+            })}
           />
         </Box>
-        <SubscriptionBenefitsMobile />
+
+        {benefits.map(({ benefits, categoryLabel }, index) => {
+          return (
+            <TabPanel key={index} index={index} value={value}>
+              <SubscriptionPageBenefitsDesktop
+                sx={styles.benefitDesktop}
+                items={benefits}
+              />
+              <SubscriptionPageBenefitsMobile
+                sx={styles.benefitMobile}
+                items={benefits}
+              />
+            </TabPanel>
+          );
+        })}
       </Container>
     </Box>
   );
@@ -45,6 +70,14 @@ export function SubscriptionPageBenefitsSection({
 export default SubscriptionPageBenefitsSection;
 
 const styles = AtlasStylesheet.create({
+  benefitDesktop: {
+    display: { xs: 'none', lg: 'flex' },
+  },
+
+  benefitMobile: {
+    display: { xs: 'unset', lg: 'none' },
+  },
+
   root: {
     fontSize: '10px',
   },
