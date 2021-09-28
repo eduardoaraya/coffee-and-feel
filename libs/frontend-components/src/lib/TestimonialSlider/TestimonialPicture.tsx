@@ -28,12 +28,14 @@ const styles = AtlasStylesheet.create({
     fontSize: '10px',
     width: { xs: '30em', lg: '46em' },
     height: { xs: '27em', lg: '50em' },
+    borderRadius: '20px',
   },
 
   img: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    borderRadius: '20px',
   },
 });
 

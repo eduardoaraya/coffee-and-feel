@@ -7,7 +7,7 @@ import {
   Button,
 } from '@material-ui/core';
 import { ResponsiveStyleValue, SxProps } from '@material-ui/system';
-import { SvgIconComponent } from '@material-ui/icons';
+import { ArrowForwardSharp, SvgIconComponent } from '@material-ui/icons';
 import { Property } from 'csstype';
 import React from 'react';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
@@ -25,9 +25,9 @@ export function CircleIconButton({
   sx,
   color = 'primary',
   fontSize = '10px',
-  icon: Icon,
+  icon: Icon = ArrowForwardSharp,
   inverted = false,
-  elevation = 1,
+  elevation = 3,
   ...rest
 }: CircleIconButtonProps) {
   const defaultStylesMemo = React.useMemo(
@@ -36,7 +36,11 @@ export function CircleIconButton({
   );
 
   return (
-    <Box {...rest} sx={defaultStylesMemo} component={ButtonBase}>
+    <Box
+      {...rest}
+      sx={{ ...defaultStylesMemo.root, ...sx }}
+      component={ButtonBase}
+    >
       <Box component={Icon} className="icon-inner" />
     </Box>
   );
