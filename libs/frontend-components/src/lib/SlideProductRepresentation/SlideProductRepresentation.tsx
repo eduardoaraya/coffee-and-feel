@@ -1,9 +1,8 @@
 import { Box, IconButton } from '@material-ui/core';
 import style from './style';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
-import ProductCatalogRepresentation, {
-  ProductInterface,
-} from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
+import ProductInfo from '../Catalog/ProductInfo/ProductInfo';
+import ProductInterface from '../Catalog/Contracts/ProductInterface';
 // Swipper Import
 import SwiperCore from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -50,10 +49,7 @@ export const SlideProductRepresentation: React.FC<SlideProductRepresentationProp
                   </figure>
                 </Box>
                 <Box className="product-area">
-                  <ProductCatalogRepresentation
-                    product={prod}
-                    variantViewPort={'mobile'}
-                  />
+                  <ProductInfo product={prod} variantViewPort={'mobile'} />
                 </Box>
               </Box>
             </SwiperSlide>

@@ -28,6 +28,7 @@ export const useProductPlansTabs = (
                 content: plan.name,
                 active: isCurrentPlan(plan.id),
                 handleClick: () => setUserPlan(plan.id),
+                color: plan.color,
               } as TabOption)
           )
         : [],

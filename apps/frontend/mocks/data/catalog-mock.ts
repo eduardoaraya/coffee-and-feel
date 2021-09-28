@@ -7,6 +7,7 @@ export const plansData = [
     priceTotal: 'R$ 17,90',
     price: 'R$ 24,90',
     porcent: 0.1,
+    color: '#BBB',
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const plansData = [
     priceTotal: 'R$ 37,90',
     price: 'R$ 49,90',
     porcent: 0.15,
+    color: '#704241',
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const plansData = [
     priceTotal: 'R$ 53,90',
     price: 'R$ 60,90',
     porcent: 0.2,
+    color: '#362d26	',
   },
 ];
 

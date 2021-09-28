@@ -1,10 +1,8 @@
 import { useRouter } from 'next/router';
-import {
-  ProductCatalogRepresentation,
-  ProductInterface,
-} from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
 import { Box } from '@material-ui/core';
 import style from './style';
+import { ProductInfo } from '@atlascode/coffee-front-components';
+import ProductInterface from '../Contracts/ProductInterface';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ProductCatalogItemProps {
@@ -27,7 +25,7 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
           <img src="/imgs/product-sample1.png" alt="Product name" />
         </figure>
       </Box>
-      <ProductCatalogRepresentation
+      <ProductInfo
         product={product}
         variantViewPort={variantView}
         className="product-info"

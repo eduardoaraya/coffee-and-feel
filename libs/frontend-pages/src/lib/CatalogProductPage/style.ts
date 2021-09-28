@@ -80,6 +80,19 @@ export default () =>
           '.product-price-total': {
             fontSize: '1.7em',
           },
+
+          '&.product-actions': {
+            button: {
+              padding: '10px 25px',
+              display: 'flex',
+              justifyContent: 'space-between',
+              svg: {
+                marginRight: '10px',
+                width: '30px',
+                height: '30px',
+              },
+            },
+          },
         },
       },
     },
@@ -167,27 +180,52 @@ export default () =>
         zIndex: 2,
         margin: '0 auto',
         '.MuiPaper-root': {
-          boxShadow: '2px 2px 5px 1px rgba(52, 52, 52, 0.2)',
-          '&.Mui-expanded': {},
+          padding: 0,
+          boxShadow: '2px 2px 7px -3px rgba(52, 52, 52, 0.2)',
+          '.MuiButtonBase-root': {
+            borderBottom: '0.2px solid #DDD',
+          },
+          '&.Mui-expanded': {
+            '.accordion-item-title': {
+              '.MuiSvgIcon-root': {
+                transform: 'rotate(180deg)',
+              },
+            },
+          },
           '.MuiTypography-root': {},
         },
         padding: {
-          md: '105px 120px',
+          md: '105px 95px',
           xs: '75px 0px',
         },
         '.accordion-item-title, .accordion-item-content': {
           maxWidth: '850px',
           margin: '0 auto',
           width: '100%',
+          padding: '10px 10px',
         },
         '.accordion-item-title': {
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          '.MuiSvgIcon-root': {
+            transition: '.3s',
+            width: {
+              md: '40px',
+              xs: '20px',
+            },
+            height: {
+              md: '40px',
+              xs: '20px',
+            },
+          },
           '.MuiTypography-root': {
-            padding: '10px 0',
             fontWeight: 'bold',
             color: '#323232',
           },
         },
         '.accordion-item-content': {
+          paddingTop: '45px',
           '.MuiTypography-root': {
             marginBottom: '60px',
             lineHeight: '32px',

@@ -1,6 +1,6 @@
 import { IconButton, Paper } from '@material-ui/core';
 import { Add, Remove } from '@material-ui/icons';
-import { Box } from '@material-ui/system';
+import { alpha, Box } from '@material-ui/system';
 import { useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -28,7 +28,8 @@ export const CounterInput: React.FC<CounterInputProps> = ({
   return (
     <Box
       sx={{
-        boxShadow: 3,
+        boxShadow: (theme) =>
+          `0 1px 3px 0 ${alpha(theme.palette.secondary.main, 0.16)}`,
         display: 'flex',
         width: 'auto',
         justifyContent: 'center',

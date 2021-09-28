@@ -1,8 +1,7 @@
 import { Box } from '@material-ui/core';
-import ProductCatalogRepresentation, {
-  ProductInterface,
-} from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import ProductInterface from '../Catalog/Contracts/ProductInterface';
+import { ProductInfo } from '@atlascode/coffee-front-components';
 import style from './style';
 
 /* eslint-disable-next-line */
@@ -29,10 +28,7 @@ export const MobileSlideProductRepresentation: React.FC<MobileSlideProductRepres
                   </figure>
                 </Box>
                 <Box className="product-area">
-                  <ProductCatalogRepresentation
-                    product={prod}
-                    variantViewPort="mobile"
-                  />
+                  <ProductInfo product={prod} variantViewPort="mobile" />
                 </Box>
               </Box>
             </Box>

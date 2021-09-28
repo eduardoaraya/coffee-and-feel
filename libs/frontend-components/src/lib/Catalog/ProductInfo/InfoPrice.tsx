@@ -1,16 +1,13 @@
-import {
-  ProductInterface,
-  ProductPlans,
-} from '@atlascode/coffee-front-components';
-import { UseProductPlansTabsInterface } from '@atlascode/coffee-frontend-hooks';
+import { ProductPlans } from '@atlascode/coffee-front-components';
 import { Box, Typography } from '@material-ui/core';
+import ProductInterface from '../Contracts/ProductInterface';
 
 export const InfoPrice = ({
   product,
-  isCurrentPlan,
+  isActive,
 }: {
   product?: ProductInterface;
-  isCurrentPlan?: UseProductPlansTabsInterface['isCurrentPlan'];
+  isActive?: (id: number) => boolean;
 }) =>
   product && product.plans.length > 0
     ? product.plans.map((plan: ProductPlans) => (
@@ -48,7 +45,7 @@ export const InfoPrice = ({
           }}
           key={plan.id}
           className={`product-price-area ${
-            isCurrentPlan && isCurrentPlan(plan.id) ? 'active' : ''
+            isActive && isActive(plan.id) ? 'active' : ''
           }`}
         >
           <Box className="product-price-descount-info">
