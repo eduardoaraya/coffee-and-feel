@@ -15,8 +15,8 @@ export function SubscriptionPageSecondSVG({
       viewBox="0 0 220 164"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      component={component}
       {...rest}
+      component={component}
     >
       <path d="M220 144.056H0V144.166H220V144.056Z" fill="#E0E0E0" />
       <path
@@ -470,7 +470,7 @@ export function SubscriptionPageSecondSVG({
           fill="black"
         />
       </g>
-      <g style={'mix-blend-mode:multiply' as any}>
+      <g style={{ mixBlendMode: 'multiply' }}>
         <path
           d="M155.783 79.3105L158.639 69.9121L160.258 79.3105H155.783Z"
           fill="#8953E3"
