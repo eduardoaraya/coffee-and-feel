@@ -1,3 +1,5 @@
+export * from './lib/CircleIconButton/CircleIconButton';
+export * from './lib/TestimonialSlider/TestimonialSlider';
 export * from './lib/TabPanel/TabPanel';
 export * from './lib/SubscriptionPageBenefitsDesktop/SubscriptionPageBenefitsDesktop';
 export * from './lib/SubscriptionPageBenefitsMobile/SubscriptionPageBenefitsMobile';
