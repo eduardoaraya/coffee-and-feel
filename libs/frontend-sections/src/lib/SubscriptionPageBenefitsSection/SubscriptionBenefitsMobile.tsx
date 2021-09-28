@@ -2,10 +2,7 @@
 import { Box, BoxProps } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Swiper } from 'swiper/react';
-import {
-  SwiperGenericWrapperProps,
-  SwiperGenericWrapper,
-} from '@atlascode/coffee-frontend-utility';
+import { SwiperGenericWrapper } from '@atlascode/coffee-frontend-utility';
 import { SubscriptionPageBenefitCard } from '@atlascode/coffee-front-components';
 import {
   CoffeeBagSVG,
@@ -56,8 +53,3 @@ const styles = AtlasStylesheet.create({
     },
   },
 });
-
-const defaultSwiperProps: SubscriptionBenefitsMobileProps['SwiperProps'] = {
-  slidesPerView: 1.5,
-  loop: false,
-};

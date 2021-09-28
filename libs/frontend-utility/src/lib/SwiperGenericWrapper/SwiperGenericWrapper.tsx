@@ -19,7 +19,7 @@ export type SwiperGenericWrapperProps<C> = {
   list?: C[];
   SwiperProps?: Omit<SwiperOptions, 'width' | 'height'>;
   sx?: Omit<BoxProps['sx'], 'width'>;
-  swiperModules?: SwiperComponent[];
+  modules?: SwiperComponent[];
 };
 /**
  *
@@ -33,13 +33,13 @@ export const SwiperGenericWrapper = <T extends {}>({
   component: Component,
   SwiperProps,
   list = [],
-  swiperModules = defaultSwiperModules,
+  modules = [],
   sx,
 }: SwiperGenericWrapperProps<T>) => {
-  React.useMemo(() => SwiperCore.use([...swiperModules!]), [swiperModules]);
+  React.useMemo(() => SwiperCore.use([...modules]), [modules]);
 
   return (
-    <Box navigation pagination sx={sx} component={Swiper} {...SwiperProps}>
+    <Box sx={sx} component={Swiper} {...SwiperProps}>
       {list.map((value, index) => {
         return (
           <SwiperSlide key={index}>
@@ -55,4 +55,4 @@ export default SwiperGenericWrapper;
 
 const defaultSwiperModules: SwiperGenericWrapperProps<
   React.FC<unknown>
->['swiperModules'] = [Navigation, Pagination, Autoplay] as SwiperComponent[];
+>['modules'] = [Pagination] as SwiperComponent[];
