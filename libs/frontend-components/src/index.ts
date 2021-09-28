@@ -1,3 +1,5 @@
+export * from './lib/TabPanel/TabPanel';
+export * from './lib/SubscriptionPageBenefitsDesktop/SubscriptionPageBenefitsDesktop';
 export * from './lib/SubscriptionPageBenefitsMobile/SubscriptionPageBenefitsMobile';
 export * from './lib/CustomButtonGroup/CustomButtonGroup';
 export * from './lib/CustomDialog/CustomDialog';
