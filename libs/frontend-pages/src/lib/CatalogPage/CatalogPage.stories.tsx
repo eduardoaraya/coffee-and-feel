@@ -1,4 +1,7 @@
-import { BannerProps } from '@atlascode/coffee-front-components';
+import {
+  BannerProps,
+  LayoutEcommerce,
+} from '@atlascode/coffee-front-components';
 import { Story, Meta } from '@storybook/react';
 import { CatalogPage, CatalogPageProps } from './CatalogPage';
 
@@ -20,6 +23,19 @@ const BannerList: BannerProps['items'] = [
 export default {
   component: CatalogPage,
   title: 'CatalogPage',
+  parameters: {
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'brazilDesktop1',
+    },
+  },
+  decorators: [
+    (Story) => (
+      <LayoutEcommerce>
+        <Story />
+      </LayoutEcommerce>
+    ),
+  ],
 } as Meta;
 
 const Template: Story<CatalogPageProps> = (args) => <CatalogPage {...args} />;

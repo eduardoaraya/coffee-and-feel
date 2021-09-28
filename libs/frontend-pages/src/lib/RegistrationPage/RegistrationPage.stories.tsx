@@ -1,3 +1,4 @@
+import { LayoutEcommerce } from '@atlascode/coffee-front-components';
 import { Story, Meta } from '@storybook/react';
 import { RegistrationPage, RegistrationPageProps } from './RegistrationPage';
 
@@ -6,7 +7,17 @@ export default {
   title: 'RegistrationPage',
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'brazilDesktop1',
+    },
   },
+  decorators: [
+    (Story) => (
+      <LayoutEcommerce>
+        <Story />
+      </LayoutEcommerce>
+    ),
+  ],
   argTypes: {
     activeIndex: {
       control: {

@@ -15,7 +15,7 @@ export type BannerItem = {
 };
 
 export interface BannerProps extends BoxProps {
-  SwiperProps?: SwiperOptions;
+  SwiperProps?: Swiper;
   items?: BannerItem[];
 }
 
@@ -27,13 +27,7 @@ export const Banner = ({
 }: BannerProps) => {
   return (
     <Box sx={{ ...style.wrapper, ...sx }} {...rest}>
-      <Swiper
-        {...SwiperProps}
-        slidesPerView={1}
-        loop={true}
-        autoplay={true}
-        pagination={{ clickable: true }}
-      >
+      <Swiper {...{ ...defaultSwiperProps, ...SwiperProps }}>
         {items.map((banner, index) => (
           <SwiperSlide key={index}>
             <Box sx={style.banner(banner)} />
@@ -45,3 +39,10 @@ export const Banner = ({
 };
 
 export default Banner;
+
+const defaultSwiperProps: BannerProps['SwiperProps'] = {
+  slidesPerView: 1,
+  loop: true,
+  autoplay: true,
+  pagination: { clickable: true },
+};

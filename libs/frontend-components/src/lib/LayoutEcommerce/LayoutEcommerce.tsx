@@ -17,7 +17,7 @@ const style: SxProps<Theme> = {
       position: 'relative',
       minHeight: '100vh',
       overflow: 'hidden',
-      paddingTop: '105px',
+      paddingTop: { xs: '115px', lg: '131px' },
       height: '100%',
       width: '100%',
       display: 'flex',

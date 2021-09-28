@@ -38,7 +38,7 @@ export function RegistrationPage({
   );
 
   return (
-    <Box id="root-grid">
+    <Box className="page" id="root-grid">
       <Box
         sx={{
           width: '100%',

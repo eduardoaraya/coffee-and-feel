@@ -21,6 +21,7 @@ export default {
     '.swiper-container': {
       overflow: 'hidden',
       '.swiper-pagination': {
+        position: 'absolute',
         bottom: '-40px',
         '&.swiper-pagination-bullets': {
           '.swiper-pagination-bullet': {
