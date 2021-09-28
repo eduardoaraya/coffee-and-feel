@@ -10,6 +10,13 @@ export class ProductService {
       .get<ProductInterface[]>('catalog', {});
     return data;
   }
+
+  async getProductBySku(sku: string) {
+    const { data } = await this.provider
+      .getClient()
+      .get<ProductInterface>('catalog/product/' + sku, {});
+    return data;
+  }
 }
 
 export const getInstanceService = () => new ProductService(provider);

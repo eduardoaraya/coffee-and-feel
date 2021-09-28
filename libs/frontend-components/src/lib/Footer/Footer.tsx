@@ -20,8 +20,8 @@ export const Footer: React.FC<FooterProps> = (props): JSX.Element => (
           >
             Navegação
           </Typography>
-          {menuItems.map((item) => (
-            <Box className="item">
+          {menuItems.map((item, key) => (
+            <Box className="item" key={key}>
               <Link href={item.path}>
                 <a>{item.name}</a>
               </Link>

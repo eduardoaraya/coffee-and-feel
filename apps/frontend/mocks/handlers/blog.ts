@@ -12,7 +12,6 @@ export const findOneBlog = () =>
     const data = blogData.filter((value, index) => {
       return (value.id = id);
     });
-    console.log(data);
     return res(ctx.status(200), ctx.json({ ...data[0] }));
   });
 

@@ -154,9 +154,9 @@ export const HomePage: React.FC<HomePageProps> = (props): JSX.Element => {
         ></MobileSlideProductRepresentation>
       </Container>
       <SubscriptionClubDetailsSection />
-      <CallInstagramSection />
-      <NewsletterSection />
       <LastPostsSection />
+      <NewsletterSection />
+      <CallInstagramSection />
     </Box>
   );
 };
