@@ -1,3 +1,4 @@
+export * from './lib/SubscriptionBenefitsListCard/SubscriptionBenefitsListCard';
 export * from './lib/SubscriptionItem/SubscriptionItem';
 export * from './lib/PaginationDots/PaginationDots';
 export * from './lib/SubscriptionAttributeCard/SubscriptionAttributeCard';
