@@ -1,20 +1,20 @@
 import { Box, BoxProps, Container } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import {
-  ControlledAccordionProps,
-  ControlledAccordions,
-} from './AccordionGroup';
+  AccordionGroup,
+  AccordionGroupProps,
+} from '@atlascode/coffee-front-components';
 
 /* eslint-disable-next-line */
 export interface FAQSectionProps
   extends BoxProps,
-    Pick<ControlledAccordionProps, 'accordions'> {}
+    Pick<AccordionGroupProps, 'accordions'> {}
 
 export function FAQSection({ sx, accordions = [], ...rest }: FAQSectionProps) {
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       <Container sx={styles.container} maxWidth="lg">
-        <ControlledAccordions accordions={accordions} />
+        <AccordionGroup accordions={accordions} />
       </Container>
     </Box>
   );

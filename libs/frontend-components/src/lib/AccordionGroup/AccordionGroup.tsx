@@ -1,9 +1,11 @@
 import React from 'react';
 import { Box, BoxProps } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import AccordionSingle, { AccordionSingleProps } from './AccordionSingle';
+import AccordionSingle, {
+  AccordionSingleProps,
+} from '../AccordionSingle/AccordionSingle';
 
-export type ControlledAccordionProps = BoxProps & {
+export type AccordionGroupProps = BoxProps & {
   accordions: Array<
     AccordionSingleProps & {
       expanded?: boolean;
@@ -12,11 +14,11 @@ export type ControlledAccordionProps = BoxProps & {
   >;
 };
 
-export const ControlledAccordions = ({
+export const AccordionGroup = ({
   sx,
   accordions = [],
   ...rest
-}: ControlledAccordionProps) => {
+}: AccordionGroupProps) => {
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       {accordions.map(

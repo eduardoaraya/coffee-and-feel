@@ -1,3 +1,5 @@
+export * from './lib/AccordionGroup/AccordionGroup';
+export * from './lib/AccordionSingle/AccordionSingle';
 export * from './lib/TextRevealAnimation/TextRevealAnimation';
 export * from './lib/CircleIconButton/CircleIconButton';
 export * from './lib/TestimonialSlider/TestimonialSlider';
