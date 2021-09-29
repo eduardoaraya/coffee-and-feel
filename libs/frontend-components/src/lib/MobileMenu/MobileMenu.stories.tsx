@@ -7,12 +7,23 @@ export default {
   parameters: {
     layout: 'fullscreen',
     viewport: {
-      defaultViewport: 'brazilDesktop1',
+      defaultViewport: 'brazilPhone1',
     },
   },
 } as Meta;
 
 const Template: Story<MobileMenuProps> = (args) => <MobileMenu {...args} />;
 
+const mockHandler = () => console.log('I was clicked');
+
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  open: true,
+  items: [
+    { label: 'Minha conta', action: mockHandler },
+    { label: 'Sobre nós', action: mockHandler },
+    { label: 'Clube de assinatura', action: mockHandler },
+    { label: 'Produtos', action: mockHandler },
+    { label: 'Blog', action: mockHandler },
+  ],
+};

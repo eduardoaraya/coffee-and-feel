@@ -1,3 +1,4 @@
+export * from './lib/CoffeeAndFeelLogoSVG/CoffeeAndFeelLogoSVG';
 export * from './lib/DiscountSVG/DiscountSVG';
 export * from './lib/DeliveryTimeSVG/DeliveryTimeSVG';
 export * from './lib/CoffeeBagSVG/CoffeeBagSVG';

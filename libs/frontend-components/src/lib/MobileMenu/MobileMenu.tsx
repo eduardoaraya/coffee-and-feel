@@ -1,15 +1,192 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import { Box, BoxProps } from '@material-ui/core';
+import {
+  Box,
+  BoxProps,
+  SwipeableDrawer,
+  Drawer,
+  Paper,
+  Button,
+  IconButton,
+  ButtonProps,
+} from '@material-ui/core';
+import { alpha } from '@material-ui/system';
+import { Close } from '@material-ui/icons';
 
-/* eslint-disable-next-line */
-export interface MobileMenuProps extends BoxProps {}
+type MobileMenuHandler = (...args: unknown[]) => void;
+type MobileMenuItem = {
+  label: string;
+  action: MobileMenuHandler;
+};
+type Image = {
+  src: string;
+  alt?: string;
+};
 
-export function MobileMenu({ sx, ...rest }: MobileMenuProps) {
-  return <Box sx={{ ...styles.root, ...sx }} {...rest}></Box>;
+export interface MobileMenuProps extends BoxProps<typeof Drawer> {
+  items: MobileMenuItem[];
+  primaryAction?: ButtonProps;
+  secondaryAction?: ButtonProps;
+  logo?: Image;
+}
+
+export function MobileMenu({
+  sx,
+  anchor = 'right',
+  logo = {
+    src: 'logo.svg',
+    alt: 'Coffee And Feel - Logo',
+  },
+  items = [],
+  primaryAction,
+  secondaryAction,
+  ...rest
+}: MobileMenuProps) {
+  return (
+    <Box
+      anchor={anchor}
+      sx={{ ...styles.root, ...sx }}
+      component={SwipeableDrawer}
+      {...rest}
+    >
+      <Box id="menu-paper" sx={styles.paper} elevation={0} component={Paper}>
+        <Box sx={styles.paperInner}>
+          <Box sx={styles.paperHeader}>
+            <Box sx={styles.paperHeaderGrid}>
+              <Box sx={styles.logoContainer}>
+                <Box
+                  sx={styles.logo}
+                  src={logo.src}
+                  alt={logo.alt}
+                  component={'img'}
+                />
+              </Box>
+              <Box sx={styles.closeButtonContainer}>
+                <IconButton sx={styles.closeButton}>
+                  <Close />
+                </IconButton>
+              </Box>
+            </Box>
+          </Box>
+
+          <Box sx={styles.paperBody}>
+            <Box sx={styles.itemsContainer}>
+              {items.map(({ action, label }, index) => {
+                return (
+                  <Button
+                    onClick={action}
+                    sx={styles.item}
+                    key={index}
+                    variant="text"
+                    color="primary"
+                  >
+                    {label}
+                  </Button>
+                );
+              })}
+            </Box>
+
+            <Box sx={styles.actionsContainer}>
+              <Button
+                {...primaryAction}
+                sx={styles.primaryAction}
+                variant="contained"
+                color="primary"
+              >
+                Conhecer o clube
+              </Button>
+
+              <Button
+                {...secondaryAction}
+                sx={styles.secondaryAction}
+                variant="text"
+                color="secondary"
+              >
+                Ir para a loja
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
 }
 
 export default MobileMenu;
 
 const styles = AtlasStylesheet.create({
-  root: {},
+  root: {
+    fontSize: '10px',
+  },
+  paper: {
+    width: { xs: '31em', sm: '50em' },
+    overflowX: 'hidden',
+    height: { xs: '100%' },
+  },
+  paperHeader: {
+    height: { xs: '6em' },
+    width: { xs: '100%' },
+    borderBottom: (theme) =>
+      `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+  },
+  paperHeaderGrid: {
+    display: 'flex',
+    width: '100%',
+    height: '100%',
+  },
+  paperInner: {
+    height: '100%',
+  },
+  paperBody: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+  },
+  itemsContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    py: { xs: '7em' },
+  },
+  item: {
+    borderRadius: { xs: '6px' },
+    fontWeight: 800,
+    color: '#333',
+
+    ':hover': {
+      color: (theme) => theme.palette.primary.main,
+    },
+  },
+  logo: {
+    width: 'auto',
+    height: '100%',
+  },
+  logoContainer: {
+    width: '100%',
+    height: '100%',
+    padding: { xs: '1.5em' },
+    flexBasis: '40%',
+  },
+  closeButtonContainer: {
+    flexBasis: '60%',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    pr: { xs: '1.5em' },
+  },
+  closeButton: {
+    color: '#323232',
+  },
+  actionsContainer: {
+    display: 'flex',
+    flexGrow: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    rowGap: { xs: '2em' },
+  },
+  primaryAction: {
+    width: 'fit-content',
+  },
+  secondaryAction: {
+    borderRadius: { xs: '6px' },
+  },
 });
