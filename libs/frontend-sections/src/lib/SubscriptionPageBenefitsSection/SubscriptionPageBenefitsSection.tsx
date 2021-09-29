@@ -11,6 +11,7 @@ import {
   SubscriptionPageBenefitsDesktop,
   SubscriptionPageBenefitsMobile,
 } from '@atlascode/coffee-front-components';
+import { MotionBox } from '@atlascode/coffee-frontend-utility';
 
 type BenefitCategory = {
   categoryLabel: string;
@@ -50,16 +51,30 @@ export function SubscriptionPageBenefitsSection({
 
         {benefits.map(({ benefits, categoryLabel }, index) => {
           return (
-            <TabPanel key={index} index={index} value={value}>
-              <SubscriptionPageBenefitsDesktop
-                sx={styles.benefitDesktop}
-                items={benefits}
-              />
-              <SubscriptionPageBenefitsMobile
-                sx={styles.benefitMobile}
-                items={benefits}
-              />
-            </TabPanel>
+            index === value && (
+              <MotionBox
+                initial="hidden"
+                animate="visible"
+                key={index}
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                  },
+                  visible: {
+                    opacity: 1,
+                  },
+                }}
+              >
+                <SubscriptionPageBenefitsDesktop
+                  sx={styles.benefitDesktop}
+                  items={benefits}
+                />
+                <SubscriptionPageBenefitsMobile
+                  sx={styles.benefitMobile}
+                  items={benefits}
+                />
+              </MotionBox>
+            )
           );
         })}
       </Container>

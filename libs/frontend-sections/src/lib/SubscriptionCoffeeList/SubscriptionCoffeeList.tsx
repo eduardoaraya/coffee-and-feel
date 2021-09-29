@@ -4,6 +4,7 @@ import {
   SubscriptionSliderProps,
   TabPanel,
 } from '@atlascode/coffee-front-components';
+import { MotionBox } from '@atlascode/coffee-frontend-utility';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps, Container, Typography } from '@material-ui/core';
 import React from 'react';
@@ -43,7 +44,28 @@ export function SubscriptionCoffeeList({
         </Box>
 
         {plans.map(({ categoryLabel, ...plan }, index) => {
-          return index === value && <SubscriptionSlider {...plan} />;
+          return (
+            index === value && (
+              <MotionBox
+                key={index}
+                animate={'visible'}
+                initial="hidden"
+                variants={{
+                  visible: {
+                    opacity: 1,
+                  },
+                  hidden: {
+                    opacity: 0,
+                  },
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+              >
+                <SubscriptionSlider {...plan} />
+              </MotionBox>
+            )
+          );
         })}
       </Container>
     </Box>
@@ -67,6 +89,7 @@ const styles = AtlasStylesheet.create({
   title: {
     fontSize: { xs: '2em', lg: '3em' },
     fontWeight: 'bold',
+    textAlign: { xs: 'center', lg: 'start' },
   },
 
   buttonGroupContainer: {},
