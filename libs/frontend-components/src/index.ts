@@ -1,3 +1,4 @@
+export * from './lib/PaginationDots/PaginationDots';
 export * from './lib/SubscriptionAttributeCard/SubscriptionAttributeCard';
 export * from './lib/SubscriptionSlider/SubscriptionSlider';
 export * from './lib/CarbonSlider/CarbonSlider';
