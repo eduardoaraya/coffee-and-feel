@@ -30,7 +30,7 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
         product={product}
         variantViewPort={variantView}
         className="product-info"
-        handleClickDetailsButton={(_) =>
+        handleClickDetailsButton={() =>
           router.push(`catalog/product/${product?.sku}`)
         }
       />
