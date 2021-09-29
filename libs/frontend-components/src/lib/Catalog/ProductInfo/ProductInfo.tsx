@@ -20,7 +20,7 @@ export interface ProductInfoProps {
   variantViewPort?: variantView;
   className?: string;
   product?: ProductInterface;
-  handleClickDetailsButton?: MouseEventHandler<HTMLAnchorElement>;
+  handleClickDetailsButton?: () => void;
 }
 
 const getSizeButton = (
@@ -81,6 +81,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
           variant="outlined"
           size={getSizeButton(variantViewPort)}
           color="primary"
+          onClick={() => handleClickDetailsButton && handleClickDetailsButton()}
         >
           Detalhes
         </Button>

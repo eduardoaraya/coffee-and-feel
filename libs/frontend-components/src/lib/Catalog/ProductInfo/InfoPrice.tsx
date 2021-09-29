@@ -5,11 +5,21 @@ import ProductInterface from '../Contracts/ProductInterface';
 export const InfoPrice = ({
   product,
   isActive,
+  amount = 0,
 }: {
   product?: ProductInterface;
   isActive?: (id: number) => boolean;
-}) =>
-  product && product.plans.length > 0
+  amount?: number;
+}) => {
+  const compute = (priceTotal: string, amount: number) => {
+    const totalMatch = priceTotal.match(/\d+/g);
+    if (!totalMatch) return priceTotal;
+    if (totalMatch.length < 2) return priceTotal;
+    const total = (+totalMatch.join('') / 100) * amount;
+    return `R$ ${total.toFixed(2).replace('.', ',')}`;
+  };
+
+  return product && product.plans.length > 0
     ? product.plans.map((plan: ProductPlans) => (
         <Box
           sx={{
@@ -61,10 +71,11 @@ export const InfoPrice = ({
             </Typography>
           </Box>
           <Typography component="span" className="product-price">
-            {plan.priceTotal}
+            {amount ? compute(plan.priceTotal, amount) : plan.priceTotal}
           </Typography>
         </Box>
       ))
     : [];
+};
 
 export default InfoPrice;

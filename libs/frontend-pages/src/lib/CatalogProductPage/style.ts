@@ -13,6 +13,10 @@ export default () =>
       position: 'absolute',
       backgroundRepeat: 'no-repeat',
       background: '#FFF',
+      display: {
+        md: 'block',
+        xs: 'none',
+      },
       '&.right': {
         width: '259.5px',
         height: '396.91px',
@@ -40,8 +44,13 @@ export default () =>
       },
       '.product-image, .product-info': {
         flex: 1,
-        maxWidth: '500px',
-        minWidth: '300px',
+        width: '100%',
+        maxWidth: {
+          md: '500px',
+          xs: '100%',
+        },
+
+        minWidth: '305px',
         margin: '0 auto',
         display: 'flex',
         flexDirection: 'column',
@@ -52,26 +61,52 @@ export default () =>
         figure: {
           height: '100%',
           width: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           img: {
             width: '100%',
+            maxWidth: {
+              xs: '300px',
+            },
           },
         },
       },
       '.product-info': {
+        margin: '0 auto',
+
         paddingLeft: {
           xs: 0,
+        },
+        padding: {
+          xs: '0 20px',
         },
         alignSelf: 'center',
         h1: {
           maxWidth: '280px',
+          fontSize: {
+            md: '1.8em',
+            xs: '2.65em',
+          },
         },
         '.product-info-row': {
           marginBottom: '25px',
-          maxWidth: '260px',
+          display: {
+            md: 'block',
+            xs: 'flex',
+          },
+          justifyContent: {
+            xs: 'center',
+          },
+          alignItems: {
+            xs: 'center',
+          },
+          maxWidth: {
+            md: '260px',
+            xs: '100%',
+          },
           '&.product-price': {
-            // display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
+            flexDirection: 'column',
           },
           '.product-amount': {
             display: 'flex',
@@ -104,7 +139,7 @@ export default () =>
         transform: {
           lg: 'translate3d(0, calc(-319px/2), 0)',
           md: 'translate3d(0, calc(-419px/2), 0)',
-          xs: 'translate3d(0, 0, 0)',
+          xs: 'translate3d(0, -120px, 0)',
         },
       },
       '.product-attributes-bg': {
@@ -113,11 +148,11 @@ export default () =>
         height: {
           lg: '319px',
           md: '419px',
-          xs: 'auto',
+          xs: 'calc(100%-150px)',
         },
         marginTop: {
           md: '105px',
-          xs: '45px',
+          xs: '145px',
         },
       },
       '.product-attribute-row': {

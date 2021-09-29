@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   TabGroup,
   WavyBackground,
@@ -75,6 +76,7 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = ({
   product,
 }): JSX.Element => {
   const { tabs, isCurrentPlan } = useProductPlansTabs(product);
+  const [amountProduct, setAmountProduct] = useState<number>(0);
 
   return (
     <Box className="page page-catalog-product" sx={getDefaultStyle()}>
@@ -92,14 +94,15 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = ({
             <TabGroup className="product-info-row" tabs={tabs} />
             <Box className="product-info-row product-price">
               <Box className="product-price-total">
-                {InfoPrice({ product, isActive: isCurrentPlan })}
+                {InfoPrice({
+                  product,
+                  isActive: isCurrentPlan,
+                  amount: amountProduct,
+                })}
               </Box>
               <Box className="product-amount">
-                <CounterInput />
+                <CounterInput change={(value) => setAmountProduct(value)} />
               </Box>
-              {/* <Typography color="primary" className="product-price-total">
-                R$ 17,50
-              </Typography> */}
             </Box>
             <Box className="product-info-row product-actions">
               <Button variant="contained" size="medium" color="primary">
