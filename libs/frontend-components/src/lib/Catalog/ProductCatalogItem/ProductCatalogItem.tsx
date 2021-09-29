@@ -1,9 +1,9 @@
 // import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { Box } from '@material-ui/core';
-import style from './style';
 import { ProductInfo } from '@atlascode/coffee-front-components';
 import ProductInterface from '../Contracts/ProductInterface';
-import { useRouter } from 'next/router';
+import style from './style';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ProductCatalogItemProps {
@@ -39,6 +39,3 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
 };
 
 export default ProductCatalogItem;
-function useRouter() {
-  throw new Error('Function not implemented.');
-}
