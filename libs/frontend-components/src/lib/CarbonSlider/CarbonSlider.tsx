@@ -6,11 +6,13 @@ import {
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { BoxProps, Box } from '@material-ui/core';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
+import React from 'react';
 /* eslint-disable-next-line */
 export interface CarbonSliderProps<C> extends BoxProps {
   component: SwiperGenericWrapperProps<C>['component'];
   list: C[];
   SwiperProps?: SwiperGenericWrapperProps<C>['SwiperProps'];
+  uniqueID: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -20,6 +22,7 @@ export function CarbonSlider<T extends {}>({
   component,
   list,
   SwiperProps,
+  uniqueID,
   ...rest
 }: CarbonSliderProps<T>) {
   return (
@@ -29,7 +32,11 @@ export function CarbonSlider<T extends {}>({
           list={list}
           component={component}
           SwiperProps={{
-            navigation: { nextEl: '#next-go', prevEl: '#prev-go' },
+            containerModifierClass: uniqueID,
+            navigation: {
+              nextEl: `#${uniqueID}-next`,
+              prevEl: `#${uniqueID}-prev`,
+            },
             ...SwiperProps,
           }}
         />
@@ -37,7 +44,7 @@ export function CarbonSlider<T extends {}>({
 
       <CircleIconButton
         elevation={3}
-        id="prev-go"
+        id={`${uniqueID}-prev`}
         icon={ChevronLeft}
         sx={{ ...styles.backwardsButton, ...styles.button }}
         size="small"
@@ -46,7 +53,7 @@ export function CarbonSlider<T extends {}>({
 
       <CircleIconButton
         elevation={3}
-        id="next-go"
+        id={`${uniqueID}-next`}
         icon={ChevronRight}
         sx={{ ...styles.forwardButton, ...styles.button }}
         size="small"

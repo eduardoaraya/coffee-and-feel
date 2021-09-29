@@ -20,7 +20,7 @@ export const TabPanel = ({
   return (
     <MotionBox
       initial="hidden"
-      animate={index === value ? 'visible' : 'hidden'}
+      animate={value === index ? 'visible' : 'hidden'}
       variants={{
         hidden: { opacity: 0, visibility: 'hidden', display: 'none' },
         visible: {

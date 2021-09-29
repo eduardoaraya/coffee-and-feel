@@ -1,7 +1,7 @@
 import {
   CustomButtonGroup,
-  SubscriptionBenefitsListCard,
-  SubscriptionBenefitsListCardProps,
+  SubscriptionSlider,
+  SubscriptionSliderProps,
   TabPanel,
 } from '@atlascode/coffee-front-components';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
@@ -10,26 +10,24 @@ import React from 'react';
 
 type PlanCategory = {
   categoryLabel: string;
-  plan: SubscriptionBenefitsListCardProps[];
-};
+} & SubscriptionSliderProps;
 
-/* eslint-disable-next-line */
-export interface SubscriptionBenefitsListSectionProps extends BoxProps {
+export interface SubscriptionCoffeeListProps extends BoxProps {
   plans: PlanCategory[];
 }
 
-export function SubscriptionBenefitsListSection({
+export function SubscriptionCoffeeList({
   sx,
-  plans = [],
+  plans,
   ...rest
-}: SubscriptionBenefitsListSectionProps) {
+}: SubscriptionCoffeeListProps) {
   const [value, setValue] = React.useState<number>(0);
 
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
-      <Container sx={styles.container}>
-        <Typography sx={styles.title} variant="h2">
-          Escolha o melhor plano para você.
+      <Container maxWidth="lg" sx={styles.container}>
+        <Typography variant="h2" sx={styles.title}>
+          Cafés disponíveis em cada assinatura
         </Typography>
 
         <Box sx={styles.buttonGroupContainer}>
@@ -44,7 +42,7 @@ export function SubscriptionBenefitsListSection({
           />
         </Box>
 
-        {plans.map(({ categoryLabel, plan }, index) => {
+        {plans.map(({ categoryLabel, ...plan }, index) => {
           return (
             <TabPanel
               sx={styles.panel}
@@ -53,14 +51,7 @@ export function SubscriptionBenefitsListSection({
               index={index}
               value={value}
             >
-              {plan.map((planProps, innerIndex) => {
-                return (
-                  <SubscriptionBenefitsListCard
-                    {...planProps}
-                    key={innerIndex}
-                  />
-                );
-              })}
+              <SubscriptionSlider {...plan} />;
             </TabPanel>
           );
         })}
@@ -69,22 +60,25 @@ export function SubscriptionBenefitsListSection({
   );
 }
 
-export default SubscriptionBenefitsListSection;
+export default SubscriptionCoffeeList;
 
 const styles = AtlasStylesheet.create({
   root: {
     fontSize: '10px',
   },
+
   container: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     gap: { xs: '3.5em' },
   },
+
   title: {
     fontSize: { xs: '2em', lg: '3em' },
     fontWeight: 'bold',
   },
+
   buttonGroupContainer: {},
   panel: {
     display: 'flex',

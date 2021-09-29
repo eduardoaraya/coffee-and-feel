@@ -36,7 +36,11 @@ export const SwiperGenericWrapper = <T extends {}>({
   modules = [],
   sx,
 }: SwiperGenericWrapperProps<T>) => {
-  React.useMemo(() => SwiperCore.use([...modules]), [modules]);
+  // React.useMemo(() => SwiperCore.use([...modules]), [modules]);
+
+  React.useEffect(() => {
+    SwiperCore.use([]);
+  }, []);
 
   return (
     <Box sx={sx} component={Swiper} {...SwiperProps}>
