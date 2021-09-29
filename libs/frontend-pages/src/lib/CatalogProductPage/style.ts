@@ -67,6 +67,7 @@ export default () =>
           img: {
             width: '100%',
             maxWidth: {
+              md: '400px',
               xs: '300px',
             },
           },
