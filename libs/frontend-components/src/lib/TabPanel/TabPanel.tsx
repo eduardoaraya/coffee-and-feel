@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
 import { BoxProps, Box } from '@material-ui/core';
 import { AnimatePresence } from 'framer-motion';
@@ -18,21 +19,23 @@ export const TabPanel = ({
   ...rest
 }: TabPanelProps) => {
   return (
-    <MotionBox
-      initial="hidden"
-      animate={value === index ? 'visible' : 'hidden'}
-      variants={{
-        hidden: { opacity: 0, visibility: 'hidden', display: 'none' },
-        visible: {
-          opacity: 1,
-          visibility: 'visible',
-          display: (display as Property.Display) ?? 'inherit',
-        },
-      }}
-      {...rest}
-    >
-      {children}
-    </MotionBox>
+    (value === index && (
+      <MotionBox
+        initial="hidden"
+        animate={'visible'}
+        variants={{
+          hidden: { opacity: 0, visibility: 'hidden', display: 'none' },
+          visible: {
+            opacity: 1,
+            visibility: 'visible',
+            display: (display as Property.Display) ?? 'inherit',
+          },
+        }}
+        {...rest}
+      >
+        {children}
+      </MotionBox>
+    )) || <Box></Box>
   );
 };
 

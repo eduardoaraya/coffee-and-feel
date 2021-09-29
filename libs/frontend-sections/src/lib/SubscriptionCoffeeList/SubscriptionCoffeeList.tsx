@@ -43,17 +43,7 @@ export function SubscriptionCoffeeList({
         </Box>
 
         {plans.map(({ categoryLabel, ...plan }, index) => {
-          return (
-            <TabPanel
-              sx={styles.panel}
-              display="flex"
-              key={index}
-              index={index}
-              value={value}
-            >
-              <SubscriptionSlider {...plan} />;
-            </TabPanel>
-          );
+          return index === value && <SubscriptionSlider {...plan} />;
         })}
       </Container>
     </Box>
