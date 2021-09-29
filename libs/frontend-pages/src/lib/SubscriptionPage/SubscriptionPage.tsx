@@ -161,10 +161,6 @@ const plansBenefits = [
     categoryLabel: 'Semestral',
     plan: [mockPlan, { ...mockPlan, title: 'Standard' }],
   },
-  {
-    categoryLabel: 'Anual',
-    plan: [mockPlan, { ...mockPlan, title: 'Standard' }],
-  },
 ];
 
 const accordions = [
@@ -199,13 +195,34 @@ export function SubscriptionPage({
     <Box className="page" sx={{ ...styles.root, ...sx }} {...rest}>
       <Container maxWidth={false} sx={styles.container}>
         <Banner {...BannerProps} />
-        <SubscriptionPageStepsSection />
-        <SubscriptionPageDefenseSection />
-        <SubscriptionPageBenefitsSection benefits={benefits} />
-        <SubscriptionCoffeeList plans={plans} />
-        <TestimonialSlider testimonials={testimonials} />
-        <SubscriptionBenefitsListSection plans={plansBenefits} />
-        <FAQSection accordions={accordions} />
+
+        <Box sx={styles.section}>
+          <SubscriptionPageStepsSection />
+        </Box>
+
+        <Box sx={styles.section}>
+          <SubscriptionPageDefenseSection />
+        </Box>
+
+        <Box sx={styles.section}>
+          <SubscriptionPageBenefitsSection benefits={benefits} />
+        </Box>
+
+        <Box sx={styles.section}>
+          <SubscriptionCoffeeList plans={plans} />
+        </Box>
+
+        <Box sx={styles.section}>
+          <TestimonialSlider testimonials={testimonials} />
+        </Box>
+
+        <Box sx={styles.section}>
+          <SubscriptionBenefitsListSection plans={plansBenefits} />
+        </Box>
+
+        <Box sx={styles.section}>
+          <FAQSection accordions={accordions} />
+        </Box>
       </Container>
     </Box>
   );
@@ -214,11 +231,17 @@ export function SubscriptionPage({
 export default SubscriptionPage;
 
 const styles = AtlasStylesheet.create({
-  root: {},
+  root: {
+    fontSize: '10px',
+  },
 
   container: {
     m: { xs: 0 },
     p: { xs: 0 },
+  },
+
+  section: {
+    py: { xs: '3em', lg: '6em' },
   },
 
   banner: {},

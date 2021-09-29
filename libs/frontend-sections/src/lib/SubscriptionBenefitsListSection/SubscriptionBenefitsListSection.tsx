@@ -93,6 +93,8 @@ const styles = AtlasStylesheet.create({
     display: 'flex',
     width: '100%',
     justifyContent: 'space-evenly',
+    flexDirection: { xs: 'column', lg: 'row' },
+    rowGap: { xs: '5em' },
   },
   panelWrapper: {
     width: '100%',

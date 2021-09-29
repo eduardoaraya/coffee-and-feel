@@ -36,7 +36,7 @@ const styles = AtlasStylesheet.create({
     height: { xs: '10.2em' },
     borderRadius: '10px',
     boxShadow: (theme) => theme.shadows[5],
-    bgcolor: '#fff',
+    backgroundColor: '#fff',
   },
 
   container: {
