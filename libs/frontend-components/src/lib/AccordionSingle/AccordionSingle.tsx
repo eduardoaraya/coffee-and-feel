@@ -18,7 +18,7 @@ export interface AccordionSingleProps extends Omit<AccordionProps, 'children'> {
 export const AccordionSingle = ({
   expanded,
   title = 'Placeholder title',
-  caption = 'This is a caption',
+  caption,
   content = 'Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget maximus est, id dignissim quam.',
   sx,
   ...rest
