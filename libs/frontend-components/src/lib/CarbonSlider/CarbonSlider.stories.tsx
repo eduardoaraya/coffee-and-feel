@@ -30,6 +30,7 @@ export default {
   ],
 } as Meta;
 
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template: Story<CarbonSliderProps<BoxProps>> = (args) => (
   <CarbonSlider {...args} />
