@@ -8,10 +8,10 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
   },
+  "include": [],
   "files": [],
-  "include": ["**/*"],
   "references": [
     {
       "path": "./tsconfig.lib.json"
@@ -24,8 +24,6 @@
     },
     {
       "path": "./.storybook/tsconfig.json"
-    },
-    
-   
+    }
   ]
 }

@@ -26,7 +26,7 @@ Primary.args = {
       attestantSocial: '@rafaela',
       src: 'https://via.placeholder.com/1500',
       testimonial:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita beatae ducimus perferendis mollitia quibusdam, commodi porro tempore similique provident earum laboriosam dolorum harum inventore fugiat, nemo ad consequuntur repellendus nihil cum magnam ipsam labore. Veritatis molestiae eligendi in reprehenderit itaque commodi, optio, dolorem earum obcaecati consectetur doloremque eius fuga suscipit?',
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita beatae ducimus perferendis mollitia quibusdam, commodi porro tempore similique provident earum laboriosam dolorum harum inventore fugiat, nemo ad consequuntur repellendus nihil cum magnam ipsam ',
     },
     {
       alt: 'alt text',
@@ -35,7 +35,7 @@ Primary.args = {
       attestantSocial: '@paulo',
       src: 'https://via.placeholder.com/2000',
       testimonial:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita beatae ducimus perferendis mollitia quibusdam, commodi porro tempore similique provident earum laboriosam dolorum harum inventore fugiat, nemo ad consequuntur repellendus nihil cum magnam ipsam labore. Veritatis molasdsasdsadastiae eligendi in reprehenderit itaque commodi, optio, dolorem earum obcaecati consectetur doloremque eius fuga suscipit?',
+        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita beatae ducimus perferendis mollitia quibusdam, commodi porro tempore similique',
     },
   ],
 };

@@ -1,3 +1,4 @@
+export * from './lib/FAQSection/FAQSection';
 export * from './lib/SubscriptionPageBenefitsSection/SubscriptionPageBenefitsSection';
 export * from './lib/SubscriptionPageDefenseSection/SubscriptionPageDefenseSection';
 export * from './lib/SubscriptionPageStepsSection/SubscriptionPageStepsSection';
