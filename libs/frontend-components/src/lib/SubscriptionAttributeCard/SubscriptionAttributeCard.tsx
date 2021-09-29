@@ -32,10 +32,11 @@ export default SubscriptionAttributeCard;
 const styles = AtlasStylesheet.create({
   root: {
     fontSize: '10px',
-    width: { xs: '12em' },
-    height: { xs: '12em' },
+    width: { xs: '10.2em' },
+    height: { xs: '10.2em' },
     borderRadius: '10px',
     boxShadow: (theme) => theme.shadows[5],
+    bgcolor: '#fff',
   },
 
   container: {
