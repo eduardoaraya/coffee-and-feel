@@ -120,6 +120,7 @@ const styles = AtlasStylesheet.create({
     rowGap: { xs: '3em' },
     flexDirection: { xs: 'column', lg: 'row' },
     alignItems: { xs: 'center', lg: 'unset' },
+    justifyContent: { lg: 'center' },
   },
 
   textContainer: {

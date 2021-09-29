@@ -106,6 +106,7 @@ const styles = AtlasStylesheet.create({
     height: '100%',
     justifyItems: { xs: 'center' },
     rowGap: { xs: '9em' },
+    position: 'relative',
   },
 
   illustration: {

@@ -7,6 +7,7 @@ import {
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps, Container, Typography } from '@material-ui/core';
 import React from 'react';
+import { MotionBox } from '@atlascode/coffee-frontend-utility';
 
 type PlanCategory = {
   categoryLabel: string;
@@ -46,22 +47,24 @@ export function SubscriptionBenefitsListSection({
 
         {plans.map(({ categoryLabel, plan }, index) => {
           return (
-            <TabPanel
-              sx={styles.panel}
-              display="flex"
-              key={index}
-              index={index}
-              value={value}
-            >
-              {plan.map((planProps, innerIndex) => {
-                return (
-                  <SubscriptionBenefitsListCard
-                    {...planProps}
-                    key={innerIndex}
-                  />
-                );
-              })}
-            </TabPanel>
+            value === index && (
+              <MotionBox
+                sx={styles.panel}
+                animate="visible"
+                initial="hidden"
+                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                key={index}
+              >
+                {plan.map((planProps, innerIndex) => {
+                  return (
+                    <SubscriptionBenefitsListCard
+                      {...planProps}
+                      key={innerIndex}
+                    />
+                  );
+                })}
+              </MotionBox>
+            )
           );
         })}
       </Container>
