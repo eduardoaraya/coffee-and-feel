@@ -1,8 +1,9 @@
+// import { useRouter } from 'next/router';
 import { useRouter } from 'next/router';
 import { Box } from '@material-ui/core';
-import style from './style';
 import { ProductInfo } from '@atlascode/coffee-front-components';
 import ProductInterface from '../Contracts/ProductInterface';
+import style from './style';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ProductCatalogItemProps {
@@ -29,7 +30,7 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
         product={product}
         variantViewPort={variantView}
         className="product-info"
-        handleClickDetailsButton={(_) =>
+        handleClickDetailsButton={() =>
           router.push(`catalog/product/${product?.sku}`)
         }
       />

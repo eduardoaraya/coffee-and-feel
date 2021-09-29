@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import {
-  ProductInterface,
-  TabOption,
-} from '@atlascode/coffee-front-components';
+import { ProductInterface } from '../Contracts/ProductInterface';
+import { TabOption } from '../../TabGroup/TabGroup';
 
 export interface UseProductPlansTabsInterface {
   tabs: TabOption[];

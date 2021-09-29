@@ -1,29 +1,21 @@
 import { IconButton, Paper } from '@material-ui/core';
 import { Add, Remove } from '@material-ui/icons';
 import { alpha, Box } from '@material-ui/system';
-import { useState } from 'react';
+import { UseCounter, UseCounterFunction } from './UseCounter';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CounterInputProps {
   change?: (value: number) => void;
+  counter?: UseCounterFunction;
 }
 
 export const CounterInput: React.FC<CounterInputProps> = ({
   change,
+  counter = UseCounter,
 }): JSX.Element => {
-  const [count, setCount] = useState(0);
-
-  const add = (): void => {
-    const total = count + 1;
-    setCount(total);
-    change && change(total);
-  };
-
-  const remove = (): void => {
-    const total = count === 0 ? 0 : count - 1;
-    setCount(total);
-    change && change(total);
-  };
+  const { add, remove, count } = counter({
+    change,
+  });
 
   return (
     <Box
