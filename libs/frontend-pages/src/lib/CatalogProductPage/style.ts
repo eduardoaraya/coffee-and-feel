@@ -260,7 +260,9 @@ export default () =>
           },
         },
         '.accordion-item-content': {
-          paddingTop: '45px',
+          padding: {
+            xs: '20px',
+          },
           '.MuiTypography-root': {
             marginBottom: '60px',
             lineHeight: '32px',
