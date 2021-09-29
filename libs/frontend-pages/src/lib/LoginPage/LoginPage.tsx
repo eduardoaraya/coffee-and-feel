@@ -105,7 +105,7 @@ export function LoginPage({
   const bgImageProps = _.merge(backgroundImage, loginPageImageProps);
 
   return (
-    <Box sx={style.root}>
+    <Box className="page" sx={style.root}>
       <Box
         sx={{ height: { xs: 'auto', lg: '100vh' } }}
         component={Grid}
@@ -132,7 +132,7 @@ export function LoginPage({
 
           <Grid item>
             <PasswordInput
-              ref={passwordRef as any}
+              ref={passwordRef as React.RefObject<HTMLDivElement>}
               {...PasswordInputFieldProps}
             />
           </Grid>

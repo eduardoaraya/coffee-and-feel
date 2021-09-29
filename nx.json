@@ -88,6 +88,9 @@
     "frontend-services": {
       "tags": []
     },
+    "frontend-svg": {
+      "tags": []
+    },
     "frontend-utility": {
       "tags": []
     },

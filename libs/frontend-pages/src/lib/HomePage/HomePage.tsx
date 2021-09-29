@@ -1,5 +1,4 @@
 import { Box, Container, Typography } from '@material-ui/core';
-import { NextPage } from 'next';
 import {
   SubscriptionClubAboutSection,
   KnowMoreSection,
@@ -9,14 +8,13 @@ import {
   LastPostsSection,
 } from '@atlascode/coffee-front-sections';
 import {
-  LayoutEcommerce,
   Banner,
   SlideProductRepresentation,
   MobileSlideProductRepresentation,
   ProductInterface,
+  BannerProps,
 } from '@atlascode/coffee-front-components';
 import { style } from './styles';
-import { ReactElement, ReactNode } from 'react';
 
 const dataProduct = [
   {
@@ -134,12 +132,14 @@ const dataProduct = [
 ] as ProductInterface[];
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface HomePageProps {}
+export interface HomePageProps {
+  BannerProps?: BannerProps;
+}
 
-export const HomePage: React.FC<HomePageProps> = (props): JSX.Element => {
+export const HomePage = ({ BannerProps }: HomePageProps) => {
   return (
     <Box className="page home-page">
-      <Banner></Banner>
+      <Banner {...BannerProps} />
       <SubscriptionClubAboutSection />
       <KnowMoreSection></KnowMoreSection>
       <Container component="section" sx={style.slideProductRepresentation}>

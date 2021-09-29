@@ -1,13 +1,26 @@
 import { Story, Meta } from '@storybook/react';
 import { BlogPageLayout, BlogPageLayoutProps } from './BlogPageLayout';
 import * as faker from 'faker';
-import { BlogPostCardProps } from '@atlascode/coffee-front-components';
+import {
+  BlogPostCardProps,
+  LayoutEcommerce,
+} from '@atlascode/coffee-front-components';
 export default {
   component: BlogPageLayout,
   title: 'BlogPageLayout',
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'brazilDesktop1',
+    },
   },
+  decorators: [
+    (Story) => (
+      <LayoutEcommerce>
+        <Story />
+      </LayoutEcommerce>
+    ),
+  ],
 } as Meta;
 
 const Template: Story<BlogPageLayoutProps> = (args) => (

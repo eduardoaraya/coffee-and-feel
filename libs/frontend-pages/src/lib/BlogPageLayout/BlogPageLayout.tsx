@@ -56,7 +56,11 @@ export function BlogPageLayout({
   const defaultStylesMemo = useMemoizedMergedObject(defaultStyles(), sx);
 
   return (
-    <Box className="Atlas-BlogLayoutV1-root" sx={defaultStylesMemo} {...rest}>
+    <Box
+      className="Atlas-BlogLayoutV1-root page"
+      sx={defaultStylesMemo}
+      {...rest}
+    >
       <Box className="Atlas-BlogLayoutV1-pattern" />
       <Box className="Atlas-BlogLayoutV1-fixedSocialMediaTrayContainer">
         <AnimatePresence>
@@ -155,7 +159,7 @@ const defaultStyles = () => {
     '.Atlas-BlogLayoutV1-fixedSocialMediaTrayContainer': {
       position: 'fixed',
       right: 0,
-      top: '15%',
+      top: '20%',
       display: 'none',
 
       '@media (min-width: 1024px)': {
