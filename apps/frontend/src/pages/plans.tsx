@@ -66,7 +66,6 @@ const benefits = [
     ],
   },
 ];
-
 const subscriptionProps: SubscriptionItemProps = {
   title: 'Edição Mirabilis Café Suave',
   sx: {
@@ -101,7 +100,6 @@ const subscriptionProps: SubscriptionItemProps = {
   activeIndex: 0,
   amount: 5,
 };
-
 const plans = [
   {
     uniqueID: 'monthly-slider-1',
@@ -138,7 +136,6 @@ const plans = [
     ],
   },
 ];
-
 const testimonials = [
   {
     alt: 'alt text',
@@ -184,7 +181,6 @@ const plansBenefits = [
     plan: [mockPlan, { ...mockPlan, title: 'Standard' }],
   },
 ];
-
 const accordions = [
   {
     title: 'FAQ',

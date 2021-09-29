@@ -2,17 +2,10 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Box, BoxProps } from '@material-ui/core';
 import React from 'react';
-import SwiperCore, {
-  Navigation,
-  Pagination,
-  Autoplay,
-  SwiperOptions,
-} from 'swiper';
+import SwiperCore, { Pagination, SwiperOptions } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperComponent } from 'swiper/types/shared';
 import 'swiper/swiper-bundle.min.css';
-
-type Handler = (...args: unknown[]) => void | Promise<void>;
 
 export type SwiperGenericWrapperProps<C> = {
   component: React.FC<C>;
@@ -36,8 +29,6 @@ export const SwiperGenericWrapper = <T extends {}>({
   modules = [],
   sx,
 }: SwiperGenericWrapperProps<T>) => {
-  // React.useMemo(() => SwiperCore.use([...modules]), [modules]);
-
   React.useEffect(() => {
     SwiperCore.use([]);
   }, []);

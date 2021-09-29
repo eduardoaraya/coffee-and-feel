@@ -97,7 +97,7 @@ const styles = AtlasStylesheet.create({
   },
 
   section: {
-    py: { xs: '3em', lg: '6em' },
+    py: { xs: '6em', lg: '6em' },
   },
 
   banner: {},
