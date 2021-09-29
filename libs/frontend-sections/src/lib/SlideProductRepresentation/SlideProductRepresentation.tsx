@@ -25,6 +25,7 @@ export const SlideProductRepresentation: React.FC<SlideProductRepresentationProp
     return (
       <Box component="div" sx={style.root}>
         <IconButton
+          sx={{ boxShadow: (theme) => theme.shadows[3] }}
           className="slide-button prev"
           id="slide-prev"
           size="large"
@@ -65,6 +66,7 @@ export const SlideProductRepresentation: React.FC<SlideProductRepresentationProp
           className="slide-button next"
           size="large"
           color="primary"
+          sx={{ boxShadow: (theme) => theme.shadows[3] }}
         >
           <ChevronRight />
         </IconButton>

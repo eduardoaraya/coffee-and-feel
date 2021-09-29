@@ -1,3 +1,4 @@
+export * from './lib/CarbonSlider/CarbonSlider';
 export * from './lib/AccordionGroup/AccordionGroup';
 export * from './lib/AccordionSingle/AccordionSingle';
 export * from './lib/TextRevealAnimation/TextRevealAnimation';
