@@ -14,42 +14,6 @@ export default {
         xs: 'auto',
       },
     },
-    '.custom-shape-divider-bottom': {
-      position: 'absolute',
-      top: '-59px',
-      left: 0,
-      width: '100%',
-      overflow: 'hidden',
-      lineHeight: 0,
-      transform: 'rotate(180deg)',
-      svg: {
-        position: 'relative',
-        display: 'block',
-        width: 'calc(194% + 1.3px)',
-        height: '59px',
-        '.shape-fill': {
-          fill: (theme) => theme.palette.secondary.main,
-        },
-      },
-    },
-    '.custom-shape-divider-top': {
-      position: 'absolute',
-      bottom: '-59px',
-      left: 0,
-      width: '100%',
-      overflow: 'hidden',
-      lineHeight: 0,
-      transform: 'rotate(0)',
-      svg: {
-        position: 'relative',
-        display: 'block',
-        width: 'calc(194% + 1.3px)',
-        height: '59px',
-        '.shape-fill': {
-          fill: (theme) => theme.palette.secondary.main,
-        },
-      },
-    },
     '.wrapper-newsletter': {
       position: 'relative',
       height: '100%',

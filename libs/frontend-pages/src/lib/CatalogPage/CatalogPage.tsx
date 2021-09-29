@@ -2,7 +2,8 @@ import {
   Banner,
   BannerProps,
   CatalogFilter,
-  CatalogRepresentation,
+  CatalogGrid,
+  ProductInfo,
   ProductInterface,
 } from '@atlascode/coffee-front-components';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
@@ -22,10 +23,7 @@ export const CatalogPage = ({ products, BannerProps }: CatalogPageProps) => {
       <Container>
         <Box className="page-catalog-grid">
           <CatalogFilter className="catalog-filter"></CatalogFilter>
-          <CatalogRepresentation
-            products={products}
-            className="catalog-representation"
-          ></CatalogRepresentation>
+          <CatalogGrid products={products} className="catalog-representation" />
         </Box>
       </Container>
       <SubscriptionClubAboutSection />

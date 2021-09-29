@@ -154,9 +154,9 @@ export const HomePage = ({ BannerProps }: HomePageProps) => {
         ></MobileSlideProductRepresentation>
       </Container>
       <SubscriptionClubDetailsSection />
-      <CallInstagramSection />
-      <NewsletterSection />
       <LastPostsSection />
+      <NewsletterSection />
+      <CallInstagramSection />
     </Box>
   );
 };

@@ -26,12 +26,11 @@ export const getStaticProps: GetStaticProps<CatalogProps> = async () => {
   let result: ProductInterface[] = [];
   try {
     result = await service.getCatalogProduct();
-  } catch (error) {
-    console.error(error.message);
-  }
+    // eslint-disable-next-line no-empty
+  } catch (err) {}
   return {
     props: {
-      products: [],
+      products: result,
     },
   };
 };

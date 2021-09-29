@@ -22,7 +22,7 @@ type MenuItemType = {
   path: string;
 };
 
-export const Header: React.FC = (props: HeaderProps): JSX.Element => {
+export const Header: React.FC<HeaderProps> = (props): JSX.Element => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [hideBanner, setHideBanner] = useState<boolean>(false);
 

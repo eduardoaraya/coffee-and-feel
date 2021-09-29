@@ -10,6 +10,7 @@ export type TabOption = {
   };
   active: boolean;
   handleClick?: <T, A>(args?: unknown | A) => T | void;
+  color?: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -57,18 +58,7 @@ export const TabGroup: React.FC<TabGroupProps> = ({
               xs: '1em',
             },
             boxShadow: (theme) =>
-              [
-                `0 1px 3px 0 ${alpha(theme.palette.secondary.main, 0.16)}`,
-                `inset 0.3px 0.3px 1px 0px ${theme.palette.primary.main}`,
-                `inset -0.3px -0.3px 1px 0px ${theme.palette.primary.main}`,
-              ].join(','),
-            '&.active': {
-              background: (theme) => theme.palette.primary.main,
-              color: '#FFF',
-              svg: {
-                color: '#FFF',
-              },
-            },
+              `0 1px 3px 0 ${alpha(theme.palette.secondary.main, 0.16)}`,
           },
         },
       }}
@@ -76,6 +66,16 @@ export const TabGroup: React.FC<TabGroupProps> = ({
       <Box className="tab-group-wrapper">
         {tabs?.map((tab) => (
           <Box
+            sx={{
+              '&.tab-item.active': {
+                background: (theme) =>
+                  tab.color ? tab.color : theme.palette.primary.main,
+                color: '#FFF',
+                svg: {
+                  color: '#FFF',
+                },
+              },
+            }}
             onClick={tab?.handleClick}
             className={`tab-item ${tab.active ? 'active' : ''}`}
             key={tab.id}

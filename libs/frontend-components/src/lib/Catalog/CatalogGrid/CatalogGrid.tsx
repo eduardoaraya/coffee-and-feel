@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Box, Alert } from '@material-ui/core';
 import { TableRowsRounded, GridViewRounded } from '@material-ui/icons';
-import { ProductInterface } from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
 import { ProductCatalogItem } from '../ProductCatalogItem/ProductCatalogItem';
-import TabGroup, { TabOption } from '../TabGroup/TabGroup';
+import ProductInterface from '../Contracts/ProductInterface';
+import TabGroup, { TabOption } from '../../TabGroup/TabGroup';
 import style from './style';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface CatalogRepresentationProps {
+export interface CatalogGridProps {
   className?: string;
   children?: React.ReactNode;
   products?: ProductInterface[];
@@ -15,7 +15,7 @@ export interface CatalogRepresentationProps {
 
 type VariantMode = 'grid' | 'list';
 
-export const CatalogRepresentation: React.FC<CatalogRepresentationProps> = ({
+export const CatalogGrid: React.FC<CatalogGridProps> = ({
   className,
   products,
 }): JSX.Element => {
@@ -68,4 +68,4 @@ export const CatalogRepresentation: React.FC<CatalogRepresentationProps> = ({
   );
 };
 
-export default CatalogRepresentation;
+export default CatalogGrid;

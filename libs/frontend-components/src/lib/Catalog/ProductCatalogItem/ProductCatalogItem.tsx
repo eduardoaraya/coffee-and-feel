@@ -1,8 +1,8 @@
-import {
-  ProductCatalogRepresentation,
-  ProductInterface,
-} from '../ProductCatalogRepresentation/ProductCatalogRepresentation';
+// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { Box } from '@material-ui/core';
+import { ProductInfo } from '@atlascode/coffee-front-components';
+import ProductInterface from '../Contracts/ProductInterface';
 import style from './style';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -15,6 +15,7 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
   variantView = 'desktop',
   product,
 }): JSX.Element => {
+  const router = useRouter();
   return (
     <Box
       sx={style.root}
@@ -25,10 +26,13 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
           <img src="/imgs/product-sample1.png" alt="Product name" />
         </figure>
       </Box>
-      <ProductCatalogRepresentation
+      <ProductInfo
         product={product}
         variantViewPort={variantView}
         className="product-info"
+        handleClickDetailsButton={() =>
+          router.push(`catalog/product/${product?.sku}`)
+        }
       />
     </Box>
   );
