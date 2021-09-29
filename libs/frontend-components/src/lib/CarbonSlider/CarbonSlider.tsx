@@ -64,21 +64,24 @@ const styles = AtlasStylesheet.create({
     borderRadius: '22px',
     bgcolor: '#323232',
     boxShadow: (theme) => theme.shadows[2],
-    width: { xs: '30em', lg: '100.3em' },
-    height: { xs: 'auto', lg: '55.2em' },
-    minHeight: { xs: '55em' },
+    width: { xs: '33em', lg: '108.31em' },
+    height: { xs: '55em', lg: '55.2em' },
     position: 'relative',
   },
 
   container: {
     height: '100%',
     width: '100%',
+    '.swiper-container': {
+      height: '100%',
+    },
   },
 
   button: {
     top: '50%',
     transform: 'translateY(-50%)',
     zIndex: 5,
+    display: { xs: 'none', lg: 'flex' },
   },
 
   forwardButton: {

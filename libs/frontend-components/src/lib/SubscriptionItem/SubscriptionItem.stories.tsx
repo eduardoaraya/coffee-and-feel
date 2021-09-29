@@ -27,6 +27,10 @@ const Template: Story<SubscriptionItemProps> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
+  sx: {
+    px: { xs: '2em' },
+    py: { xs: '2em' },
+  },
   title: 'Edição Mirabilis Café Suave',
   attributes: [
     {

@@ -65,12 +65,9 @@ export default SubscriptionItem;
 const styles = AtlasStylesheet.create({
   root: {
     fontSize: '10px',
-    width: { xs: '30em', lg: '108.3em' },
-    height: { xs: 'auto', lg: '55.2em' },
-    minHeight: { xs: '55em' },
+    width: '100%',
+    height: '100%',
     bgcolor: '#323232',
-    px: { xs: '2em' },
-    py: { xs: '2em' },
     borderRadius: '22px',
   },
   title: {
@@ -82,7 +79,7 @@ const styles = AtlasStylesheet.create({
   description: {
     color: '#fff',
     fontSize: { xs: '1.4em' },
-    maxWidth: { xs: '50ch' },
+    maxWidth: { xs: '35ch', lg: '50ch' },
   },
   attribute: {},
 
@@ -107,7 +104,7 @@ const styles = AtlasStylesheet.create({
     height: '100%',
     width: '100%',
     flexDirection: { xs: 'column', lg: 'row' },
-    alignItems: { lg: 'center' },
+    alignItems: { xs: 'center' },
     justifyContent: { xs: 'center' },
     rowGap: { xs: '3em' },
     columnGap: { xs: '7em' },
