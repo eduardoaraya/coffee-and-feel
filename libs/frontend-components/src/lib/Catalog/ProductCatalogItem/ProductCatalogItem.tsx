@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { Box } from '@material-ui/core';
 import style from './style';
 import { ProductInfo } from '@atlascode/coffee-front-components';

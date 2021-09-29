@@ -9,9 +9,9 @@ import {
 import style from './style';
 import { MouseEventHandler } from 'react';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import { useProductPlansTabs } from '@atlascode/coffee-frontend-hooks';
 import InfoPrice from './InfoPrice';
 import ProductInterface from '../Contracts/ProductInterface';
+import useProductPlansTabs from '../UseProductPlansTabs/UseProductPlansTabs';
 
 type variantView = 'mobile' | 'desktop';
 
@@ -34,7 +34,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
   product,
   handleClickDetailsButton,
 }): JSX.Element => {
-  const { tabs, isCurrentPlan, userPlan } = useProductPlansTabs(product);
+  const { tabs, isCurrentPlan } = useProductPlansTabs(product);
 
   return (
     <Box
@@ -81,7 +81,6 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
           variant="outlined"
           size={getSizeButton(variantViewPort)}
           color="primary"
-          onClick={handleClickDetailsButton}
         >
           Detalhes
         </Button>
