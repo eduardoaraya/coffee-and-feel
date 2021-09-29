@@ -59,7 +59,7 @@ const subscriptionProps: SubscriptionItemProps = {
 };
 
 Primary.args = {
-  plans: [
+  subscriptionCategories: [
     {
       uniqueID: 'monthly-slider-1',
       categoryLabel: 'Mensal',

@@ -26,7 +26,7 @@ const Template: Story<SubscriptionPageBenefitsSectionProps> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  benefits: [
+  subscriptionBenefits: [
     {
       categoryLabel: 'Standard',
       benefits: [

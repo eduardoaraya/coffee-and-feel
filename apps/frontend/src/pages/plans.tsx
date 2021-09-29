@@ -1,36 +1,53 @@
-import { Story, Meta } from '@storybook/react';
-import { SubscriptionPage, SubscriptionPageProps } from './SubscriptionPage';
+import { Page } from '../../types';
+import React from 'react';
+import {
+  SubscriptionPage as SubscriptionPageComponent,
+  SubscriptionPageProps as SubscriptionPageComponentProps,
+} from '@atlascode/coffee-front-pages';
 import {
   LayoutEcommerce,
   SubscriptionItemProps,
 } from '@atlascode/coffee-front-components';
-import { LocationOn } from '@material-ui/icons';
 import {
   CoffeeBagSVG,
   DeliveryTimeSVG,
   DiscountSVG,
 } from '@atlascode/coffee-frontend-svg';
-export default {
-  component: SubscriptionPage,
-  title: 'SubscriptionPage',
-  parameters: {
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'brazilDesktop1',
-    },
-  },
-  decorators: [
-    (Story) => (
-      <LayoutEcommerce>
-        <Story />
-      </LayoutEcommerce>
-    ),
-  ],
-} as Meta;
+import { LocationOn } from '@material-ui/icons';
 
-const Template: Story<SubscriptionPageProps> = (args) => (
-  <SubscriptionPage {...args} />
-);
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface SubscriptionPageProps extends SubscriptionPageComponentProps {}
+
+const SubscriptionPage: Page<SubscriptionPageProps> = (
+  props: SubscriptionPageProps
+) => {
+  return (
+    <SubscriptionPageComponent
+      accordions={accordions}
+      subscriptionPlansList={plansBenefits}
+      subscriptionBenefits={benefits}
+      testimonials={testimonials}
+      subscriptionCategories={plans}
+      BannerProps={{
+        items: [
+          {
+            desktopURL: 'imgs/clube-assinatura-page-banner-img.png',
+            mobileURL: 'https://via.placeholder.com/750',
+          },
+        ],
+        SwiperProps: {
+          enabled: false,
+        },
+      }}
+    />
+  );
+};
+
+export default SubscriptionPage;
+
+SubscriptionPage.getLayout = function getLayout(page: React.ReactElement) {
+  return <LayoutEcommerce>{page}</LayoutEcommerce>;
+};
 
 const benefits = [
   {
@@ -190,23 +207,3 @@ const accordions = [
     content: 'lorem ipsum',
   },
 ];
-
-export const Primary = Template.bind({});
-Primary.args = {
-  accordions: accordions,
-  subscriptionBenefits: benefits,
-  subscriptionCategories: plans,
-  subscriptionPlansList: plansBenefits,
-  testimonials: testimonials,
-  BannerProps: {
-    items: [
-      {
-        desktopURL: 'imgs/clube-assinatura-page-banner-img.png',
-        mobileURL: 'https://via.placeholder.com/750',
-      },
-    ],
-    SwiperProps: {
-      enabled: false,
-    },
-  },
-} as SubscriptionPageProps;

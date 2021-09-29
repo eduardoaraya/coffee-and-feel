@@ -16,12 +16,12 @@ type PlanCategory = {
 
 /* eslint-disable-next-line */
 export interface SubscriptionBenefitsListSectionProps extends BoxProps {
-  plans: PlanCategory[];
+  subscriptionPlansList: PlanCategory[];
 }
 
 export function SubscriptionBenefitsListSection({
   sx,
-  plans = [],
+  subscriptionPlansList: plans = [],
   ...rest
 }: SubscriptionBenefitsListSectionProps) {
   const [value, setValue] = React.useState<number>(0);

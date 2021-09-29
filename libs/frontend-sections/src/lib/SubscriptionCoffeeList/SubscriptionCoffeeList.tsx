@@ -14,12 +14,12 @@ type PlanCategory = {
 } & SubscriptionSliderProps;
 
 export interface SubscriptionCoffeeListProps extends BoxProps {
-  plans: PlanCategory[];
+  subscriptionCategories: PlanCategory[];
 }
 
 export function SubscriptionCoffeeList({
   sx,
-  plans,
+  subscriptionCategories: items,
   ...rest
 }: SubscriptionCoffeeListProps) {
   const [value, setValue] = React.useState<number>(0);
@@ -34,7 +34,7 @@ export function SubscriptionCoffeeList({
         <Box sx={styles.buttonGroupContainer}>
           <CustomButtonGroup
             value={value}
-            buttons={plans.map((value, index) => {
+            buttons={items.map((value, index) => {
               return {
                 children: value.categoryLabel,
                 onClick: () => setValue(index),
@@ -43,7 +43,7 @@ export function SubscriptionCoffeeList({
           />
         </Box>
 
-        {plans.map(({ categoryLabel, ...plan }, index) => {
+        {items.map(({ categoryLabel, ...plan }, index) => {
           return (
             index === value && (
               <MotionBox

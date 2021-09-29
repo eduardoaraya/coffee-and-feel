@@ -37,7 +37,7 @@ const mockPlan = {
 
 export const Primary = Template.bind({});
 Primary.args = {
-  plans: [
+  subscriptionPlansList: [
     {
       categoryLabel: 'Mensal',
       plan: [mockPlan, { ...mockPlan, title: 'Standard' }],

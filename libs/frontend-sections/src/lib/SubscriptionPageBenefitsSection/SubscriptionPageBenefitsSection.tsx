@@ -20,12 +20,12 @@ type BenefitCategory = {
 
 /* eslint-disable-next-line */
 export interface SubscriptionPageBenefitsSectionProps extends BoxProps {
-  benefits: BenefitCategory[];
+  subscriptionBenefits: BenefitCategory[];
 }
 
 export function SubscriptionPageBenefitsSection({
   sx,
-  benefits,
+  subscriptionBenefits: items,
   ...rest
 }: SubscriptionPageBenefitsSectionProps) {
   const [value, setValue] = React.useState<number>(0);
@@ -40,7 +40,7 @@ export function SubscriptionPageBenefitsSection({
         <Box sx={styles.buttonGroupContainer}>
           <CustomButtonGroup
             value={value}
-            buttons={benefits.map((value, index) => {
+            buttons={items.map((value, index) => {
               return {
                 children: value.categoryLabel,
                 onClick: () => setValue(index),
@@ -49,7 +49,7 @@ export function SubscriptionPageBenefitsSection({
           />
         </Box>
 
-        {benefits.map(({ benefits, categoryLabel }, index) => {
+        {items.map(({ benefits, categoryLabel }, index) => {
           return (
             index === value && (
               <MotionBox
