@@ -8,11 +8,14 @@ import {
   Button,
   IconButton,
   ButtonProps,
+  SwipeableDrawerProps,
 } from '@material-ui/core';
 import { alpha } from '@material-ui/system';
 import { Close } from '@material-ui/icons';
+import _ from 'lodash';
+import React from 'react';
 
-type MobileMenuHandler = (...args: unknown[]) => void;
+type MobileMenuHandler = (...args: unknown[]) => void | Promise<unknown>;
 type MobileMenuItem = {
   label: string;
   action: MobileMenuHandler;
@@ -22,11 +25,12 @@ type Image = {
   alt?: string;
 };
 
-export interface MobileMenuProps extends BoxProps<typeof Drawer> {
+export interface MobileMenuProps extends SwipeableDrawerProps {
   items: MobileMenuItem[];
   primaryAction?: ButtonProps;
   secondaryAction?: ButtonProps;
   logo?: Image;
+  logoClickHandler?: MobileMenuHandler;
 }
 
 export function MobileMenu({
@@ -39,13 +43,31 @@ export function MobileMenu({
   items = [],
   primaryAction,
   secondaryAction,
+  onClose = _.noop,
+  logoClickHandler = _.noop,
   ...rest
 }: MobileMenuProps) {
+  const menuClickHandler = React.useCallback(
+    (event: React.SyntheticEvent, handler: (...args: unknown[]) => void) => {
+      handler();
+      onClose(event);
+    },
+    [onClose]
+  );
+
+  const { onClick: primaryActionClick = _.noop, ...primaryActionProps } = {
+    ...primaryAction,
+  };
+
+  const { onClick: secondaryActionClick = _.noop, ...secondaryActionProps } = {
+    ...secondaryAction,
+  };
+
   return (
-    <Box
+    <SwipeableDrawer
+      onClose={onClose}
       anchor={anchor}
       sx={{ ...styles.root, ...sx }}
-      component={SwipeableDrawer}
       {...rest}
     >
       <Box id="menu-paper" sx={styles.paper} elevation={0} component={Paper}>
@@ -54,6 +76,9 @@ export function MobileMenu({
             <Box sx={styles.paperHeaderGrid}>
               <Box sx={styles.logoContainer}>
                 <Box
+                  onClick={(event: React.SyntheticEvent) =>
+                    menuClickHandler(event, logoClickHandler)
+                  }
                   sx={styles.logo}
                   src={logo.src}
                   alt={logo.alt}
@@ -61,7 +86,7 @@ export function MobileMenu({
                 />
               </Box>
               <Box sx={styles.closeButtonContainer}>
-                <IconButton sx={styles.closeButton}>
+                <IconButton onClick={onClose} sx={styles.closeButton}>
                   <Close />
                 </IconButton>
               </Box>
@@ -73,7 +98,7 @@ export function MobileMenu({
               {items.map(({ action, label }, index) => {
                 return (
                   <Button
-                    onClick={action}
+                    onClick={(event) => menuClickHandler(event, action)}
                     sx={styles.item}
                     key={index}
                     variant="text"
@@ -87,7 +112,10 @@ export function MobileMenu({
 
             <Box sx={styles.actionsContainer}>
               <Button
-                {...primaryAction}
+                onClick={(event) =>
+                  menuClickHandler(event, () => primaryActionClick(event))
+                }
+                {...primaryActionProps}
                 sx={styles.primaryAction}
                 variant="contained"
                 color="primary"
@@ -96,7 +124,10 @@ export function MobileMenu({
               </Button>
 
               <Button
-                {...secondaryAction}
+                onClick={(event) =>
+                  menuClickHandler(event, () => secondaryActionClick(event))
+                }
+                {...secondaryActionProps}
                 sx={styles.secondaryAction}
                 variant="text"
                 color="secondary"
@@ -107,7 +138,7 @@ export function MobileMenu({
           </Box>
         </Box>
       </Box>
-    </Box>
+    </SwipeableDrawer>
   );
 }
 
