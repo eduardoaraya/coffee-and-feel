@@ -19,7 +19,7 @@ import { MobileMenu } from '../MobileMenu/MobileMenu';
 /* eslint-disable-next-line */
 export interface HeaderProps {}
 
-type MenuItemType = {
+export type MenuItemType = {
   name: string;
   path: string;
 };
