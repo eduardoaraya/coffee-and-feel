@@ -1,3 +1,4 @@
+export * from './lib/AboutUsPage/AboutUsPage';
 export * from './lib/SubscriptionPage/SubscriptionPage';
 export * from './lib/BlogOverviewPage/BlogOverviewPage';
 export * from './lib/BlogPageLayout/BlogPageLayout';

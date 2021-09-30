@@ -3,7 +3,7 @@ import style from './style';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import {
   ProductInterface,
-  ProductCatalogRepresentation,
+  // ProductCatalogRepresentation,
 } from '@atlascode/coffee-front-components';
 // Swipper Import
 import SwiperCore from 'swiper';
@@ -52,10 +52,10 @@ export const SlideProductRepresentation: React.FC<SlideProductRepresentationProp
                   </figure>
                 </Box>
                 <Box className="product-area">
-                  <ProductCatalogRepresentation
+                  {/* <ProductCatalogRepresentation
                     product={prod}
                     variantViewPort={'mobile'}
-                  />
+                  /> */}
                 </Box>
               </Box>
             </SwiperSlide>

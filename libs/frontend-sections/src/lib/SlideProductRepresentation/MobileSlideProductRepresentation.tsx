@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core';
 import {
-  ProductCatalogRepresentation,
+  // ProductCatalogRepresentation,
   ProductInterface,
 } from '@atlascode/coffee-front-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -30,10 +30,10 @@ export const MobileSlideProductRepresentation: React.FC<MobileSlideProductRepres
                   </figure>
                 </Box>
                 <Box className="product-area">
-                  <ProductCatalogRepresentation
+                  {/* <ProductCatalogRepresentation
                     product={prod}
                     variantViewPort="mobile"
-                  />
+                  /> */}
                 </Box>
               </Box>
             </Box>
