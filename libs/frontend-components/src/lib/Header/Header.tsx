@@ -1,13 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import {
-  Box,
-  Container,
-  Badge,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-} from '@material-ui/core';
+import { Box, Container, Badge } from '@material-ui/core';
 import Link from 'next/link';
 import style from './style';
 import { AccountCircle } from '@material-ui/icons';

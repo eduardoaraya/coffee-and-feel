@@ -33,3 +33,4 @@ export * from './lib/WavyBackground/WavyBackground';
 export * from './lib/CounterInput/CounterInput';
 export * from './lib/Catalog';
 export * from './lib/LayoutEcommerce/WrapperLayout';
+export * from './lib/Customer';
