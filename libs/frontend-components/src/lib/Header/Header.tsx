@@ -13,6 +13,8 @@ import style from './style';
 import { AccountCircle } from '@material-ui/icons';
 import { useEffect, useState } from 'react';
 import { useDebounce } from '@atlascode/coffee-frontend-utility';
+import { useRouter } from 'next/router';
+import { MobileMenu } from '../MobileMenu/MobileMenu';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {}
@@ -25,6 +27,8 @@ type MenuItemType = {
 export const Header: React.FC<HeaderProps> = (props): JSX.Element => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [hideBanner, setHideBanner] = useState<boolean>(false);
+
+  const router = useRouter();
 
   const debounceScroll = useDebounce(() => {
     const { pageYOffset } = window;
@@ -109,24 +113,19 @@ export const Header: React.FC<HeaderProps> = (props): JSX.Element => {
           </Box>
         </Box>
       </Container>
-      <Drawer
-        variant="temporary"
+      <MobileMenu
         open={modalOpen}
-        onClose={handleModalTarget}
-        sx={style.drawer}
-      >
-        <List>
-          {menuItems.map((item: MenuItemType, i: number) => (
-            <ListItem key={i}>
-              <Link href={item.path}>
-                <ListItemText>
-                  <a>{item.name}</a>
-                </ListItemText>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+        onClose={() => setModalOpen(false)}
+        onOpen={() => setModalOpen(true)}
+        items={menuItems.map(({ name, path }, index) => {
+          return {
+            action: () => {
+              router.push(path);
+            },
+            label: name,
+          };
+        })}
+      />
     </Box>
   );
 };
