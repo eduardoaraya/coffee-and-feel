@@ -1,8 +1,11 @@
 import { Banner, BannerProps } from '@atlascode/coffee-front-components';
 import {
   AboutUsHistorySection,
+  AboutUsHistorySectionProps,
   AboutUsSlider,
+  AboutUsSliderProps,
   AboutUsVideoSection,
+  AboutUsVideoSectionProps,
 } from '@atlascode/coffee-front-sections';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps } from '@material-ui/core';
@@ -10,23 +13,33 @@ import { Box, BoxProps } from '@material-ui/core';
 /* eslint-disable-next-line */
 export interface AboutUsPageProps extends BoxProps {
   BannerProps?: BannerProps;
+  VideoSectionProps?: AboutUsVideoSectionProps;
+  OurHistorySectionProps?: AboutUsHistorySectionProps;
+  GallerySliderSectionProps?: AboutUsSliderProps;
 }
 
-export function AboutUsPage({ sx, BannerProps, ...rest }: AboutUsPageProps) {
+export function AboutUsPage({
+  sx,
+  BannerProps,
+  VideoSectionProps,
+  OurHistorySectionProps,
+  GallerySliderSectionProps,
+  ...rest
+}: AboutUsPageProps) {
   return (
     <Box className="page" sx={{ ...styles.root, ...sx }} {...rest}>
       <Banner {...BannerProps} />
 
       <Box sx={styles.section}>
-        <AboutUsVideoSection />
+        <AboutUsVideoSection {...VideoSectionProps} />
       </Box>
 
       <Box sx={styles.section}>
-        <AboutUsHistorySection />
+        <AboutUsHistorySection {...OurHistorySectionProps} />
       </Box>
 
       <Box sx={styles.section}>
-        <AboutUsSlider list={list} />
+        <AboutUsSlider {...GallerySliderSectionProps} />
       </Box>
     </Box>
   );
@@ -43,11 +56,3 @@ const styles = AtlasStylesheet.create({
     py: { xs: '4.5em', lg: '7.5em' },
   },
 });
-
-const list = [
-  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
-  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
-  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
-  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
-  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
-];

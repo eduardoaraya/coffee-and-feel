@@ -22,6 +22,14 @@ export default {
 
 const Template: Story<AboutUsPageProps> = (args) => <AboutUsPage {...args} />;
 
+const list = [
+  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
+  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
+  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
+  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
+  { src: 'https://via.placeholder.com/1500', alt: 'an image' },
+];
+
 export const Primary = Template.bind({});
 Primary.args = {
   BannerProps: {
@@ -34,5 +42,9 @@ Primary.args = {
     SwiperProps: {
       enabled: false,
     },
+  },
+
+  GallerySliderSectionProps: {
+    list: list,
   },
 };
