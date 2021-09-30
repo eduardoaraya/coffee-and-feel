@@ -1,5 +1,5 @@
-import { Box, Typography, Paper, Button } from '@material-ui/core';
-import { Check } from '@material-ui/icons';
+import { Box, Typography, Paper, Button, Tooltip } from '@material-ui/core';
+import { Check, HelpOutline } from '@material-ui/icons';
 import { alpha, SxProps, Theme } from '@material-ui/system';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -41,7 +41,14 @@ export const SubscriptionsMyAccount: React.FC<SubscriptionsMyAccountProps> = ({
           </Box>
         </Box>
         <Box className="actions">
-          <Typography color="primary">Mudar meus cafés</Typography>
+          <Tooltip title="Você pode mudar os cafés que irá receber na próxima entrega.">
+            <Button className="btn-changecoffee">
+              <Typography className="action-message" color="primary">
+                Mudar meus cafés
+              </Typography>
+              <HelpOutline className="icon" color="secondary" />
+            </Button>
+          </Tooltip>
         </Box>
       </Box>
     </Box>
@@ -118,6 +125,12 @@ const getDefaultStyles = () =>
 
         '.actions': {
           padding: '10px 20px',
+          '.btn-changecoffee': {
+            textTransform: 'none',
+            '.icon': {
+              marginLeft: '7px',
+            },
+          },
         },
       },
     },
