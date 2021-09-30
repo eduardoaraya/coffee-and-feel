@@ -104,7 +104,7 @@ const styles = AtlasStylesheet.create({
   },
   photoContainer: {
     width: { xs: 'auto', lg: '55.6em' },
-    height: { xs: '28.6em', lg: '70em' },
+    height: { xs: '28.6em', sm: '50em', lg: '70em' },
   },
   photo: {
     objectFit: 'cover',
