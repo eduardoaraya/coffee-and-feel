@@ -1,4 +1,5 @@
 import { Box, TextField, Button } from '@material-ui/core';
+import { FormEvent } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface FormLayoutProps {
@@ -42,12 +43,12 @@ export const FormLayout: React.FC<FormLayoutProps> = ({
       },
     }}
   >
-    <Box component="form" className="form">
+    <form className="form">
       <Box className="form-wrapper">
         {children}
         <Box className="action">{actions}</Box>
       </Box>
-    </Box>
+    </form>
   </Box>
 );
 
