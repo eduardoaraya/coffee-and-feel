@@ -7,6 +7,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperComponent } from 'swiper/types/shared';
 import 'swiper/swiper-bundle.min.css';
 
+export type SwiperSlideData = {
+  isActive: boolean;
+  isVisible: boolean;
+  isDuplicate: boolean;
+  isPrev: boolean;
+  isNext: boolean;
+  index: number;
+};
+
 export type SwiperGenericWrapperProps<C> = {
   component: React.FC<C>;
   list?: C[];
@@ -38,7 +47,9 @@ export const SwiperGenericWrapper = <T extends {}>({
       {list.map((value, index) => {
         return (
           <SwiperSlide key={index}>
-            <Component {...value} />
+            {(swiperSlide) => {
+              return <Component {...value} {...swiperSlide} index={index} />;
+            }}
           </SwiperSlide>
         );
       })}
