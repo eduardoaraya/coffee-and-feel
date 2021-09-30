@@ -1,3 +1,4 @@
+export * from './lib/AboutUsVideoSection/AboutUsVideoSection';
 export * from './lib/AboutUsSlider/AboutUsSlider';
 export * from './lib/AboutUsHistorySection/AboutUsHistorySection';
 export * from './lib/SubscriptionCoffeeList/SubscriptionCoffeeList';
