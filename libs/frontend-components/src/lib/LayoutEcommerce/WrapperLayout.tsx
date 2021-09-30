@@ -26,7 +26,7 @@ const style: SxProps<Theme> = {
   },
 };
 
-export const WrapperLayout: React.FC<WrapperLayout> = ({
+export const WrapperLayout: React.FC<WrapperLayoutProps> = ({
   children,
 }): JSX.Element => {
   return <Box sx={style.layout}>{children}</Box>;

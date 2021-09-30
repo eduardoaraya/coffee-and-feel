@@ -46,7 +46,7 @@ export default SidebarMyAccount;
 
 const myAccountItems: MenuItemType[] = [
   {
-    path: '/myaccount/subscriptions',
+    path: '/myaccount',
     name: 'Minha Assinatura',
   },
   {

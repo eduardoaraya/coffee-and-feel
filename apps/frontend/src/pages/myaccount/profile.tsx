@@ -2,17 +2,18 @@ import { ReactElement } from 'react';
 import type { Page } from '../../../types';
 import {
   Header,
-  SubscriptionsMyAccount,
   WrapperLayout,
+  ProfileMyAccount,
 } from '@atlascode/coffee-front-components';
 import { MyAccountPage } from '@atlascode/coffee-front-pages';
+
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MyAccountProps {}
 
 export const Index: Page<MyAccountProps> = (props) => {
   return (
     <MyAccountPage>
-      <SubscriptionsMyAccount subscriptionsDetails={true} />
+      <ProfileMyAccount />
     </MyAccountPage>
   );
 };
