@@ -19,6 +19,8 @@ export default () =>
         borderRadius: '6px',
       },
 
-      '.myaccount-content': {},
+      '.myaccount-content': {
+        padding: '35px',
+      },
     },
   } as SxProps<Theme>);
