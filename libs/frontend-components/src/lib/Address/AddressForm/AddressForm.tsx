@@ -1,25 +1,30 @@
-import { Box, TextField, Button } from '@material-ui/core';
+import { Box, Button, TextField } from '@material-ui/core';
+import { SxProps, Theme } from '@material-ui/system';
 import FormLayout from '../../FormLayout/FormLayout';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ProfileMyAccountProps {}
+export interface AddressFormProps {}
 
-export const ProfileMyAccount: React.FC<ProfileMyAccountProps> = (
-  props
-): JSX.Element => (
+export const AddressForm: React.FC<AddressFormProps> = (): JSX.Element => (
   <FormLayout
     actions={[
       <Button>Voltar</Button>,
       <Button color="primary" variant="contained">
-        Atualizar
+        Cadastrar
       </Button>,
     ]}
   >
     <Box className="form-field">
-      <TextField hiddenLabel label="Nome" defaultValue="" variant="outlined" />
+      <TextField hiddenLabel label="CEP" defaultValue="" variant="outlined" />
       <TextField
         hiddenLabel
-        label="Sobrenome"
+        label="Número"
+        defaultValue=""
+        variant="outlined"
+      />
+      <TextField
+        hiddenLabel
+        label="Complemento"
         defaultValue=""
         variant="outlined"
       />
@@ -27,27 +32,31 @@ export const ProfileMyAccount: React.FC<ProfileMyAccountProps> = (
     <Box className="form-field">
       <TextField
         hiddenLabel
-        label="E-mail"
+        label="Endereço"
         defaultValue=""
-        variant="outlined"
-      />
-      <TextField
-        hiddenLabel
-        label="Telefone"
-        defaultValue=""
+        disabled={true}
         variant="outlined"
       />
     </Box>
     <Box className="form-field">
       <TextField
         hiddenLabel
-        label="Data de nascimento"
+        label="Bairro"
         defaultValue=""
+        disabled={true}
         variant="outlined"
       />
-      <TextField hiddenLabel label="CPF" defaultValue="" variant="outlined" />
+      <TextField
+        hiddenLabel
+        label="Cidade"
+        defaultValue=""
+        disabled={true}
+        variant="outlined"
+      />
     </Box>
   </FormLayout>
 );
 
-export default ProfileMyAccount;
+export default AddressForm;
+
+const getDefaultStyle = () => ({} as SxProps<Theme>);
