@@ -8,7 +8,9 @@ import getDefaultStyle from './style';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MyAccountPageProps {}
 
-export const MyAccountPage = (props: MyAccountPageProps) => {
+export const MyAccountPage: React.FC<MyAccountPageProps> = (
+  props
+): JSX.Element => {
   return (
     <Box sx={getDefaultStyle()} className="page page-myaccount">
       <Container>
