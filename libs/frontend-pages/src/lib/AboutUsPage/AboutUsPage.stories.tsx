@@ -23,4 +23,16 @@ export default {
 const Template: Story<AboutUsPageProps> = (args) => <AboutUsPage {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  BannerProps: {
+    items: [
+      {
+        desktopURL: 'imgs/about-us-banner.webp',
+        mobileURL: 'https://via.placeholder.com/750',
+      },
+    ],
+    SwiperProps: {
+      enabled: false,
+    },
+  },
+};
