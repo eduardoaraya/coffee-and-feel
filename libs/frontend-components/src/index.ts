@@ -1,3 +1,4 @@
+export * from './lib/CookiesDialog/CookiesDialog';
 export * from './lib/MobileMenu/MobileMenu';
 export * from './lib/SubscriptionBenefitsListCard/SubscriptionBenefitsListCard';
 export * from './lib/SubscriptionItem/SubscriptionItem';

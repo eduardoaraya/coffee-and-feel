@@ -1,3 +1,4 @@
+export * from './lib/CookiesSVG/CookiesSVG';
 export * from './lib/CoffeeAndFeelLogoSVG/CoffeeAndFeelLogoSVG';
 export * from './lib/DiscountSVG/DiscountSVG';
 export * from './lib/DeliveryTimeSVG/DeliveryTimeSVG';
