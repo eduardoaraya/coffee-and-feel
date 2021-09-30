@@ -10,7 +10,7 @@ import { MyAccountPage } from '@atlascode/coffee-front-pages';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MyAccountProps {}
 
-export const Index: Page<MyAccountProps> = (props) => {
+export const Profile: Page<MyAccountProps> = (props) => {
   return (
     <MyAccountPage>
       <ProfileMyAccount />
@@ -18,9 +18,9 @@ export const Index: Page<MyAccountProps> = (props) => {
   );
 };
 
-export default Index;
+export default Profile;
 
-Index.getLayout = function getLayout(page: ReactElement) {
+Profile.getLayout = function getLayout(page: ReactElement) {
   return (
     <WrapperLayout>
       <Header />
