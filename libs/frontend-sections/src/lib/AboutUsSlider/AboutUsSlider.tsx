@@ -10,7 +10,7 @@ import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import React from 'react';
 
 export interface AboutUsSliderProps extends BoxProps {
-  list?: PhotoSlideProps[];
+  list: PhotoSlideProps[];
 }
 
 export function AboutUsSlider({ sx, list = [], ...rest }: AboutUsSliderProps) {
@@ -57,6 +57,10 @@ export function AboutUsSlider({ sx, list = [], ...rest }: AboutUsSliderProps) {
           },
 
           breakpoints: {
+            768: {
+              slidesPerView: 1.5,
+            },
+
             1024: {
               slidesPerView: 2.35,
               speed: 2500,

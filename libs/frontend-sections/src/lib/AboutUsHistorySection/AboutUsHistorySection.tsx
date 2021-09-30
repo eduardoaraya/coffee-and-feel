@@ -8,15 +8,11 @@ type Image = {
 
 /* eslint-disable-next-line */
 export interface AboutUsHistorySectionProps extends BoxProps {
-  title: string;
-  text: string;
   photo?: Image;
 }
 
 export function AboutUsHistorySection({
   sx,
-  title,
-  text,
   photo = {
     src: 'https://via.placeholder.com/1500',
     alt: 'Alternative text',
