@@ -1,8 +1,8 @@
 import {
-  MenuItemType,
   SidebarMyAccount,
+  SubscriptionsMyAccount,
 } from '@atlascode/coffee-front-components';
-import { Box, Container, Typography } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import getDefaultStyle from './style';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -19,7 +19,9 @@ export const MyAccountPage: React.FC<MyAccountPageProps> = (
             activeItem="/myaccount/subscriptions"
             name={'Alexandre Fristsch'}
           />
-          <Box className="myaccount-content"></Box>
+          <Box className="myaccount-content">
+            <SubscriptionsMyAccount />
+          </Box>
         </Box>
       </Container>
     </Box>
