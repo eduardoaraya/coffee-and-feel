@@ -1,12 +1,16 @@
-import { Box, Typography, Paper } from '@material-ui/core';
+import { Box, Typography, Paper, Button } from '@material-ui/core';
 import { Check } from '@material-ui/icons';
 import { alpha, SxProps, Theme } from '@material-ui/system';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface SubscriptionsMyAccountProps {}
+export interface SubscriptionsMyAccountProps {
+  subscriptionsDetails?: unknown;
+}
 
-export const SubscriptionsMyAccount: React.FC<SubscriptionsMyAccountProps> =
-  (): JSX.Element => (
+export const SubscriptionsMyAccount: React.FC<SubscriptionsMyAccountProps> = ({
+  subscriptionsDetails,
+}): JSX.Element =>
+  subscriptionsDetails ? (
     <Box className="wrapper" sx={getDefaultStyles()}>
       <Box className="content-header">
         <Typography variant="h2">Assinatura Premium</Typography>
@@ -39,6 +43,35 @@ export const SubscriptionsMyAccount: React.FC<SubscriptionsMyAccountProps> =
         <Box className="actions">
           <Typography color="primary">Mudar meus cafés</Typography>
         </Box>
+      </Box>
+    </Box>
+  ) : (
+    <Box
+      sx={{
+        '&.content-message': {
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          '.wrapper-message ': {
+            padding: '20px 45px',
+            '.message': {
+              fontSize: '1.85em',
+              maxWidth: '350px',
+              marginBottom: '15px',
+            },
+          },
+        },
+      }}
+      className="content-message"
+    >
+      <Box className="wrapper-message">
+        <Typography className="message">
+          Você ainda não fez nenhuma assinatura.
+        </Typography>
+        <Button className="btn-subscription" variant="contained" size="large">
+          Conhecer o Clube
+        </Button>
       </Box>
     </Box>
   );
