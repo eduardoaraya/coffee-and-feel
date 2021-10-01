@@ -11,7 +11,7 @@ import {
 
 export default {
   component: SubscriptionPageBenefitsMobile,
-  title: 'SubscriptionPageBenefitsMobile',
+  title: 'Subscription/SubscriptionPageBenefitsMobile',
   parameters: {
     layout: 'fullscreen',
     viewport: {

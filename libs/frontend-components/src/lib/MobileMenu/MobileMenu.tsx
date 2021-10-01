@@ -1,9 +1,7 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import {
   Box,
-  BoxProps,
   SwipeableDrawer,
-  Drawer,
   Paper,
   Button,
   IconButton,

@@ -92,6 +92,7 @@ const defaultTheme = createTheme({
     },
   },
   typography: {
+    fontFamily: ['Rufina Bold', 'Roboto'].join(','),
     htmlFontSize: 10,
     h1: titleStyle('33px'),
     h2: titleStyle('26px'),

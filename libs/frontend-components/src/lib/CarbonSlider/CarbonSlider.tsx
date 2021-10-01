@@ -1,4 +1,4 @@
-import { CircleIconButton } from '@atlascode/coffee-front-components';
+import { CircleIconButton } from '../CircleIconButton/CircleIconButton';
 import {
   SwiperGenericWrapper,
   SwiperGenericWrapperProps,

@@ -9,7 +9,7 @@ import { Box } from '@material-ui/system';
 
 export default {
   component: SubscriptionSlider,
-  title: 'SubscriptionSlider',
+  title: 'Subscription/SubscriptionSlider',
   parameters: {
     layout: 'fullscreen',
     viewport: {

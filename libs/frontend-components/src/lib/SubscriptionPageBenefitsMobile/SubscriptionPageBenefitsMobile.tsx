@@ -6,7 +6,7 @@ import { SwiperGenericWrapper } from '@atlascode/coffee-frontend-utility';
 import {
   SubscriptionPageBenefitCard,
   SubscriptionPageBenefitCardProps,
-} from '@atlascode/coffee-front-components';
+} from '../SubscriptionPageBenefitCard/SubscriptionPageBenefitCard';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SubscriptionPageBenefitsMobileProps extends BoxProps {

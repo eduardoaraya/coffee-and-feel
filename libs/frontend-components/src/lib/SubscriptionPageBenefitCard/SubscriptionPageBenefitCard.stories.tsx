@@ -6,7 +6,7 @@ import {
 
 export default {
   component: SubscriptionPageBenefitCard,
-  title: 'SubscriptionPageBenefitCard',
+  title: 'Subscription/SubscriptionPageBenefitCard',
 } as Meta;
 
 const Template: Story<SubscriptionPageBenefitCardProps> = (args) => (
