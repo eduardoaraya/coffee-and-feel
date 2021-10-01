@@ -1,15 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Product } from './entities/product.entity';
-import { Repository } from 'typeorm';
+import { CreateProductDto } from '../dto/create-product.dto';
+import { UpdateProductDto } from '../dto/update-product.dto';
+import { Product } from '../entities/product.entity';
+import { ProductRepository } from '../repositories/product.repository';
 
 @Injectable()
 export class ProductsService {
-  constructor(
-    @InjectRepository(Product) private productsRepository: Repository<Product>
-  ) {}
+  constructor(private productsRepository: ProductRepository) {}
 
   async create(createProductDto: CreateProductDto) {
     // Nesting these calls to make sure creation/update events are triggered, possibly a bug.
@@ -23,12 +20,12 @@ export class ProductsService {
     return this.productsRepository.find();
   }
 
-  findOne(id: number): Promise<Product> {
-    return this.productsRepository.findOne(id);
+  async findOne(id: number) {
+    return await this.productsRepository.findOne(id);
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return this.productsRepository.update(id, updateProductDto);
+  async update(id: number, updateProductDto: UpdateProductDto) {
+    return await this.productsRepository.update(id, updateProductDto);
   }
 
   async remove(id: number): Promise<void> {

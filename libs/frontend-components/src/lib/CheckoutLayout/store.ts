@@ -1,11 +1,11 @@
 import store from 'zustand';
-import { Product } from '@atlascode/coffee-backend-module-products';
+import type { IProduct } from '@atlascode/coffee-backend-module-products';
 // import { nanoid } from 'nanoid';
 
 type CheckoutItem = {
   id: string | number;
   quantity: number;
-  product: Product;
+  product: IProduct;
 };
 
 export interface CheckoutLayoutState {
@@ -17,7 +17,7 @@ export interface CheckoutLayoutState {
 export interface CheckoutLayoutActions {
   forwardStep: () => void;
   backwardStep: () => void;
-  newItem: (product: Product) => void;
+  newItem: (product: IProduct) => void;
   removeItem: (id: string | number) => void;
   increaseItem: (id: string | number) => void;
   subtractItem: (id: string | number) => void;
