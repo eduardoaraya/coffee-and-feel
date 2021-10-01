@@ -3,7 +3,7 @@ import { CheckoutLayout, CheckoutLayoutProps } from './CheckoutLayout';
 
 export default {
   component: CheckoutLayout,
-  title: 'CheckoutLayout',
+  title: 'Checkout/CheckoutLayout',
   parameters: {
     layout: 'fullscreen',
     viewport: {

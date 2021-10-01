@@ -10,9 +10,9 @@ import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { KeyboardArrowDown } from '@material-ui/icons';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface CheckoutLayoutHeaderProps extends BoxProps {}
+export interface CheckoutHeaderProps extends BoxProps {}
 
-const CheckoutLayoutHeader = ({ sx, ...rest }: CheckoutLayoutHeaderProps) => {
+export const CheckoutHeader = ({ sx, ...rest }: CheckoutHeaderProps) => {
   return (
     <Box sx={{ ...styles.root, ...rest }}>
       <Box sx={styles.navbar}>
@@ -42,7 +42,7 @@ const CheckoutLayoutHeader = ({ sx, ...rest }: CheckoutLayoutHeaderProps) => {
   );
 };
 
-export default CheckoutLayoutHeader;
+export default CheckoutHeader;
 
 const styles = AtlasStylesheet.create({
   root: {

@@ -432,9 +432,7 @@
           "options": {
             "uiFramework": "@storybook/react",
             "staticDir": ["apps/frontend/public"],
-            "external": [
-                "@emotion/styled"
-            ],
+            "external": ["@emotion/styled"],
             "port": 4400,
             "config": {
               "configFolder": "libs/frontend-components/.storybook"

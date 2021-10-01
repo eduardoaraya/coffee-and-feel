@@ -7,7 +7,10 @@ const steps = [
   'Create an ad',
 ];
 
-export function CheckoutLayoutSteps() {
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CheckoutStepsProps {}
+
+export function CheckoutSteps() {
   return (
     <Box sx={{ width: '100%', fontFamily: 'Roboto' }}>
       <Stepper activeStep={1} alternativeLabel>
