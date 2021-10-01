@@ -1,3 +1,5 @@
+/* eslint-disable  */
+
 import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from '../dto/create-product.dto';
 import { UpdateProductDto } from '../dto/update-product.dto';
@@ -28,7 +30,7 @@ export class ProductsService {
     return await this.productsRepository.update(id, updateProductDto);
   }
 
-  async remove(id: number): Promise<void> {
+  async remove(id: any): Promise<void> {
     await this.productsRepository.delete(id);
   }
 }

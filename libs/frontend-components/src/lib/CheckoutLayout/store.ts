@@ -1,6 +1,6 @@
 import store from 'zustand';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import type { IProduct } from '@atlascode/coffee-backend-module-products';
-// import { nanoid } from 'nanoid';
 
 type CheckoutItem = {
   id: string | number;
