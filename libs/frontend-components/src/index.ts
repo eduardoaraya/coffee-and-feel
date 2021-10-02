@@ -1,6 +1,3 @@
-export * from './lib/Checkout/CheckoutItem/CheckoutItem';
-export * from './lib/Checkout/CheckoutMenu/CheckoutMenu';
-export * from './lib/Checkout/CheckoutSteps/CheckoutSteps';
 export * from './lib/CookiesDialog/CookiesDialog';
 export * from './lib/MobileMenu/MobileMenu';
 export * from './lib/SubscriptionBenefitsListCard/SubscriptionBenefitsListCard';
@@ -38,3 +35,4 @@ export * from './lib/Catalog';
 export * from './lib/LayoutEcommerce/WrapperLayout';
 export * from './lib/Customer';
 export * from './lib/Checkout';
+    

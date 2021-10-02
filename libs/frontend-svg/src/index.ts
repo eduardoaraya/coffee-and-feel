@@ -1,3 +1,4 @@
+export * from './lib/CheckoutReturnArrow/CheckoutReturnArrow';
 export * from './lib/CookiesSVG/CookiesSVG';
 export * from './lib/CoffeeAndFeelLogoSVG/CoffeeAndFeelLogoSVG';
 export * from './lib/DiscountSVG/DiscountSVG';
