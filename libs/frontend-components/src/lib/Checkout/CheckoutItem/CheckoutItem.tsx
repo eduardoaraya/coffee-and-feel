@@ -70,7 +70,7 @@ const styles = AtlasStylesheet.create({
     height: { xs: 'auto' },
     minHeight: { xs: '10em' },
     backgroundColor: '#fff',
-    p: { xs: '1em' },
+    p: { xs: '1.75em 1em' },
     boxShadow: (theme) =>
       `1px 1px 5px ${alpha(theme.palette.primary.main, 0.25)}`,
   },

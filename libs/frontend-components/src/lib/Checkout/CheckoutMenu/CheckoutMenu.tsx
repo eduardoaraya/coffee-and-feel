@@ -1,15 +1,19 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import { Box, DrawerProps, Drawer, List, ListItem } from '@material-ui/core';
+import { Box, DrawerProps, Drawer, List } from '@material-ui/core';
+import { CheckoutItem, CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
 import { alpha } from '@material-ui/system';
 
 /* eslint-disable-next-line */
-export interface CheckoutMenuProps extends DrawerProps {}
+export interface CheckoutMenuProps extends DrawerProps {
+  items: CheckoutItemProps[];
+}
 
 export function CheckoutMenu({
   sx,
   anchor = 'right',
   open,
   onClose,
+  items = [],
   ...rest
 }: CheckoutMenuProps) {
   return (
@@ -24,7 +28,13 @@ export function CheckoutMenu({
         <Box sx={styles.header}></Box>
 
         <List sx={styles.list}>
-          <Box sx={styles.listBody}></Box>
+          <Box sx={styles.listBody}>
+            {items.map((value, index) => {
+              return (
+                <CheckoutItem sx={{ width: 'auto' }} {...value} key={index} />
+              );
+            })}
+          </Box>
         </List>
 
         <Box sx={styles.footer}>
@@ -76,7 +86,8 @@ const styles = AtlasStylesheet.create({
   },
 
   list: {
-    width: { xs: '31em' },
+    py: { xs: 0 },
+    width: { xs: '33em' },
     height: { xs: '100%' },
     overflowX: 'hidden',
     overflowY: 'scroll',

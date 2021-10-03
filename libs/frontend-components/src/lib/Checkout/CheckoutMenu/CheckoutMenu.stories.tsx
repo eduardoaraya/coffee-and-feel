@@ -2,6 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import { CheckoutMenu, CheckoutMenuProps } from './CheckoutMenu';
 import { CheckoutLayout } from '../CheckoutLayout/CheckoutLayout';
 import { Box } from '@material-ui/system';
+import { CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
 
 export default {
   component: CheckoutMenu,
@@ -23,7 +24,24 @@ export default {
 
 const Template: Story<CheckoutMenuProps> = (args) => <CheckoutMenu {...args} />;
 
+const checkoutItem: CheckoutItemProps = {
+  img: {
+    src: 'imgs/coffee-package.png',
+    alt: 'This is an alt text',
+  },
+  title:
+    ' Café expresso edição especial - 30 cápsulas aloha awooogaaaaa hello world',
+  price: 15,
+};
+
 export const Primary = Template.bind({});
 Primary.args = {
   open: true,
+  items: [
+    { ...checkoutItem },
+    { ...checkoutItem, price: 175 },
+    { ...checkoutItem, price: 1850 },
+    { ...checkoutItem, price: 1850 },
+    { ...checkoutItem, price: 1850 },
+  ],
 };
