@@ -4,6 +4,7 @@ import { CheckoutItem, CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
 import { alpha } from '@material-ui/system';
 import { CheckoutReturnArrow } from '@atlascode/coffee-frontend-svg';
 import CheckoutMenuOverview from '../CheckoutMenuOverview/CheckoutMenuOverview';
+import CheckoutDiscount from '../CheckoutDiscount/CheckoutDiscount';
 
 /* eslint-disable-next-line */
 export interface CheckoutMenuProps extends DrawerProps {
@@ -46,6 +47,7 @@ export function CheckoutMenu({
                 <CheckoutItem sx={{ width: 'auto' }} {...value} key={index} />
               );
             })}
+            <CheckoutDiscount sx={styles.discount} />
           </Box>
         </List>
 
@@ -86,6 +88,12 @@ const styles = AtlasStylesheet.create({
     '.MuiPaper-root': {
       borderRadius: '0px 0px 0px 8px',
     },
+  },
+
+  discount: {
+    width: '100%',
+    py: { xs: '5em' },
+    px: { xs: '3em' },
   },
 
   overviewContainer: {

@@ -4,6 +4,7 @@ import {
   InputWithButton,
   InputWithButtonProps,
 } from '../../InputWithButton/InputWithButton';
+import { alpha } from '@material-ui/system';
 
 /* eslint-disable-next-line */
 export interface CheckoutDiscountProps extends BoxProps {
@@ -16,14 +17,21 @@ export function CheckoutDiscount({
   sx,
   label = 'Cupom de desconto',
   caption = '',
-  InputWithButtonProps,
+  InputWithButtonProps = {
+    InputProps: {
+      placeholder: 'BLACKFRIDAY30',
+    },
+    ButtonProps: {
+      children: 'Ativar',
+    },
+  },
   ...rest
 }: CheckoutDiscountProps) {
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       <Box sx={styles.container}>
         <Typography sx={styles.label}>{label}</Typography>
-        <InputWithButton {...InputWithButtonProps} />
+        <InputWithButton fontSize="inherit" {...InputWithButtonProps} />
         <Typography sx={styles.caption}>{caption}</Typography>
       </Box>
     </Box>
@@ -35,6 +43,7 @@ export default CheckoutDiscount;
 const styles = AtlasStylesheet.create({
   root: {
     fontSize: '10px',
+    border: (theme) => `1px solid ${alpha(theme.palette.primary.main, 0.15)}`,
   },
 
   container: {

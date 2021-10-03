@@ -17,20 +17,19 @@ export function InputWithButton({
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       <Box
-        {...InputProps}
         component="input"
-        type="email"
         placeholder="Seu e-mail"
+        {...InputProps}
         sx={styles.input}
       />
       <LoadingButton
-        {...ButtonProps}
+        size={undefined}
         disableElevation
         sx={styles.button}
-        size="medium"
         variant="contained"
+        {...ButtonProps}
       >
-        Enviar
+        {ButtonProps?.children}
       </LoadingButton>
     </Box>
   );
@@ -65,5 +64,6 @@ const styles = AtlasStylesheet.create({
     height: '100%',
     borderRadius: '0 8px 8px 0',
     transform: 'translate3d(-2px, 0, 0)',
+    fontSize: '1em !important',
   },
 });
