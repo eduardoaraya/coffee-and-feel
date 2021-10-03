@@ -1,3 +1,4 @@
+import { Box } from '@material-ui/system';
 import { Story, Meta } from '@storybook/react';
 import {
   CheckoutMenuOverview,
@@ -7,6 +8,19 @@ import {
 export default {
   component: CheckoutMenuOverview,
   title: 'Checkout/CheckoutMenuOverview',
+  parameters: {
+    layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'brazilDesktop1',
+    },
+  },
+  decorators: [
+    (Story) => (
+      <Box sx={{ width: '150px', m: 3 }}>
+        <Story />
+      </Box>
+    ),
+  ],
 } as Meta;
 
 const Template: Story<CheckoutMenuOverviewProps> = (args) => (
