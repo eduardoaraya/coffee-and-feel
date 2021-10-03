@@ -27,7 +27,29 @@ export function CheckoutMenu({
           <Box sx={styles.listBody}></Box>
         </List>
 
-        <Box sx={styles.footer}></Box>
+        <Box sx={styles.footer}>
+          <Box sx={styles.footerInner}>
+            <Box sx={styles.labelValueContainer}>
+              <Box>Subtotal:</Box>
+              <Box>R$27,90</Box>
+            </Box>
+
+            <Box sx={styles.labelValueContainer}>
+              <Box>Descontos:</Box>
+              <Box>R$00,00</Box>
+            </Box>
+
+            <Box sx={styles.labelValueContainer}>
+              <Box>Entrega:</Box>
+              <Box>R$00,00</Box>
+            </Box>
+
+            <Box sx={styles.totalContainer}>
+              <Box>Total:</Box>
+              <Box>R$27,90</Box>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Drawer>
   );
@@ -77,6 +99,8 @@ const styles = AtlasStylesheet.create({
 
   listBody: {
     width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   },
 
   footer: {
@@ -84,5 +108,33 @@ const styles = AtlasStylesheet.create({
     height: '100%',
     bgcolor: (theme) => theme.palette.primary.main,
     borderRadius: '0px 0px 0px 8px',
+  },
+
+  footerInner: {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+    gap: { xs: '0.5em' },
+    justifyContent: 'center',
+    color: (theme) => theme.palette.primary.contrastText,
+  },
+
+  labelValueContainer: {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-around',
+    fontWeight: 400,
+    fontSize: { xs: '1.4em' },
+  },
+
+  totalContainer: {
+    mt: { xs: '1em' },
+    fontWeight: 900,
+    fontSize: { xs: '1.6em' },
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'space-around',
   },
 });
