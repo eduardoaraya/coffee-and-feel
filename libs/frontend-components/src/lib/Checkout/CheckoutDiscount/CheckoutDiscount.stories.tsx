@@ -12,3 +12,25 @@ const Template: Story<CheckoutDiscountProps> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: 'Custom label',
+};
+Secondary.storyName = 'Custom label';
+
+export const Third = Template.bind({});
+Third.args = {
+  caption: 'Cupom de 10% foi aplicado!',
+};
+Third.storyName = 'Helper text';
+
+export const Fourth = Template.bind({});
+Fourth.args = {
+  InputWithButtonProps: {
+    ButtonProps: {
+      loading: true,
+    },
+  },
+};
+Fourth.storyName = 'Loading state';
