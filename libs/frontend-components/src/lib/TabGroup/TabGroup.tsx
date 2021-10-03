@@ -31,6 +31,9 @@ export const TabGroup: React.FC<TabGroupProps> = ({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
+        '&, >*': {
+          WebkitTapHighlightColor: 'transparent',
+        },
         '.tab-group-wrapper': {
           borderRadius: '6px',
           display: 'flex',

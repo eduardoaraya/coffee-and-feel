@@ -35,4 +35,4 @@ export * from './lib/Catalog';
 export * from './lib/LayoutEcommerce/WrapperLayout';
 export * from './lib/Customer';
 export * from './lib/Address';
-export * from './lib/FormLayout/FormLayout';
+export * from './lib/Layout';

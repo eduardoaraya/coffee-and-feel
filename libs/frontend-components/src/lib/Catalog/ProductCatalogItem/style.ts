@@ -10,6 +10,7 @@ export default {
     padding: '25px',
     display: 'flex',
     marginBottom: '45px',
+    WebkitTapHighlightColor: 'transparent',
     '&:hover': {
       transition: '.3s',
       boxShadow: '2px 2px 15px -9px rgba(52, 52, 52, 0.62)',

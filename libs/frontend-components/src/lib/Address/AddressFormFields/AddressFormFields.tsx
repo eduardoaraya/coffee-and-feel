@@ -1,27 +1,36 @@
 import { useDebounce } from '@atlascode/coffee-frontend-utility';
-import { Box, Button, TextField } from '@material-ui/core';
+import { Box, Button, ButtonProps, TextField } from '@material-ui/core';
 import { SxProps, Theme } from '@material-ui/system';
-import { FormEvent, KeyboardEventHandler } from 'react';
-import FormLayout from '../../FormLayout/FormLayout';
+import FormGrid from '../../Layout/FormGrid/FormGrid';
 import axios from 'axios';
+import { KeyboardEventHandler, MouseEvent } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface AddressFormProps {
-  address: {
-    cep: string;
-    street: string;
-    number: number;
-    complement: string;
-    district: string;
-    city: string;
-    state: string;
-  };
-  submit: (address: AddressFormProps['address']) => void;
+type Event = KeyboardEventHandler & { target: HTMLInputElement };
+export interface AddressInterface {
+  cep: string;
+  street: string;
+  number: number;
+  complement: string;
+  district: string;
+  city: string;
+  state: string;
 }
 
-export const AddressForm: React.FC<AddressFormProps> = ({
+export interface AddressFormFieldsProps {
+  address: AddressInterface;
+  actions: JSX.Element;
+}
+
+export interface ActionsForm extends ButtonProps {
+  label: string;
+  type: 'button' | 'submit';
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  submit?: (address?: AddressInterface | null) => void;
+}
+
+export const AddressFormFields: React.FC<AddressFormFieldsProps> = ({
   address,
-  submit,
+  actions,
 }): JSX.Element => {
   const getAddress = async (cep: string) => {
     try {
@@ -37,8 +46,6 @@ export const AddressForm: React.FC<AddressFormProps> = ({
     } catch (err) {}
   };
 
-  type Event = KeyboardEventHandler & { target: HTMLInputElement };
-
   const handleChangeCep = useDebounce(([event]: Event[]) => {
     const CHARACTER_LIMIT = 8;
     if (event && event.target.value.length >= CHARACTER_LIMIT)
@@ -46,19 +53,7 @@ export const AddressForm: React.FC<AddressFormProps> = ({
   }, 300);
 
   return (
-    <FormLayout
-      actions={[
-        <Button key="1">Voltar</Button>,
-        <Button
-          onClick={() => submit(address)}
-          key="2"
-          color="primary"
-          variant="contained"
-        >
-          Cadastrar
-        </Button>,
-      ]}
-    >
+    <FormGrid actionsArea={actions}>
       <Box className="form-field">
         <TextField
           hiddenLabel
@@ -66,18 +61,23 @@ export const AddressForm: React.FC<AddressFormProps> = ({
           onKeyUp={handleChangeCep}
           defaultValue={address.cep}
           variant="outlined"
+          name="cep"
+          required
         />
         <TextField
           hiddenLabel
           label="Número"
           defaultValue={address.number}
           variant="outlined"
+          name="number"
+          required
         />
         <TextField
           hiddenLabel
           label="Complemento"
           defaultValue={address.complement}
           variant="outlined"
+          name="complement"
         />
       </Box>
       <Box className="form-field">
@@ -86,12 +86,16 @@ export const AddressForm: React.FC<AddressFormProps> = ({
           label="Endereço"
           defaultValue={address.street}
           variant="outlined"
+          name="street"
+          required
         />
         <TextField
           hiddenLabel
           label="Bairro"
           defaultValue={address.district}
           variant="outlined"
+          name="district"
+          required
         />
       </Box>
       <Box className="form-field">
@@ -100,18 +104,22 @@ export const AddressForm: React.FC<AddressFormProps> = ({
           label="Estado"
           defaultValue={address.state}
           variant="outlined"
+          name="state"
+          required
         />
         <TextField
           hiddenLabel
           label="Cidade"
           defaultValue={address.city}
           variant="outlined"
+          name="city"
+          required
         />
       </Box>
-    </FormLayout>
+    </FormGrid>
   );
 };
 
-export default AddressForm;
+export default AddressFormFields;
 
 const getDefaultStyle = () => ({} as SxProps<Theme>);

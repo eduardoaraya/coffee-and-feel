@@ -1,3 +1,3 @@
-export * from './AddressForm/AddressForm';
+export * from './AddressFormFields/AddressFormFields';
 export * from './AddressList/AddressList';
-export * from './AddressMyAccount/AddressMyAccount,';
+export * from './AddressMyAccount/AddressMyAccount';

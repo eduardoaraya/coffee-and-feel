@@ -1,5 +1,5 @@
 import { Box, TextField, Button } from '@material-ui/core';
-import FormLayout from '../../FormLayout/FormLayout';
+import FormGrid from '../../Layout/FormGrid/FormGrid';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ProfileMyAccountProps {}
@@ -7,13 +7,15 @@ export interface ProfileMyAccountProps {}
 export const ProfileMyAccount: React.FC<ProfileMyAccountProps> = (
   props
 ): JSX.Element => (
-  <FormLayout
-    actions={[
-      <Button>Voltar</Button>,
-      <Button color="primary" variant="contained">
-        Atualizar
-      </Button>,
-    ]}
+  <FormGrid
+    actionsArea={
+      <Box className="actions">
+        <Button>Voltar</Button>
+        <Button color="primary" variant="contained">
+          Atualizar
+        </Button>
+      </Box>
+    }
   >
     <Box className="form-field">
       <TextField hiddenLabel label="Nome" defaultValue="" variant="outlined" />
@@ -47,7 +49,7 @@ export const ProfileMyAccount: React.FC<ProfileMyAccountProps> = (
       />
       <TextField hiddenLabel label="CPF" defaultValue="" variant="outlined" />
     </Box>
-  </FormLayout>
+  </FormGrid>
 );
 
 export default ProfileMyAccount;
