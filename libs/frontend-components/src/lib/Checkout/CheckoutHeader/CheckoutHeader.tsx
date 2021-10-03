@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { KeyboardArrowDown } from '@material-ui/icons';
+import CheckoutMenuOverview from '../CheckoutMenuOverview/CheckoutMenuOverview';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CheckoutHeaderProps extends BoxProps {}
@@ -24,14 +25,7 @@ export const CheckoutHeader = ({ sx, ...rest }: CheckoutHeaderProps) => {
           <Box sx={styles.infoContainer}>
             <Box sx={styles.infoInner}>
               <Box sx={styles.infoBlock}>
-                <Box sx={styles.infoNumeric}>
-                  <Typography sx={styles.infoAmount}>2 itens</Typography>
-                  <Typography sx={styles.infoPrice}>R$15,50</Typography>
-                </Box>
-
-                <IconButton size="small">
-                  <KeyboardArrowDown color="primary" fontSize="inherit" />
-                </IconButton>
+                <CheckoutMenuOverview />
               </Box>
             </Box>
           </Box>

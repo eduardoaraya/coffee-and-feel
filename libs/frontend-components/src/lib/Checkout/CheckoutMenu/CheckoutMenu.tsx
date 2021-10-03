@@ -1,7 +1,9 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import { Box, DrawerProps, Drawer, List } from '@material-ui/core';
+import { Box, DrawerProps, Drawer, List, IconButton } from '@material-ui/core';
 import { CheckoutItem, CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
 import { alpha } from '@material-ui/system';
+import { CheckoutReturnArrow } from '@atlascode/coffee-frontend-svg';
+import CheckoutMenuOverview from '../CheckoutMenuOverview/CheckoutMenuOverview';
 
 /* eslint-disable-next-line */
 export interface CheckoutMenuProps extends DrawerProps {
@@ -25,7 +27,17 @@ export function CheckoutMenu({
       {...rest}
     >
       <Box sx={styles.container}>
-        <Box sx={styles.header}></Box>
+        <Box sx={styles.header}>
+          <Box sx={styles.headerIconContainer}>
+            <IconButton sx={styles.headerReturnIcon}>
+              <CheckoutReturnArrow fontSize="inherit" />
+            </IconButton>
+          </Box>
+
+          <Box sx={styles.overviewContainer}>
+            <CheckoutMenuOverview />
+          </Box>
+        </Box>
 
         <List sx={styles.list}>
           <Box sx={styles.listBody}>
@@ -76,6 +88,13 @@ const styles = AtlasStylesheet.create({
     },
   },
 
+  overviewContainer: {
+    flexGrow: 1,
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'flex-end',
+  },
+
   container: {
     width: '100%',
     height: '100%',
@@ -98,13 +117,19 @@ const styles = AtlasStylesheet.create({
     height: '100%',
     borderBottom: (theme) =>
       `1px solid ${alpha(theme.palette.primary.main, 0.15)}`,
-  },
-
-  headerInner: {
     display: 'flex',
+    px: { xs: '2em' },
   },
 
-  headerReturnIcon: {},
+  headerIconContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  headerReturnIcon: {
+    fontSize: { xs: '2em' },
+  },
 
   headerOverviewContainer: {},
 

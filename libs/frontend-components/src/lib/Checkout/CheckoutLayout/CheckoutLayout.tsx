@@ -1,7 +1,6 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import { Box, BoxProps } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { CheckoutHeader } from '../CheckoutHeader/CheckoutHeader';
-import { CheckoutSteps } from '../CheckoutSteps/CheckoutSteps';
 
 /* eslint-disable-next-line */
 export interface CheckoutLayoutProps {
