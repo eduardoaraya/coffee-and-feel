@@ -41,7 +41,7 @@ const styles = (active?: boolean) =>
       display: 'grid',
       width: '100%',
       height: '100%',
-      gridTemplateColumns: { xs: '22.5% 77.5%', lg: '7.5% 92.5%' },
+      gridTemplateColumns: { xs: '25% 75%', lg: '7.5% 92.5%' },
     },
 
     content: {
