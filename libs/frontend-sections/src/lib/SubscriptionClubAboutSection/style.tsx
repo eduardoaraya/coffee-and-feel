@@ -8,19 +8,16 @@ export default {
     minHeight: '900px',
     position: 'relative',
     overflow: 'hidden',
-    backgroundImage: {
-      md: 'url(/imgs/about-subscription-club.png)',
-      xs: 'url(imgs/about-subscription-club-mobile.png)',
-    },
     backgroundRepeat: 'no-repeat',
     backgroundPosition: {
+      lg: '0 100px',
       md: '0px 100px',
       xs: '0px 180px',
     },
     backgroundSize: {
-      lg: '600px',
+      lg: '530px',
       md: '35%',
-      sm: '45%',
+      sm: '35%',
       xs: '273px',
     },
     padding: {
@@ -49,6 +46,7 @@ export default {
     '.section-info': {
       position: 'relative',
       '.section-title': {
+        maxWidth: '420px',
         lineHeight: {
           md: '46px',
           xs: '30px',
@@ -58,7 +56,10 @@ export default {
           md: 'flex-start',
           xs: 'center',
         },
-        margin: '0px',
+        margin: {
+          md: '0',
+          xs: '0 auto',
+        },
         color: '#323232',
         textAlign: {
           md: 'left',
@@ -100,7 +101,7 @@ export default {
           display: 'flex',
           flexDirection: 'column',
           margin: {
-            md: '0px',
+            md: '0px 30px 0 0',
             xs: '20px 0px',
           },
           '.MuiTypography-root': {
