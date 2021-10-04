@@ -5,6 +5,8 @@ export default () =>
     '&.sidebar': {
       minHeight: '300px',
       position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
       '.sidebar-header': {
         padding: '0 20px',
         display: 'flex',
@@ -30,7 +32,7 @@ export default () =>
         },
       },
       '.sidebar-navigator': {
-        // height: '100%',
+        flex: 1,
         padding: '45px 0px',
         ul: {
           padding: 0,

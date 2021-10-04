@@ -1,7 +1,7 @@
 import { Box } from '@material-ui/core';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductInterface from '../Catalog/Contracts/ProductInterface';
-import { ProductInfo } from '@atlascode/coffee-front-components';
+import ProductInfo from '../Catalog/ProductInfo/ProductInfo';
 import style from './style';
 
 /* eslint-disable-next-line */

@@ -1,4 +1,4 @@
-import { CircleIconButton } from '../CircleIconButton/CircleIconButton';
+import React from 'react';
 import {
   SwiperGenericWrapper,
   SwiperGenericWrapperProps,
@@ -6,7 +6,7 @@ import {
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { BoxProps, Box } from '@material-ui/core';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
-import React from 'react';
+import { CircleIconButton } from '../CircleIconButton/CircleIconButton';
 /* eslint-disable-next-line */
 export interface CarbonSliderProps<C> extends BoxProps {
   component: SwiperGenericWrapperProps<C>['component'];

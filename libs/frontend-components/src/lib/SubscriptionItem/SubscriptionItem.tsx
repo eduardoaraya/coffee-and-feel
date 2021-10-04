@@ -7,7 +7,7 @@ import {
 import {
   PaginationDots,
   PaginationDotsProps,
-} from '@atlascode/coffee-front-components';
+} from '../PaginationDots/PaginationDots';
 
 /* eslint-disable-next-line */
 export interface SubscriptionItemProps extends BoxProps, PaginationDotsProps {

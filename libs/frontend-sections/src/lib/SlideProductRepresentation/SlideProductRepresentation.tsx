@@ -2,8 +2,8 @@ import { Box, IconButton } from '@material-ui/core';
 import style from './style';
 import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import {
+  ProductInfo,
   ProductInterface,
-  // ProductCatalogRepresentation,
 } from '@atlascode/coffee-front-components';
 // Swipper Import
 import SwiperCore from 'swiper';
@@ -52,10 +52,7 @@ export const SlideProductRepresentation: React.FC<SlideProductRepresentationProp
                   </figure>
                 </Box>
                 <Box className="product-area">
-                  {/* <ProductCatalogRepresentation
-                    product={prod}
-                    variantViewPort={'mobile'}
-                  /> */}
+                  <ProductInfo product={prod} variantViewPort="mobile" />
                 </Box>
               </Box>
             </SwiperSlide>
