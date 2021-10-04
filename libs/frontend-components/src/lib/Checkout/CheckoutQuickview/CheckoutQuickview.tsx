@@ -3,7 +3,6 @@ import { Box, DrawerProps, Drawer, List, IconButton } from '@material-ui/core';
 import { CheckoutItem, CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
 import { alpha } from '@material-ui/system';
 import { CheckoutReturnArrow } from '@atlascode/coffee-frontend-svg';
-import CheckoutMenuOverview from '../CheckoutMenuOverview/CheckoutMenuOverview';
 import CheckoutDiscount from '../CheckoutDiscount/CheckoutDiscount';
 import {
   CoffeeBagWithBadge,
