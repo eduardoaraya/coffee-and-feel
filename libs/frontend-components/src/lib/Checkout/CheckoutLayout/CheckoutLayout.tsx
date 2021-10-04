@@ -1,18 +1,29 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box } from '@material-ui/core';
 import { CheckoutHeader } from '../CheckoutHeader/CheckoutHeader';
+import {
+  CheckoutSteps,
+  CheckoutStepsProps,
+} from '../CheckoutSteps/CheckoutSteps';
 
 /* eslint-disable-next-line */
 export interface CheckoutLayoutProps {
   children?: React.ReactNode;
+  StepsProps?: CheckoutStepsProps;
 }
 
-export function CheckoutLayout(props: CheckoutLayoutProps) {
+export function CheckoutLayout({
+  StepsProps = {
+    steps: [],
+  },
+  children,
+}: CheckoutLayoutProps) {
   return (
     <Box sx={styles.root}>
       <CheckoutHeader />
-      {props.children}
-      {/* <CheckoutSteps /> */}
+      <CheckoutSteps {...StepsProps} />
+
+      {children}
     </Box>
   );
 }

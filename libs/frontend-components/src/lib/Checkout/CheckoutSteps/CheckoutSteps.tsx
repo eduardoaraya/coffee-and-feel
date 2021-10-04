@@ -1,25 +1,54 @@
-import * as React from 'react';
-import { Box, Stepper, Step, StepLabel } from '@material-ui/core';
-
-const steps = [
-  'Select master blaster campaign settings',
-  'Create an ad group',
-  'Create an ad',
-];
+import { Stepper, Step, StepLabel, StepperProps } from '@material-ui/core';
+import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface CheckoutStepsProps {}
+export interface CheckoutStepsProps extends StepperProps {
+  steps: string[];
+}
 
-export function CheckoutSteps() {
+export function CheckoutSteps({
+  sx,
+  alternativeLabel = true,
+  steps = [],
+  ...rest
+}: CheckoutStepsProps) {
   return (
-    <Box sx={{ width: '100%', fontFamily: 'Roboto' }}>
-      <Stepper activeStep={1} alternativeLabel>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-    </Box>
+    <Stepper
+      sx={{ ...styles.root, ...sx }}
+      alternativeLabel={alternativeLabel}
+      {...rest}
+    >
+      {steps.map((label) => (
+        <Step key={label}>
+          <StepLabel>{label}</StepLabel>
+        </Step>
+      ))}
+    </Stepper>
   );
 }
+
+const styles = AtlasStylesheet.create({
+  root: {
+    fontSize: '10px',
+
+    '.MuiStepIcon-text': {
+      fontSize: { xs: '0.65em' },
+    },
+
+    '.MuiSvgIcon-root': {
+      fontSize: { xs: '2em' },
+
+      '&.Mui-active': {
+        color: (theme) => theme.palette.success.main,
+      },
+
+      '&.Mui-completed': {
+        color: (theme) => theme.palette.success.main,
+      },
+    },
+
+    '.MuiStepLabel-label': {
+      fontSize: { xs: '1em' },
+    },
+  },
+});

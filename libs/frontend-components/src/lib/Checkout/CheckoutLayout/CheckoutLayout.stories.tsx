@@ -17,4 +17,9 @@ const Template: Story<CheckoutLayoutProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  StepsProps: {
+    steps: ['Identificação', 'Entrega', 'Pagamento'],
+    activeStep: 0,
+  },
+};
