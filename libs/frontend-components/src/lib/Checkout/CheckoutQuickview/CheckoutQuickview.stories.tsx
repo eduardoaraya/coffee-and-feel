@@ -3,7 +3,7 @@ import { CheckoutQuickview, CheckoutQuickviewProps } from './CheckoutQuickview';
 
 export default {
   component: CheckoutQuickview,
-  title: 'CheckoutQuickview',
+  title: 'Checkout/CheckoutQuickview',
   parameters: {
     layout: 'padded',
     viewport: {
