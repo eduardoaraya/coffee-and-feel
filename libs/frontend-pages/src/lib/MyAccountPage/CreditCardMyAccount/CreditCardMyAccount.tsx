@@ -7,13 +7,13 @@ import {
   FormGroup,
 } from '@material-ui/core';
 import { SxProps, Theme } from '@material-ui/system';
-import CreditCardFormFields from '../CreditCardFormFields/CreditCardFormFields';
-import CreditCardView from '../CreditCardView/CreditCardView';
 import {
+  CreditCardFormFields,
   CreditCardFormInterface,
   CreditCardInterface,
-} from '../Contracts/CreditCardInterface';
-import CreditCardList from '../CreditCardList/CreditCardList';
+  CreditCardList,
+  CreditCardView,
+} from '@atlascode/coffee-front-components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CreditCardMyAccountProps {}
@@ -133,7 +133,7 @@ export const CreditCardMyAccount: React.FC<CreditCardMyAccountProps> =
               </Button>
             }
             cardList={cardList}
-          ></CreditCardList>
+          />
         )}
       </Box>
     );

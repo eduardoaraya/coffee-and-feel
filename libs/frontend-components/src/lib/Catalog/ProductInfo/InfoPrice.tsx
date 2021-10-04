@@ -1,4 +1,4 @@
-import { ProductPlans } from '@atlascode/coffee-front-components';
+import { ProductPlans } from '../Contracts/ProductInterface';
 import { Box, Typography } from '@material-ui/core';
 import ProductInterface from '../Contracts/ProductInterface';
 

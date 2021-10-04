@@ -2,7 +2,7 @@ import { Box, Radio, Typography } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import { SxProps, Theme } from '@material-ui/system';
 import { CreditCardInterface } from '../Contracts/CreditCardInterface';
-import { ListingWithAction } from '@atlascode/coffee-front-components';
+import ListingWithAction from '../../Layout/ListingWithAction/ListingWithAction';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CreditCardListProps {

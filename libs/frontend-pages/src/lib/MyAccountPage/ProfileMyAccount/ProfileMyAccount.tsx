@@ -1,5 +1,5 @@
 import { Box, TextField, Button } from '@material-ui/core';
-import FormGrid from '../../Layout/FormGrid/FormGrid';
+import { FormGrid } from '@atlascode/coffee-front-components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ProfileMyAccountProps {}

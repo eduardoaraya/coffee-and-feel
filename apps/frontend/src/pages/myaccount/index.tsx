@@ -1,11 +1,10 @@
 import { ReactElement } from 'react';
 import type { Page } from '../../../types';
+import { Header, WrapperLayout } from '@atlascode/coffee-front-components';
 import {
-  Header,
+  MyAccountPage,
   SubscriptionsMyAccount,
-  WrapperLayout,
-} from '@atlascode/coffee-front-components';
-import { MyAccountPage } from '@atlascode/coffee-front-pages';
+} from '@atlascode/coffee-front-pages';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MyAccountProps {}
 

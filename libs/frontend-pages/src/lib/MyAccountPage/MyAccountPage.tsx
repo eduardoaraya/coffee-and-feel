@@ -1,7 +1,4 @@
-import {
-  SidebarMyAccount,
-  SubscriptionsMyAccount,
-} from '@atlascode/coffee-front-components';
+import { SidebarMyAccount } from '@atlascode/coffee-front-components';
 import { Box, Container } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import getDefaultStyle from './style';

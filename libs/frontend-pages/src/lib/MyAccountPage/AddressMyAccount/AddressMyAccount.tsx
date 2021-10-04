@@ -4,8 +4,8 @@ import { SxProps, Theme } from '@material-ui/system';
 import {
   AddressFormFields,
   AddressInterface,
-} from '../AddressFormFields/AddressFormFields';
-import AddressList from '../AddressList/AddressList';
+  AddressList,
+} from '@atlascode/coffee-front-components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AddressMyAccountProps {}
