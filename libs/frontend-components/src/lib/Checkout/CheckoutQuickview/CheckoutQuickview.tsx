@@ -1,6 +1,6 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps } from '@material-ui/core';
-import {} from '@atlascode/coffee-frontend-utility'
+import { LottieAnimation } from '@atlascode/coffee-frontend-utility';
 import data from './data.json';
 
 /* eslint-disable-next-line */
@@ -15,7 +15,3 @@ export default CheckoutQuickview;
 const styles = AtlasStylesheet.create({
   root: {},
 });
-
-
-
-
