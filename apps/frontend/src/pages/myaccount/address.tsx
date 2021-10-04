@@ -1,26 +1,26 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import type { Page } from '../../../types';
 import {
   Header,
   WrapperLayout,
-  ProfileMyAccount,
+  AddressMyAccount,
 } from '@atlascode/coffee-front-components';
 import { MyAccountPage } from '@atlascode/coffee-front-pages';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MyAccountProps {}
 
-export const Profile: Page<MyAccountProps> = (props) => {
+export const Address: Page<MyAccountProps> = (props) => {
   return (
     <MyAccountPage>
-      <ProfileMyAccount />
+      <AddressMyAccount />
     </MyAccountPage>
   );
 };
 
-export default Profile;
+export default Address;
 
-Profile.getLayout = function getLayout(page: ReactElement) {
+Address.getLayout = function getLayout(page: ReactElement) {
   return (
     <WrapperLayout>
       <Header />
