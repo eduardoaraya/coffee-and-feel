@@ -1,3 +1,4 @@
+import { Box } from '@material-ui/system';
 import { Story, Meta } from '@storybook/react';
 import {
   CheckoutAddressCreation,
@@ -13,6 +14,13 @@ export default {
       defaultViewport: 'brazilDesktop1',
     },
   },
+  decorators: [
+    (Story) => (
+      <Box sx={{ maxWidth: '500px' }}>
+        <Story />
+      </Box>
+    ),
+  ],
 } as Meta;
 
 const Template: Story<CheckoutAddressCreationProps> = (args) => (
