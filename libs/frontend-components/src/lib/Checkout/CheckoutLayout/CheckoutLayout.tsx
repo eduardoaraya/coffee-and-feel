@@ -7,6 +7,7 @@ import {
   CheckoutStepsProps,
 } from '../CheckoutSteps/CheckoutSteps';
 import React from 'react';
+import { useBoundingRect } from '@atlascode/coffee-frontend-react-hooks';
 
 /* eslint-disable-next-line */
 export interface CheckoutLayoutProps {
@@ -20,30 +21,13 @@ export function CheckoutLayout({
   },
   children,
 }: CheckoutLayoutProps) {
-  const headerRef = React.useRef<HTMLElement>();
-  const [headerHeight, setHeaderHeight] = React.useState<number>(0);
+  const { height, ref, width } = useBoundingRect();
 
-  React.useEffect(() => {
-    const setHeightInternal = () => {
-      setHeaderHeight(headerRef.current?.offsetHeight ?? 0);
-    };
-
-    if (headerRef.current && typeof window !== 'undefined') {
-      window.addEventListener('resize', setHeightInternal);
-    }
-
-    return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', setHeightInternal);
-      }
-    };
-  }, [headerRef]);
-
-  const styles = React.useMemo(() => stylesheet(headerHeight), [headerHeight]);
+  const styles = React.useMemo(() => stylesheet(height), [height]);
 
   return (
     <Box sx={styles.root}>
-      <Box ref={headerRef}>
+      <Box ref={ref}>
         <CheckoutHeader />
       </Box>
       <Box sx={styles.layoutGrid}>
