@@ -38,9 +38,11 @@ Primary.args = {
     { ...checkoutItem, price: 1850 },
   ],
 };
+Primary.storyName = 'Existing items in the cart';
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   open: true,
   items: [],
 };
+Secondary.storyName = 'No items exist in the cart';

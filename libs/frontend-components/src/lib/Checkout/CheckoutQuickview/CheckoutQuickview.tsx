@@ -1,5 +1,12 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import { Box, DrawerProps, Drawer, List, IconButton } from '@material-ui/core';
+import {
+  Box,
+  DrawerProps,
+  Drawer,
+  List,
+  IconButton,
+  Typography,
+} from '@material-ui/core';
 import { CheckoutItem, CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
 import { alpha } from '@material-ui/system';
 import { CheckoutReturnArrow } from '@atlascode/coffee-frontend-svg';
@@ -8,6 +15,7 @@ import {
   CoffeeBagWithBadge,
   CoffeBagWithBadgeProps,
 } from '../../CoffeeBagWithBadge/CoffeeBagWithBadge';
+import CheckoutQuickviewEmptyContent from '../CheckoutQuickviewEmptyContent/CheckoutQuickviewEmptyContent';
 
 /* eslint-disable-next-line */
 export interface CheckoutQuickviewProps extends DrawerProps {
@@ -63,31 +71,22 @@ export function CheckoutQuickview({
               <CheckoutDiscount sx={styles.discount} />
             </Box>
           ) : (
-            <Box> hello vard</Box>
+            <Box sx={styles.emptyCartContainer}>
+              <CheckoutQuickviewEmptyContent />
+            </Box>
           )}
         </List>
 
         <Box sx={styles.footer}>
           <Box sx={styles.footerInner}>
-            <Box sx={styles.labelValueContainer}>
+            <Box sx={styles.totalContainer}>
               <Box>Subtotal:</Box>
               <Box>R$27,90</Box>
             </Box>
 
-            <Box sx={styles.labelValueContainer}>
-              <Box>Descontos:</Box>
-              <Box>R$00,00</Box>
-            </Box>
-
-            <Box sx={styles.labelValueContainer}>
-              <Box>Entrega:</Box>
-              <Box>R$00,00</Box>
-            </Box>
-
-            <Box sx={styles.totalContainer}>
-              <Box>Total:</Box>
-              <Box>R$27,90</Box>
-            </Box>
+            <Typography sx={styles.footerCaption}>
+              Frete, descontos e cupons são calculados na finalização da compra.
+            </Typography>
           </Box>
         </Box>
       </Box>
@@ -183,6 +182,12 @@ const styles = AtlasStylesheet.create({
     color: (theme) => theme.palette.primary.contrastText,
   },
 
+  footerCaption: {
+    color: (theme) => theme.palette.primary.contrastText,
+    fontSize: { xs: '1.2em' },
+    maxWidth: { xs: '36ch' },
+  },
+
   labelValueContainer: {
     display: 'flex',
     width: '100%',
@@ -198,5 +203,13 @@ const styles = AtlasStylesheet.create({
     display: 'flex',
     width: '100%',
     justifyContent: 'space-around',
+  },
+
+  emptyCartContainer: {
+    display: 'flex',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
