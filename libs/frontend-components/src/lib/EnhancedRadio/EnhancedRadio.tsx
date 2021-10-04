@@ -6,13 +6,13 @@ import React from 'react';
 export interface EnhancedRadioProps extends BoxProps {
   active: boolean;
   onChange?: (...args: unknown[]) => void;
-  content?: JSX.Element;
+  children?: JSX.Element;
 }
 
 export function EnhancedRadio({
   sx,
   active,
-  content,
+  children: content,
   ...rest
 }: EnhancedRadioProps) {
   const styleMemo = React.useMemo(() => styles(active), [active]);

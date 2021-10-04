@@ -26,7 +26,7 @@ Primary.storyName = 'No content';
 export const Secondary = Template.bind({});
 Secondary.storyName = 'Content being passed';
 Secondary.args = {
-  content: (
+  children: (
     <Box
       sx={{
         display: 'flex',
@@ -49,7 +49,7 @@ export const Tertiary = Template.bind({});
 Tertiary.storyName = 'Elaborated content';
 Tertiary.args = {
   active: false,
-  content: (
+  children: (
     <Box
       sx={{
         display: 'flex',

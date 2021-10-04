@@ -1,3 +1,4 @@
+export * from './lib/AddressActionRadio/AddressActionRadio';
 export * from './lib/EnhancedRadio/EnhancedRadio';
 export * from './lib/CookiesDialog/CookiesDialog';
 export * from './lib/MobileMenu/MobileMenu';
