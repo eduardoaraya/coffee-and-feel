@@ -3,10 +3,9 @@ import { Box, BoxProps } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Swiper } from 'swiper/react';
 import { SwiperGenericWrapper } from '@atlascode/coffee-frontend-utility';
-import {
-  SubscriptionPageBenefitCard,
+import SubscriptionPageBenefitCard, {
   SubscriptionPageBenefitCardProps,
-} from '@atlascode/coffee-front-components';
+} from '../SubscriptionPageBenefitCard/SubscriptionPageBenefitCard';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SubscriptionPageBenefitsMobileProps extends BoxProps {

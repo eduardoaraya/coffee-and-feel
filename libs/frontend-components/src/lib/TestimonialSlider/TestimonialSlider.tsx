@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps, Container, Typography } from '@material-ui/core';
 import { MotionBox, MotionBoxProps } from '@atlascode/coffee-frontend-utility';
 import TestimonialPicture from './TestimonialPicture';
-import { CircleIconButton } from '@atlascode/coffee-front-components';
 import { ArrowBack, ArrowForward } from '@material-ui/icons';
 import _ from 'lodash';
 import { AnimatePresence, Variants } from 'framer-motion';
-import React from 'react';
 import { useTestimonialSlider } from './useTestimonialSlider';
+import { CircleIconButton } from '../CircleIconButton/CircleIconButton';
 
 export type Testimonial = {
   attestantSocial?: string;

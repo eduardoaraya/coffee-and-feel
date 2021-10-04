@@ -8,3 +8,7 @@ export * from './lib/HomePage/HomePage';
 export * from './lib/CatalogPage/CatalogPage';
 export * from './lib/CatalogProductPage/CatalogProductPage';
 export * from './lib/MyAccountPage/MyAccountPage';
+export * from './lib/MyAccountPage/CreditCardMyAccount/CreditCardMyAccount';
+export * from './lib/MyAccountPage/AddressMyAccount/AddressMyAccount';
+export * from './lib/MyAccountPage/ProfileMyAccount/ProfileMyAccount';
+export * from './lib/MyAccountPage/SubscriptionsMyAccount/SubscriptionsMyAccount';

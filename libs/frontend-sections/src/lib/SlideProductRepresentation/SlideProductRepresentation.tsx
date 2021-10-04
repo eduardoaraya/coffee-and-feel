@@ -4,7 +4,6 @@ import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 import {
   ProductInfo,
   ProductInterface,
-  // ProductCatalogRepresentation,
 } from '@atlascode/coffee-front-components';
 // Swipper Import
 import SwiperCore from 'swiper';

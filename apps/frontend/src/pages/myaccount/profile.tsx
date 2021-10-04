@@ -1,16 +1,12 @@
 import { ReactElement } from 'react';
 import type { Page } from '../../../types';
-import {
-  Header,
-  WrapperLayout,
-  ProfileMyAccount,
-} from '@atlascode/coffee-front-components';
-import { MyAccountPage } from '@atlascode/coffee-front-pages';
+import { Header, WrapperLayout } from '@atlascode/coffee-front-components';
+import { MyAccountPage, ProfileMyAccount } from '@atlascode/coffee-front-pages';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface MyAccountProps {}
+export interface MyAccountProfileProps {}
 
-export const Profile: Page<MyAccountProps> = (props) => {
+export const Profile: Page<MyAccountProfileProps> = (props) => {
   return (
     <MyAccountPage>
       <ProfileMyAccount />
