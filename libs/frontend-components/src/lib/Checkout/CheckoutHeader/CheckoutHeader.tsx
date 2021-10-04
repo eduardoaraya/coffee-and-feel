@@ -42,6 +42,8 @@ const styles = AtlasStylesheet.create({
   root: {
     fontSize: '10px',
     width: '100%',
+    position: 'relative',
+    zIndex: 10,
   },
 
   infoContainer: {
@@ -99,6 +101,7 @@ const styles = AtlasStylesheet.create({
     position: 'fixed',
     top: 0,
     left: 0,
+    bgcolor: '#fff',
   },
 
   anchor: {
