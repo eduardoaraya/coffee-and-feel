@@ -1,3 +1,4 @@
+export * from './lib/EnhancedRadio/EnhancedRadio';
 export * from './lib/CookiesDialog/CookiesDialog';
 export * from './lib/MobileMenu/MobileMenu';
 export * from './lib/SubscriptionBenefitsListCard/SubscriptionBenefitsListCard';
@@ -35,4 +36,3 @@ export * from './lib/Catalog';
 export * from './lib/LayoutEcommerce/WrapperLayout';
 export * from './lib/Customer';
 export * from './lib/Checkout';
-    
