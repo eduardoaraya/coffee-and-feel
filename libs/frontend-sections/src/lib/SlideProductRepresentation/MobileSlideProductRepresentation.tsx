@@ -1,7 +1,6 @@
 import { Box } from '@material-ui/core';
 import {
   ProductInfo,
-  // ProductCatalogRepresentation,
   ProductInterface,
 } from '@atlascode/coffee-front-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
