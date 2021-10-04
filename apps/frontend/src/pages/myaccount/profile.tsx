@@ -8,9 +8,9 @@ import {
 import { MyAccountPage } from '@atlascode/coffee-front-pages';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface MyAccountProps {}
+export interface MyAccountProfileProps {}
 
-export const Profile: Page<MyAccountProps> = (props) => {
+export const Profile: Page<MyAccountProfileProps> = (props) => {
   return (
     <MyAccountPage>
       <ProfileMyAccount />

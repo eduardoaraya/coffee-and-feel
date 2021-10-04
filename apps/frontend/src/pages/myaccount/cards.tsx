@@ -3,24 +3,24 @@ import type { Page } from '../../../types';
 import {
   Header,
   WrapperLayout,
-  AddressMyAccount,
+  CreditCardMyAccount,
 } from '@atlascode/coffee-front-components';
 import { MyAccountPage } from '@atlascode/coffee-front-pages';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface MyAccountAddressProps {}
+export interface MyAccountCardsProps {}
 
-export const Address: Page<MyAccountAddressProps> = (props) => {
+export const Cards: Page<MyAccountCardsProps> = (props) => {
   return (
     <MyAccountPage>
-      <AddressMyAccount />
+      <CreditCardMyAccount />
     </MyAccountPage>
   );
 };
 
-export default Address;
+export default Cards;
 
-Address.getLayout = function getLayout(page: ReactElement) {
+Cards.getLayout = function getLayout(page: ReactElement) {
   return (
     <WrapperLayout>
       <Header />
