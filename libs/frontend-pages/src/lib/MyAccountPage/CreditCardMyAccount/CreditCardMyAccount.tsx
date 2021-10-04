@@ -64,7 +64,7 @@ export const CreditCardMyAccount: React.FC<CreditCardMyAccountProps> =
 
     return (
       <Box sx={getDefaultStyle()}>
-        {cardList.length === 0 || mode === 'new' ? (
+        {mode === 'new' ? (
           <>
             <Box
               component="form"
@@ -76,7 +76,15 @@ export const CreditCardMyAccount: React.FC<CreditCardMyAccountProps> =
                 defaultData={cardDefaultData}
                 actions={
                   <Box className="actions">
-                    <Button onClick={() => setMode('list')}>Voltar</Button>
+                    <Button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setMode('list');
+                      }}
+                      type="button"
+                    >
+                      Voltar
+                    </Button>
                     <Button variant="contained" type="submit">
                       Cadastrar
                     </Button>
