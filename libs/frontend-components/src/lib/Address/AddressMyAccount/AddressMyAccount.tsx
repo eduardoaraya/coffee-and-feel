@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useCallback, useState } from 'react';
 import { Box, Button } from '@material-ui/core';
 import { SxProps, Theme } from '@material-ui/system';
 import {
@@ -13,37 +13,39 @@ export interface AddressMyAccountProps {}
 export const AddressMyAccount: React.FC<AddressMyAccountProps> =
   (): JSX.Element => {
     const [addressList, setAddressList] = useState<AddressInterface[]>([]);
-
     const [mode, setMode] = useState<'new' | 'edit' | 'list'>('list');
 
-    const addAddress = (e: FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      type KeyField = keyof AddressInterface;
-      const fields = Object.keys(addressDataDefault) as KeyField[];
-      const formData = fields.reduce(
-        (prev: AddressInterface, current: KeyField) => {
-          const value = e.target as HTMLFormElement;
-          const data =
-            (value.elements.namedItem(current) as HTMLInputElement) ?? null;
+    const addAddress = useCallback(
+      (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        type KeyField = keyof AddressInterface;
+        const fields = Object.keys(addressDataDefault) as KeyField[];
+        const formData = fields.reduce(
+          (prev: AddressInterface, current: KeyField) => {
+            const value = e.target as HTMLFormElement;
+            const data =
+              (value.elements.namedItem(current) as HTMLInputElement) ?? null;
 
-          if (data) {
-            prev = {
-              ...prev,
-              [current]: data.value,
-            };
-          }
-          return prev;
-        },
-        {} as AddressInterface
-      );
-      setAddressList([...addressList, formData]);
-      setMode('list');
-    };
+            if (data) {
+              prev = {
+                ...prev,
+                [current]: data.value,
+              };
+            }
+            return prev;
+          },
+          {} as AddressInterface
+        );
+        setAddressList([...addressList, formData]);
+        setMode('list');
+      },
+      [addressList]
+    );
 
     return (
       <Box sx={getDefaultStyle()}>
         {mode === 'new' ? (
-          <form className="form-address" onSubmit={addAddress}>
+          <Box component="form" className="form-address" onSubmit={addAddress}>
             <AddressFormFields
               actions={
                 <Box className="actions">
@@ -55,13 +57,16 @@ export const AddressMyAccount: React.FC<AddressMyAccountProps> =
               }
               address={addressDataDefault}
             ></AddressFormFields>
-          </form>
+          </Box>
         ) : (
-          <AddressList addressList={addressList}>
-            <Button onClick={() => setMode('new')} variant="contained">
-              Adicionar novo endereço
-            </Button>
-          </AddressList>
+          <AddressList
+            actions={
+              <Button onClick={() => setMode('new')} variant="contained">
+                Adicionar novo endereço
+              </Button>
+            }
+            addressList={addressList}
+          ></AddressList>
         )}
       </Box>
     );

@@ -7,22 +7,23 @@ import { AddressInterface } from '../AddressFormFields/AddressFormFields';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AddressListProps {
   addressList: AddressInterface[];
+  actions: JSX.Element;
 }
 
 export const AddressList: React.FC<AddressListProps> = ({
   addressList,
-  children,
+  actions,
 }): JSX.Element => (
   <Box sx={getDefaultStyle()}>
-    <Box className="actions">{children}</Box>
+    <Box className="actions">{actions}</Box>
     <Box className="address-content">
       <Typography fontWeight="bolder">Endereços cadastrados</Typography>
       <ListingWithAction
         emptyListMessage="Nenhum endereço cadastrado."
         data={addressList.map((address, key) => ({
-          leftSide: <Radio checked={key === 1 ? true : false} />,
+          leftSide: <Radio checked={key === 0 ? true : false} />,
           id: key,
-          active: key === 1 ? true : false,
+          active: key === 0 ? true : false,
           label: address.street,
           actions: [
             {
@@ -51,7 +52,7 @@ const getDefaultStyle = () =>
     },
     '.address-content': {
       padding: '20px',
-      '.list': {
+      '.listing-with-actions': {
         paddingRight: '20px',
         maxWidth: '570px',
         maxHeight: '400px',
