@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import { CheckoutLayout, CheckoutLayoutProps } from './CheckoutLayout';
-import { CheckoutItemProps } from '../CheckoutSummary/CheckoutSummaryItem/CheckoutSummaryItem';
+import { CheckoutItemProps } from '../../CheckoutSummary/CheckoutSummaryItem/CheckoutSummaryItem';
+import { CheckoutAddressCreation } from '../CheckoutAddressCreation/CheckoutAddressCreation';
 
 export default {
   component: CheckoutLayout,
@@ -46,3 +47,15 @@ Secondary.args = {
   ...Primary.args,
   open: true,
 };
+
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+  ...Primary.args,
+  children: (
+    <CheckoutAddressCreation
+      justifySelf={{ xs: 'center', lg: 'flex-start' }}
+      pb={3}
+    />
+  ),
+};
+Tertiary.storyName = 'Address creation';

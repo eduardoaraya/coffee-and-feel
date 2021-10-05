@@ -1,21 +1,18 @@
-import {
-  CheckoutSummary,
-  CheckoutSummaryProps,
-} from '../CheckoutSummary/CheckoutSummarySecondaryDesktop/CheckoutSummarySecondaryDesktop';
+import { CheckoutSummary } from '../../CheckoutSummary/CheckoutSummarySecondaryDesktop/CheckoutSummarySecondaryDesktop';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import { Box } from '@material-ui/core';
-import { CheckoutHeader } from './CheckoutHeader/CheckoutHeader';
+import { Box, Container } from '@material-ui/core';
+import { CheckoutHeader } from '../CheckoutHeader/CheckoutHeader';
 import {
   CheckoutSteps,
   CheckoutStepsProps,
-} from './CheckoutSteps/CheckoutSteps';
+} from '../CheckoutSteps/CheckoutSteps';
 import React from 'react';
 import { useBoundingRect } from '@atlascode/coffee-frontend-react-hooks';
 import {
   CheckoutMenu,
   CheckoutMenuProps,
-} from '../CheckoutSummary/CheckoutSummarySecondaryMobile/CheckoutSummarySecondaryMobile';
-import { CheckoutItemProps } from '../CheckoutSummary/CheckoutSummaryItem/CheckoutSummaryItem';
+} from '../../CheckoutSummary/CheckoutSummarySecondaryMobile/CheckoutSummarySecondaryMobile';
+import { CheckoutItemProps } from '../../CheckoutSummary/CheckoutSummaryItem/CheckoutSummaryItem';
 
 /* eslint-disable-next-line */
 export interface CheckoutLayoutProps {
@@ -45,22 +42,24 @@ export function CheckoutLayout({
       <Box ref={ref}>
         <CheckoutHeader />
       </Box>
-      <Box sx={styles.grid}>
-        <Box sx={styles.stepsWrapper}>
-          <Box sx={styles.stepsContainer}>
-            <CheckoutSteps
-              steps={steps}
-              activeStep={activeStep}
-              sx={styles.steps}
-            />
+      <Container>
+        <Box sx={styles.grid}>
+          <Box sx={styles.stepsWrapper}>
+            <Box sx={styles.stepsContainer}>
+              <CheckoutSteps
+                steps={steps}
+                activeStep={activeStep}
+                sx={styles.steps}
+              />
+            </Box>
+          </Box>
+
+          <Box sx={styles.innerGrid}>
+            {children}
+            <CheckoutSummary items={items} sx={styles.summaryDesktop} />
           </Box>
         </Box>
-
-        <Box sx={styles.innerGrid}>
-          <Box>{children}</Box>
-          <CheckoutSummary items={items} sx={styles.summaryDesktop} />
-        </Box>
-      </Box>
+      </Container>
     </Box>
   );
 }
@@ -81,12 +80,15 @@ const stylesheet = (headerHeight = 0) =>
     },
 
     summaryDesktop: {
-      justifySelf: 'center',
+      justifySelf: 'flex-end',
       display: { xs: 'none', lg: 'block' },
       visibility: { xs: 'hidden', lg: 'visible' },
     },
 
-    stepsWrapper: {},
+    stepsWrapper: {
+      width: { xs: '100%' },
+      height: { xs: '100%' },
+    },
 
     stepsContainer: {
       display: 'flex',

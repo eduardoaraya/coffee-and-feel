@@ -1,4 +1,3 @@
-export * from './CheckoutLayout/CheckoutLayout';
 export * from './CheckoutLayout/CheckoutHeader/CheckoutHeader';
 export * from './CheckoutLayout/CheckoutSteps/CheckoutSteps';
 export * from './CheckoutSummary/CheckoutSummarySecondaryMobile/CheckoutSummarySecondaryMobile';

@@ -3,9 +3,9 @@ import {
   CheckoutMenu,
   CheckoutMenuProps,
 } from './CheckoutSummarySecondaryMobile';
-import { CheckoutLayout } from '../../CheckoutLayout/CheckoutLayout';
 import { Box } from '@material-ui/system';
 import { CheckoutItemProps } from '../CheckoutSummaryItem/CheckoutSummaryItem';
+import CheckoutLayout from '../../CheckoutLayout/CheckoutLayoutBase/CheckoutLayout';
 
 export default {
   component: CheckoutMenu,
