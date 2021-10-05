@@ -8,7 +8,7 @@ import CheckoutDiscount from '../CheckoutDiscount/CheckoutDiscount';
 
 /* eslint-disable-next-line */
 export interface CheckoutMenuProps extends DrawerProps {
-  items: CheckoutItemProps[];
+  items?: CheckoutItemProps[];
 }
 
 export function CheckoutMenu({

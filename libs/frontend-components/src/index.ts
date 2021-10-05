@@ -1,3 +1,4 @@
+export * from './lib/Checkout/CheckoutSummaryBase/CheckoutSummaryBase';
 export * from './lib/CoffeeBagWithBadge/CoffeeBagWithBadge';
 export * from './lib/DeliveryActionRadio/DeliveryActionRadio';
 export * from './lib/AddressActionRadio/AddressActionRadio';
