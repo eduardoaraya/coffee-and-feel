@@ -1,7 +1,7 @@
 import { SxProps, Theme } from '@material-ui/system';
 
-export default {
-  root: {
+export default () =>
+  ({
     cursor: 'pointer',
     position: 'relative',
     background: '#FFF',
@@ -41,18 +41,14 @@ export default {
     '.product-info': {
       paddingLeft: '55px',
     },
+
     '&.product-catalog-item-mobile': {
       flexDirection: 'column',
-      paddingTop: {
-        md: '130px',
-        xs: '90px',
+      '.product-representation > *': {
+        alignSelf: 'center',
       },
-      marginTop: '195px !important',
       '.product-image': {
         minWidth: '100%',
-        position: 'absolute',
-        top: '-200px',
-        left: 0,
         figure: {
           maxWidth: '250px',
           margin: '0 auto',
@@ -62,7 +58,4 @@ export default {
         paddingLeft: 0,
       },
     },
-  },
-} as {
-  root: SxProps<Theme>;
-};
+  } as SxProps<Theme>);
