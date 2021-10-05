@@ -158,12 +158,6 @@ const styles = AtlasStylesheet.create({
 
   field: (fullColumn = false) => {
     return {
-      // fontSize: { xs: '1.4em' },
-
-      // '.MuiInputLabel-root': {
-      //   fontSize: { xs: '1.4em' },
-      // },
-
       ...(fullColumn && {
         gridColumn: { lg: '1/3' },
       }),
