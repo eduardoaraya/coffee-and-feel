@@ -1,18 +1,21 @@
 import {
   CheckoutSummary,
   CheckoutSummaryProps,
-} from '../CheckoutSummary/CheckoutSummary';
+} from '../CheckoutSummary/CheckoutSummarySecondaryDesktop/CheckoutSummarySecondaryDesktop';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box } from '@material-ui/core';
-import { CheckoutHeader } from '../CheckoutHeader/CheckoutHeader';
+import { CheckoutHeader } from './CheckoutHeader/CheckoutHeader';
 import {
   CheckoutSteps,
   CheckoutStepsProps,
-} from '../CheckoutSteps/CheckoutSteps';
+} from './CheckoutSteps/CheckoutSteps';
 import React from 'react';
 import { useBoundingRect } from '@atlascode/coffee-frontend-react-hooks';
-import { CheckoutMenu, CheckoutMenuProps } from '../CheckoutMenu/CheckoutMenu';
-import { CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
+import {
+  CheckoutMenu,
+  CheckoutMenuProps,
+} from '../CheckoutSummary/CheckoutSummarySecondaryMobile/CheckoutSummarySecondaryMobile';
+import { CheckoutItemProps } from '../CheckoutSummary/CheckoutSummaryItem/CheckoutSummaryItem';
 
 /* eslint-disable-next-line */
 export interface CheckoutLayoutProps {

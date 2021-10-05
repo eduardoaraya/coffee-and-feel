@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/system';
 import { Story, Meta } from '@storybook/react';
-import { CheckoutItem, CheckoutItemProps } from './CheckoutItem';
+import { CheckoutItem, CheckoutItemProps } from './CheckoutSummaryItem';
 
 export default {
   component: CheckoutItem,

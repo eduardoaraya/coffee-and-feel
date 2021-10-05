@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { CheckoutLayout, CheckoutLayoutProps } from './CheckoutLayout';
-import { CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
+import { CheckoutItemProps } from '../CheckoutSummary/CheckoutSummaryItem/CheckoutSummaryItem';
 
 export default {
   component: CheckoutLayout,

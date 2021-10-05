@@ -1,10 +1,13 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, DrawerProps, Drawer, List, IconButton } from '@material-ui/core';
-import { CheckoutItem, CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
 import { alpha } from '@material-ui/system';
 import { CheckoutReturnArrow } from '@atlascode/coffee-frontend-svg';
-import CheckoutMenuOverview from '../CheckoutMenuOverview/CheckoutMenuOverview';
-import CheckoutDiscount from '../CheckoutDiscount/CheckoutDiscount';
+import CheckoutMenuOverview from '../../CheckoutHeaderAction/CheckoutHeaderAction';
+import CheckoutDiscount from '../CheckoutSummaryDiscount/CheckoutSummaryDiscount';
+import {
+  CheckoutItemProps,
+  CheckoutItem,
+} from '../CheckoutSummaryItem/CheckoutSummaryItem';
 
 /* eslint-disable-next-line */
 export interface CheckoutMenuProps extends DrawerProps {

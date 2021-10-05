@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { KeyboardArrowDown } from '@material-ui/icons';
-import CheckoutMenuOverview from '../CheckoutMenuOverview/CheckoutMenuOverview';
+import CheckoutMenuOverview from '../../CheckoutHeaderAction/CheckoutHeaderAction';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CheckoutHeaderProps extends BoxProps {}

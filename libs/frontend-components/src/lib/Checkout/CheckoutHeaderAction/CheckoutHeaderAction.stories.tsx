@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import {
   CheckoutMenuOverview,
   CheckoutMenuOverviewProps,
-} from './CheckoutMenuOverview';
+} from './CheckoutHeaderAction';
 
 export default {
   component: CheckoutMenuOverview,

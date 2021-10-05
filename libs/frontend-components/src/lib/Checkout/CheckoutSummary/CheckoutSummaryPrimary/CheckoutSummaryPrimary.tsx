@@ -7,23 +7,27 @@ import {
   IconButton,
   Typography,
 } from '@material-ui/core';
-import { CheckoutItem, CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
+import {
+  CheckoutItem,
+  CheckoutItemProps,
+} from '../CheckoutSummaryItem/CheckoutSummaryItem';
 import { alpha } from '@material-ui/system';
 import { CheckoutReturnArrow } from '@atlascode/coffee-frontend-svg';
-import CheckoutDiscount from '../CheckoutDiscount/CheckoutDiscount';
+import CheckoutDiscount from '../CheckoutSummaryDiscount/CheckoutSummaryDiscount';
 import {
   CoffeeBagWithBadge,
   CoffeBagWithBadgeProps,
-} from '../../CoffeeBagWithBadge/CoffeeBagWithBadge';
-import CheckoutQuickviewEmptyContent from '../CheckoutQuickviewEmptyContent/CheckoutQuickviewEmptyContent';
+} from '../../../CoffeeBagWithBadge/CoffeeBagWithBadge';
+import CheckoutSummaryPrimaryEmptyContent from './EmptyContentAnimation';
+import { CheckoutSummaryBase } from '../CheckoutSummaryBase/CheckoutSummaryBase';
 
 /* eslint-disable-next-line */
-export interface CheckoutQuickviewProps extends DrawerProps {
+export interface CheckoutSummaryPrimaryProps extends DrawerProps {
   items?: CheckoutItemProps[];
   CoffeBagIconProps?: CoffeBagWithBadgeProps;
 }
 
-export function CheckoutQuickview({
+export function CheckoutSummaryPrimary({
   sx,
   anchor = 'right',
   open,
@@ -31,7 +35,7 @@ export function CheckoutQuickview({
   items = [],
   CoffeBagIconProps,
   ...rest
-}: CheckoutQuickviewProps) {
+}: CheckoutSummaryPrimaryProps) {
   const { BadgeProps = { badgeContent: items.length }, ...coffeBagIconRest } = {
     ...CoffeBagIconProps,
   };
@@ -44,40 +48,47 @@ export function CheckoutQuickview({
       sx={{ ...styles.root, ...sx }}
       {...rest}
     >
-      <Box sx={styles.container}>
-        <Box sx={styles.header}>
-          <Box sx={styles.headerIconContainer}>
-            <IconButton sx={styles.headerReturnIcon}>
-              <CheckoutReturnArrow fontSize="inherit" />
-            </IconButton>
-          </Box>
-
-          <Box sx={styles.overviewContainer}>
-            <CoffeeBagWithBadge
-              BadgeProps={{ badgeContent: BadgeProps.badgeContent }}
-              {...coffeBagIconRest}
-            />
-          </Box>
-        </Box>
-
-        <List sx={styles.list}>
-          {items.length > 0 ? (
-            <Box sx={styles.listBody}>
-              {items.map((value, index) => {
-                return (
-                  <CheckoutItem sx={{ width: 'auto' }} {...value} key={index} />
-                );
-              })}
-              <CheckoutDiscount sx={styles.discount} />
+      <CheckoutSummaryBase
+        sx={{ borderRadius: '0px', height: '100%', width: 'auto' }}
+        headerContent={
+          <Box sx={styles.header}>
+            <Box sx={styles.headerIconContainer}>
+              <IconButton sx={styles.headerReturnIcon}>
+                <CheckoutReturnArrow fontSize="inherit" />
+              </IconButton>
             </Box>
-          ) : (
-            <Box sx={styles.emptyCartContainer}>
-              <CheckoutQuickviewEmptyContent />
-            </Box>
-          )}
-        </List>
 
-        <Box sx={styles.footer}>
+            <Box sx={styles.overviewContainer}>
+              <CoffeeBagWithBadge
+                BadgeProps={{ badgeContent: BadgeProps.badgeContent }}
+                {...coffeBagIconRest}
+              />
+            </Box>
+          </Box>
+        }
+        bodyContent={
+          <List sx={styles.list}>
+            {items.length > 0 ? (
+              <Box sx={styles.listBody}>
+                {items.map((value, index) => {
+                  return (
+                    <CheckoutItem
+                      sx={{ width: 'auto' }}
+                      {...value}
+                      key={index}
+                    />
+                  );
+                })}
+                <CheckoutDiscount sx={styles.discount} />
+              </Box>
+            ) : (
+              <Box sx={styles.emptyCartContainer}>
+                <CheckoutSummaryPrimaryEmptyContent />
+              </Box>
+            )}
+          </List>
+        }
+        footerContent={
           <Box sx={styles.footerInner}>
             <Box sx={styles.totalContainer}>
               <Box>Subtotal:</Box>
@@ -88,13 +99,13 @@ export function CheckoutQuickview({
               Frete, descontos e cupons são calculados na finalização da compra.
             </Typography>
           </Box>
-        </Box>
-      </Box>
+        }
+      />
     </Drawer>
   );
 }
 
-export default CheckoutQuickview;
+export default CheckoutSummaryPrimary;
 
 const styles = AtlasStylesheet.create({
   root: {
@@ -133,8 +144,6 @@ const styles = AtlasStylesheet.create({
     py: { xs: 0 },
     width: { xs: '33em', lg: '35em' },
     height: { xs: '100%' },
-    overflowX: 'hidden',
-    overflowY: 'scroll',
   },
 
   header: {
@@ -162,13 +171,6 @@ const styles = AtlasStylesheet.create({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-  },
-
-  footer: {
-    width: '100%',
-    height: '100%',
-    bgcolor: (theme) => theme.palette.primary.main,
-    borderRadius: '0px 0px 0px 8px',
   },
 
   footerInner: {

@@ -1,7 +1,7 @@
 import {
   CounterInput,
   CounterInputProps,
-} from '../../CounterInput/CounterInput';
+} from '../../../CounterInput/CounterInput';
 import { Box, BoxProps, Typography, IconButton } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 import {

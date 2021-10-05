@@ -3,17 +3,27 @@ import { Box, BoxProps } from '@material-ui/core';
 import { alpha } from '@material-ui/system';
 
 /* eslint-disable-next-line */
-export interface CheckoutSummaryBaseProps extends BoxProps {}
+export interface CheckoutSummaryBaseProps extends BoxProps {
+  headerContent?: JSX.Element;
+  bodyContent?: JSX.Element;
+  footerContent?: JSX.Element;
+}
 
-export function CheckoutSummaryBase({ sx, ...rest }: CheckoutSummaryBaseProps) {
+export function CheckoutSummaryBase({
+  sx,
+  headerContent,
+  bodyContent,
+  footerContent,
+  ...rest
+}: CheckoutSummaryBaseProps) {
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       <Box sx={styles.grid}>
-        <Box sx={styles.header}></Box>
+        <Box sx={styles.header}>{headerContent}</Box>
 
-        <Box sx={styles.body}></Box>
+        <Box sx={styles.body}>{bodyContent}</Box>
 
-        <Box sx={styles.footer}></Box>
+        <Box sx={styles.footer}>{footerContent}</Box>
       </Box>
     </Box>
   );

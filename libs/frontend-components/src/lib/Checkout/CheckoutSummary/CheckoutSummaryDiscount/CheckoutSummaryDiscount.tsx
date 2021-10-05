@@ -3,7 +3,7 @@ import { Box, BoxProps, Typography } from '@material-ui/core';
 import {
   InputWithButton,
   InputWithButtonProps,
-} from '../../InputWithButton/InputWithButton';
+} from '../../../InputWithButton/InputWithButton';
 import { alpha } from '@material-ui/system';
 
 /* eslint-disable-next-line */
@@ -43,7 +43,6 @@ export default CheckoutDiscount;
 const styles = AtlasStylesheet.create({
   root: {
     fontSize: '10px',
-    border: (theme) => `1px solid ${alpha(theme.palette.primary.main, 0.15)}`,
   },
 
   container: {

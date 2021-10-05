@@ -6,7 +6,7 @@ import {
 
 export default {
   component: CheckoutSummaryBase,
-  title: 'Checkout/CheckoutSummaryBase',
+  title: 'Checkout/Checkout Summary/Checkout Summary Base',
 } as Meta;
 
 const Template: Story<CheckoutSummaryBaseProps> = (args) => (

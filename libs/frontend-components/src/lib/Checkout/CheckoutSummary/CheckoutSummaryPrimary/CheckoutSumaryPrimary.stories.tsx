@@ -1,28 +1,24 @@
 import { Story, Meta } from '@storybook/react';
-import { CheckoutMenu, CheckoutMenuProps } from './CheckoutMenu';
-import { CheckoutLayout } from '../CheckoutLayout/CheckoutLayout';
-import { Box } from '@material-ui/system';
-import { CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
+import {
+  CheckoutSummaryPrimaryProps,
+  CheckoutSummaryPrimary,
+} from './CheckoutSummaryPrimary';
+import { CheckoutItemProps } from '../CheckoutSummaryItem/CheckoutSummaryItem';
 
 export default {
-  component: CheckoutMenu,
-  title: 'Checkout/CheckoutMenu',
+  component: CheckoutSummaryPrimary,
+  title: 'Checkout/CheckoutQuickview',
   parameters: {
-    layout: 'fullscreen',
+    layout: 'padded',
     viewport: {
-      defaultViewport: 'brazilPhone1',
+      defaultViewport: 'brazilDesktop1',
     },
   },
-  decorators: [
-    (Story) => (
-      <CheckoutLayout>
-        <Story />
-      </CheckoutLayout>
-    ),
-  ],
 } as Meta;
 
-const Template: Story<CheckoutMenuProps> = (args) => <CheckoutMenu {...args} />;
+const Template: Story<CheckoutSummaryPrimaryProps> = (args) => (
+  <CheckoutSummaryPrimary {...args} />
+);
 
 const checkoutItem: CheckoutItemProps = {
   img: {
@@ -45,3 +41,11 @@ Primary.args = {
     { ...checkoutItem, price: 1850 },
   ],
 };
+Primary.storyName = 'Existing items in the cart';
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  open: true,
+  items: [],
+};
+Secondary.storyName = 'No items exist in the cart';

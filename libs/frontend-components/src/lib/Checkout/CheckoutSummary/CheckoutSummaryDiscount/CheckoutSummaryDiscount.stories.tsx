@@ -1,5 +1,8 @@
 import { Story, Meta } from '@storybook/react';
-import { CheckoutDiscount, CheckoutDiscountProps } from './CheckoutDiscount';
+import {
+  CheckoutDiscount,
+  CheckoutDiscountProps,
+} from './CheckoutSummaryDiscount';
 
 export default {
   component: CheckoutDiscount,

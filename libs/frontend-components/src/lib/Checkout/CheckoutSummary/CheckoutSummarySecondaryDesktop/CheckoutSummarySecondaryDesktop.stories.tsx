@@ -1,10 +1,13 @@
 import { Story, Meta } from '@storybook/react';
-import { CheckoutSummary, CheckoutSummaryProps } from './CheckoutSummary';
-import { CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
+import {
+  CheckoutSummary,
+  CheckoutSummaryProps,
+} from './CheckoutSummarySecondaryDesktop';
+import { CheckoutItemProps } from '../CheckoutSummaryItem/CheckoutSummaryItem';
 
 export default {
   component: CheckoutSummary,
-  title: 'Checkout/CheckoutSummary',
+  title: 'Checkout/Checkout Summary/Checkout Summary - Secondary - Desktop',
   parameters: {
     layout: 'padded',
     viewport: {

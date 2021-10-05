@@ -10,17 +10,17 @@ import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import data from './data.json';
 
 /* eslint-disable-next-line */
-export interface CheckoutQuickviewEmptyContentProps extends BoxProps {
+export interface CheckoutSummaryPrimaryEmptyContentProps extends BoxProps {
   PrimaryButtonProps?: ButtonProps;
   SecondaryButtonProps?: ButtonProps;
 }
 
-export function CheckoutQuickviewEmptyContent({
+export function CheckoutSummaryPrimaryEmptyContent({
   sx,
   PrimaryButtonProps,
   SecondaryButtonProps,
   ...rest
-}: CheckoutQuickviewEmptyContentProps) {
+}: CheckoutSummaryPrimaryEmptyContentProps) {
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       <Box sx={styles.circle}>
@@ -55,7 +55,7 @@ export function CheckoutQuickviewEmptyContent({
   );
 }
 
-export default CheckoutQuickviewEmptyContent;
+export default CheckoutSummaryPrimaryEmptyContent;
 
 const styles = AtlasStylesheet.create({
   root: {

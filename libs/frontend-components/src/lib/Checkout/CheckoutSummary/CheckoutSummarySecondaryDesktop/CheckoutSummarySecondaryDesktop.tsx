@@ -1,8 +1,11 @@
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { Box, BoxProps, Typography } from '@material-ui/core';
 import { alpha } from '@material-ui/system';
-import { CheckoutDiscount } from '../CheckoutDiscount/CheckoutDiscount';
-import { CheckoutItem, CheckoutItemProps } from '../CheckoutItem/CheckoutItem';
+import { CheckoutDiscount } from '../CheckoutSummaryDiscount/CheckoutSummaryDiscount';
+import {
+  CheckoutItem,
+  CheckoutItemProps,
+} from '../CheckoutSummaryItem/CheckoutSummaryItem';
 
 /* eslint-disable-next-line */
 export interface CheckoutSummaryProps extends BoxProps {
