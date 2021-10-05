@@ -6,7 +6,8 @@ import {
 
 export default {
   component: CheckoutSummaryPrimaryEmptyContent,
-  title: 'Checkout/CheckoutSummaryEmptyContent',
+  title:
+    'Checkout/Checkout Summary/Checkout Summary Primary - Empty content animation',
   parameters: {
     layout: 'padded',
     viewport: {

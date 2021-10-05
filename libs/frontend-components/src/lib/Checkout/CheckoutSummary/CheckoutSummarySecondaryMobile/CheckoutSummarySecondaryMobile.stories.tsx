@@ -9,7 +9,7 @@ import { CheckoutItemProps } from '../CheckoutSummaryItem/CheckoutSummaryItem';
 
 export default {
   component: CheckoutMenu,
-  title: 'Checkout/CheckoutMenu',
+  title: 'Checkout/Checkout Summary/Checkout Summary - Secondary - Mobile',
   parameters: {
     layout: 'fullscreen',
     viewport: {

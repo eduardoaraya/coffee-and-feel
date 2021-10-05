@@ -7,7 +7,7 @@ import {
 
 export default {
   component: CheckoutMenuOverview,
-  title: 'Checkout/CheckoutMenuOverview',
+  title: 'Checkout/Checkout Layout/CheckoutMenuOverview',
   parameters: {
     layout: 'fullscreen',
     viewport: {

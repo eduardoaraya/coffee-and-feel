@@ -7,7 +7,7 @@ import { CheckoutItemProps } from '../CheckoutSummaryItem/CheckoutSummaryItem';
 
 export default {
   component: CheckoutSummaryPrimary,
-  title: 'Checkout/CheckoutQuickview',
+  title: 'Checkout/Checkout Summary/Checkout Summary - Primary',
   parameters: {
     layout: 'padded',
     viewport: {

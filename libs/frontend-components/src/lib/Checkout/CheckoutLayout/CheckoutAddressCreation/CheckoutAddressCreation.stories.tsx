@@ -7,7 +7,7 @@ import {
 
 export default {
   component: CheckoutAddressCreation,
-  title: 'Checkout/CheckoutAddressCreation',
+  title: 'Checkout/Checkout Layout/CheckoutAddressCreation',
   parameters: {
     layout: 'padded',
     viewport: {

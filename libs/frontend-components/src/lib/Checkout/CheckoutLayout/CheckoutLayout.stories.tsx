@@ -4,7 +4,7 @@ import { CheckoutItemProps } from '../CheckoutSummary/CheckoutSummaryItem/Checko
 
 export default {
   component: CheckoutLayout,
-  title: 'Checkout/CheckoutLayout',
+  title: 'Checkout/Checkout Layout/CheckoutLayout',
   parameters: {
     layout: 'fullscreen',
     viewport: {

@@ -4,7 +4,7 @@ import { CheckoutSteps, CheckoutStepsProps } from './CheckoutSteps';
 
 export default {
   component: CheckoutSteps,
-  title: 'Checkout/CheckoutSteps',
+  title: 'Checkout/Checkout Layout/CheckoutSteps',
   parameters: {
     layout: 'padded',
     viewport: {
