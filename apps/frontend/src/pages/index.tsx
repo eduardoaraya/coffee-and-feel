@@ -21,6 +21,7 @@ export const Index: Page<HomePageProps> = ({
     <HomePage
       SubscriptionClubAboutSectionProps={contentSubscriptionClubAboutSection}
       BannerProps={BannerProps}
+      SubscriptionClubDetailsSectionProps={contentPlans}
     />
   );
 };
@@ -71,6 +72,40 @@ const contentSubscriptionClubAboutSection = {
       description: `Escolha o plano
       que mais
       combina com você`,
+    },
+  ],
+};
+
+const contentPlans = {
+  plans: [
+    {
+      id: 1,
+      title: 'Standard',
+      subtitle: 'Você recebe 40 cápsulas todos os meses',
+      priceText: 'R$ 71,60/mês',
+      priceInfo: '+ taxa de entrega',
+      content: [
+        'Café Blend Suave',
+        'Café Blend Intenso',
+        'Café Conillon',
+        'Desconto de 10% em toda loja',
+        'Acumule o dobro de Feel Points',
+      ],
+    },
+    {
+      id: 2,
+      title: 'Premium',
+      subtitle: 'Você recebe 60 cápsulas todos os meses',
+      priceText: 'R$ 132,60/mês',
+      content: [
+        'Café Blend Suave',
+        'Café Blend Intenso',
+        'Café Conillon',
+        'Café Orgânico Biodinâmico',
+        'Desconto de 20% em toda loja',
+        'Frete 50% OFF em toda loja',
+        'Acumule o triplo de Feel Points',
+      ],
     },
   ],
 };

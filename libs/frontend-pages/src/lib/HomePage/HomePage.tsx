@@ -7,6 +7,7 @@ import {
   CallInstagramSection,
   LastPostsSection,
   SubscriptionClubAboutSectionProps,
+  SubscriptionClubDetailsSectionProps,
 } from '@atlascode/coffee-front-sections';
 import {
   Banner,
@@ -136,11 +137,13 @@ const dataProduct = [
 export interface HomePageProps {
   BannerProps?: BannerProps;
   SubscriptionClubAboutSectionProps: SubscriptionClubAboutSectionProps;
+  SubscriptionClubDetailsSectionProps: SubscriptionClubDetailsSectionProps;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
   BannerProps,
   SubscriptionClubAboutSectionProps,
+  SubscriptionClubDetailsSectionProps,
 }): JSX.Element => {
   return (
     <Box className="page home-page">
@@ -158,7 +161,9 @@ export const HomePage: React.FC<HomePageProps> = ({
           products={dataProduct}
         ></MobileSlideProductRepresentation>
       </Container>
-      <SubscriptionClubDetailsSection />
+      <SubscriptionClubDetailsSection
+        {...SubscriptionClubDetailsSectionProps}
+      />
       <LastPostsSection />
       <NewsletterSection />
       <CallInstagramSection />
