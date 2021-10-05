@@ -47,6 +47,13 @@ Secondary.args = {
   ...Primary.args,
   open: true,
 };
+Secondary.parameters = {
+  layout: 'fullscreen',
+  viewport: {
+    defaultViewport: 'brazilPhone1',
+  },
+};
+Secondary.storyName = 'Mobile summary menu';
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {

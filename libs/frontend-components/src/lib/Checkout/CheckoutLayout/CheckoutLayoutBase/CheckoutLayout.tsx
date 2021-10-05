@@ -55,7 +55,7 @@ export function CheckoutLayout({
           </Box>
 
           <Box sx={styles.innerGrid}>
-            {children}
+            {children || <div> </div>}
             <CheckoutSummary items={items} sx={styles.summaryDesktop} />
           </Box>
         </Box>
