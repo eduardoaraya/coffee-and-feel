@@ -117,26 +117,25 @@ const styles = AtlasStylesheet.create({
   formContainer: {
     display: 'flex',
     flexDirection: 'column',
-    rowGap: { xs: '3em' },
+    rowGap: { xs: '3em', lg: '2em' },
   },
 
   creditCardViewContainer: {
     display: { xs: 'none', lg: 'flex' },
     height: '100%',
     justifyContent: 'center',
-    pt: { lg: '7em' },
+    mt: { lg: '4.5em' },
   },
 
   checkboxContainer: {},
   actionsContainer: {
     display: 'flex',
-    columnGap: { xs: '2em' },
-    pt: { lg: '3.5em' },
+    columnGap: { xs: '4em' },
   },
 
   grid: {
     display: 'grid',
-    gridTemplateColumns: { xs: '1fr', lg: '0.5875fr 0.4125fr' },
+    gridTemplateColumns: { xs: '1fr', lg: '0.5fr 0.5fr' },
   },
 
   formGrid: {
@@ -144,6 +143,7 @@ const styles = AtlasStylesheet.create({
     gridTemplateColumns: { xs: '1fr', lg: '0.5fr 0.5fr' },
     gridTemplateRows: { xs: '1fr' },
     rowGap: { xs: '4em' },
+    px: { xs: '0.5em', lg: '0em' },
   },
 
   field: (fullColumn = false) => {

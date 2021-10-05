@@ -102,7 +102,7 @@ const stylesheet = (headerHeight = 0) =>
 
     innerGrid: {
       display: 'grid',
-      gridTemplateColumns: { xs: '1fr', lg: 'calc(100% - 35%) 35%' },
+      gridTemplateColumns: { xs: '1fr', lg: '0.7fr 0.3fr' },
     },
 
     grid: {

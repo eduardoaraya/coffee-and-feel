@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import { CheckoutLayout, CheckoutLayoutProps } from './CheckoutLayout';
 import { CheckoutItemProps } from '../../CheckoutSummary/CheckoutSummaryItem/CheckoutSummaryItem';
 import { CheckoutAddressCreation } from '../CheckoutAddressCreation/CheckoutAddressCreation';
-
+import { CheckoutCreditCardCreation } from '../CheckoutCreditCardCreation/CheckoutCreditCardCreation';
 export default {
   component: CheckoutLayout,
   title: 'Checkout/Checkout Layout/CheckoutLayout',
@@ -66,3 +66,10 @@ Tertiary.args = {
   ),
 };
 Tertiary.storyName = 'Address creation';
+
+export const Fourthiary = Template.bind({});
+Fourthiary.args = {
+  ...Primary.args,
+  children: <CheckoutCreditCardCreation />,
+};
+Fourthiary.storyName = 'Credit card creation';
