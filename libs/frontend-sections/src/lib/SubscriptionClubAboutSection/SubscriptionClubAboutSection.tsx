@@ -37,8 +37,8 @@ export const SubscriptionClubAboutSection: React.FC<SubscriptionClubAboutSection
                 {sectionTitle}
               </Typography>
               <div className="section-cards">
-                {cardsContent.map(({ title, description }) => (
-                  <div className="card">
+                {cardsContent.map(({ title, description }, key) => (
+                  <div className="card" key={key}>
                     <Typography variant="body1" color="primary">
                       {title}
                     </Typography>

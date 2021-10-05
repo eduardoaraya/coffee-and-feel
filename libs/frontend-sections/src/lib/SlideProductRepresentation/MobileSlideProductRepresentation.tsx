@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core';
 import {
-  ProductInfo,
+  ProductCatalogItem,
   ProductInterface,
 } from '@atlascode/coffee-front-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -23,16 +23,7 @@ export const MobileSlideProductRepresentation: React.FC<MobileSlideProductRepres
         {products?.map((prod) => (
           <SwiperSlide key={prod.id}>
             <Box component="div" sx={style.root} className="mobile-version">
-              <Box className="product-grid">
-                <Box className="product-image">
-                  <figure>
-                    <img src="/imgs/product-sample.png" alt="Product name" />
-                  </figure>
-                </Box>
-                <Box className="product-area">
-                  <ProductInfo product={prod} variantViewPort="mobile" />
-                </Box>
-              </Box>
+              <ProductCatalogItem variantView="mobile" product={prod} />
             </Box>
           </SwiperSlide>
         ))}

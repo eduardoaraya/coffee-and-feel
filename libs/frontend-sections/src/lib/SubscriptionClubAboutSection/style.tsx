@@ -15,7 +15,7 @@ export default {
       xs: '0px 180px',
     },
     backgroundSize: {
-      lg: '530px',
+      xl: '630px',
       md: '35%',
       sm: '35%',
       xs: '273px',
@@ -71,7 +71,7 @@ export default {
         },
       },
       width: {
-        md: '60%',
+        md: '65%',
         xs: '100%',
       },
       padding: {
