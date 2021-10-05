@@ -68,7 +68,6 @@ const styles = AtlasStylesheet.create({
     fontSize: '10px',
     width: { xs: '30em' },
     height: { xs: 'auto' },
-    minHeight: { xs: '10em' },
     backgroundColor: '#fff',
     p: { xs: '1.75em 1em' },
     boxShadow: (theme) =>

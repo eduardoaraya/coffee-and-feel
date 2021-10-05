@@ -8,6 +8,7 @@ import {
   CheckoutItemProps,
   CheckoutItem,
 } from '../CheckoutSummaryItem/CheckoutSummaryItem';
+import { CheckoutSummaryBase } from '../CheckoutSummaryBase/CheckoutSummaryBase';
 
 /* eslint-disable-next-line */
 export interface CheckoutMenuProps extends DrawerProps {
@@ -30,31 +31,34 @@ export function CheckoutMenu({
       sx={{ ...styles.root, ...sx }}
       {...rest}
     >
-      <Box sx={styles.container}>
-        <Box sx={styles.header}>
-          <Box sx={styles.headerIconContainer}>
-            <IconButton sx={styles.headerReturnIcon}>
-              <CheckoutReturnArrow fontSize="inherit" />
-            </IconButton>
-          </Box>
+      <CheckoutSummaryBase
+        sx={{ height: '100%', borderRadius: '0px 0px 8px 8px' }}
+        headerContent={
+          <Box sx={styles.header}>
+            <Box sx={styles.headerIconContainer}>
+              <IconButton sx={styles.headerReturnIcon}>
+                <CheckoutReturnArrow fontSize="inherit" />
+              </IconButton>
+            </Box>
 
-          <Box sx={styles.overviewContainer}>
-            <CheckoutMenuOverview />
+            <Box sx={styles.overviewContainer}>
+              <CheckoutMenuOverview />
+            </Box>
           </Box>
-        </Box>
-
-        <List sx={styles.list}>
-          <Box sx={styles.listBody}>
-            {items.map((value, index) => {
-              return (
-                <CheckoutItem sx={{ width: 'auto' }} {...value} key={index} />
-              );
-            })}
-            <CheckoutDiscount sx={styles.discount} />
-          </Box>
-        </List>
-
-        <Box sx={styles.footer}>
+        }
+        bodyContent={
+          <List sx={styles.list}>
+            <Box sx={styles.listBody}>
+              {items.map((value, index) => {
+                return (
+                  <CheckoutItem sx={{ width: 'auto' }} {...value} key={index} />
+                );
+              })}
+              <CheckoutDiscount sx={styles.discount} />
+            </Box>
+          </List>
+        }
+        footerContent={
           <Box sx={styles.footerInner}>
             <Box sx={styles.labelValueContainer}>
               <Box>Subtotal:</Box>
@@ -76,8 +80,8 @@ export function CheckoutMenu({
               <Box>R$27,90</Box>
             </Box>
           </Box>
-        </Box>
-      </Box>
+        }
+      />
     </Drawer>
   );
 }
@@ -106,28 +110,15 @@ const styles = AtlasStylesheet.create({
     justifyContent: 'flex-end',
   },
 
-  container: {
-    width: '100%',
-    height: '100%',
-    position: 'relative',
-    overflow: 'hidden',
-    display: 'grid',
-    gridTemplateRows: '9.55% 60.45% 30%',
-  },
-
   list: {
     py: { xs: 0 },
     width: { xs: '33em' },
     height: { xs: '100%' },
-    overflowX: 'hidden',
-    overflowY: 'scroll',
   },
 
   header: {
     width: '100%',
     height: '100%',
-    borderBottom: (theme) =>
-      `1px solid ${alpha(theme.palette.primary.main, 0.15)}`,
     display: 'flex',
     px: { xs: '2em' },
   },
@@ -148,13 +139,7 @@ const styles = AtlasStylesheet.create({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
-  },
-
-  footer: {
-    width: '100%',
     height: '100%',
-    bgcolor: (theme) => theme.palette.primary.main,
-    borderRadius: '0px 0px 0px 8px',
   },
 
   footerInner: {

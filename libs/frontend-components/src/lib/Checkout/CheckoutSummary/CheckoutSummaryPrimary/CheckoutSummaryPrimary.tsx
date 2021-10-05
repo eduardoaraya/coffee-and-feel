@@ -131,15 +131,6 @@ const styles = AtlasStylesheet.create({
     pr: { xs: '3em' },
   },
 
-  container: {
-    width: '100%',
-    height: '100%',
-    position: 'relative',
-    overflow: 'hidden',
-    display: 'grid',
-    gridTemplateRows: '9.55% 60.45% 30%',
-  },
-
   list: {
     py: { xs: 0 },
     width: { xs: '33em', lg: '35em' },
