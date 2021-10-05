@@ -1,7 +1,7 @@
 import { Box } from '@material-ui/core';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import ProductInterface from '../Catalog/Contracts/ProductInterface';
-import ProductInfo from '../Catalog/ProductInfo/ProductInfo';
+import ProductCatalogItem from '../Catalog/ProductCatalogItem/ProductCatalogItem';
 import style from './style';
 
 /* eslint-disable-next-line */
@@ -21,16 +21,7 @@ export const MobileSlideProductRepresentation: React.FC<MobileSlideProductRepres
         {products?.map((prod) => (
           <SwiperSlide key={prod.id}>
             <Box component="div" sx={style.root} className="mobile-version">
-              <Box className="product-grid">
-                <Box className="product-image">
-                  <figure>
-                    <img src="/imgs/product-sample.png" alt="Product name" />
-                  </figure>
-                </Box>
-                <Box className="product-area">
-                  <ProductInfo product={prod} variantViewPort="mobile" />
-                </Box>
-              </Box>
+              <ProductCatalogItem product={prod} />
             </Box>
           </SwiperSlide>
         ))}
