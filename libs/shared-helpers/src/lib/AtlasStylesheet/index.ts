@@ -12,7 +12,7 @@ type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
 };
 
-type PartialRecord<K extends keyof never, T> = {
+export type PartialRecord<K extends keyof never, T> = {
   [P in K]?: T;
 };
 
