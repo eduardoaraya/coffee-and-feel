@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import {
   EnhancedRadio,
   EnhancedRadioProps,
@@ -27,7 +27,11 @@ export function TextActionRadio({ label, JSS, ...rest }: TextActionRadioProps) {
 
   return (
     <EnhancedRadio JSS={styles.enhancedRadioJSS} {...rest}>
-      <Box></Box>
+      <Box sx={styles.root}>
+        <Box sx={styles.textContainer}>
+          <Typography sx={styles.text}>{label}</Typography>
+        </Box>
+      </Box>
     </EnhancedRadio>
   );
 }
@@ -36,6 +40,22 @@ export default TextActionRadio;
 
 const stylesheet = AtlasStylesheet.create({
   root: {
-    color: 'red',
+    fontSize: '10px',
+    width: '100%',
+    height: '100%',
+    py: { xs: '1.75em' },
+    pl: { xs: '1em' },
+  },
+
+  textContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+  },
+
+  text: {
+    fontSize: { xs: '1.6em' },
+    color: (theme) => theme.palette.secondary.main,
   },
 });

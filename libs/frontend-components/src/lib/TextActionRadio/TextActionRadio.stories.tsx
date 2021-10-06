@@ -11,4 +11,6 @@ const Template: Story<TextActionRadioProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  label: 'Cartão de crédito',
+};
