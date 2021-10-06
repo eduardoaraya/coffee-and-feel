@@ -33,6 +33,7 @@ export function AddressActionRadio({
           <Button
             {...ButtonProps}
             variant="outlined"
+            size="small"
             color="secondary"
             sx={styles.button}
           >
@@ -89,7 +90,7 @@ const styles = AtlasStylesheet.create({
   },
 
   button: {
-    fontSize: { xs: '1em !important', lg: '1.4em !important' },
+    fontSize: { xs: '1em !important', lg: '1.2em !important' },
     borderRadius: '6px',
     maxWidth: 'fit-content',
   },

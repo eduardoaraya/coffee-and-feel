@@ -1,37 +1,34 @@
 import { Box, BoxProps } from '@material-ui/core';
 import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
-import { AddressActionRadio } from '../AddressActionRadio/AddressActionRadio';
-import {
-  EnhancedRadioProps,
-  EnhancedRadio,
-} from '../EnhancedRadio/EnhancedRadio';
-import { alpha } from '@material-ui/system';
+import { EnhancedRadioProps } from '../EnhancedRadio/EnhancedRadio';
 
-/* eslint-disable-next-line */
 export interface EnhancedRadioGroupProps<
   T extends EnhancedRadioProps = EnhancedRadioProps
 > extends BoxProps {
   activeIndex?: number;
   items: T[];
-  component?: React.FC<T>;
+  component: React.FC<T>;
 }
 
-export function EnhancedRadioGroup({
+export function EnhancedRadioGroup<
+  T extends EnhancedRadioProps = EnhancedRadioProps
+>({
   sx,
   activeIndex = 0,
   items,
-  component: Component = EnhancedRadio,
+  component: Component,
   ...rest
-}: EnhancedRadioGroupProps) {
+}: EnhancedRadioGroupProps<T>) {
   return (
     <Box sx={{ ...styles.root, ...sx }} {...rest}>
       {items.map(({ JSS, active, ...value }, index) => {
         return (
           <Component
             key={index}
-            {...value}
+            {...(value as T)}
             active={activeIndex === index}
             JSS={{
+              ...JSS,
               root: {
                 ...(index === 0
                   ? styles.head
@@ -58,10 +55,10 @@ const styles = AtlasStylesheet.create({
 
     ':before': {
       borderRadius: '0px',
-      borderBottom: (theme) => `0px solid ${theme.palette.grey[400]}`,
-      borderTop: (theme) => `0px solid ${theme.palette.grey[400]}`,
-      borderLeft: (theme) => `1px solid ${theme.palette.grey[400]}`,
-      borderRight: (theme) => `1px solid ${theme.palette.grey[400]}`,
+      borderBottom: (theme) => `0px solid ${theme.palette.grey[50]}`,
+      borderTop: (theme) => `0px solid ${theme.palette.grey[50]}`,
+      borderLeft: (theme) => `1px solid ${theme.palette.grey[200]}`,
+      borderRight: (theme) => `1px solid ${theme.palette.grey[200]}`,
     },
   },
   head: {
@@ -71,8 +68,8 @@ const styles = AtlasStylesheet.create({
 
     ':before': {
       borderRadius: '8px 8px 0px 0px',
-      border: (theme) => `1px solid ${theme.palette.grey[400]}`,
-      borderBottom: (theme) => `0px solid ${theme.palette.grey[400]}`,
+      border: (theme) => `1px solid ${theme.palette.grey[200]}`,
+      borderBottom: (theme) => `0px solid ${theme.palette.grey[50]}`,
     },
   },
   tail: {
@@ -82,8 +79,8 @@ const styles = AtlasStylesheet.create({
 
     ':before': {
       borderRadius: '0px 0px 8px 8px',
-      border: (theme) => `1px solid ${theme.palette.grey[400]}`,
-      borderTop: (theme) => `0px solid ${theme.palette.grey[400]}`,
+      border: (theme) => `1px solid ${theme.palette.grey[200]}`,
+      borderTop: (theme) => `0px solid ${theme.palette.grey[50]}`,
     },
   },
 });

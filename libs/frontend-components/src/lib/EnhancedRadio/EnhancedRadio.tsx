@@ -43,7 +43,7 @@ const styles = (active = false) =>
     root: {
       fontSize: '10px',
       width: { xs: '30em', lg: 'auto' },
-      height: { xs: '15em', lg: '11em' },
+      height: 'auto',
       borderRadius: '8px',
       border: (theme) => `1px solid ${theme.palette.grey[500]}`,
       transition: 'opacity 0.5s ease',
