@@ -3,6 +3,15 @@ import {
   EnhancedRadioGroup,
   EnhancedRadioGroupProps,
 } from './EnhancedRadioGroup';
+import {
+  DeliveryActionRadio,
+  DeliveryActionRadioProps,
+} from '../DeliveryActionRadio/DeliveryActionRadio';
+import { EnhancedRadio } from '../EnhancedRadio/EnhancedRadio';
+import {
+  AddressActionRadio,
+  AddressActionRadioProps,
+} from '../AddressActionRadio/AddressActionRadio';
 
 export default {
   component: EnhancedRadioGroup,
@@ -20,4 +29,40 @@ const Template: Story<EnhancedRadioGroupProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  items: [{ active: false }, { active: false }, { active: false }],
+  component: EnhancedRadio,
+};
+
+const TemplateDelivery: Story<
+  EnhancedRadioGroupProps<DeliveryActionRadioProps>
+> = (args) => {
+  return <EnhancedRadioGroup {...args} />;
+};
+
+export const Secondary = TemplateDelivery.bind({});
+Secondary.args = {
+  activeIndex: 1,
+  items: [
+    { free: true, active: false },
+    { free: false, active: false },
+    { free: false, active: false },
+  ],
+  component: DeliveryActionRadio,
+};
+
+const TemplateAddress: Story<EnhancedRadioGroupProps<AddressActionRadioProps>> =
+  (args) => {
+    return <EnhancedRadioGroup {...args} />;
+  };
+
+export const Tertiary = TemplateAddress.bind({});
+Tertiary.args = {
+  activeIndex: 0,
+  component: AddressActionRadio,
+  items: [
+    { active: false, label: 'Endereço 1' },
+    { active: false, label: 'Endereço 2' },
+    { active: false, label: 'Endereço 3' },
+  ],
+};

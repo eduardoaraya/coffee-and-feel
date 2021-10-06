@@ -22,7 +22,6 @@ export type AtlasJSSDeep<
     | typeof AtlasStylesheet['create']
     | ReturnType<(...args: unknown[]) => typeof AtlasStylesheet['create']>
 > = DeepPartial<Record<keyof DeepPartial<ReturnType<T>>, SxProps<Theme>>>;
-
 export type AtlasJSSShallow<T extends ThemeCSSProperties> = PartialRecord<
   keyof T,
   SxProps<Theme>

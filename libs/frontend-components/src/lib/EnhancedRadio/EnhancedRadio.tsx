@@ -29,7 +29,7 @@ export function EnhancedRadio({
   return (
     <Box sx={styleMemo.root} {...rest}>
       <Box sx={styleMemo.grid}>
-        <Radio checked={active} size="small" sx={styleMemo.radioButton} />
+        <Radio checked={active} sx={styleMemo.radioButton} />
         <Box sx={styleMemo.content}>{content}</Box>
       </Box>
     </Box>
