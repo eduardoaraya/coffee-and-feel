@@ -72,7 +72,7 @@ export function CreditCardSVG(props: CreditCardSVGProps) {
         x2="25.6117"
         y2="18.7238"
         stroke="#D8D8D8"
-        stroke-width="0.19403"
+        strokeWidth="0.19403"
       />
       <line
         x1="35.7012"
@@ -80,7 +80,7 @@ export function CreditCardSVG(props: CreditCardSVGProps) {
         x2="46.9549"
         y2="18.7238"
         stroke="#D8D8D8"
-        stroke-width="0.19403"
+        strokeWidth="0.19403"
       />
       <line
         x1="35.7012"
@@ -88,7 +88,7 @@ export function CreditCardSVG(props: CreditCardSVGProps) {
         x2="46.9549"
         y2="26.6789"
         stroke="#D8D8D8"
-        stroke-width="0.19403"
+        strokeWidth="0.19403"
       />
       <line
         x1="5.43262"
@@ -96,7 +96,7 @@ export function CreditCardSVG(props: CreditCardSVGProps) {
         x2="25.6117"
         y2="26.6789"
         stroke="#D8D8D8"
-        stroke-width="0.19403"
+        strokeWidth="0.19403"
       />
     </SvgIcon>
   );

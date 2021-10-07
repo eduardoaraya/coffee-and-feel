@@ -4,6 +4,7 @@ import { CheckoutItemProps } from '../../CheckoutSummary/CheckoutSummaryItem/Che
 import { CheckoutAddressCreation } from '../CheckoutAddressCreation/CheckoutAddressCreation';
 import { CheckoutCreditCardCreation } from '../CheckoutCreditCardCreation/CheckoutCreditCardCreation';
 import CheckoutPaymentSelection from '../CheckoutPaymentSelection/CheckoutPaymentSelection';
+import CheckoutCreditCardPayment from '../CheckoutCreditCardPayment/CheckoutCreditCardPayment';
 export default {
   component: CheckoutLayout,
   title: 'Checkout/Checkout Layout/CheckoutLayout',
@@ -91,6 +92,23 @@ Quinary.args = {
       ]}
       activeIndex={0}
       JSS={{ root: { p: { lg: 5 } }, container: { p: { xs: 2, lg: 0 } } }}
+    />
+  ),
+};
+
+export const Senary = Template.bind({});
+Senary.storyName = 'Credit Card Payment';
+Senary.args = {
+  ...Primary.args,
+  activeStep: 2,
+  children: (
+    <CheckoutCreditCardPayment
+      CreditCardRectangleProps={{
+        CCBrand: 'VISA',
+        CCNumber: '****5566',
+        active: true,
+      }}
+      JSS={{ root: { px: { xs: 0.5, lg: 5 } } }}
     />
   ),
 };
