@@ -36,7 +36,7 @@ export function TextPriceActionRadio({
         ...JSS,
         [EnhancedRadioJSSToken]: {
           ...JSS?.EnhancedRadioJSS,
-          root: { maxWidth: { lg: '51.6em' } },
+          root: { maxWidth: { lg: '51.6em' }, padding: { xs: '0em 1.5em' } },
         },
       }),
     [JSS]

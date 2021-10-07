@@ -5,6 +5,7 @@ import { CheckoutAddressCreation } from '../CheckoutAddressCreation/CheckoutAddr
 import { CheckoutCreditCardCreation } from '../CheckoutCreditCardCreation/CheckoutCreditCardCreation';
 import CheckoutPaymentSelection from '../CheckoutPaymentSelection/CheckoutPaymentSelection';
 import CheckoutCreditCardPayment from '../CheckoutCreditCardPayment/CheckoutCreditCardPayment';
+import CheckoutSubscriptionType from '../CheckoutSubscriptionType/CheckoutSubscriptionType';
 export default {
   component: CheckoutLayout,
   title: 'Checkout/Checkout Layout/CheckoutLayout',
@@ -112,3 +113,32 @@ Senary.args = {
     />
   ),
 };
+
+export const Septary = Template.bind({});
+Septary.args = {
+  ...Primary.args,
+  activeStep: 1,
+  steps: ['Identificação', 'Plano', 'Cafés', 'Endereço', 'Pagamento'],
+  children: (
+    <CheckoutSubscriptionType
+      JSS={{ root: { p: { xs: '1em', lg: 5 } } }}
+      subscriptions={[
+        {
+          categoryLabel: 'Mensal',
+          subscriptions: [
+            { label: 'Assinatura standard', active: true, price: 55 },
+            { label: 'Assinatura premium', active: false, price: 120 },
+          ],
+        },
+        {
+          categoryLabel: 'Semestral',
+          subscriptions: [
+            { label: 'Assinatura standard', active: false, price: 800 },
+            { label: 'Assinatura premium', active: true, price: 9001 },
+          ],
+        },
+      ]}
+    />
+  ),
+};
+Septary.storyName = 'Subscription Selection';

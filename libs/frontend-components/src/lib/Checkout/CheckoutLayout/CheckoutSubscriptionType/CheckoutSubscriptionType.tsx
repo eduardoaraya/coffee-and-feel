@@ -113,9 +113,13 @@ const stylesheet = AtlasStylesheet.create({
 
   title: {
     fontSize: { xs: '1.4em', lg: '1.6em' },
+    textAlign: { xs: 'center', lg: 'start' },
   },
 
-  buttonGroupContainer: {},
+  buttonGroupContainer: {
+    display: 'flex',
+    justifyContent: { xs: 'center', lg: 'flex-start' },
+  },
 
   radioInputContainer: {
     display: 'flex',
