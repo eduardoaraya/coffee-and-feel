@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import _ from 'lodash';
 
-const EnhancedRadioJSSKey = 'enhancedRadioJSS';
+const EnhancedRadioJSSKey = 'EnhancedRadioJSS';
 
 /* eslint-disable-next-line */
 export interface TextActionRadioProps extends EnhancedRadioProps {
@@ -21,12 +21,15 @@ export interface TextActionRadioProps extends EnhancedRadioProps {
 
 export function TextActionRadio({ label, JSS, ...rest }: TextActionRadioProps) {
   const styles = React.useMemo(
-    () => _.merge(stylesheet, { [EnhancedRadioJSSKey]: { ...JSS } }),
+    () =>
+      _.merge(stylesheet, {
+        [EnhancedRadioJSSKey]: { ...JSS?.[EnhancedRadioJSSKey] },
+      }),
     [JSS]
   );
 
   return (
-    <EnhancedRadio JSS={styles.enhancedRadioJSS} {...rest}>
+    <EnhancedRadio JSS={styles[EnhancedRadioJSSKey]} {...rest}>
       <Box sx={styles.root}>
         <Box sx={styles.textContainer}>
           <Typography sx={styles.text}>{label}</Typography>

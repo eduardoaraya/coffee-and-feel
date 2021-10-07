@@ -6,7 +6,7 @@ import {
 
 export default {
   component: CheckoutCreditCardPayment,
-  title: 'CheckoutCreditCardPayment',
+  title: 'Checkout/Checkout Layout/CheckoutCreditCardPayment',
 } as Meta;
 
 const Template: Story<CheckoutCreditCardPaymentProps> = (args) => (
@@ -14,4 +14,9 @@ const Template: Story<CheckoutCreditCardPaymentProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  CreditCardRectangleProps: {
+    CCBrand: 'MASTERCARD',
+    CCNumber: '****4595',
+  },
+};

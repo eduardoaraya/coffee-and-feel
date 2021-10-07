@@ -17,17 +17,17 @@ export interface DeliveryActionRadioProps extends EnhancedRadioProps {
 }
 
 export function DeliveryActionRadio({
-  sx,
   active,
   free,
   arrival,
   price = 0,
+  JSS,
   ...rest
 }: DeliveryActionRadioProps) {
   const styles = React.useMemo(() => stylesheet(free), [free]);
 
   return (
-    <EnhancedRadio sx={{ ...styles.root, ...sx }} active={active} {...rest}>
+    <EnhancedRadio JSS={JSS} active={active} {...rest}>
       <Box sx={styles.container}>
         <Typography sx={styles.arrival}>{arrival}</Typography>
 

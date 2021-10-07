@@ -13,6 +13,8 @@ import { CreditCardSVG } from '@atlascode/coffee-frontend-svg';
 
 const FocusableRectangleJSSKey = `FocusableRectangleJSS`;
 
+export const CreditCardRectangleJSSKey = `CreditCardRectangleJSS`;
+
 /* eslint-disable-next-line */
 export interface CreditCardRectangleProps
   extends Omit<FocusableRectangleProps, 'children'> {
@@ -32,7 +34,10 @@ export function CreditCardRectangle({
   CCBrand,
 }: CreditCardRectangleProps) {
   const styles = React.useMemo(
-    () => _.merge(stylesheet, { [FocusableRectangleJSSKey]: { ...JSS } }),
+    () =>
+      _.merge(stylesheet, {
+        [FocusableRectangleJSSKey]: { ...JSS?.FocusableRectangleJSS },
+      }),
     [JSS]
   );
 
@@ -58,6 +63,7 @@ const stylesheet = AtlasStylesheet.create({
     py: { xs: '1.15em' },
     px: { xs: '3em' },
     gap: { xs: '4em' },
+    width: '100%',
   },
 
   creditCardSVG: {
