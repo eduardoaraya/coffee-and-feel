@@ -7,7 +7,13 @@ export default {
       xs: 'auto',
     },
     position: 'relative',
-    padding: '45px 0',
+    padding: {
+      md: '45px 0',
+      xs: '105px 0',
+    },
+    '.full-container': {
+      position: 'relative',
+    },
     '.section-description': {
       transition: '2.3s',
       position: 'relative',
@@ -49,19 +55,19 @@ export default {
           xs: 'block',
         },
         '&.top': {
-          right: 0,
-          top: 0,
+          top: '-45em',
+          right: '-15em',
           img: {
-            width: '319px',
-            height: '329px',
+            width: '70%',
+            height: '70%',
           },
         },
         '&.bottom': {
-          top: '220px',
-          right: '35px',
+          top: '-20em',
+          right: '-5em',
           img: {
-            width: '127px',
-            height: '155px',
+            width: '60%',
+            height: '60%',
           },
         },
       },
@@ -71,8 +77,8 @@ export default {
         right: 142,
         zIndex: 1,
         '&.top': {
-          top: 15,
-          right: 145,
+          top: -150,
+          right: 5,
           img: {
             width: '227.01px',
             height: '276.46px',
@@ -85,8 +91,8 @@ export default {
           },
         },
         '&.bottom': {
-          top: 'calc(537px/2)',
-          right: '403px',
+          top: 90,
+          right: '263px',
         },
       },
       '&.photo-one': {
@@ -100,8 +106,8 @@ export default {
           xs: '329.74px',
         },
         position: 'absolute',
-        right: 160,
-        top: 0,
+        right: 20,
+        top: -150,
       },
       '&.photo-two': {
         zIndex: 2,
@@ -115,11 +121,11 @@ export default {
         },
         position: 'absolute',
         right: {
-          md: '190px',
+          md: '35px',
           xs: '50px',
         },
         top: {
-          md: 'calc(537.92px/1.3)',
+          md: 'calc(537.92px/2.3)',
           xs: 'calc(329.74px/1.3)',
         },
       },

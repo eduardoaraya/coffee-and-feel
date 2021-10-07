@@ -7,7 +7,7 @@ export interface CallInstagramSectionProps {}
 export const CallInstagramSection: React.FC = (): JSX.Element => {
   return (
     <Box component="section" sx={style.root}>
-      <Container maxWidth="lg">
+      <Container className="full-container" maxWidth="lg">
         <Container maxWidth="md">
           <Box className="section-description">
             <Typography variant="h1" className="section-title">
@@ -25,14 +25,12 @@ export const CallInstagramSection: React.FC = (): JSX.Element => {
             </Typography>
           </Box>
         </Container>
-
         <figure className="insta-photo mobile-photo top">
           <img src="/imgs/insta0.png" alt="Instagram one" />
         </figure>
         <figure className="insta-photo mobile-photo bottom">
           <img src="/imgs/insta1.png" alt="Instagram two" />
         </figure>
-
         <figure className="insta-photo photo-one">
           <img src="/imgs/coffee-insta.png" alt="Instagram one" />
         </figure>

@@ -25,15 +25,18 @@ const swiperStyleOveride = (): SxProps<Theme> => ({
 
 export default {
   root: {
+    // Swiper style overide
+    ...swiperStyleOveride(),
+    position: 'relative',
     zIndex: 2,
     maxWidth: '1030px',
     display: {
       md: 'block',
       xs: 'none',
     },
-
     height: {
-      sm: '544px',
+      md: '544px',
+      sm: 'auto',
       xs: 'auto',
     },
     margin: '25px auto',
@@ -43,11 +46,6 @@ export default {
       md: `0px 4px 4px rgba(145, 104, 76, 0.15)`,
       xs: 'none',
     },
-    position: 'relative',
-
-    // Swiper style overide
-    ...swiperStyleOveride(),
-
     '.slide-button.MuiIconButton-root': {
       zIndex: 9,
       background: '#FFF',
@@ -60,57 +58,30 @@ export default {
         right: '-24px',
       },
     },
-
-    '.product-grid': {
-      position: 'relative',
-      display: 'grid',
-      gridAutoRows: 'auto',
+    '.product-wrapper': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       width: '100%',
       height: '100%',
-      gridTemplateColumns: {
-        md: '1fr 1fr',
-        xs: '1fr',
-      },
+    },
+    '.product-catalog-item': {
+      background: 'transparent',
+      margin: '0 auto',
+      width: '100%',
+      maxWidth: '800px',
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center',
       '.product-image': {
-        gridColumn: {
-          sm: '1/2',
-          xs: '1/4',
-        },
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         figure: {
-          position: 'relative',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '267.8px',
-          height: '269px',
-          img: {
-            width: '100%',
-            height: '100%',
-          },
+          maxWidth: '300px',
+          margin: '0 auto',
         },
       },
-      '.product-area': {
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        gridColumn: {
-          sm: '2/3',
-          xs: '1/4',
-        },
-        '.product-title': {
-          h2: {
-            fontSize: '2.1em',
-          },
-        },
-        '.MuiTypography-root ': {
-          color: '#FFF',
-        },
-        '.actions button': {
+      '.product-info': {
+        padding: 0,
+        '.MuiTypography-root': {
           color: '#FFF',
         },
       },
@@ -119,25 +90,6 @@ export default {
       display: {
         md: 'none',
         xs: 'block',
-      },
-      '.product-grid': {
-        padding: '20px',
-        boxSizing: 'border-box',
-        '.product-area': {
-          '.product-representation': {
-            '.product-title': {
-              padding: '20px 45px 20px 20px',
-            },
-            '.product-plans-options': {},
-            '.product-price-info': {
-              padding: '10px',
-            },
-            '.actions': {
-              marginTop: '15px',
-              justifyContent: 'center',
-            },
-          },
-        },
       },
     },
   },

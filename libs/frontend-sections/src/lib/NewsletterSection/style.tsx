@@ -25,6 +25,7 @@ export default {
       },
       '.cupofcoffee': {
         position: 'relative',
+        zIndex: 3,
         img: {
           width: {
             md: '661px',
