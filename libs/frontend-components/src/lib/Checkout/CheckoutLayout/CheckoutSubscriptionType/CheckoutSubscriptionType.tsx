@@ -5,15 +5,12 @@ import {
 import React from 'react';
 import { Box, Typography, Button, ButtonProps } from '@material-ui/core';
 import _ from 'lodash';
-import {
-  CustomButtonGroup,
-  CustomButtonGroupProps,
-} from '../../../CustomButtonGroup/CustomButtonGroup';
-import {
-  TextActionRadio,
-  TextActionRadioProps,
-} from '../../../TextActionRadio/TextActionRadio';
+import { CustomButtonGroup } from '../../../CustomButtonGroup/CustomButtonGroup';
 import { MotionBox } from '@atlascode/coffee-frontend-utility';
+import {
+  TextPriceActionRadio,
+  TextPriceActionRadioProps,
+} from '../../../TextPriceActionRadio/TextPriceActionRadio';
 
 export interface CheckoutSubscriptionTypeProps {
   JSS?: AtlasJSSShallow<typeof stylesheet>;
@@ -25,7 +22,7 @@ export interface CheckoutSubscriptionTypeProps {
 
 type SubscriptionTypeGroup = {
   categoryLabel: string;
-  subscriptions: TextActionRadioProps[];
+  subscriptions: TextPriceActionRadioProps[];
 };
 
 export function CheckoutSubscriptionType({
@@ -71,19 +68,7 @@ export function CheckoutSubscriptionType({
                 key={index}
               >
                 {subInner.map((value, index) => {
-                  return (
-                    <TextActionRadio
-                      key={index}
-                      {...value}
-                      JSS={{
-                        EnhancedRadioJSS: {
-                          root: { maxWidth: { xs: '51.6em' } },
-                        },
-                        text: styles.actionRadioText,
-                        root: styles.actionRadioRoot,
-                      }}
-                    />
-                  );
+                  return <TextPriceActionRadio key={index} {...value} />;
                 })}
               </MotionBox>
             )

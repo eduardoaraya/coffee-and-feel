@@ -25,15 +25,15 @@ Primary.args = {
     {
       categoryLabel: 'Mensal',
       subscriptions: [
-        { label: 'Assinatura standard', active: true },
-        { label: 'Assinatura premium', active: false },
+        { label: 'Assinatura standard', active: true, price: 55 },
+        { label: 'Assinatura premium', active: false, price: 120 },
       ],
     },
     {
       categoryLabel: 'Semestral',
       subscriptions: [
-        { label: 'Assinatura standard', active: false },
-        { label: 'Assinatura premium', active: true },
+        { label: 'Assinatura standard', active: false, price: 800 },
+        { label: 'Assinatura premium', active: true, price: 9001 },
       ],
     },
   ],
