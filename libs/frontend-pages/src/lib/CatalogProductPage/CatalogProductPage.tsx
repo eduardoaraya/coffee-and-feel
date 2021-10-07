@@ -88,7 +88,7 @@ export const CatalogProductPage: React.FC<CatalogProductPageProps> = ({
             </figure>
           </Box>
           <Box className="product-info">
-            <Typography className="product-info-row" variant="h1">
+            <Typography className="product-info-row product-title" variant="h1">
               {product?.name}
             </Typography>
             <TabGroup className="product-info-row" tabs={tabs} />
