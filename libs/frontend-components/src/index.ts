@@ -1,3 +1,4 @@
+export * from './lib/CreditCardRectangle/CreditCardRectangle';
 export * from './lib/FocusableRectangle/FocusableRectangle';
 export * from './lib/TextActionRadio/TextActionRadio';
 export * from './lib/EnhancedRadioGroup/EnhancedRadioGroup';
