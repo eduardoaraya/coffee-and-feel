@@ -29,8 +29,6 @@ export function TextActionRadio({ label, JSS, ...rest }: TextActionRadioProps) {
     [JSS]
   );
 
-  console.log(styles);
-
   return (
     <EnhancedRadio JSS={styles[EnhancedRadioJSSKey]} {...rest}>
       <Box sx={styles.root}>

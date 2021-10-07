@@ -8,6 +8,8 @@ import _ from 'lodash';
 
 /* eslint-disable-next-line */
 
+export const EnhancedRadioJSSToken = 'EnhancedRadioJSS';
+
 export interface EnhancedRadioProps {
   active?: boolean;
   onChange?: (...args: unknown[]) => void;
