@@ -23,10 +23,13 @@ export function TextActionRadio({ label, JSS, ...rest }: TextActionRadioProps) {
   const styles = React.useMemo(
     () =>
       _.merge(stylesheet, {
+        ...JSS,
         [EnhancedRadioJSSKey]: { ...JSS?.[EnhancedRadioJSSKey] },
       }),
     [JSS]
   );
+
+  console.log(styles);
 
   return (
     <EnhancedRadio JSS={styles[EnhancedRadioJSSKey]} {...rest}>

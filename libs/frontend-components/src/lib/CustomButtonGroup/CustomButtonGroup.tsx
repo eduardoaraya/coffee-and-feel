@@ -51,6 +51,7 @@ const styles = AtlasStylesheet.create({
   root: {
     borderColor: { xs: 'none' },
     fontSize: '10px',
+    width: 'min-content',
 
     '.MuiButtonGroup-grouped:not(:last-of-type)': {
       border: '1px solid transparent',
