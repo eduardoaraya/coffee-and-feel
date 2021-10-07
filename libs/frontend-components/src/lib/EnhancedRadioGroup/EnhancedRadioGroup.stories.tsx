@@ -7,7 +7,10 @@ import {
   DeliveryActionRadio,
   DeliveryActionRadioProps,
 } from '../DeliveryActionRadio/DeliveryActionRadio';
-import { EnhancedRadio } from '../EnhancedRadio/EnhancedRadio';
+import {
+  EnhancedRadio,
+  EnhancedRadioProps,
+} from '../EnhancedRadio/EnhancedRadio';
 import {
   AddressActionRadio,
   AddressActionRadioProps,
@@ -24,7 +27,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<EnhancedRadioGroupProps> = (args) => (
+const Template: Story<EnhancedRadioGroupProps<EnhancedRadioProps>> = (args) => (
   <EnhancedRadioGroup {...args} />
 );
 

@@ -1,27 +1,27 @@
-import { Box, BoxProps } from '@material-ui/core';
-import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
+import React from 'react';
+import { Box } from '@material-ui/core';
+import {
+  AtlasStylesheet,
+  AtlasJSSShallow,
+} from '@atlascode/coffee-shared-helpers';
 import { EnhancedRadioProps } from '../EnhancedRadio/EnhancedRadio';
 
-export interface EnhancedRadioGroupProps<
-  T extends EnhancedRadioProps = EnhancedRadioProps
-> extends BoxProps {
+export interface EnhancedRadioGroupProps<C extends EnhancedRadioProps> {
+  component: (props: C) => JSX.Element;
+  items?: C[];
   activeIndex?: number;
-  items: T[];
-  component: React.FC<T>;
 }
 
-export function EnhancedRadioGroup<
-  T extends EnhancedRadioProps = EnhancedRadioProps
->({
-  sx,
-  activeIndex = 0,
-  items,
+// eslint-disable-next-line @typescript-eslint/ban-types
+export const EnhancedRadioGroup = <T extends EnhancedRadioProps>({
   component: Component,
+  activeIndex = 0,
+  items = [],
   ...rest
-}: EnhancedRadioGroupProps<T>) {
+}: EnhancedRadioGroupProps<T>) => {
   return (
-    <Box sx={{ ...styles.root, ...sx }} {...rest}>
-      {items.map(({ JSS, active, ...value }, index) => {
+    <Box sx={styles.root}>
+      {items.map(({ JSS, ...value }, index) => {
         return (
           <Component
             key={index}
@@ -42,7 +42,7 @@ export function EnhancedRadioGroup<
       })}
     </Box>
   );
-}
+};
 
 export default EnhancedRadioGroup;
 
@@ -50,7 +50,7 @@ const styles = AtlasStylesheet.create({
   root: {},
   body: {
     height: 'auto',
-    p: 2,
+    p: 1,
     borderRadius: '0px 0px 0px 0px',
 
     ':before': {
@@ -63,7 +63,7 @@ const styles = AtlasStylesheet.create({
   },
   head: {
     height: 'auto',
-    p: 2,
+    p: 1,
     borderRadius: '8px 8px 0px 0px',
 
     ':before': {
@@ -74,7 +74,7 @@ const styles = AtlasStylesheet.create({
   },
   tail: {
     height: 'auto',
-    p: 2,
+    p: 1,
     borderRadius: '0px 0px 8px 8px',
 
     ':before': {

@@ -1,38 +1,43 @@
-import { Box, BoxProps } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import {
   AtlasStylesheet,
   AtlasJSSShallow,
 } from '@atlascode/coffee-shared-helpers';
 import React from 'react';
 import _ from 'lodash';
-import {
-  EnhancedRadio,
-  EnhancedRadioProps,
-} from '../../EnhancedRadio/EnhancedRadio';
 import { EnhancedRadioGroup } from '../../EnhancedRadioGroup/EnhancedRadioGroup';
+import {
+  TextActionRadio,
+  TextActionRadioProps,
+} from '../../TextActionRadio/TextActionRadio';
 
 /* eslint-disable-next-line */
-export interface CheckoutPaymentSelectionProps extends BoxProps {
+export interface CheckoutPaymentSelectionProps {
   JSS?: AtlasJSSShallow<typeof stylesheet>;
-  items?: EnhancedRadioProps[];
+  items?: TextActionRadioProps[];
+  activeIndex?: number;
 }
 
-export function CheckoutPaymentSelection({
-  sx,
+export const CheckoutPaymentSelection = ({
   JSS,
   items = [],
+  activeIndex = 0,
   ...rest
-}: CheckoutPaymentSelectionProps) {
+}: CheckoutPaymentSelectionProps) => {
   const styles = React.useMemo(() => {
     return _.merge(stylesheet, JSS);
   }, [JSS]);
 
   return (
     <Box sx={styles.root} {...rest}>
-      <EnhancedRadioGroup component={EnhancedRadio} items={[]} />
+      <EnhancedRadioGroup
+        activeIndex={activeIndex}
+        component={TextActionRadio}
+        items={items}
+      />
     </Box>
   );
-}
+};
 
 export default CheckoutPaymentSelection;
 

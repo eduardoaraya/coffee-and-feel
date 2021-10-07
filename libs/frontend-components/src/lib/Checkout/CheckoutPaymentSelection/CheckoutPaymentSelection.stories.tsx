@@ -6,7 +6,7 @@ import {
 
 export default {
   component: CheckoutPaymentSelection,
-  title: 'Checkout/CheckoutPaymentSelection',
+  title: 'Checkout/Checkout Layout/CheckoutPaymentSelection',
   parameters: {
     layout: 'padded',
     viewport: {
@@ -20,4 +20,13 @@ const Template: Story<CheckoutPaymentSelectionProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  items: [
+    { label: 'VISA ****6345' },
+    { label: 'Novo cartão de crédito' },
+    { label: 'Paypal' },
+    { label: 'Pix' },
+    { label: 'Boleto bancário' },
+  ],
+  activeIndex: 0,
+};

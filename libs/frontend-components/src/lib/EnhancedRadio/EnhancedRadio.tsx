@@ -2,25 +2,23 @@ import {
   AtlasStylesheet,
   AtlasJSSShallow,
 } from '@atlascode/coffee-shared-helpers';
-import { Box, BoxProps, Radio } from '@material-ui/core';
+import { Box, Radio } from '@material-ui/core';
 import React from 'react';
 import _ from 'lodash';
 
 /* eslint-disable-next-line */
 
-export interface EnhancedRadioProps extends BoxProps {
-  active: boolean;
+export interface EnhancedRadioProps {
+  active?: boolean;
   onChange?: (...args: unknown[]) => void;
   children?: JSX.Element;
   JSS?: AtlasJSSShallow<ReturnType<typeof styles>>;
 }
 
 export function EnhancedRadio({
-  sx,
-  active,
+  active = false,
   children: content,
   JSS,
-  ...rest
 }: EnhancedRadioProps) {
   const styleMemo = React.useMemo(
     () => _.merge(styles(active), JSS),
@@ -28,7 +26,7 @@ export function EnhancedRadio({
   );
 
   return (
-    <Box sx={styleMemo.root} {...rest}>
+    <Box sx={styleMemo.root}>
       <Box sx={styleMemo.grid}>
         <Radio checked={active} sx={styleMemo.radioButton} />
         <Box sx={styleMemo.content}>{content}</Box>

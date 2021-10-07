@@ -1,28 +1,42 @@
-import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
+import {
+  AtlasStylesheet,
+  AtlasJSSShallow,
+} from '@atlascode/coffee-shared-helpers';
 import { Box, ButtonProps, Button, Typography } from '@material-ui/core';
 import {
   EnhancedRadio,
   EnhancedRadioProps,
 } from '../EnhancedRadio/EnhancedRadio';
 import { webkitVerticalTruncate } from '@atlascode/coffee-frontend-mixins';
+import React from 'react';
+import _ from 'lodash';
 
 /* eslint-disable-next-line */
+
+const EnhancedRadioJSSKey = 'enhancedRadioJSS';
 export interface AddressActionRadioProps extends EnhancedRadioProps {
   address?: string;
   label?: string;
   ButtonProps?: ButtonProps;
+  JSS?: { [key in typeof EnhancedRadioJSSKey]?: EnhancedRadioProps['JSS'] } &
+    AtlasJSSShallow<typeof stylesheet>;
 }
 
 export function AddressActionRadio({
-  sx,
   address,
   label = 'Endereço',
   ButtonProps,
   active,
+  JSS,
   ...rest
 }: AddressActionRadioProps) {
+  const styles = React.useMemo(
+    () => _.merge(stylesheet, { [EnhancedRadioJSSKey]: { ...JSS } }),
+    [JSS]
+  );
+
   return (
-    <EnhancedRadio active={active} sx={{ ...styles.root, ...sx }} {...rest}>
+    <EnhancedRadio active={active} JSS={styles[EnhancedRadioJSSKey]} {...rest}>
       <Box sx={styles.container}>
         <Box sx={styles.textContainer}>
           <Typography sx={styles.label}>{label}</Typography>
@@ -47,7 +61,7 @@ export function AddressActionRadio({
 
 export default AddressActionRadio;
 
-const styles = AtlasStylesheet.create({
+const stylesheet = AtlasStylesheet.create({
   root: {
     fontSize: '10px',
   },
