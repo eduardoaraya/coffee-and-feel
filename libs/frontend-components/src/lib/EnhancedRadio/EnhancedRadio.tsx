@@ -41,7 +41,7 @@ const styles = (active = false) =>
   AtlasStylesheet.create({
     root: {
       fontSize: '10px',
-      width: { xs: '30em', lg: 'auto' },
+      width: 'auto',
       height: 'auto',
       borderRadius: '8px',
       border: (theme) => `1px solid ${theme.palette.grey[500]}`,

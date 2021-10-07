@@ -1,9 +1,6 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import {
-  AtlasStylesheet,
-  AtlasJSSShallow,
-} from '@atlascode/coffee-shared-helpers';
+import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 import { EnhancedRadioProps } from '../EnhancedRadio/EnhancedRadio';
 
 export interface EnhancedRadioGroupProps<C extends EnhancedRadioProps> {
@@ -12,7 +9,6 @@ export interface EnhancedRadioGroupProps<C extends EnhancedRadioProps> {
   activeIndex?: number;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export const EnhancedRadioGroup = <T extends EnhancedRadioProps>({
   component: Component,
   activeIndex = 0,

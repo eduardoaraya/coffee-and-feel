@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box, Button, ButtonProps } from '@material-ui/core';
 import {
   AtlasStylesheet,
   AtlasJSSShallow,
@@ -16,12 +16,16 @@ export interface CheckoutPaymentSelectionProps {
   JSS?: AtlasJSSShallow<typeof stylesheet>;
   items?: TextActionRadioProps[];
   activeIndex?: number;
+  ForwardButtonProps?: ButtonProps;
+  BackwardButtonProps?: ButtonProps;
 }
 
 export const CheckoutPaymentSelection = ({
   JSS,
   items = [],
   activeIndex = 0,
+  ForwardButtonProps,
+  BackwardButtonProps,
   ...rest
 }: CheckoutPaymentSelectionProps) => {
   const styles = React.useMemo(() => {
@@ -30,11 +34,35 @@ export const CheckoutPaymentSelection = ({
 
   return (
     <Box sx={styles.root} {...rest}>
-      <EnhancedRadioGroup
-        activeIndex={activeIndex}
-        component={TextActionRadio}
-        items={items}
-      />
+      <Box sx={styles.container}>
+        <EnhancedRadioGroup
+          activeIndex={activeIndex}
+          component={TextActionRadio}
+          items={items}
+        />
+
+        <Box sx={styles.buttonsContainer}>
+          <Button
+            {...{
+              ...BackwardButtonProps,
+              variant: 'outlined',
+              color: 'secondary',
+              sx: styles.backwardsButton,
+              children: 'Voltar',
+            }}
+          />
+
+          <Button
+            {...{
+              ...ForwardButtonProps,
+              variant: 'contained',
+              color: 'success',
+              children: 'Avançar',
+              sx: styles.forwardButton,
+            }}
+          />
+        </Box>
+      </Box>
     </Box>
   );
 };
@@ -42,5 +70,24 @@ export const CheckoutPaymentSelection = ({
 export default CheckoutPaymentSelection;
 
 const stylesheet = AtlasStylesheet.create({
-  root: {},
+  root: {
+    fontSize: '10px',
+  },
+
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: { xs: '4em' },
+  },
+
+  buttonsContainer: {
+    display: 'flex',
+    gap: { xs: '4em' },
+    width: '100%',
+    justifyContent: { xs: 'center', lg: 'flex-end' },
+  },
+
+  backwardsButton: {},
+
+  forwardButton: {},
 });
