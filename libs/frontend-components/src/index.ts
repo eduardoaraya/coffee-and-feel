@@ -1,3 +1,4 @@
+export * from './lib/FocusableRectangle/FocusableRectangle';
 export * from './lib/TextActionRadio/TextActionRadio';
 export * from './lib/EnhancedRadioGroup/EnhancedRadioGroup';
 export * from './lib/Checkout/CheckoutSummary/CheckoutSummaryBase/CheckoutSummaryBase';
