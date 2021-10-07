@@ -90,6 +90,7 @@ const stylesheet = AtlasStylesheet.create({
 
   title: {
     fontSize: { xs: '1.6em', lg: '2em' },
+    textAlign: { xs: 'center', lg: 'start' },
   },
 
   slotsContainer: {

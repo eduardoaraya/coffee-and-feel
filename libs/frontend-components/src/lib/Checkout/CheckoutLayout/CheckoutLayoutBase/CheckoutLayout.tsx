@@ -42,7 +42,7 @@ export function CheckoutLayout({
       <Box ref={ref}>
         <CheckoutHeader />
       </Box>
-      <Container>
+      <Container sx={styles.container}>
         <Box sx={styles.grid}>
           <Box sx={styles.stepsWrapper}>
             <Box sx={styles.stepsContainer}>
@@ -70,6 +70,10 @@ const stylesheet = (headerHeight = 0) =>
   AtlasStylesheet.create({
     root: {
       height: 'auto',
+    },
+
+    container: {
+      px: { xs: 0 },
     },
 
     header: {

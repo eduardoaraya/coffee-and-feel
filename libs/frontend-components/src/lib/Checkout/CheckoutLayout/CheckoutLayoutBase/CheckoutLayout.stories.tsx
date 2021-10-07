@@ -6,6 +6,10 @@ import { CheckoutCreditCardCreation } from '../CheckoutCreditCardCreation/Checko
 import CheckoutPaymentSelection from '../CheckoutPaymentSelection/CheckoutPaymentSelection';
 import CheckoutCreditCardPayment from '../CheckoutCreditCardPayment/CheckoutCreditCardPayment';
 import CheckoutSubscriptionType from '../CheckoutSubscriptionType/CheckoutSubscriptionType';
+import CheckoutSubscriptionCoffee, {
+  SlotList,
+} from '../CheckoutSubscriptionCoffee/CheckoutSubscriptionCoffee';
+import { MenuItem } from '@material-ui/core';
 export default {
   component: CheckoutLayout,
   title: 'Checkout/Checkout Layout/CheckoutLayout',
@@ -142,3 +146,53 @@ Septary.args = {
   ),
 };
 Septary.storyName = 'Subscription Selection';
+
+const coffeSelectList = [
+  <MenuItem value="Café 1"> Café 1 </MenuItem>,
+  <MenuItem value="Café 2"> Café 2 </MenuItem>,
+  <MenuItem value="Café 3"> Café 3 </MenuItem>,
+  <MenuItem value="Café 4"> Café 4 </MenuItem>,
+];
+
+const coffeListProps: SlotList = {
+  label: 'Café especiais 1',
+  slots: [
+    {
+      select: true,
+      label: 'Selecione seus cafés',
+      children: coffeSelectList,
+    },
+    {
+      select: true,
+      label: 'Selecione seus cafés',
+      children: coffeSelectList,
+    },
+    {
+      select: true,
+      label: 'Selecione seus cafés',
+      children: coffeSelectList,
+    },
+    {
+      select: true,
+      label: 'Selecione seus cafés',
+      children: coffeSelectList,
+    },
+  ],
+};
+
+export const Octonary = Template.bind({});
+Octonary.args = {
+  ...Septary.args,
+  children: (
+    <CheckoutSubscriptionCoffee
+      title="Você receberá 10 cápsulas de cada café selecionado"
+      JSS={{ root: { px: { xs: 1.25, sm: 4, lg: 5 }, pb: { xs: 5 } } }}
+      list={[
+        { ...coffeListProps },
+        { ...coffeListProps, label: 'Cafés especiais 2' },
+        { ...coffeListProps, label: 'Cafés especiais 3' },
+      ]}
+    />
+  ),
+};
+Octonary.storyName = 'Subscription Coffee Slot selection';
