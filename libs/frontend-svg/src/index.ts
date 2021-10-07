@@ -1,3 +1,4 @@
+export * from './lib/CreditCardSVG/CreditCardSVG';
 export * from './lib/CoffeeBagSVG/CoffeeBagSVG';
 export * from './lib/CheckoutReturnArrow/CheckoutReturnArrow';
 export * from './lib/CookiesSVG/CookiesSVG';
