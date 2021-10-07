@@ -11,4 +11,7 @@ const Template: Story<CheckoutSuccessProps> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  mainText: 'Pedido efetuado com sucesso!',
+  auxiliaryText: 'Ficamos felizes que você tenha comprado conosco.',
+};
