@@ -1,18 +1,21 @@
 import { SxProps, Theme } from '@material-ui/system';
 
-export type ProductCatalogRepresentationType = {
-  [key: string]: SxProps<Theme>;
-};
-
-export default {
-  productRepresentation: {
+export default () =>
+  ({
+    display: 'flex',
+    flexDirection: 'column',
+    '& > *': {
+      alignSelf: {
+        md: 'normal',
+        xs: 'center',
+      },
+    },
     '.product-info': {
       width: '100%',
       height: '100%',
     },
     '.product-title': {
-      display: 'flex',
-      flexDirection: 'column',
+      paddingTop: '1.15em',
       h2: {
         fontSize: '1.9em',
       },
@@ -41,5 +44,4 @@ export default {
       flexDirection: 'row',
       flexWrap: 'nowrap',
     },
-  },
-} as ProductCatalogRepresentationType;
+  } as SxProps<Theme>);

@@ -16,7 +16,13 @@ export const Catalog: Page<CatalogProps> = ({
   products,
   BannerProps = { items: BannerList },
 }) => {
-  return <CatalogPage products={products} BannerProps={BannerProps} />;
+  return (
+    <CatalogPage
+      SubscriptionClubAboutSectionProps={contentSubscriptionClubAboutSection}
+      products={products}
+      BannerProps={BannerProps}
+    />
+  );
 };
 
 export default Catalog;
@@ -53,3 +59,32 @@ const BannerList: BannerProps['items'] = [
       'https://4.bp.blogspot.com/-j08zU37hpt4/W5aaDndpsWI/AAAAAAAAFoc/tq-c11-V1sgMDyFd5cB3Z6jsO2UICZiQgCK4BGAYYCw/s1600/CL-Banner.jpg',
   },
 ];
+
+const contentSubscriptionClubAboutSection = {
+  sectionTitle: `Como funciona o nosso
+  Clube de Assinatura?`,
+  backgroundImage: {
+    desktop: 'url(/imgs/about-subscription-club.png)',
+    mobile: 'url(imgs/about-subscription-club-mobile.png)',
+  },
+  cardsContent: [
+    {
+      title: `Assinatura`,
+      description: `Escolha o plano
+      que mais
+      combina com você`,
+    },
+    {
+      title: `Benefícios`,
+      description: ` Todos mês, receba
+      em casa cafés
+      selecionados`,
+    },
+    {
+      title: `Assinatura`,
+      description: `Escolha o plano
+      que mais
+      combina com você`,
+    },
+  ],
+};

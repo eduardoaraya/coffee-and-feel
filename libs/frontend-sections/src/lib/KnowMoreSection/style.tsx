@@ -73,19 +73,23 @@ export default {
       transform: 'rotate(180deg)',
       img: {
         width: {
+          xl: '1270px',
           md: '970px',
           xs: '510.98px',
         },
         height: {
+          xl: '1270px',
           md: '970px',
           xs: '510.98px',
         },
       },
       right: {
+        xl: 'calc(-1270px/2)',
         md: 'calc(-970px/2)',
         xs: 'calc(-510.98px/1.7)',
       },
       top: {
+        xl: 'calc(-1270px/3.5)',
         md: 'calc(-970px/3.5)',
         xs: 'calc(-510.98px/4)',
       },

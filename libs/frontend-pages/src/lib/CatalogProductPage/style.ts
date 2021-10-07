@@ -103,21 +103,25 @@ export default () =>
             xs: 'center',
           },
           maxWidth: {
-            md: '260px',
+            md: '280px',
             xs: '100%',
           },
           '&.product-price': {
             flexDirection: 'column',
           },
+          '&.product-title': {
+            padding: '0 15px',
+          },
           '.product-amount': {
             display: 'flex',
             margin: '20px 0px',
+            padding: '0 15px',
           },
           '.product-price-total': {
             fontSize: '1.7em',
           },
-
           '&.product-actions': {
+            padding: '0 15px',
             button: {
               padding: '10px 25px',
               display: 'flex',

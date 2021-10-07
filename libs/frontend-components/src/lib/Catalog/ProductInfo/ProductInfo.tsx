@@ -1,4 +1,4 @@
-import { TabGroup, TabOption } from '../../TabGroup/TabGroup';
+import { TabGroup } from '../../TabGroup/TabGroup';
 import {
   Button,
   Typography,
@@ -6,8 +6,7 @@ import {
   Box,
   Skeleton,
 } from '@material-ui/core';
-import style from './style';
-import { MouseEventHandler } from 'react';
+import getDefaultStyle from './style';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import InfoPrice from './InfoPrice';
 import ProductInterface from '../Contracts/ProductInterface';
@@ -40,7 +39,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({
     <Box
       component="div"
       className={`product-representation ${className}`}
-      sx={style.productRepresentation}
+      sx={getDefaultStyle()}
     >
       <Box className="product-title">
         {product?.name ? (

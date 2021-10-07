@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router';
 import { Box } from '@material-ui/core';
 import ProductInterface from '../Contracts/ProductInterface';
-import style from './style';
+import getDefaultStyle from './style';
 import ProductInfo from '../ProductInfo/ProductInfo';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -18,7 +18,7 @@ export const ProductCatalogItem: React.FC<ProductCatalogItemProps> = ({
   const router = useRouter();
   return (
     <Box
-      sx={style.root}
+      sx={getDefaultStyle()}
       className={`product-catalog-item product-catalog-item-${variantView}`}
     >
       <Box className="product-image">

@@ -6,6 +6,8 @@ import {
   NewsletterSection,
   CallInstagramSection,
   LastPostsSection,
+  SubscriptionClubAboutSectionProps,
+  SubscriptionClubDetailsSectionProps,
 } from '@atlascode/coffee-front-sections';
 import {
   Banner,
@@ -134,13 +136,19 @@ const dataProduct = [
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface HomePageProps {
   BannerProps?: BannerProps;
+  SubscriptionClubAboutSectionProps: SubscriptionClubAboutSectionProps;
+  SubscriptionClubDetailsSectionProps: SubscriptionClubDetailsSectionProps;
 }
 
-export const HomePage = ({ BannerProps }: HomePageProps) => {
+export const HomePage: React.FC<HomePageProps> = ({
+  BannerProps,
+  SubscriptionClubAboutSectionProps,
+  SubscriptionClubDetailsSectionProps,
+}): JSX.Element => {
   return (
     <Box className="page home-page">
       <Banner {...BannerProps} />
-      <SubscriptionClubAboutSection />
+      <SubscriptionClubAboutSection {...SubscriptionClubAboutSectionProps} />
       <KnowMoreSection></KnowMoreSection>
       <Container component="section" sx={style.slideProductRepresentation}>
         <Typography className="title-slide-product" variant="h1">
@@ -153,7 +161,9 @@ export const HomePage = ({ BannerProps }: HomePageProps) => {
           products={dataProduct}
         ></MobileSlideProductRepresentation>
       </Container>
-      <SubscriptionClubDetailsSection />
+      <SubscriptionClubDetailsSection
+        {...SubscriptionClubDetailsSectionProps}
+      />
       <LastPostsSection />
       <NewsletterSection />
       <CallInstagramSection />
