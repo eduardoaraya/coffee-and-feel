@@ -5,11 +5,11 @@ import {
 } from '@atlascode/coffee-shared-helpers';
 import React from 'react';
 import _ from 'lodash';
-import { EnhancedRadioGroup } from '../../EnhancedRadioGroup/EnhancedRadioGroup';
+import { EnhancedRadioGroup } from '../../../EnhancedRadioGroup/EnhancedRadioGroup';
 import {
   TextActionRadio,
   TextActionRadioProps,
-} from '../../TextActionRadio/TextActionRadio';
+} from '../../../TextActionRadio/TextActionRadio';
 
 /* eslint-disable-next-line */
 export interface CheckoutPaymentSelectionProps {

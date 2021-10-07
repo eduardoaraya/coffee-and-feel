@@ -3,6 +3,7 @@ import { CheckoutLayout, CheckoutLayoutProps } from './CheckoutLayout';
 import { CheckoutItemProps } from '../../CheckoutSummary/CheckoutSummaryItem/CheckoutSummaryItem';
 import { CheckoutAddressCreation } from '../CheckoutAddressCreation/CheckoutAddressCreation';
 import { CheckoutCreditCardCreation } from '../CheckoutCreditCardCreation/CheckoutCreditCardCreation';
+import CheckoutPaymentSelection from '../CheckoutPaymentSelection/CheckoutPaymentSelection';
 export default {
   component: CheckoutLayout,
   title: 'Checkout/Checkout Layout/CheckoutLayout',
@@ -67,9 +68,29 @@ Tertiary.args = {
 };
 Tertiary.storyName = 'Address creation';
 
-export const Fourthiary = Template.bind({});
-Fourthiary.args = {
+export const Quaternary = Template.bind({});
+Quaternary.args = {
   ...Primary.args,
   children: <CheckoutCreditCardCreation />,
 };
-Fourthiary.storyName = 'Credit card creation';
+Quaternary.storyName = 'Credit card creation';
+
+export const Quinary = Template.bind({});
+Quinary.storyName = 'Payment selection';
+Quinary.args = {
+  ...Primary.args,
+  activeStep: 1,
+  children: (
+    <CheckoutPaymentSelection
+      items={[
+        { label: 'VISA ****6345' },
+        { label: 'Novo cartão de crédito' },
+        { label: 'Paypal' },
+        { label: 'Pix' },
+        { label: 'Boleto bancário' },
+      ]}
+      activeIndex={0}
+      JSS={{ root: { p: { lg: 5 } }, container: { p: { xs: 2, lg: 0 } } }}
+    />
+  ),
+};
