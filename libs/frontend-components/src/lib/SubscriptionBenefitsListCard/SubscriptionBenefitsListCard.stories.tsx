@@ -7,7 +7,7 @@ import {
 
 export default {
   component: SubscriptionBenefitsListCard,
-  title: 'SubscriptionBenefitsListCard',
+  title: 'Subscription/SubscriptionBenefitsListCard',
   parameters: {
     layout: 'fullscreen',
     viewport: {

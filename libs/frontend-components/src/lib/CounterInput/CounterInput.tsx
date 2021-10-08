@@ -1,52 +1,63 @@
-import { IconButton, Paper } from '@material-ui/core';
+import { IconButton, Box, BoxProps } from '@material-ui/core';
 import { Add, Remove } from '@material-ui/icons';
-import { alpha, Box } from '@material-ui/system';
+import { alpha } from '@material-ui/system';
 import { UseCounter, UseCounterFunction } from './UseCounter';
+import { AtlasStylesheet } from '@atlascode/coffee-shared-helpers';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface CounterInputProps {
+export interface CounterInputProps extends BoxProps {
   change?: (value: number) => void;
   counter?: UseCounterFunction;
 }
 
+// Hoist state and callbacks so we can better re-use this component
 export const CounterInput: React.FC<CounterInputProps> = ({
   change,
   counter = UseCounter,
+  sx,
+  ...rest
 }): JSX.Element => {
   const { add, remove, count } = counter({
     change,
   });
 
   return (
-    <Box
-      sx={{
-        boxShadow: (theme) =>
-          `0 1px 3px 0 ${alpha(theme.palette.secondary.main, 0.16)}`,
-        display: 'flex',
-        width: 'auto',
-        justifyContent: 'center',
-        alignItems: 'center',
-        background: '#FFF',
-        borderRadius: '4px',
-        '.btn': {
-          borderRadius: '4px',
-        },
-        '.count': {
-          userSelect: 'none',
-          padding: '0 15px',
-          fontSize: '1.2em',
-        },
-      }}
-    >
-      <IconButton className="btn" onClick={remove}>
-        <Remove />
+    <Box sx={{ ...styles.root, ...sx }} {...rest}>
+      <IconButton sx={styles.button} onClick={remove}>
+        <Remove fontSize="inherit" />
       </IconButton>
-      <Box className="count">{count}</Box>
-      <IconButton className="btn" onClick={add}>
-        <Add />
+      <Box sx={styles.count}>{count}</Box>
+      <IconButton sx={styles.button} onClick={add}>
+        <Add fontSize="inherit" />
       </IconButton>
     </Box>
   );
 };
 
 export default CounterInput;
+
+const styles = AtlasStylesheet.create({
+  root: {
+    fontSize: '10px',
+    boxShadow: (theme) =>
+      `0px 1px 3px 0px ${alpha(theme.palette.secondary.main, 0.16)}`,
+    display: 'flex',
+    width: 'min-content',
+    center: 'center',
+    alignItems: 'center',
+    bgcolor: '#FFF',
+    borderRadius: '4px',
+    gap: { xs: '0em' },
+    color: '#323232',
+  },
+  button: {
+    borderRadius: '4px',
+    fontSize: { xs: '1.2em' },
+    color: '#323232',
+  },
+  count: {
+    userSelect: 'none',
+    padding: '',
+    fontSize: { xs: '1.1em' },
+  },
+});

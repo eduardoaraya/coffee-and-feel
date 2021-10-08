@@ -30,3 +30,6 @@ export interface ProductInterface {
 }
 
 export default ProductInterface;
+
+// Core - atomicos -
+// Domains - checkout -

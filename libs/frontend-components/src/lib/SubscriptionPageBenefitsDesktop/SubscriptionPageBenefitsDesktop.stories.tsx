@@ -11,7 +11,7 @@ import {
 
 export default {
   component: SubscriptionPageBenefitsDesktop,
-  title: 'SubscriptionPageBenefitsDesktop',
+  title: 'Subscription/SubscriptionPageBenefitsDesktop',
   parameters: {
     layout: 'fullscreen',
     viewport: {

@@ -5,7 +5,7 @@ import { SubscriptionItem, SubscriptionItemProps } from './SubscriptionItem';
 
 export default {
   component: SubscriptionItem,
-  title: 'SubscriptionItem',
+  title: 'Subscription/SubscriptionItem',
   parameters: {
     layout: 'fullscreen',
     viewport: {

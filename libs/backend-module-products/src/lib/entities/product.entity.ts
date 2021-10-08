@@ -54,3 +54,5 @@ export class Product implements ProductEntityModel {
   @UpdateDateColumn()
   updated_at?: string;
 }
+
+export type IProduct = typeof Product['prototype'];

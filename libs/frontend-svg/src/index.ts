@@ -1,3 +1,6 @@
+export * from './lib/CreditCardSVG/CreditCardSVG';
+export * from './lib/CoffeeBagSVG/CoffeeBagSVG';
+export * from './lib/CheckoutReturnArrow/CheckoutReturnArrow';
 export * from './lib/CookiesSVG/CookiesSVG';
 export * from './lib/CoffeeAndFeelLogoSVG/CoffeeAndFeelLogoSVG';
 export * from './lib/DiscountSVG/DiscountSVG';

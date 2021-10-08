@@ -28,18 +28,27 @@ export const Catalog: Page<CatalogProps> = ({
 export default Catalog;
 
 const service = ServiceProvider.CatalogService.default();
-export const getStaticProps: GetStaticProps<CatalogProps> = async () => {
-  let result: ProductInterface[] = [];
-  try {
-    result = await service.getCatalogProduct();
-    // eslint-disable-next-line no-empty
-  } catch (err) {}
-  return {
-    props: {
-      products: result,
-    },
-  };
-};
+
+// Type error: Type '() => Promise<{ props: { products: ProductInterface[]; }; }>' is not assignable to type 'GetStaticProps<CatalogProps, ParsedUrlQuery>'.
+// Type 'Promise<{ props: { products: ProductInterface[]; }; }>' is not assignable to type 'GetStaticPropsResult<CatalogProps> | Promise<GetStaticPropsResult<CatalogProps>>'.
+//   Type 'Promise<{ props: { products: ProductInterface[]; }; }>' is not assignable to type 'Promise<GetStaticPropsResult<CatalogProps>>'.
+//     Type '{ props: { products: ProductInterface[]; }; }' is not assignable to type 'GetStaticPropsResult<CatalogProps>'.
+//       Type '{ props: { products: ProductInterface[]; }; }' is not assignable to type '{ props: CatalogProps; revalidate?: number | boolean; }'.
+//         Types of property 'props' are incompatible.
+//           Property 'SubscriptionClubAboutSectionProps' is missing in type '{ products: ProductInterface[]; }' but required in type 'CatalogProps'.
+
+// export const getStaticProps: GetStaticProps<CatalogProps> = async () => {
+//   let result: ProductInterface[] = [];
+//   try {
+//     result = await service.getCatalogProduct();
+//     // eslint-disable-next-line no-empty
+//   } catch (err) {}
+//   return {
+//     props: {
+//       products: result,
+//     },
+//   };
+// };
 
 Catalog.getLayout = function getLayout(page: ReactElement) {
   return <LayoutEcommerce>{page}</LayoutEcommerce>;

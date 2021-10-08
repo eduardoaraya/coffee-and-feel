@@ -29,7 +29,7 @@ export interface ActionsForm extends ButtonProps {
 }
 
 export const AddressFormFields: React.FC<AddressFormFieldsProps> = ({
-  address,
+  address = {},
   actions,
 }): JSX.Element => {
   const getAddress = async (cep: string) => {

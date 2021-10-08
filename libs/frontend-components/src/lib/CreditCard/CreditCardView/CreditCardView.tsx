@@ -10,6 +10,8 @@ import CreditCardChipSVG from './CreditCardChipSVG';
 import CreditCardTextField, {
   CreditCardTextFieldProps,
 } from './CreditCardTextField';
+import { Property } from 'csstype';
+import { ResponsiveStyleValue } from '@material-ui/system';
 
 /* eslint-disable-next-line */
 export interface CreditCardViewProps {
@@ -19,6 +21,7 @@ export interface CreditCardViewProps {
   CardExpiryDateFieldProps?: CreditCardTextFieldProps;
   CardCVVFieldProps?: InputBaseProps;
   BackNameProps?: TypographyProps;
+  fontSize?: ResponsiveStyleValue<Property.FontSize>;
 }
 
 export function CreditCardView({
@@ -28,13 +31,14 @@ export function CreditCardView({
   CardExpiryDateFieldProps,
   CardCVVFieldProps,
   BackNameProps,
+  fontSize = '10px',
 }: CreditCardViewProps) {
   return (
     <Box
       sx={{
         // Change fontsize to scale entire component
         bgcolor: 'transparent',
-        fontSize: '10px',
+        fontSize: fontSize,
         width: '32.8em',
         height: '18.5em',
         perspective: '1000px',

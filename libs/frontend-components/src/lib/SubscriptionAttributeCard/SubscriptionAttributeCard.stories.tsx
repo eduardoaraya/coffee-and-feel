@@ -8,7 +8,7 @@ import {
 
 export default {
   component: SubscriptionAttributeCard,
-  title: 'SubscriptionAttributeCard',
+  title: 'Subscription/SubscriptionAttributeCard',
   parameters: {
     layout: 'fullscreen',
     viewport: {
